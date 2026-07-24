@@ -1,0 +1,20 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Scraper output — raw fetched HTML/JSON is cache, not source of truth.
+# Anything a claim depends on gets pinned in the case file's `sources:` block.
+sources/cache/
+*.html.raw
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp

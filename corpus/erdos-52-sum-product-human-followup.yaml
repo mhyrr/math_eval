@@ -1,0 +1,73 @@
+id: erdos-52-sum-product-human-followup
+title: "Erdős #52: sum-product conjecture disproved for the reals (human, AI-inspired)"
+date: 2026-05
+status: RESOLVED
+
+problem_statement: >
+  The Erdős-Szemerédi sum-product conjecture asserts that for any finite set A
+  of reals, max(|A+A|, |AA|) is at least |A|^(2-o(1)) - a set cannot be close
+  to structured under both addition and multiplication. Bloom, Sawin,
+  Schildkraut and Zhelezov disproved it, constructing sets with
+  max(|A+A|, |AA|) <= |A|^(2-c) for an absolute constant c > 0. They also
+  disprove the generalized many-sums-and-products conjecture and transfer the
+  counterexamples to p-adics, finite fields and function fields.
+
+field: Number Theory
+subfield: Additive combinatorics
+
+ai_system: "NONE - no AI involvement stated in the paper"
+human_collaborators:
+  - "Thomas F. Bloom, Will Sawin, Carl Schildkraut, Dmitrii Zhelezov"
+autonomy: null   # not an AI result
+
+resolution_mechanism:
+  primary: CONSTRUCTION
+  secondary: []
+  contested: false
+
+certificate_size: MEDIUM
+certificate_notes: "Explicit constructions plus the machinery to transfer them across p-adics, finite fields and function fields."
+
+verification_method: HUMAN_REFEREEING
+verification_status: "arXiv 2605.28781, submitted 2026-05-27. Preprint. Author list is unusually strong for the area."
+
+cross_field_transfer:
+  occurred: true
+  from: "Algebraic number theory (the same Golod-Shafarevich / class-field-tower circle used for Erdős #90)"
+  to: "Additive combinatorics"
+  notes: >
+    Inherits the technique route opened by the unit-distance disproof. Bloom
+    and Sawin are both on the #90 digest paper AND on this one.
+
+sources:
+  - url: https://arxiv.org/abs/2605.28781
+    what: "Title, authors, result, no AI attribution"
+    tier: PRIMARY
+  - url: https://github.com/teorth/erdosproblems/wiki/Notable-cases-of-AI-contributions-to-Erd%C5%91s-problems
+    what: "Records that the #90 result 'inspired' this preprint on #52"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "The causal claim that #90 inspired this is the teorth wiki's, not the paper's. The paper itself was fetched and shows no AI attribution; whether the authors would describe the lineage the same way is not established."
+
+notes: >
+  Included deliberately even though NO AI touched it. This is the corpus's only
+  measurement of a second-order effect, and it may be the largest effect in the
+  whole dataset.
+
+  The sequence: an AI disproves Erdős #90 using class-field-tower machinery
+  imported into combinatorial geometry. Within days, human experts - two of
+  whom (Bloom, Sawin) had just spent that week digesting the AI's argument -
+  use the same circle of ideas to disprove the sum-product conjecture, a
+  problem of comparable or greater standing. By hand.
+
+  The AI's real contribution here was not a proof. It was a demonstration that
+  a particular technique reservoir was live for this class of problem. Once
+  shown, humans drained it faster than the machine did.
+
+  Rubric consequence, and it cuts against the obvious reading of the corpus:
+  the highest-value AI intervention may be technique-route DISCOVERY on one
+  problem, which then unlocks a cluster by conventional means. If so, Phase 3
+  should not ask only "which single problem can an AI close" but "which
+  problem, if closed, would reveal a reservoir for the neighbourhood." Those
+  are different questions with different answers.

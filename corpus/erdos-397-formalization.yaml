@@ -1,0 +1,56 @@
+id: erdos-397-formalization
+title: "Erdős #397: GPT-5.2 proof, Aristotle formalization, Tao acceptance"
+date: 2025-12   # approximate
+status: RESOLVED
+data_quality: THIN   # see unverifiable_claims - this case is the weakest-sourced in the corpus
+
+problem_statement: >
+  NOT ESTABLISHED IN THIS PASS. Reported: GPT-5.2 generated a proof for Erdős
+  Problem #397, the Aristotle system formalized it in Lean, and Terence Tao
+  accepted the result. The mathematical content of #397 was not retrieved.
+
+field: "Number Theory (presumed)"
+subfield: "Not established"
+
+ai_system: "GPT-5.2 (OpenAI) for the proof; Aristotle (Harmonic) for formalization"
+human_collaborators:
+  - "Terence Tao - accepted the result"
+autonomy: AUTONOMOUS   # as reported
+
+resolution_mechanism:
+  primary: NOVEL_ARGUMENT
+  secondary: [SEARCH_PLUS_VERIFIER]
+  contested: true
+
+certificate_size: SMALL
+certificate_notes: "Lean-formalized, therefore machine-checkable regardless of how it was found."
+
+verification_method: LEAN
+verification_status: "Reported formalized in Lean and accepted by Tao. Not independently confirmed in this pass."
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: null
+
+sources:
+  - url: https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems
+    what: "Case appears in the wiki record"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "EVERYTHING in this file is second-hand from a web search summary of the teorth wiki. The problem statement, date, and the claim of Tao's acceptance were NOT confirmed against a retrieved primary source."
+  - "Date is a guess bracketed by GPT-5.2's appearance in other cases."
+
+notes: >
+  Retained rather than dropped, and flagged THIN, because dropping
+  weakly-sourced cases silently is how a corpus acquires survivorship bias. The
+  distribution table should be recomputable both with and without it - see
+  scripts/tabulate.py, which reports THIN counts separately.
+
+  This is also a representative instance of the corpus's most common shape:
+  a model produces an argument, a formalizer certifies it, a trusted human
+  signs off. That pipeline appears in erdos-728, erdos-1026, and across the
+  200+ formalization entries in the wiki. Worth having a row for it even at
+  low confidence, provided the low confidence is on the record.

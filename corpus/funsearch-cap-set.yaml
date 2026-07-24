@@ -1,0 +1,66 @@
+id: funsearch-cap-set
+title: "FunSearch: improved cap set constructions (baseline case, pre-dates the 2025-26 wave)"
+date: 2023-12
+status: RESOLVED   # bound improved; cap set problem remains open
+
+problem_statement: >
+  A cap set is a subset of F_3^n containing no three points in a line
+  (no nontrivial 3-term arithmetic progression). Determining the maximum size
+  is a central open problem in additive combinatorics. FunSearch - an LLM
+  proposing Python programs, filtered by an automated evaluator, iterated
+  evolutionarily - discovered constructions of large cap sets exceeding the
+  best previously known, in both fixed dimension and asymptotically.
+
+field: Combinatorics
+subfield: Additive combinatorics
+
+ai_system: "FunSearch (Google DeepMind) - LLM + evaluator + evolutionary loop"
+human_collaborators:
+  - "DeepMind team with Jordan Ellenberg - problem framing and evaluator design"
+autonomy: AUTONOMOUS   # within a human-specified evaluator
+
+resolution_mechanism:
+  primary: SEARCH_PLUS_VERIFIER
+  secondary: [CONSTRUCTION]
+  contested: false
+
+certificate_size: SMALL
+certificate_notes: >
+  The output is a program that emits an explicit set; checking is mechanical.
+  Published in Nature - the strongest formal publication status of any case in
+  this corpus.
+
+verification_method: COMPUTER_ALGEBRA
+verification_status: "Peer-reviewed, Nature, December 2023. The only fully refereed case in the corpus."
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: null
+
+sources:
+  - url: https://www.nature.com/articles/s41586-023-06924-6
+    what: "Method, cap set result, peer review"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "Exact before/after cap set sizes not recorded in this pass."
+
+notes: >
+  The temporal baseline. Everything else in this corpus is from 2025-2026;
+  FunSearch is from 2023 and already exhibits the mechanism that still
+  dominates the successes: generate cheaply, verify automatically, iterate.
+
+  Two and a half years later, AlphaEvolve is FunSearch with a better generator
+  and program-level rather than object-level evolution, and AlphaProof Nexus is
+  the same loop with Lean as the evaluator. The mechanism did not change. What
+  changed is the range of problems that admit a cheap evaluator.
+
+  That is a genuinely useful extrapolation base for Phase 3. The question is
+  not "will models get smarter" - they demonstrably have, and the mechanism
+  distribution barely moved. The question is whether the target territory
+  admits a cheap evaluator at all. Cap sets do. Cardinal characteristics do
+  not, and no plausible model improvement changes that, because the obstruction
+  is the absence of a checkable finite witness rather than the difficulty of
+  finding one.

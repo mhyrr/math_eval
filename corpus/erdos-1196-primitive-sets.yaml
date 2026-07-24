@@ -1,0 +1,94 @@
+id: erdos-1196-primitive-sets
+title: "Erdős #1196 and beyond: primitive sets via von Mangoldt chains"
+date: 2026-04
+status: RESOLVED
+companion_problems: ["#1217", "#164", "Banks-Martin (revised form)", "#858 (inspired)"]
+
+problem_statement: >
+  A primitive set is a set of integers no one of which divides another. The
+  Erdős sum of a primitive set A is the sum of 1/(a log a) over a in A.
+  Erdős, Sárközy and Szemerédi conjectured (1966/1968) results on the
+  asymptotic behaviour of these sums and on divisibility chains. The related
+  Erdős Primitive Set Conjecture asserts that the primes maximize the Erdős
+  sum over all primitive sets.
+
+field: Number Theory
+subfield: Multiplicative number theory / primitive sets
+
+ai_system: "GPT-5.4 Pro (OpenAI). Community experimentation on the erdosproblems.com forum preceded the paper."
+human_collaborators:
+  - "Liam Price - prompted the model, credited with the prompt that produced the usable output"
+  - "Boris Alexeev, Kevin Barreto, Yanyang Li, Jared Duker Lichtman, Jibran Iqbal Shah, Quanyu Tang, Terence Tao - developed the method into the paper"
+autonomy: COLLABORATIVE
+# The model supplied a seed idea. Seven mathematicians including a Fields
+# medallist and the leading expert on primitive sets (Lichtman) turned it into
+# 35 pages. Remove the humans and there is no result.
+
+resolution_mechanism:
+  primary: NOVEL_ARGUMENT
+  secondary: [CONSTRUCTION]
+  contested: true
+# Contested because the *novel argument* was human-completed. What the model
+# produced was a suggestion - Markov chains with von Mangoldt weights - that
+# turned out to be the right frame. Classifying the whole case as
+# NOVEL_ARGUMENT credits the mechanism that closed the problem, not the agent
+# that closed it. If the corpus is later re-cut by agent rather than
+# mechanism, this row moves.
+
+certificate_size: LARGE
+certificate_notes: >
+  35 pages, 9 figures, spanning number theory, combinatorics and probability.
+  New machinery (von Mangoldt-weighted Markov chains) has to be absorbed
+  before the argument can be checked. A skeptic needs weeks to months and
+  needs to be a specialist. No formalization reported.
+
+verification_method: HUMAN_REFEREEING
+verification_status: >
+  arXiv preprint 2605.00301 submitted 2026-05-01. Co-authored by Tao and by
+  Lichtman, who owns the prior state of the art on the Erdős Primitive Set
+  Conjecture - i.e. the people best positioned to falsify it are on the paper.
+  Journal status unknown as of 2026-07. Treat as strongly-vouched preprint,
+  not refereed publication.
+
+cross_field_transfer:
+  occurred: true
+  from: "Probability (Markov chain / stationary distribution methods)"
+  to: "Multiplicative number theory"
+  notes: >
+    The paper's own framing is that this method "seems to have been overlooked
+    by the prior literature since Erdős's seminal 1935 paper." Ninety years of
+    specialists did not reach for the probabilistic frame. That is the exact
+    phenomenon the 'proximity of unexploited adjacent technique' axis is
+    trying to capture, and it is the strongest positive evidence for that axis
+    in the corpus.
+
+sources:
+  - url: https://arxiv.org/abs/2605.00301
+    what: "Paper, author list, abstract stating method was 'suggested from output of GPT-5.4 Pro'"
+    tier: PRIMARY
+  - url: https://terrytao.wordpress.com/2026/05/03/primitive-sets-and-von-mangoldt-chains-erdos-problem-1196-and-beyond/
+    what: "Tao's account of the work"
+    tier: PRIMARY
+  - url: https://github.com/teorth/erdosproblems/wiki/Notable-cases-of-AI-contributions-to-Erd%C5%91s-problems
+    what: "Listed as one of four notable cases; 'solution to a problem that human experts have already spent substantial effort on'"
+    tier: PRIMARY
+  - url: https://www.erdosproblems.com/1196
+    what: "Problem statement and status"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "The precise content of GPT-5.4 Pro's original output, and how much of the final method was already in it, is not public in any source retrieved. 'Suggested from output of' is doing unexamined work."
+  - "Tao blog post content summarized via fetch, not read in full."
+
+notes: >
+  Tao-wiki category: 1(d) AI collaborating with humans.
+
+  The high-value case for the *opposite* reason to the Jacobian one. Here the
+  model's contribution was cheap to produce and enormously expensive to
+  validate - the validation being a seven-author paper. This is what
+  "AI helped" looks like when the certificate is large.
+
+  A rubric that scores only "did AI contribute" cannot tell this case apart
+  from erdos-728. A rubric that scores certificate size separates them
+  immediately. That is the argument for keeping certificate size as a
+  first-class axis rather than folding it into a general difficulty score.

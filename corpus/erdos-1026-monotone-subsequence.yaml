@@ -1,0 +1,100 @@
+id: erdos-1026-monotone-subsequence
+title: "Erdős #1026: maximum monotone subsequence sum, resolved by orchestrated collaboration"
+date: 2025-12
+status: RESOLVED
+
+problem_statement: >
+  Erdős (1975) asked for c(n), the largest constant such that every sequence
+  x_1..x_n of nonnegative reals has a monotone subsequence whose sum is at
+  least c(n) times the total sum. The resolved answer has the form
+  c(k^2 + 2a + 1) = k/(k^2 + a), connecting the question to square- and
+  rectangle-packing results.
+
+field: Combinatorics
+subfield: Extremal combinatorics / sequences
+
+ai_system: "Aristotle (Harmonic), AlphaEvolve (Google DeepMind), ChatGPT, and AI deep-research tools - four distinct tools at four distinct stages"
+human_collaborators:
+  - "Desmond Weisenberg - formalized the question"
+  - "Stijn Cambie - upper bounds, small-n values, the c(k^2)=1/k conjecture"
+  - "Wouter van Doorn - lower bounds from literature"
+  - "Boris Alexeev - operated Aristotle; formulated the sharp conjecture"
+  - "Koishi Chan - alternate proof via Erdős-Szekeres blow-up"
+  - "Lawrence Wu - located the decisive Baek-Koizumi-Ueoro (2024) paper"
+  - "Terence Tao - operated AlphaEvolve; wrote the account"
+autonomy: AI_ASSISTED
+# Four AI tools, none of which produced the result. The decisive step was a
+# human finding a 2024 paper.
+
+resolution_mechanism:
+  primary: LITERATURE_RECALL
+  secondary: [SEARCH_PLUS_VERIFIER, CONSTRUCTION]
+  contested: true
+# Contested and worth arguing about. The problem was closed when Lawrence Wu
+# found Baek-Koizumi-Ueoro (2024) on square packing, which combined with
+# Praton's embedding argument gave the full result. Everything the AI did was
+# upstream scaffolding: Aristotle formalized a reformulation Tao judged "not
+# particularly novel", AlphaEvolve produced numerics that revealed the
+# pattern, ChatGPT synthesized write-ups. Classified by what closed it.
+
+certificate_size: MEDIUM
+certificate_notes: >
+  The final argument assembles four existing results (Seidenberg 1959, Steele
+  1980, Tidor-Wang-Yang 2016, Baek-Koizumi-Ueoro 2024) plus a Lean-verified
+  asymptotic component. No single object to check, but no new theory to absorb
+  either. A combinatorialist verifies in days by chasing citations.
+
+verification_method: LEAN
+verification_status: >
+  Multiply verified and unusually robustly so: Aristotle's Lean proof of the
+  asymptotic bound, Koishi Chan's independent classical proof via
+  Erdős-Szekeres blow-up, and the connection to published square-packing
+  results. Documented in Tao's 2025-12-08 blog post. Elapsed time from problem
+  posting to resolution: roughly 48 hours of active work spread over ~3 months.
+
+cross_field_transfer:
+  occurred: true
+  from: "Discrete geometry (square/rectangle packing)"
+  to: "Extremal combinatorics (monotone subsequences)"
+  notes: >
+    Real but human-mediated. Aristotle independently found the rectangle-packing
+    reformulation, which is the transfer; but the payoff came from a human
+    locating the packing literature. The AI found the bridge and could not
+    cross it.
+
+sources:
+  - url: https://terrytao.wordpress.com/2025/12/08/the-story-of-erdos-problem-126/
+    what: "Full timeline, per-tool role attribution, Tao's assessment"
+    tier: PRIMARY
+  - url: https://github.com/teorth/erdosproblems/wiki/Notable-cases-of-AI-contributions-to-Erd%C5%91s-problems
+    what: "Listed notable; 'showcased various forms of AI assistance in a mathematical collaboration'"
+    tier: PRIMARY
+  - url: https://www.erdosproblems.com/1026
+    what: "Problem statement and status"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "Blog post read via automated fetch summary rather than in full; the per-tool attributions above should be re-read against the original before being used as rubric anchors."
+  - "URL slug says 'erdos-problem-126' while the problem is #1026; assumed a slug typo on Tao's side, not verified."
+
+notes: >
+  Tao-wiki category: 1(d) AI collaborating with humans.
+
+  The most instructive failure inside a success. AI deep-research tools
+  ATTEMPTED and FAILED to find the prior literature; human Google Scholar
+  searching worked better initially. The problem was ultimately closed by a
+  human locating a 2024 paper. In the one case where the corpus has a detailed
+  play-by-play, the retrieval capability that the October 2025 GPT-5 episode
+  suggested was the models' strongest suit did not fire.
+
+  Tao's own summary is the sober one: the proof "turned out to not be
+  particularly novel," and the innovation was ORGANIZATIONAL - orchestrating
+  known results from 1959, 1980, 2016 and 2024 into a unified solution, at a
+  speed no single mathematician would have managed.
+
+  Rubric consequence: there is a real and valuable mode here - compression of
+  calendar time on problems that were always solvable - that is entirely
+  distinct from advancing the frontier. A tractability rubric that cannot
+  distinguish "an AI-assisted group will close this in 48 hours" from "an AI
+  will discover something new here" will mislead. Phase 3 should score these
+  separately.

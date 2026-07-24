@@ -1,0 +1,99 @@
+id: gemini-erdos-survey-700
+title: "Semi-autonomous screening of 700 open Erdős problems with Gemini"
+date: 2026-01
+status: RESOLVED   # as a study; individual problems vary
+
+problem_statement: >
+  Not a single problem: a systematic screen. The team ran Gemini against 700
+  conjectures marked 'Open' in Bloom's Erdős Problems database, using
+  AI-driven natural-language verification to narrow the search space followed
+  by human expert evaluation. Of 700 screened, 13 were addressed: 5 through
+  apparently novel autonomous solutions, 8 through identification of
+  previously published solutions.
+
+field: "Mixed - number theory, combinatorics, graph theory"
+subfield: "Erdős-problem corpus at large"
+
+ai_system: "Gemini (Google DeepMind)"
+human_collaborators:
+  - "Tony Feng, Trieu Trinh, Garrett Bingham + 21 collaborators - screening design and expert evaluation"
+autonomy: COLLABORATIVE
+# By construction: AI narrows, humans evaluate. The paper's own term is
+# "semi-autonomous".
+
+resolution_mechanism:
+  primary: LITERATURE_RECALL
+  secondary: [NOVEL_ARGUMENT]
+  contested: true
+# Classified by the modal outcome: 8 of 13 were literature identification.
+# The 5 novel solutions are real and are counted in the secondary. Splitting
+# this into 13 separate corpus rows would swamp the distribution table with
+# one study's internals; kept as one row with the internal split recorded.
+
+certificate_size: SMALL
+certificate_notes: >
+  Mixed but small on both branches. The literature branch produces citations.
+  The novel branch produced short arguments checkable by the expert panel.
+  Nothing here required months of refereeing.
+
+verification_method: HUMAN_REFEREEING
+verification_status: >
+  arXiv 2601.22401, submitted 2026-01-29, revised through v3 2026-02-05.
+  Notably, v3 RECLASSIFIED one previously-autonomous solution as an
+  independent rediscovery, dropping the novel count from 6 to 5. The study
+  corrected itself downward under scrutiny.
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: "Screening exercise; no technique import claimed."
+
+base_rates:
+  problems_screened: 700
+  problems_addressed: 13
+  novel_autonomous_solutions: 5
+  existing_solutions_identified: 8
+  novel_rate_per_screened: 0.0071
+  addressed_rate_per_screened: 0.0186
+  downward_revision: "6 novel -> 5 novel between v1 and v3"
+
+sources:
+  - url: https://arxiv.org/abs/2601.22401
+    what: "Study design, 700/13/5/8 numbers, v3 reclassification, stated risks"
+    tier: PRIMARY
+  - url: https://arxiv.org/html/2601.22401v3
+    what: "Version 3 text"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "Which specific problems fell into which bucket was not enumerated in this pass."
+
+notes: >
+  The most honest study in the corpus and the best source of priors.
+
+  Three findings that shape the rubric directly:
+
+  1. BASE RATE. 5 novel solutions per 700 screened open problems = 0.7%.
+     Against AlphaProof Nexus's 2.5% on a curated 353, this brackets the
+     realistic hit rate for autonomous resolution of a listed open problem in
+     the friendliest available field at roughly 1-3%. Phase 3 candidates must
+     clear this bar to be worth naming.
+
+  2. "OBSCURITY RATHER THAN DIFFICULTY." The paper's own diagnosis of why
+     problems were listed open. 8 of 13 hits were retrieval, not discovery.
+     This makes LITERATURE_RECALL the modal mechanism when you sample an
+     open-problem list at random, and it is the reason the rubric needs a
+     gating question - is this problem open to the field, or open to the list?
+     - before any tractability axis is scored.
+
+  3. SELF-CORRECTION UNDER SCRUTINY. The novel count fell from 6 to 5 between
+     versions. The direction of revision in this literature is consistently
+     downward. Every claim in this corpus should be read with that drift in
+     mind, including the ones this corpus rates highly.
+
+  The paper also flags "subconscious plagiarism" by the model - reproducing a
+  known argument without attribution and without the operators recognizing it.
+  That failure mode is undetectable by a Lean check (the proof is correct) and
+  undetectable by novelty intuition (it looks new). It is only caught by
+  literature search. Worth an explicit rubric step.

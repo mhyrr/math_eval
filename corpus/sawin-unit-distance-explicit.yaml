@@ -1,0 +1,73 @@
+id: sawin-unit-distance-explicit
+title: "Explicit unit-distance exponent: human follow-through on the AI disproof"
+date: 2026-05
+status: RESOLVED
+
+problem_statement: >
+  The OpenAI disproof of Erdős #90 established that n points can determine more
+  than n^(1+eps) unit distances but did NOT name eps. Sawin followed the same
+  number-theoretic line - constructing algebraic number fields of large degree
+  and small discriminant with many primes of small norm via a
+  Golod-Shafarevich criterion - and produced the explicit bound n^1.014.
+  Reported subsequently refined to n^1.0318, with 1.2143 established as the
+  ceiling of this method.
+
+field: Discrete Geometry
+subfield: Combinatorial geometry / algebraic number theory
+
+ai_system: "NONE for this paper. Follows a route opened by the OpenAI model."
+human_collaborators:
+  - "Will Sawin (Princeton)"
+autonomy: null
+
+resolution_mechanism:
+  primary: CONSTRUCTION
+  secondary: [NOVEL_ARGUMENT]
+  contested: false
+# Converts an inexplicit existence result into an explicit exponent. This is
+# what turns a MEDIUM certificate into a checkable number.
+
+certificate_size: MEDIUM
+certificate_notes: "Short paper; specialist verifies in days."
+
+verification_method: HUMAN_REFEREEING
+verification_status: "arXiv 2605.20579, 2026-05-20. Same day as the digest paper. Sawin is a co-author of that digest."
+
+cross_field_transfer:
+  occurred: true
+  from: "Algebraic number theory (Golod-Shafarevich)"
+  to: "Discrete geometry"
+  notes: "Same reservoir as erdos-90-unit-distance; a human draining it further."
+
+sources:
+  - url: https://arxiv.org/abs/2605.20579
+    what: "Explicit n^1.014; states the OpenAI exponent was inexplicit; method"
+    tier: PRIMARY
+  - url: https://gilkalai.wordpress.com/2026/05/21/amazing-erdos-unit-distance-problem-was-disproved-it-was-achieved-by-ai/
+    what: "Later refinements to 1.0318 and the 1.2143 method ceiling"
+    tier: EXPERT_COMMENTARY
+  - url: https://arxiv.org/abs/2606.03419
+    what: "'Optimizing Explicit Unit-Distance Lower-Bound Certificates' - further follow-on work; NOT retrieved in this pass"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "The 1.0318 refinement and 1.2143 ceiling come from Kalai's blog via automated fetch; not traced to papers."
+  - "arXiv 2606.03419 is listed from search results only and was not fetched."
+
+notes: >
+  Recorded as a separate case from erdos-90-unit-distance because it isolates
+  a phenomenon the flagship case would otherwise hide: what the AI produced was
+  NOT the finished mathematical good.
+
+  The model proved existence with an unnamed constant. Within days a human
+  produced the number, and within weeks a small literature existed on
+  optimizing the certificate. The AI's output was the opening of a route; the
+  field did the rest, fast.
+
+  Rubric consequence: score the certificate the AI would actually produce, not
+  the certificate the finished mathematics will eventually have. These differ
+  systematically, and the gap is filled by human specialists at high speed once
+  the route is known. A tractability rubric aimed at "can AI resolve this"
+  should probably be aimed instead at "can AI open the route" - which is a
+  lower and much more frequently cleared bar, and is the bar this corpus
+  actually supports.

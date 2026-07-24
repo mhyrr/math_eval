@@ -1,0 +1,86 @@
+id: axiom-fel-conjecture-disputed
+title: "Axiom AI's Fel conjecture claim (disputed: formalization presented as discovery)"
+date: 2026-06
+status: DISPUTED
+
+problem_statement: >
+  Axiom AI presented its system as having autonomously solved an open
+  conjecture (the Fel conjecture), with comparisons drawn to AlphaGo's
+  "Move 37". A published critique examined the actual input files and reports
+  that the LaTeX source handed to the system already contained the theorem
+  statements and their proofs, that the relevant exponential generating
+  functions were explicitly defined by humans rather than discovered, and that
+  lemmas were supplied with solutions. On that reading the system performed
+  LaTeX-to-Lean translation, not mathematics.
+
+field: "N/A - metascience"
+subfield: "Evaluation methodology / autoformalization"
+
+ai_system: "AxiomProver (Axiom AI)"
+human_collaborators:
+  - "Carina Hong (Axiom AI founder) - made the public claims"
+  - "Anatol Wegner - author of the critique"
+autonomy: AI_ASSISTED
+# Per the critique. Per the company, AUTONOMOUS. That gap is the case.
+
+resolution_mechanism:
+  primary: LITERATURE_RECALL
+  secondary: []
+  contested: true
+# Strictly this is neither: it is FORMALIZATION of a supplied human proof,
+# which Greg's four-way vocabulary has no slot for. Mapped to LITERATURE_RECALL
+# as the nearest category (the mathematical content pre-existed and was
+# re-surfaced rather than created), but the mismatch is real and is the
+# strongest argument in the corpus for adding a fifth mechanism -
+# FORMALIZATION - in Phase 2. The teorth wiki already has it as category 2(b),
+# with over 200 logged instances, i.e. it is the single most common thing AI
+# actually does to Erdős problems.
+
+certificate_size: SMALL
+certificate_notes: "Lean-checked. The proof is correct. Correctness was never what was in dispute."
+
+verification_method: LEAN
+verification_status: >
+  The Lean artifacts verify. The disputed question is provenance: what was in
+  the input. This is a failure mode that formal verification is structurally
+  incapable of catching - a machine-checked proof of a theorem whose proof you
+  were handed is still machine-checked.
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: null
+
+sources:
+  - url: https://medium.com/@AIchats/axiom-ai-the-theranos-of-mathematical-ai-9be51fff1e59
+    what: "The critique: input file contents, generating functions supplied, 'LaTeX-to-Lean compiler' characterization; parallel criticisms of AlphaProof and OpenAI"
+    tier: EXPERT_COMMENTARY
+
+unverifiable_claims:
+  - "This case rests on ONE critical source with an adversarial title. Axiom AI's response, if any, was not retrieved. The input-file contents are asserted by the critic and have NOT been independently inspected in this pass. Treat the specific factual claims as ALLEGED."
+  - "The same source levels criticisms at DeepMind's AlphaProof (humans reading '125 pages of AI text') and at OpenAI's Erdős work. Those criticisms are NOT endorsed here and in the OpenAI case sit uneasily against the nine-author digest paper."
+
+notes: >
+  Kept as the corpus's second negative case, and the one that tests the
+  verification axis hardest.
+
+  The lesson is uncomfortable for the rubric's most attractive finding.
+  Elsewhere in this corpus, Lean verification is the thing that makes an AI
+  result cheap to trust - see erdos-728 and alphaproof-nexus-erdos-nine. This
+  case shows the exact boundary of that guarantee. Lean certifies that the
+  proof follows from the statement. It certifies nothing about:
+    - whether the statement is the intended one (formalization error),
+    - whether the proof was found or supplied (provenance),
+    - whether the theorem was already known (novelty).
+
+  All three residual risks are human-judgment risks, and all three are exactly
+  where the disputed and retracted cases in this corpus live. A rubric axis
+  reading "is there a cheap machine certificate?" must therefore be paired with
+  "is the STATEMENT cheap to audit, and is the novelty cheap to audit?" - or it
+  will score formalization theatre as maximally tractable.
+
+  This also matters for Phase 3 in a specific way: set-theoretic statements are
+  notoriously delicate to formalize correctly (quantifier order over models,
+  absoluteness, which universe a statement is evaluated in). The
+  statement-audit cost there is high even where mathlib coverage exists.

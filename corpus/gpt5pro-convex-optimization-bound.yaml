@@ -1,0 +1,88 @@
+id: gpt5pro-convex-optimization-bound
+title: "GPT-5 Pro improves a gradient-descent step-size bound to 1.5/L (superseded)"
+date: 2025-08
+status: ADVANCED   # correct, novel-to-the-session, and already behind the literature
+
+problem_statement: >
+  In smooth convex optimization, for what step sizes eta does gradient descent
+  produce iterates whose function values form a convex curve? A paper left a
+  gap between 1/L and 1.75/L. Bubeck handed the first version of that paper to
+  GPT-5 Pro, which in ~17.5 minutes produced a proof pushing the guarantee to
+  1.5/L. Bubeck verified the proof in ~25 minutes. Human mathematicians had
+  already published the optimal 1.75/L months earlier.
+
+field: Optimization
+subfield: Convex optimization / first-order methods
+
+ai_system: "GPT-5 Pro (OpenAI)"
+human_collaborators:
+  - "Sebastien Bubeck (OpenAI) - posed the problem, verified the proof, made the public claim"
+autonomy: AUTONOMOUS
+
+resolution_mechanism:
+  primary: NOVEL_ARGUMENT
+  secondary: []
+  contested: false
+# Genuinely a new correct derivation - it wove Bregman divergence inequalities
+# and cocoercivity into the paper's framework. It is not LITERATURE_RECALL:
+# the model did not surface the 1.75/L paper, it re-derived a weaker result
+# from scratch. That is precisely what makes the case valuable.
+
+certificate_size: SMALL
+certificate_notes: >
+  Verified by one expert in 25 minutes. The cleanest data point in the corpus
+  for calibrating what SMALL means on a proof (as opposed to a witness):
+  a self-contained argument in a technique-mature area, checkable in under an
+  hour by someone who knows the field.
+
+verification_method: EXPERT_INFORMAL
+verification_status: >
+  The proof is correct - that was checked and is not disputed. What is
+  disputed is its significance. The 1.75/L bound was already in the
+  literature, making the 1.5/L result strictly weaker than the known state of
+  the art. The original claim ("gpt-5-pro can prove new interesting
+  mathematics") was made on X in August 2025 and drew substantial pushback.
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: "Bregman divergence and cocoercivity are standard tools inside convex optimization."
+
+sources:
+  - url: https://x.com/SebastienBubeck/status/1958198661139009862
+    what: "The original claim"
+    tier: SOCIAL_MEDIA
+  - url: https://gist.github.com/niloydebbarma-code/f5d93f6515092e2c21a18fa47c9f8416
+    what: "The critique: 1.75/L already published, result mathematically inferior"
+    tier: SOCIAL_MEDIA
+  - url: https://arxiv.org/abs/2511.16072
+    what: "OpenAI's 'Early science acceleration experiments with GPT-5' - broader context for this class of claim"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "The critique gist is an anonymous secondary analysis. The 1.75/L priority claim is repeated in multiple secondary sources but has NOT been traced to the original paper in this pass. This should be nailed down before the case is used as a rubric anchor."
+  - "Timings (17.5 min generation, 25 min verification) come from Bubeck's own account."
+
+notes: >
+  The case that forces a distinction the rest of the corpus lets you blur.
+
+  Three orthogonal properties, and this case separates all three:
+    - Is the argument NEW?           yes
+    - Is the argument CORRECT?       yes
+    - Does it ADVANCE the frontier?  no
+
+  Every other classification scheme in this space - including the teorth wiki's
+  1(a)-1(d) - measures provenance, which answers the first question only. A
+  tractability rubric that scores a problem as tractable because a model will
+  produce a correct new proof of something already known is worse than useless:
+  it will fire constantly, on exactly the problems where it has no value.
+
+  This is the strongest argument in the corpus for a FRONTIER axis distinct
+  from a certificate axis. See rubric/RUBRIC.md.
+
+  Note also the direction of the error. Bubeck is a strong optimizer who
+  verified the proof carefully and still published a claim that did not
+  survive contact with the literature. The failure was not mathematical
+  competence; it was priority search. That is the same failure mode as the
+  October 2025 Erdős episode, from the opposite direction.

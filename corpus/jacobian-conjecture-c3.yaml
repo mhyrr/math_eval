@@ -1,0 +1,103 @@
+id: jacobian-conjecture-c3
+title: "Counterexample to the Jacobian Conjecture in dimension 3"
+date: 2026-07
+status: RESOLVED   # pending journal refereeing; certificate itself is machine-checkable
+
+problem_statement: >
+  The Jacobian Conjecture (Keller, 1939) asserts that a polynomial map
+  F: C^n -> C^n whose Jacobian determinant is a nonzero constant must be
+  invertible (with polynomial inverse). It had stood ~87 years. The
+  conjecture is known to reduce to the cubic-homogeneous case in all
+  dimensions, and by Bass-Connell-Wright reduction it implies the Dixmier
+  conjecture on endomorphisms of the Weyl algebra.
+
+field: Algebra
+subfield: Affine algebraic geometry / polynomial automorphisms
+
+ai_system: "Claude Fable 5 (Anthropic). Reported secondary use of GPT-5.6 'Sol' and Claude for exploring generalizations after the fact."
+human_collaborators:
+  - "Levent Alpöge (mathematician, Anthropic) - posed the problem, drove the session, announced"
+  - "'Akhil' (per Alpöge's announcement; plausibly Akhil Mathew, NOT confirmed) - co-worked the morning session"
+  - "William Thompson - independent verification repository"
+autonomy: AI_LED_HUMAN_VERIFIED
+# The witness is attributed to the model. The framing, the reduction to the
+# cubic-homogeneous case, and the verification are human. Division of labor
+# within the session is NOT publicly documented at the level needed to be sure.
+
+resolution_mechanism:
+  primary: CONSTRUCTION
+  secondary: []
+  contested: false
+# This is the cleanest CONSTRUCTION in the corpus. The entire mathematical
+# content of the claim is three polynomials. Nothing about the search process
+# needs to be trusted, believed, or even disclosed.
+
+certificate_size: SMALL
+certificate_notes: >
+  Three polynomials in three variables. A skeptic computes one 3x3 symbolic
+  determinant and checks that three listed points share an image. Both checks
+  are exact rational arithmetic, doable in a CAS in under a minute, and
+  doable by hand in an afternoon. The reported map:
+    a = (1+xy)^3 z + y^2 (1+xy)(4+3xy)
+    b = y + 3x(1+xy)^2 z + 3xy^2 (4+3xy)
+    c = 2x - 3x^2 y - x^3 z
+  with Jacobian determinant identically -2 and generically 3-to-1.
+  TRANSCRIBED FROM SECONDARY SOURCE - see unverifiable_claims.
+
+verification_method: COMPUTER_ALGEBRA
+verification_status: >
+  As of 2026-07-24, days old. Reported: two independently implemented exact
+  verifiers agree on the collision points and a nilpotence certificate;
+  confirmed in Singular and in Macaulay2; a public repository
+  ('explicit-cubic-homogeneous-jacobian-counterexample', W. Thompson) carries
+  derivation plus verification code. No journal refereeing yet. No Lean
+  formalization reported. Given the certificate size, refereeing is close to
+  a formality IF the transcription is right - the risk here is clerical, not
+  mathematical.
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: >
+    No evidence of technique import. The relevant reductions (Bass-Connell-Wright,
+    cubic-homogeneous normal form) are standard within the field and long known.
+    The scarce resource was the witness, not the theory.
+
+sources:
+  - url: https://sbseminar.wordpress.com/2026/07/20/the-new-counterexample-to-the-jacobian-conjecture/
+    what: "Explicit map, Dixmier consequence, verification tooling, expert framing"
+    tier: EXPERT_COMMENTARY
+  - url: https://theconversation.com/hello-there-the-jacobian-conjecture-is-false-thanx-why-a-tiny-social-media-post-has-mathematicians-rethinking-ai-283883
+    what: "Announcement circumstances, Alpöge attribution to Fable, dimension >2 scope, n=2 still open"
+    tier: JOURNALISM
+  - url: https://www.johndcook.com/blog/2026/07/21/jacobian-conjecture/
+    what: "Independent contemporaneous commentary"
+    tier: EXPERT_COMMENTARY
+  - url: https://news.ycombinator.com/item?id=48973869
+    what: "Community reaction; NOT RETRIEVED - HTTP 429 at corpus time"
+    tier: SOCIAL_MEDIA
+  - url: https://mathworld.wolfram.com/JacobianConjecture.html
+    what: "Statement of the conjecture and its standard reductions"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "The exact polynomial map above is transcribed from a secondary source (Secret Blogging Seminar) and has NOT been independently recomputed inside this project. Before this case is used as a rubric anchor, run the determinant check locally."
+  - "Identity of 'Akhil' is not confirmed in any source retrieved."
+  - "The role split between Claude Fable 5, GPT-5.6 'Sol', and the humans is reported inconsistently across sources. One source conflates ChatGPT and Fable. Treat the specific model attribution as reported-not-established."
+  - "n=2 reported still open; not independently confirmed."
+
+notes: >
+  The most important case in the corpus for the rubric, because it is the
+  extreme point on the certificate-size axis. An 87-year-old conjecture in a
+  field with heavy machinery fell to an object a first-year graduate student
+  can check. Nothing about the model's reliability had to be trusted.
+
+  Contrast deliberately with erdos-1196-primitive-sets, where the AI
+  contribution was a *method* and the certificate is a 35-page paper requiring
+  expert refereeing. Same era, same class of tool, opposite verification cost.
+
+  The generalization work (what the counterexample implies, whether n=2
+  survives, the Dixmier consequences) is where the humans and the follow-on
+  model sessions are actually spending effort. That asymmetry - cheap witness,
+  expensive aftermath - is a rubric signal in its own right.

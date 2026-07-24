@@ -1,0 +1,63 @@
+id: alphaproof-imo-2024
+title: "AlphaProof / AlphaGeometry 2: IMO 2024 silver-medal standard (competition baseline)"
+date: 2024-07
+status: RESOLVED
+
+problem_statement: >
+  Google DeepMind's AlphaProof (reinforcement learning over formal Lean proofs)
+  and AlphaGeometry 2 solved four of six problems at the 2024 International
+  Mathematical Olympiad, reaching silver-medal standard - one point short of
+  gold. Problems were manually translated into formal statements before the
+  systems ran; the systems took up to three days on some problems against the
+  4.5 hours humans are allowed.
+
+field: "Competition mathematics"
+subfield: "Olympiad algebra, number theory, geometry"
+
+ai_system: "AlphaProof + AlphaGeometry 2 (Google DeepMind)"
+human_collaborators:
+  - "DeepMind team - manual formalization of problem statements"
+  - "Timothy Gowers and Joseph Myers - graded the solutions"
+autonomy: AUTONOMOUS   # within manually formalized statements
+
+resolution_mechanism:
+  primary: SEARCH_PLUS_VERIFIER
+  secondary: []
+  contested: false
+
+certificate_size: SMALL
+certificate_notes: "Lean-verified. Graded by two people including a Fields medallist."
+
+verification_method: LEAN
+verification_status: "Graded by Gowers and Myers using official IMO marking. Uncontested."
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: null
+
+sources:
+  - url: https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/
+    what: "Lineage of DeepMind's formal-proof systems into the 2026 research work"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "Details of the 2024 IMO run are recalled from general knowledge rather than a source fetched in this pass. The primary DeepMind announcement was NOT retrieved. Everything here should be re-sourced before use as a rubric anchor. Flagged because it is the only case in the corpus resting substantially on unretrieved recall."
+
+notes: >
+  Included as the competition baseline, and mainly to mark the gap between
+  competition and research performance.
+
+  Competition problems have a property that research problems do not: someone
+  guarantees a solution exists, is findable in hours, and uses only known
+  technique. Every axis in the rubric that matters - is it open to the field,
+  is there a reservoir to import from, is there a checkable certificate -
+  is trivially satisfied or irrelevant on an IMO problem.
+
+  The corroborating evidence is in gemini-aletheia-autonomous-erdos: the same
+  lineage now scores up to 90% on IMO-ProofBench Advanced and ~38% on
+  PhD-level FutureMath, and produces Erdős results its own builders decline to
+  call major advances. Competition capability saturating tells you almost
+  nothing about research tractability. This case exists in the corpus so the
+  rubric does not accidentally import a benchmark axis.

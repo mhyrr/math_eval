@@ -1,0 +1,99 @@
+id: teorth-wiki-aggregate
+title: "The teorth/erdosproblems wiki as an aggregate record (~600 logged AI contributions)"
+date: 2026-06   # final update; wiki frozen as of 2026-06-30
+status: RESOLVED   # as a record
+
+problem_statement: >
+  Not a problem: the community's own census. The teorth/erdosproblems wiki
+  logged AI contributions to Erdős problems through 2026-06-30, under a
+  two-level taxonomy. It is the largest single dataset on this question and the
+  only one maintained by the mathematicians rather than the labs. Approximate
+  entry counts by category:
+    1(a) AI standalone, no comparable literature      ~55
+    1(b) AI alongside literature found afterward      ~25
+    1(c) AI building on literature known beforehand   ~35
+    1(d) AI collaborating with humans                >150
+    2(a) literature search                            ~70
+    2(b) formalization                               >200
+    2(c) rewriting            )  present, counts not extracted
+    2(d) computation          )
+  Outcomes are colour-coded: full resolution, partial progress, incorrect, unverified.
+
+field: "Mixed - the whole Erdős corpus"
+subfield: "Meta-record"
+
+ai_system: "GPT-5.2 through GPT-5.5 Pro, Claude models, Aristotle, Gemini, AlphaProof, DeepMind prover agent"
+human_collaborators:
+  - "Terence Tao, Boris Alexeev, and many others"
+autonomy: "MIXED - the taxonomy's primary axis IS autonomy"
+
+resolution_mechanism:
+  primary: SEARCH_PLUS_VERIFIER
+  secondary: [LITERATURE_RECALL, NOVEL_ARGUMENT, CONSTRUCTION]
+  contested: true
+# Assigned by the largest single category, 2(b) formalization at >200 entries,
+# mapped to the nearest available mechanism. The mapping is bad and the badness
+# is the point - see notes.
+
+certificate_size: SMALL
+certificate_notes: "Dominated by formalization entries, which are Lean-checked by construction."
+
+verification_method: LEAN
+verification_status: >
+  Community-maintained, colour-coded per entry, including a RED category for
+  incorrect work and a WHITE category for unverified. The existence of those
+  two categories in a community record - and the labs' general absence of
+  equivalents - is itself worth noting.
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: null
+
+base_rates:
+  total_entries_approx: 600
+  formalization_share: ">200 of ~600, the single largest category"
+  literature_search_share: "~70"
+  fully_standalone_share: "~55 of ~600, roughly 9%"
+
+sources:
+  - url: https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems
+    what: "The full taxonomy, category counts, colour coding"
+    tier: PRIMARY
+  - url: https://github.com/teorth/erdosproblems/wiki/Notable-cases-of-AI-contributions-to-Erd%C5%91s-problems
+    what: "The four cases the maintainers singled out: #1026, #728, #1196, #90"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "All counts are APPROXIMATE, read from an automated fetch summary of a long wiki page rather than by parsing the tables. Before any count here is used quantitatively, scrape the page properly - see scripts/. The ratios are probably right; the integers are not."
+  - "2(c) and 2(d) counts were not extracted."
+
+notes: >
+  Three observations, in descending order of consequence for the rubric.
+
+  1. THE MODAL AI CONTRIBUTION IS FORMALIZATION, NOT DISCOVERY. Over 200 of
+     ~600 entries are 2(b). Add ~70 literature searches and roughly 45% of all
+     logged AI contributions to Erdős problems involve no new mathematics at
+     all. The headline cases are a thin tail on a thick body of translation
+     work. Any rubric trained on the headlines will be calibrated wrong.
+
+  2. GREG'S FOUR-MECHANISM VOCABULARY HAS NO SLOT FOR THE LARGEST CATEGORY.
+     Formalization is not LITERATURE_RECALL (nothing is recalled), not
+     CONSTRUCTION (no witness), not NOVEL_ARGUMENT (not novel), and only
+     technically SEARCH_PLUS_VERIFIER (the search is over tactics for a proof
+     you already have). PHASE 2 SHOULD ADD IT as a fifth primary mechanism.
+     This is the clearest schema revision the evidence demands, and it is
+     visible only because the corpus includes the aggregate rather than only
+     the famous cases.
+
+  3. THE COMMUNITY RECORD HAS AN "INCORRECT" CATEGORY AND THE LAB
+     ANNOUNCEMENTS DO NOT. Red entries exist. No lab press release in this
+     corpus reports its failure rate on the problems it attempted, with the
+     partial exception of the AlphaProof Nexus paper and the DeepMind
+     Level 3/4 disclaimer. Where a corpus has an error category, use it; where
+     it does not, assume the denominator is hidden.
+
+  The wiki was frozen on 2026-06-30, one month before this corpus was built.
+  Anything after that date - including the Jacobian counterexample - is not in
+  it, and there is now no community-maintained census running.

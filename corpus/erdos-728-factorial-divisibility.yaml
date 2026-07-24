@@ -1,0 +1,91 @@
+id: erdos-728-factorial-divisibility
+title: "Erdős #728: logarithmic-gap phenomenon in factorial divisibility"
+date: 2026-01
+status: RESOLVED
+companion_problems: ["#729", "#401"]
+
+problem_statement: >
+  Erdős #728 concerns factorial divisibility: whether there exist infinitely
+  many triples (a, b, n) with a! b! dividing n! subject to a constraint
+  keeping a + b - n inside a logarithmic band. The resolved form establishes
+  a logarithmic-gap phenomenon, and the general result obtained also settles
+  #729 and #401.
+
+field: Number Theory
+subfield: Elementary/analytic number theory (p-adic valuations, factorials)
+
+ai_system: "GPT-5.2 Pro (OpenAI) combined with Aristotle (Harmonic)"
+human_collaborators:
+  - "Kevin Barreto - operated the AI systems"
+  - "Nat Sothanaphan - wrote up the Lean proof as human-readable mathematics (sole author of the arXiv writeup)"
+autonomy: AUTONOMOUS
+# Regarded by the teorth wiki as "the first autonomous and nontrivial solution
+# to an Erdős problem by AI systems." The humans operated and transcribed; the
+# mathematical content came from the systems.
+
+resolution_mechanism:
+  primary: SEARCH_PLUS_VERIFIER
+  secondary: [NOVEL_ARGUMENT]
+  contested: true
+# Contested: the pipeline is generate-against-Lean (SEARCH_PLUS_VERIFIER), but
+# the *output* is a genuine short new proof using Kummer's theorem and
+# base-p carry counting. Whether to classify by process or by product is the
+# single biggest classification decision in this corpus - see the note in
+# corpus/README.md. Classified by process here, with the product recorded as
+# secondary, because the process is what the rubric needs to predict.
+
+certificate_size: SMALL
+certificate_notes: >
+  A machine-checked Lean proof, plus a short human writeup (Sothanaphan) that
+  a number theorist can read in an afternoon. The underlying argument is
+  Kummer's theorem on p-adic valuations of binomial coefficients plus a
+  carry-counting argument in base p. A skeptic has two independent cheap
+  routes: run the Lean compiler, or read ~10 pages.
+
+verification_method: LEAN
+verification_status: >
+  Formally verified in Lean by construction - the proof was produced *as* a
+  Lean object, so the machine check is not an afterthought. arXiv 2601.07421,
+  submitted 2026-01-12, revised 2026-01-26. This is the strongest verification
+  status of any case in the corpus.
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: >
+    Kummer's theorem is native to the problem's own field and dates to 1852.
+    No import from an adjacent area. The result was reachable with tools the
+    field already owned - which is consistent with the "obscurity rather than
+    difficulty" finding from the Gemini survey (see gemini-erdos-survey-700).
+
+sources:
+  - url: https://arxiv.org/abs/2601.07421
+    what: "Writeup, authorship, system attribution, method (Kummer + carry counting)"
+    tier: PRIMARY
+  - url: https://github.com/teorth/erdosproblems/wiki/Notable-cases-of-AI-contributions-to-Erd%C5%91s-problems
+    what: "'First autonomous and nontrivial solution'; companion problems #729, #401"
+    tier: PRIMARY
+  - url: https://www.erdosproblems.com/forum/thread/blog:2
+    what: "Contemporaneous blog account"
+    tier: PRIMARY
+  - url: https://www.erdosproblems.com/728
+    what: "Problem statement and status"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "The exact statement of #728 is paraphrased from the arXiv abstract summary, not read off erdosproblems.com/728 directly (site returned 403 to automated fetch)."
+  - "Division of labor between GPT-5.2 Pro and Aristotle is not decomposed in any retrieved source - 'a combination of' is all the paper says."
+
+notes: >
+  Tao-wiki category: 1(a) AI standalone.
+
+  The cheapest-to-trust result in the corpus and the reason the
+  SEARCH_PLUS_VERIFIER mechanism deserves its own axis treatment: when the
+  generator emits Lean, the verification cost collapses to compile time
+  regardless of how the proof was found. Model reliability stops mattering.
+
+  The constraint is the mirror image: this only works where mathlib already
+  covers the ambient theory. Kummer's theorem and p-adic valuations are in
+  mathlib. Iterated forcing and cardinal characteristics are not. That
+  dependency is the load-bearing observation for Phase 3.

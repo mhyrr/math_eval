@@ -1,0 +1,86 @@
+id: alphaevolve-math-constructions
+title: "AlphaEvolve: improved constructions in kissing numbers, minimum overlap, and packing"
+date: 2025-05
+status: RESOLVED   # bounds improved; the underlying problems remain open
+companion_problems: ["Kissing number in dimension 11", "Erdős minimum overlap problem", "assorted packing/analysis problems"]
+
+problem_statement: >
+  AlphaEvolve is an evolutionary coding agent that, rather than evolving a
+  mathematical object directly, evolves the HEURISTIC SEARCH PROGRAM that then
+  looks for the object under a compute budget. Applied across ~50 problems in
+  analysis, combinatorics and geometry, its headline results:
+  (a) kissing number in dimension 11, lower bound 592 -> 593;
+  (b) Erdős minimum overlap constant, upper bound 0.380927 -> 0.380924, the
+      first movement since 2016.
+
+field: "Mixed - Discrete Geometry, Analysis, Combinatorics"
+subfield: "Extremal constructions / packing"
+
+ai_system: "AlphaEvolve (Google DeepMind) - LLM-driven evolutionary program search"
+human_collaborators:
+  - "Google DeepMind AlphaEvolve team - problem selection, objective functions, evaluators"
+autonomy: AUTONOMOUS
+# Within a human-specified objective function. Choosing the objective and the
+# evaluator IS the mathematical judgment; the search is autonomous below it.
+
+resolution_mechanism:
+  primary: SEARCH_PLUS_VERIFIER
+  secondary: [CONSTRUCTION]
+  contested: false
+
+certificate_size: SMALL
+certificate_notes: >
+  Explicit finite objects. A 593-point configuration in R^11 is checked by
+  computing pairwise distances - a few lines of code and exact arithmetic.
+  This is the archetypal small certificate, and it is why the search-based
+  approach works at all: the evaluator IS the certificate checker, so the
+  method only applies where a cheap checker exists.
+
+verification_method: COMPUTER_ALGEBRA
+verification_status: >
+  Verified by direct computation. The kissing-number improvement is a
+  mathematical proof in the ordinary sense - an explicit configuration is a
+  complete proof of a lower bound.
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: "Method transfer (program search) rather than mathematical technique transfer."
+
+base_rates:
+  matched_state_of_the_art: 0.75
+  exceeded_state_of_the_art: 0.20
+  underperformed: 0.05
+  note: "Across the problem set the team selected. Selection was deliberate and favourable; do not read 20% as a hit rate on arbitrary open problems."
+
+sources:
+  - url: https://spectrum.ieee.org/deepmind-alphaevolve
+    what: "Kissing number 592->593, upper bound 868, matrix multiplication, 75/20/5 split"
+    tier: JOURNALISM
+  - url: https://www.rdworldonline.com/why-google-deepminds-alphaevolve-incremental-math-and-server-wins-could-signal-future-rd-payoffs/
+    what: "Erdős minimum overlap 0.380927 -> 0.380924, first progress since 2016"
+    tier: JOURNALISM
+
+unverifiable_claims:
+  - "Exact minimum-overlap figures are from secondary coverage; not traced to the AlphaEvolve paper itself in this pass."
+  - "The 75/20/5 split is reported for the team's own selected problem set; the selection criteria are not public in the sources retrieved."
+
+notes: >
+  The mechanism with the sharpest applicability boundary in the corpus, and
+  therefore the most useful for Phase 3 scoring.
+
+  AlphaEvolve requires three things simultaneously: (i) the answer is a finite
+  object, (ii) there is a cheap automated evaluator, (iii) the search space
+  admits gradient-like improvement so evolution has signal. All three hold for
+  packing and kissing numbers. Note what the improvements look like when they
+  land: 592 to 593, and 0.380927 to 0.380924. Real, checkable, and tiny. This
+  mechanism moves constants; it does not settle conjectures.
+
+  For Phase 3 this is close to dispositive on one axis. Questions about
+  cardinal characteristics and partition relations have answers that are
+  cardinals or consistency statements, not finite objects. There is no
+  evaluator to run. Even where a combinatorial question adjacent to CH has a
+  finite-object flavour, the quantity of interest is usually a statement about
+  ALL models of ZFC. AlphaEvolve-style search has no purchase there, and this
+  should be scored as a hard zero rather than a low number.

@@ -1,0 +1,83 @@
+id: gpt5-erdos-claim-october-2025
+title: "The 'GPT-5 solved ten Erdős problems' claim and its retraction"
+date: 2025-10
+status: RETRACTED
+
+problem_statement: >
+  Not a mathematical problem but a claim about one. OpenAI researchers stated
+  publicly that GPT-5 had "solved" ten open Erdős problems. The problems were
+  listed as open on erdosproblems.com. The model had in fact located existing
+  published solutions that the database had not catalogued. The post was
+  deleted.
+
+field: "N/A - metascience"
+subfield: "Evaluation methodology"
+
+ai_system: "GPT-5 (OpenAI)"
+human_collaborators:
+  - "Sebastien Bubeck (OpenAI) - made the public claim, deleted the post"
+  - "Thomas Bloom (maintainer, erdosproblems.com) - clarified what 'open' means in the database"
+autonomy: AUTONOMOUS
+# Genuinely autonomous. That was never the problem.
+
+resolution_mechanism:
+  primary: LITERATURE_RECALL
+  secondary: []
+  contested: false
+
+certificate_size: SMALL
+certificate_notes: >
+  The "certificate" is a citation. Verification cost is the cost of reading
+  the paper the model surfaced. This is the cheapest possible certificate and
+  it is also worth zero as a mathematical advance - which is precisely why
+  certificate size alone cannot score tractability, and why the rubric needs
+  a separate novelty/frontier axis. See rubric/RUBRIC.md.
+
+verification_method: EXPERT_INFORMAL
+verification_status: >
+  Fully resolved as a factual matter. The claim was withdrawn. Bloom's
+  clarification: a problem listed "open" on the database means roughly that at
+  least one professional mathematician looked and did not find a published
+  solution - it is a statement about the database's coverage, not about
+  humanity's knowledge.
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: >
+    Retrieval across a literature is not technique transfer. Distinguishing
+    these two is a rubric requirement: both look like "the model knew something
+    the specialists didn't," and only one of them advances mathematics.
+
+sources:
+  - url: https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems
+    what: "Category 2(a) literature search exists as a distinct class with ~70 logged instances"
+    tier: PRIMARY
+  - url: https://www.techbuzz.ai/articles/openai-s-gpt-5-math-claims-spark-industry-backlash
+    what: "Sequence of events, deletion, industry reaction"
+    tier: JOURNALISM
+  - url: https://www.geeky-gadgets.com/chatgpt-5-mathematical-claims-controversy/
+    what: "Bloom's clarification of database semantics"
+    tier: JOURNALISM
+
+unverifiable_claims:
+  - "Exact set of ten problems not recovered in this pass."
+  - "Attributed quotes (Hassabis 'embarrassing', LeCun) come from secondary journalism only; not traced to primary posts."
+
+notes: >
+  Kept in the corpus deliberately as a NEGATIVE case. A rubric derived only
+  from successes will overfit. This case supplies the base-rate correction:
+  the single most common way an 'open' problem gets 'solved' by a model is
+  that it was not open.
+
+  Quantified by two later systematic studies rather than left anecdotal:
+  - gemini-erdos-survey-700: of 13 problems addressed out of 700 screened,
+    8 were identification of existing solutions and 5 were novel.
+  - The teorth wiki logs ~70 instances under 2(a) literature search.
+
+  Implication for Phase 3 that should not be lost: any survey of "open
+  problems in partition calculus / cardinal characteristics" inherits this
+  hazard. Before scoring a target problem as tractable, the rubric must force
+  an explicit check that the problem is open to the field and not merely open
+  to the list it was drawn from.

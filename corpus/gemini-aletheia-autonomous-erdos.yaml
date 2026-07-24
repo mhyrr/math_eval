@@ -1,0 +1,66 @@
+id: gemini-aletheia-autonomous-erdos
+title: "Gemini Deep Think / Aletheia: autonomous solutions to Erdős #652, #654, #1040, #1051"
+date: 2026-01
+status: RESOLVED
+companion_problems: ["#652", "#654", "#1040", "#1051 (generalized into a paper, BKKKZ26)"]
+
+problem_statement: >
+  Four Erdős problems resolved autonomously by DeepMind's Aletheia research
+  agent built on Gemini Deep Think. #1051's solution was generalized into a
+  standalone research paper. The same system also contributed collaboratively
+  to papers on independence polynomials, complexity bounds, arithmetic volumes
+  and eigenweights.
+
+field: "Mixed - Number Theory, Combinatorics"
+subfield: "Erdős-problem corpus"
+
+ai_system: "Gemini Deep Think + Aletheia agent (Google DeepMind)"
+human_collaborators:
+  - "DeepMind research team - directed the research and validated findings; 'all results were graded by human experts'"
+autonomy: AUTONOMOUS
+
+resolution_mechanism:
+  primary: NOVEL_ARGUMENT
+  secondary: []
+  contested: false
+
+certificate_size: MEDIUM
+certificate_notes: >
+  Natural-language proofs graded by human experts, not Lean-checked. Cost to
+  trust is therefore expert reading time, and the #1051 generalization
+  required a full paper.
+
+verification_method: HUMAN_REFEREEING
+verification_status: >
+  Graded by human experts with "extensive discussions with the mathematical
+  community." The team explicitly disclaims the top two tiers of its own
+  significance scale: "we do not claim any Level 3 ('Major Advance') and
+  Level 4 ('Landmark Breakthrough') results."
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: null
+
+sources:
+  - url: https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/
+    what: "Aletheia results, problem numbers, expert grading, explicit disclaimer of Level 3/4 significance, IMO-ProofBench and FutureMath scores"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "Content of individual proofs not inspected. Problem statements for #652/#654/#1040 not retrieved."
+  - "The BKKKZ26 reference is cited on the DeepMind blog; the paper itself was not retrieved in this pass."
+
+notes: >
+  Included largely for the disclaimer, which is the most calibrated public
+  statement by any lab in this corpus. DeepMind ran its own four-level
+  significance scale and placed its own autonomous results below "Major
+  Advance." Compare the October 2025 OpenAI Erdős episode and the Axiom claim.
+
+  For the rubric: benchmark performance and research contribution decouple.
+  The same system scores up to 90% on IMO-ProofBench Advanced and ~38% on
+  PhD-level FutureMath, and yields four Erdős problems that its own builders
+  decline to call major advances. Olympiad-style capability does not read
+  across to research tractability, and any rubric axis that leans on benchmark
+  scores as a proxy will be badly calibrated.

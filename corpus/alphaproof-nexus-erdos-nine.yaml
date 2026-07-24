@@ -1,0 +1,105 @@
+id: alphaproof-nexus-erdos-nine
+title: "AlphaProof Nexus: nine Erdős problems resolved by LLM + Lean search"
+date: 2026-05
+status: RESOLVED
+companion_problems: ["#12(i)", "#12(ii)", "#125", "#138 (variant)", "#152", "#741(i)", "#741(ii)", "#26 (variant)", "#846"]
+
+problem_statement: >
+  Nine open problems from the Erdős database, spanning divisibility-constrained
+  sets of prescribed density (#12), sumset density of base-3/base-4 digit sets
+  (#125), van der Waerden number growth (#138 variant), Sidon sets with
+  isolated points (#152), partitions with positive-density sumsets and basis
+  constructions defeating syndetic partitions (#741), sequences avoiding
+  multiples under bounded upper density (#26 variant), and non-collinear point
+  sets (#846). Two had been open 56 years.
+
+field: Number Theory / Combinatorics
+subfield: Additive combinatorics, density and Ramsey-type problems
+
+ai_system: "AlphaProof Nexus (Google DeepMind) - LLM generation in a loop with the Lean compiler; agent variants A/B/C/D"
+human_collaborators:
+  - "George Tsoukalos, Anton Kovsharov, Sergey Shirobokov et al. (Google DeepMind, Aarhus University) - built the system, selected and formalized problem statements"
+autonomy: AUTONOMOUS
+# Autonomous within the formalized statement. The human bottleneck moved
+# upstream: someone must write the Lean statement correctly, and an error
+# there fails silently.
+
+resolution_mechanism:
+  primary: SEARCH_PLUS_VERIFIER
+  secondary: []
+  contested: false
+# The purest instance of the category. Generation is unreliable and cheap;
+# the Lean compiler is the ground truth; the loop runs until it closes.
+
+certificate_size: SMALL
+certificate_notes: >
+  Machine-checked Lean proofs, additionally validated in a SafeVerify sandbox
+  confirming no disallowed axioms were introduced. Verification cost for a
+  skeptic is compile time plus a reading of the Lean *statement* - which is
+  where the real risk sits, not in the proof.
+
+verification_method: LEAN
+verification_status: >
+  arXiv 2605.22763, 2026-05-21. Formally verified end to end. The residual
+  risk is statement-formalization error, not proof error.
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: "Successes concentrate inside domains where mathlib is already mature; nothing imported from outside."
+
+# --- base rates: the most valuable content in this file ---
+base_rates:
+  erdos_problems_solved: 9
+  erdos_problems_attempted: 353
+  erdos_success_rate: 0.025
+  oeis_conjectures_proved: 44
+  oeis_conjectures_attempted: 492
+  oeis_success_rate: 0.089
+  cost_per_solved_problem_usd: "a few hundred"
+
+sources:
+  - url: https://arxiv.org/abs/2605.22763
+    what: "System, the nine problems, agent architectures, success rates, costs, failure modes"
+    tier: PRIMARY
+  - url: https://arxiv.org/html/2605.22763v1
+    what: "Full text as fetched"
+    tier: PRIMARY
+  - url: https://the-decoder.com/google-deepminds-alphaproof-nexus-solves-decades-old-math-problems-for-a-few-hundred-dollars/
+    what: "Cost framing, 56-year-old problems"
+    tier: JOURNALISM
+
+unverifiable_claims:
+  - "Short descriptions of each of the nine problems are paraphrased from an automated fetch of the paper's HTML, not from erdosproblems.com entries individually."
+
+notes: >
+  The single most rubric-relevant case, for two reasons.
+
+  FIRST - the denominators. 9/353 (2.5%) on Erdős problems, 44/492 (8.9%) on
+  OEIS conjectures. This is the only clean prior on "what fraction of a curated
+  open-problem list falls to a state-of-the-art autonomous system." Any Phase 3
+  claim that a set-theory problem is "tractable" has to be read against a 2.5%
+  baseline in the field where these tools work BEST.
+
+  SECOND - the failure modes, stated by the authors:
+    (1) "the agent frequently offloaded a problem's core difficulty into a
+        single sorry ... that reiterated the target statement"
+    (2) "top sketches relied on lemmas ... that the agent claimed were
+        established results ... Upon manual inspection, these lemmas proved to
+        be hallucinations."
+  Both failures are *invisible without the verifier*. This is the mechanistic
+  argument for why SEARCH_PLUS_VERIFIER results are trustworthy and why
+  NOVEL_ARGUMENT results from the same class of model are not, absent human
+  refereeing.
+
+  THIRD - the stated scope condition, quoted in effect: successes concentrate
+  in combinatorics, convex optimization and number theory, "where Lean's
+  mathematics library is mature and tasks often decompose into tractable
+  subgoals." Everything in Phase 3 turns on whether the target territory meets
+  that condition. It does not.
+
+  Also notable and slightly deflationary: post-hoc analysis showed the simplest
+  Agent (A) - LLM plus compiler feedback, no AlphaProof tool, no evolutionary
+  database - could prove all nine, just more expensively on the hardest. The
+  sophisticated scaffolding bought cost, not capability.

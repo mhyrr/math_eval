@@ -1,0 +1,62 @@
+id: alphaevolve-matmul-4x4
+title: "AlphaEvolve: 4x4 matrix multiplication in 48 scalar multiplications"
+date: 2025-05
+status: RESOLVED
+
+problem_statement: >
+  Strassen's 1969 algorithm multiplies 4x4 matrices in 49 scalar
+  multiplications, and that stood for over 50 years. AlphaEvolve found a more
+  general version of an improved algorithm using 48, over the complex numbers,
+  extending AlphaTensor's earlier result. Not an open conjecture: an
+  optimization over a well-defined space of bilinear algorithms.
+
+field: Algebraic Complexity
+subfield: Fast matrix multiplication
+
+ai_system: "AlphaEvolve (Google DeepMind)"
+human_collaborators:
+  - "Google DeepMind AlphaEvolve team"
+autonomy: AUTONOMOUS
+
+resolution_mechanism:
+  primary: SEARCH_PLUS_VERIFIER
+  secondary: [CONSTRUCTION]
+  contested: false
+
+certificate_size: SMALL
+certificate_notes: >
+  A decomposition, checkable by expanding the bilinear identity symbolically.
+  Fully mechanical.
+
+verification_method: COMPUTER_ALGEBRA
+verification_status: "Verified by direct symbolic expansion. Uncontested."
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: null
+
+sources:
+  - url: https://spectrum.ieee.org/deepmind-alphaevolve
+    what: "48-multiplication result, relation to AlphaTensor and Strassen"
+    tier: JOURNALISM
+
+unverifiable_claims:
+  - "Details taken from secondary coverage; the AlphaEvolve paper was not retrieved in this pass."
+
+notes: >
+  The purest optimization case in the corpus and a useful boundary marker for
+  what SEARCH_PLUS_VERIFIER can reach.
+
+  Everything favourable holds at once: the search space is finite-dimensional
+  and explicitly parameterized, the objective is a single integer, the
+  verifier is exact symbolic arithmetic, and partial progress is measurable so
+  evolutionary search has gradient. Under those conditions a 50-year-old record
+  falls.
+
+  Include it in the corpus precisely to make the contrast with Phase 3 stark.
+  A question like "is b < a consistent with ZFC" has no parameterized search
+  space, no integer objective, no exact verifier, and no notion of partial
+  progress. Every property that makes matrix multiplication tractable for this
+  mechanism is absent. That is not a difference of degree.

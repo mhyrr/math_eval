@@ -1,0 +1,122 @@
+id: erdos-90-unit-distance
+title: "Erdős #90: disproof of the unit distance conjecture"
+date: 2026-05
+status: RESOLVED
+companion_problems: ["#92 (also disproved)", "#52 (inspired follow-up)"]
+
+problem_statement: >
+  Erdős (1946) asked for the maximum number u(n) of unit distances determined
+  by n points in the plane. He conjectured u(n) <= n^(1+c/log log n) - i.e.
+  barely superlinear, matching the square-grid construction, with no power
+  saving. An OpenAI internal reasoning model disproved this, exhibiting point
+  configurations with more than n^(1+eps) unit distances for infinitely many
+  n. The gap between grid-like behaviour and polynomial excess had stood
+  ~80 years.
+
+field: Discrete Geometry
+subfield: Combinatorial geometry / incidence geometry
+
+ai_system: "Unnamed OpenAI internal general-purpose reasoning model (not a specialist prover)"
+human_collaborators:
+  - "Noga Alon, Thomas F. Bloom, W. T. Gowers, Daniel Litt, Will Sawin, Arul Shankar, Jacob Tsimerman, Victor Wang, Melanie Matchett Wood - authors of the digest paper; verified and rewrote the argument"
+autonomy: AI_LED_HUMAN_VERIFIED
+# OpenAI published the initiating prompt and the model's chain of thought.
+# Human involvement described as minimal beyond the prompt, with verification
+# and exposition after the fact. This is the strongest autonomy claim in the
+# corpus attached to a genuinely frontier result.
+
+resolution_mechanism:
+  primary: NOVEL_ARGUMENT
+  secondary: [CONSTRUCTION]
+  contested: false
+# NOT primarily CONSTRUCTION, despite being a counterexample. The model's
+# exponent was INEXPLICIT: it proved existence of configurations beating
+# n^(1+eps) without naming eps. There is no finite object to hand a skeptic.
+# Sawin's follow-up (arXiv 2605.20579) supplied the explicit 1.014. The
+# distinction matters enormously for the certificate-size axis and is easy to
+# miss from press coverage.
+
+certificate_size: MEDIUM
+certificate_notes: >
+  Not small: no explicit witness, and the argument runs through algebraic
+  number theory - constructing number fields of large degree and small
+  discriminant with many primes of small norm, via a Golod-Shafarevich
+  criterion. Not large either: nine mathematicians produced a "short,
+  digested, human-verified version" within days, and Gowers said he would
+  recommend it to Annals without hesitation. A specialist verifies in days.
+  The speed of the digest is itself the evidence for MEDIUM.
+
+verification_method: HUMAN_REFEREEING
+verification_status: >
+  As strongly verified as an unrefereed result gets. Nine mathematicians -
+  including Bloom (the erdosproblems.com maintainer, i.e. the person with the
+  most institutional reason to be skeptical) and Gowers - co-signed a digest
+  paper, arXiv 2605.20695, 2026-05-20. Sawin independently reproduced the line
+  of reasoning and strengthened it to an explicit n^1.014 (arXiv 2605.20579),
+  later reported refined to n^1.0318 with a ceiling of 1.2143 for the method.
+  Anthropic reportedly confirmed the result with its own system. MathOverflow
+  discussion open on the resulting exponent.
+
+cross_field_transfer:
+  occurred: true
+  from: "Algebraic number theory (class field towers; Golod-Shafarevich; Ellenberg-Venkatesh; Hajir-Maire-Ramakrishna)"
+  to: "Discrete/combinatorial geometry"
+  notes: >
+    The strongest cross-field transfer case in the corpus. Unit distances is a
+    combinatorics problem that had been attacked with combinatorial and
+    incidence-geometric tools for 80 years. The solution came from number
+    fields. Gowers' caveat is essential: "many of the ideas needed for the
+    proof were present in the literature already" - so the scarce resource was
+    not new theory but the willingness to reach across fields for existing
+    theory. That is exactly the capability profile a broad-recall model has and
+    a specialist human does not.
+
+sources:
+  - url: https://arxiv.org/abs/2605.20695
+    what: "The nine-author digest; explicitly 'OpenAI-generated counterexample'; cites Ellenberg-Venkatesh, Golod-Shafarevich, Hajir-Maire-Ramakrishna"
+    tier: PRIMARY
+  - url: https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-remarks.pdf
+    what: "OpenAI-hosted copy of the remarks paper"
+    tier: PRIMARY
+  - url: https://arxiv.org/abs/2605.20579
+    what: "Sawin, explicit lower bound n^1.014; confirms OpenAI exponent was inexplicit; Golod-Shafarevich method"
+    tier: PRIMARY
+  - url: https://gilkalai.wordpress.com/2026/05/21/amazing-erdos-unit-distance-problem-was-disproved-it-was-achieved-by-ai/
+    what: "Kalai's assessment; Solymosi caveat; subsequent bound refinements"
+    tier: EXPERT_COMMENTARY
+  - url: https://theconversation.com/an-ai-solution-to-an-80-year-old-problem-has-shocked-mathematicians-283686
+    what: "Litt quote; Gowers Annals quote and his 'ideas already in the literature' caveat; autonomy description"
+    tier: JOURNALISM
+  - url: https://mathoverflow.net/questions/511514/what-is-the-unit-distance-exponent
+    what: "Ongoing expert discussion of the true exponent"
+    tier: EXPERT_COMMENTARY
+  - url: https://github.com/teorth/erdosproblems/wiki/Notable-cases-of-AI-contributions-to-Erd%C5%91s-problems
+    what: "'Resolved major open problem in a mathematical area with prior widespread expert attention'"
+    tier: PRIMARY
+
+unverifiable_claims:
+  - "The specific model is not named by OpenAI beyond 'internal reasoning model'. No independent party has audited the claim that human input was limited to the prompt."
+  - "Kalai's blog reports later refinements (n^1.0318, ceiling 1.2143) and an Anthropic independent confirmation; these were read via automated fetch summary and are not separately sourced here."
+  - "Solymosi's remark that mathematicians 'had tried to construct a counterexample' is reported via Kalai, not traced to a primary statement."
+
+notes: >
+  Tao-wiki category: 1(a) AI standalone. The flagship case of the corpus and
+  the one that most stresses the rubric.
+
+  Three lessons that survive into Phase 2:
+
+  1. Counterexample does NOT imply small certificate. Press coverage treats
+     "disproved by counterexample" as self-evidently checkable. Here the
+     counterexample was an existence proof with an inexplicit constant. The
+     rubric must score the certificate that actually exists, not the one the
+     problem's logical form suggests.
+
+  2. The transfer direction was from a technique-rich field (ANT) into a
+     technique-poor one (unit distances). This asymmetry is scoreable and is
+     the basis of the 'adjacent technique reservoir' axis.
+
+  3. Prior expert attention did NOT protect the problem. Erdős #90 had
+     widespread attention and fell anyway - so "many people have tried" is
+     weak evidence of intractability, whereas "the field has no adjacent
+     reservoir to import from" may be strong evidence. This directly shapes
+     how Phase 3 should treat heavily-attacked set theory problems.
