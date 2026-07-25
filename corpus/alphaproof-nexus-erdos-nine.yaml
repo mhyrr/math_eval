@@ -103,3 +103,14 @@ notes: >
   Agent (A) - LLM plus compiler feedback, no AlphaProof tool, no evolutionary
   database - could prove all nine, just more expensively on the hardest. The
   sophisticated scaffolding bought cost, not capability.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: FORMAL_PROOF
+  process: GUIDED_SEARCH
+  frontier: ADVANCES
+  inference_mode: DEDUCTION
+  culture: PROBLEM_SOLVING
+  rationale: >
+    Purest GUIDED_SEARCH in the corpus. DEDUCTION because Lean is the ground
+    truth and the loop is generate-then-derive. Base rate 9/353.

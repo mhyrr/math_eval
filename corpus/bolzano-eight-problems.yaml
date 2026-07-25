@@ -69,3 +69,15 @@ notes: >
   taste, the relevant prior is nearer the Bolzano end. If they are drawn from
   a standing list of famous open problems, it is nearer 1-3%. The rubric should
   make the analyst declare which they are doing.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: INFORMAL_PROOF
+  process: GUIDED_SEARCH
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: MIXED
+  rationale: >
+    GUIDED_SEARCH with an LLM verifier rather than a proof assistant - a
+    materially weaker guarantee than the Lean cases sharing this cell. The
+    taxonomy does not currently distinguish verifier strength. Phase 2 gap.

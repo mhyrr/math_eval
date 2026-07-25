@@ -1,0 +1,56 @@
+id: ch-erdos-1068
+area: ch-adjacent-combinatorics
+title: "Erdos #1068 -- countable infinitely connected subgraph in a graph of chromatic number aleph_1"
+statement: >
+  Does every graph with chromatic number aleph_1 contain a COUNTABLE subgraph
+  which is infinitely connected?
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/1068.lean
+    what: "Lean statement, `@[category research open, AMS 5]` at repo HEAD 7587c62 (2026-07-25)."
+    tier: PRIMARY
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/1067.lean
+    what: "The neighbouring problem #1067 (must such a graph contain an infinitely connected subgraph of chromatic number aleph_1) is `research solved` with answer False -- Komjath consistently, then Soukup with no extra set-theoretic assumptions, then an elementary example by Bowler and Pitz (2024). Its Lean formalization is attributed: 'formalized in Lean by Alexeev using Aristotle and Aleph Prover', with a link to the proof."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: true
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: UNIVERSAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 3
+evaluator_availability: 0
+formal_library_coverage: 3
+reservoir_proximity: 2
+witness_representability: 2
+independence_risk: 3
+
+formalizable_without_ambiguity: true
+
+axis_rationale: >
+  B2=3, and it is the only problem in the survey where that score rests on a
+  demonstration rather than an inference. The immediately neighbouring problem
+  #1067 -- same ambient theory, same chromaticCardinal machinery, same
+  InfinitelyConnected predicate -- was actually formalized in Lean, by Alexeev
+  using Aristotle and Aleph Prover, in January 2026. The library demonstrably
+  covers this corner because someone compiled a proof in it.
+  A=3: the resolution of #1067 went from a consistency result (Komjath 2013) to a
+  ZFC construction (Soukup 2015) to "a simpler elementary example" (Bowler-Pitz
+  2024). That trajectory -- towards a short, checkable, ZFC certificate -- is the
+  best evidence in the survey that this corner of infinite graph theory has
+  genuinely cheap certificates available.
+  E=3: #1067 was settled in ZFC, so the neighbourhood is not independence-bound
+  even though its earliest resolutions were consistency results.
+  This is the closest thing to a candidate the survey contains, and the reason is
+  worth stating plainly: it is the one problem where a proof assistant has been
+  shown to reach the ambient theory AND the neighbouring result turned out to have
+  an elementary ZFC proof. Both facts are about #1067, not about #1068.
+
+unverifiable_claims:
+  - "The Aristotle/Aleph Prover formalization of #1067 is a TRANSLATION of the Bowler-Pitz proof, not a discovery. The wiki logs it in section 2(b) (Formalization) with prior literature GREEN. Nothing here shows an AI system finding an argument in this area."
+  - "Whether #1068 is genuinely harder than #1067 or merely unattacked is not established. If it is the latter, the honest verdict would be Route N -- but prior_attention is HIGH by construction in this territory and I have no evidence of neglect."

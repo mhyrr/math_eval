@@ -1,0 +1,48 @@
+id: brd-dobrinen-6-3
+area: big-ramsey-degrees
+title: "Dobrinen Problem 6.3 -- big Ramsey structures and the KPT correspondence"
+statement: >
+  Does every homogeneous structure with finite big Ramsey degrees also carry a big
+  Ramsey structure? Is there an exact correspondence, in the vein of the
+  Kechris-Pestov-Todorcevic correspondence, between big Ramsey structures and
+  topological dynamics?
+
+sources:
+  - url: https://arxiv.org/abs/2110.00655
+    what: "Dobrinen, ICM 2022 Proceedings. Problem 6.3, p.18. Notes Zucker's work established a connection 'but not a complete correspondence yet'."
+    tier: PRIMARY
+  - url: https://arxiv.org/abs/2407.17958
+    what: "Hubicka and Zucker, 'A survey on big Ramsey structures' (2024-07-25, rev 2025-06-05). Unifies scattered results and shows standard proof methods automatically yield big Ramsey structures -- bears directly on the first half of 6.3."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 1
+reservoir_proximity: 4
+witness_representability: 1
+independence_risk: 5
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  C=4: the KPT correspondence is the paradigm case of machinery imported from
+  topological dynamics into structural Ramsey theory, and 6.3 asks to complete an
+  import that is already half done.
+  A=1: establishing a correspondence theorem is not a short certificate. The
+  Hubicka-Zucker survey exists because the results were scattered enough to need
+  unifying, which is itself evidence of verification cost.
+  G0 = null: Hubicka-Zucker (2024/25) explicitly advances the first half. How much
+  of 6.3 survives is not determined here.
+
+unverifiable_claims:
+  - "I read the Hubicka-Zucker abstract, not the paper. Whether 'standard proof methods automatically yield such structures' answers Dobrinen's first question in general or only for the classes they treat is unknown to this survey."

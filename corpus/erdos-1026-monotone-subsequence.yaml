@@ -98,3 +98,16 @@ notes: >
   distinguish "an AI-assisted group will close this in 48 hours" from "an AI
   will discover something new here" will mislead. Phase 3 should score these
   separately.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: CITATION
+  process: RETRIEVAL
+  frontier: SURFACES
+  inference_mode: TRANSPORT
+  culture: MIXED
+  rationale: >
+    Coded by what CLOSED it: a human locating Baek-Koizumi-Ueoro (2024). Four
+    AI tools contributed upstream (see contributions list in the file) but
+    none closed it, and AI deep-research explicitly failed to find the paper.
+    MIXED: monotone subsequences closed via square-packing.

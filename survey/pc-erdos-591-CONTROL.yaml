@@ -1,0 +1,47 @@
+id: pc-erdos-591-CONTROL
+area: partition-calculus
+title: "Erdos #591 -- CONTROL: closed by Schipperus (2010), found twice by AI literature search"
+statement: >
+  A countable-ordinal partition problem resolved by Rene Schipperus, 'Countable
+  partition ordinals', Annals of Pure and Applied Logic (2010), 1195-1215. Included
+  as a NEGATIVE CONTROL: it is the one problem in this territory where the public
+  record shows AI producing a green outcome, and the mechanism was retrieval.
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/591.lean
+    what: "Lean statement, `@[category research solved, AMS 3]`, citing Schipperus (2010)."
+    tier: PRIMARY
+  - url: https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems
+    what: "Frozen 2026-06-30. Section 2(a) (Literature search) logs it TWICE: ChatGPT Deep Research on 17 Jan 2026 and Aletheia on 1 Feb 2026, both GREEN 'Full solution found'."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: false
+no_new_theory_required: true
+verification_standard_exists: true
+g0_checked_rigorously: true
+
+form: UNIVERSAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 2
+evaluator_availability: 0
+formal_library_coverage: 3
+reservoir_proximity: 1
+witness_representability: 2
+independence_risk: 4
+
+formalizable_without_ambiguity: true
+
+axis_rationale: >
+  Scored to fail G0, which is the correct treatment and the whole reason this row
+  exists. The problem was closed in 2010; two independent AI systems found the
+  paper in 2026 and both were logged GREEN. Without G0 this is indistinguishable
+  from a discovery, and it is the same failure mode as the October 2025 GPT-5
+  episode and gpt5pro-convex-optimization-bound in the Phase 1 corpus.
+  It is also the only GREEN primary-or-secondary AI outcome in this territory
+  that is not a formalization -- and it is retrieval.
+
+unverifiable_claims:
+  - "I did not read Schipperus (2010) and cannot confirm it fully resolves what Erdos asked, only that DeepMind's Lean file marks the problem `research solved` and cites it."

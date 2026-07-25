@@ -1,0 +1,50 @@
+id: pc-erdos-598
+area: partition-calculus
+title: "Erdos #598 -- colouring countable subsets with (2^aleph_0)^+ colours"
+statement: >
+  Let m be an infinite cardinal and let kappa = (2^aleph_0)^+ be the successor of
+  the continuum. Can one colour the countable subsets of m using kappa many
+  colours so that every X subset of m with |X| = kappa contains subsets of all
+  possible colours?
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/598.lean
+    what: "Lean statement, `@[category research open, AMS 3 5]` at repo HEAD 7587c62 (2026-07-25). Defines kappa as Order.succ (2 ^ aleph_0)."
+    tier: PRIMARY
+  - url: https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems
+    what: "Frozen 2026-06-30. Section 1(d) (AI collaborating with humans) logs Przemek Chojecki with Aristotle and GPT-5.4 Pro, 22 Apr 2026, outcome WHITE (unverified) 'Candidate partial result'."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: true
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: EXISTENTIAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 1
+reservoir_proximity: 2
+witness_representability: 1
+independence_risk: 2
+
+formalizable_without_ambiguity: true
+
+axis_rationale: >
+  E=2: the statement is parameterised by (2^aleph_0)^+, so its truth is entangled
+  with the value of the continuum. Whether ZFC settles it is not established and
+  the answer plausibly varies by model. This is the "specialists split" band.
+  A=1: verifying a colouring of [m]^omega with kappa colours has the shape of the
+  erdos-1196 anchor, not the erdos-90 one -- there is no short certificate and
+  the checking community is small.
+  This problem is the survey's clearest instance of the pattern the wiki records:
+  a named human plus a frontier model produced a candidate partial result in
+  April 2026 which was still unverified when the census froze ten weeks later.
+  A=1 is the reason. Nobody could cheaply check it.
+
+unverifiable_claims:
+  - "The content of the Chojecki candidate partial result is not recorded on the wiki beyond the WHITE colour code and the phrase 'Candidate partial result'. Whether it is correct, and what it claims, is unknown to this survey."

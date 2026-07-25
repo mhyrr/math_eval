@@ -61,3 +61,15 @@ notes: >
   call major advances. Competition capability saturating tells you almost
   nothing about research tractability. This case exists in the corpus so the
   rubric does not accidentally import a benchmark axis.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: FORMAL_PROOF
+  process: GUIDED_SEARCH
+  frontier: MATCHES
+  inference_mode: DEDUCTION
+  culture: PROBLEM_SOLVING
+  rationale: >
+    MATCHES, not ADVANCES: competition problems come with a guarantee that a
+    solution exists and is findable in hours. Included to keep a benchmark
+    axis out of the rubric.

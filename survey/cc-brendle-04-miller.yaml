@@ -1,0 +1,45 @@
+id: cc-brendle-04-miller
+area: cardinal-characteristics
+title: "Miller Problem 9.1 (Brendle Problem 4) -- consistently no P-points and no Q-points?"
+statement: >
+  Is it consistent that there are simultaneously no P-points and no Q-points?
+  Brendle notes c > aleph_2 must hold in such a model, because d = aleph_1 implies
+  existence of Q-points while d = c implies (even generic) existence of P-points;
+  and that since d = aleph_1 in all known models for no P-points, a simpler
+  problem may be Problem 5: is it consistent that d >= aleph_2 and there are no
+  P-points?
+
+sources:
+  - url: https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/2042-01.pdf
+    what: "Brendle, RIMS Kokyuroku 2042 (2017). Problem 4, p.5, attributed to Miller [Mi4, Problem 9.1], with the c > aleph_2 argument."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 0
+reservoir_proximity: 1
+witness_representability: 0
+independence_risk: 0
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  A classical problem, attributed to Miller and unresolved long enough to have
+  acquired a folklore reduction. It scores identically to the rest of this slice
+  on every axis, which is itself the finding: within cardinal characteristics the
+  rubric has no resolving power, because A, B1, B2, D and E are pinned at the
+  bottom by the shape of the questions rather than by anything about the
+  individual problems.
+
+unverifiable_claims:
+  - "Current open status unverified (2017 source)."

@@ -1,0 +1,50 @@
+id: brd-uncountable
+area: big-ramsey-degrees
+title: "Big Ramsey degrees at uncountable cardinals (kappa-rationals, kappa-Rado graph)"
+statement: >
+  Extend the theory of big Ramsey degrees from countable homogeneous structures to
+  uncountable ones. Shelah proved, assuming certain large cardinals, that the
+  Halpern-Lauchli theorem holds for trees 2^(<kappa) where kappa is measurable;
+  Dzamonja, Larson and Mitchell used a modification to characterise big Ramsey
+  degrees for the kappa-rationals and the kappa-Rado graph. Dobrinen describes the
+  field for uncountable homogeneous structures as "still quite open".
+
+sources:
+  - url: https://arxiv.org/abs/2110.00655
+    what: "Dobrinen, ICM 2022 Proceedings, p.19. Quotes the large-cardinal dependence and the 'still quite open' assessment. Cites Dzamonja-Larson-Mitchell and Zhang's tail cone version of Halpern-Lauchli at a large cardinal."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 0
+reservoir_proximity: 3
+witness_representability: 1
+independence_risk: 1
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  E=1 and this row is why the rebuilt axis has that band. The known results here
+  are not ZFC theorems: Shelah's Halpern-Lauchli at kappa assumes a measurable
+  cardinal, and the Dzamonja-Larson-Mitchell characterisations inherit that. The
+  live question is consistency strength -- how much large cardinal is actually
+  needed -- which is a different kind of question from anything in the Phase 1
+  corpus and is invisible to the reverse-mathematics ladder the v1.1 axis used.
+  Contrast brd-dobrinen-6-1 at E=5. The same subject at countable and uncountable
+  cardinality lands five bands apart. That spread is the strongest evidence that
+  the rebuilt axis is measuring something real rather than reproducing a constant.
+  B2=0: no proof assistant has large-cardinal-relative combinatorics at all.
+
+unverifiable_claims:
+  - "No specific open question is stated here -- Dobrinen characterises the area rather than posing a numbered problem. This row scores an area, which is weaker than the rest of the survey and should be read as such."
+  - "Whether the large-cardinal hypotheses in Shelah's and Zhang's results are necessary or merely sufficient is not established here. E=1 assumes they are load-bearing."

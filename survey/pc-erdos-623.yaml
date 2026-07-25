@@ -1,0 +1,48 @@
+id: pc-erdos-623
+area: partition-calculus
+title: "Erdos #623 -- infinite free sets for a choice function at aleph_omega"
+statement: >
+  Let X be a set of cardinality aleph_omega and let f map the finite subsets of X
+  into X with f(A) not in A for all A. Must there exist an infinite Y subset of X
+  that is independent, meaning f(B) not in Y for every finite B subset of Y?
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/623.lean
+    what: "Lean statement, `@[category research open, AMS 3]` at repo HEAD 7587c62 (2026-07-25)."
+    tier: PRIMARY
+  - url: https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems
+    what: "Frozen 2026-06-30. Section 1(d) logs Sungchul Lee with GPT-5.5 Pro, 4 Jun 2026, outcome WHITE (unverified) 'Candidate full solution'."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: true
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: UNIVERSAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 2
+evaluator_availability: 0
+formal_library_coverage: 1
+reservoir_proximity: 3
+witness_representability: 1
+independence_risk: 3
+
+formalizable_without_ambiguity: true
+
+axis_rationale: >
+  C=3: free-set theorems of this kind sit at the junction of partition calculus
+  and the combinatorics of singular cardinals, where Shelah's pcf theory is the
+  obvious unexploited machinery. That is a real adjacent reservoir, which is why
+  this scores above the rest of the partition-calculus slice -- but pcf is not
+  an unasked field in the erdos-90 sense. Set theorists know it exists. Scoring
+  C=4 here would be scoring the reservoir's existence rather than its neglect.
+  E=3: aleph_omega is singular, and free-set results at singulars are ZFC
+  theorems in the Erdos-Hajnal tradition rather than independence phenomena.
+
+unverifiable_claims:
+  - "The Sungchul Lee / GPT-5.5 Pro candidate full solution from 4 Jun 2026 was still unverified when the wiki froze on 30 Jun 2026. I have no information on its correctness. If it is right, this row is a G0 failure in waiting."
+  - "The pcf connection driving C=3 is my inference from the singular cardinal aleph_omega, not a sourced claim that any specific paper applies pcf to this problem."

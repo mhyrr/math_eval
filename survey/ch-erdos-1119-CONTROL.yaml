@@ -1,0 +1,57 @@
+id: ch-erdos-1119-CONTROL
+area: ch-adjacent-combinatorics
+title: "Erdos #1119 -- CONTROL: known independent of ZFC (Wetzel-type problem on entire functions)"
+statement: >
+  Let m be an infinite cardinal with aleph_0 < m < c. Let {f_alpha} be a family of
+  entire functions such that for every z_0 in C there are at most m distinct values
+  f_alpha(z_0). Must {f_alpha} have cardinality at most m? The answer is yes if
+  m^+ < c, so the question reduces to m^+ = c, where it is UNDECIDABLE: Kumar-Shelah
+  (2017) produced a model of c = aleph_2 in which the answer is yes with m = aleph_1;
+  Schilhan-Weinert (2024) produced a different model of c = aleph_2 in which it is no.
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/1119.lean
+    what: "Lean statement at repo HEAD 7587c62 (2026-07-25). Headline theorem carries answer(sorry) with the comment that the question 'is independent of ZFC... neither provable nor refutable from the usual axioms of set theory'. The Erdos (1964) results under c > aleph_1 and under CH are formalized separately as `research solved` variants."
+    tier: PRIMARY
+  - url: https://www.isa-afp.org/entries/Wetzels_Problem.html
+    what: "Paulson, 'Wetzel's problem' (AFP). The classical Erdos 1964 CH-equivalence formalized in Isabelle/HOL, combining complex analysis with ZFC_in_HOL. Demonstrates that CH-EQUIVALENCES are formalizable even though CH-INDEPENDENCE is not."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: false
+no_new_theory_required: true
+verification_standard_exists: true
+g0_checked_rigorously: true
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 2
+evaluator_availability: 0
+formal_library_coverage: 2
+reservoir_proximity: 3
+witness_representability: 0
+independence_risk: 1
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  Scored to fail G0 -- it is settled, in the specific sense that its
+  undecidability is established. Included because it is the survey's calibration
+  point for the boundary the whole phase turns on.
+  Compare the two halves. Erdos's 1964 theorems -- "if c > aleph_1 then every such
+  family is countable" and "under CH there is an uncountable one" -- are ZFC
+  theorems about a CH hypothesis, and Paulson formalized exactly this class of
+  statement in Isabelle/HOL as Wetzel's problem. The Kumar-Shelah and
+  Schilhan-Weinert model constructions are consistency statements, and DeepMind's
+  file records them in PROSE, outside any theorem, with the note that "consistency
+  statements about models of ZFC are not directly formalizable inside Lean's fixed
+  model".
+  Same problem. One half formalized in a proof assistant, the other half written
+  in a comment because it cannot be. That is the B2 bifurcation made visible
+  inside a single file, and it is why B2 for this territory is neither 0 nor 3 but
+  depends entirely on which side of the line a question falls.
+
+unverifiable_claims:
+  - "I did not read Kumar-Shelah (2017) or Schilhan-Weinert (2024). The independence claim is DeepMind's, sourced to those two papers in the Lean file's reference block."

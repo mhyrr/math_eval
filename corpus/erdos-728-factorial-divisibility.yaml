@@ -89,3 +89,16 @@ notes: >
   covers the ambient theory. Kummer's theorem and p-adic valuations are in
   mathlib. Iterated forcing and cardinal characteristics are not. That
   dependency is the load-bearing observation for Phase 3.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: FORMAL_PROOF
+  process: GUIDED_SEARCH
+  frontier: ADVANCES
+  inference_mode: DEDUCTION
+  culture: PROBLEM_SOLVING
+  rationale: >
+    The case that motivated splitting the axis. Formerly contested between
+    SEARCH_PLUS_VERIFIER (process) and NOVEL_ARGUMENT (product); now both are
+    recorded and the conflict is gone. Kummer's theorem is native to the field
+    - no import, so PROBLEM_SOLVING not MIXED.

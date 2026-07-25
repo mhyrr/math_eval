@@ -1,0 +1,51 @@
+id: cc-mejia-16
+area: cardinal-characteristics
+title: "Mejia Problem 16 -- is cov(M) < d < non(N) < cof(N) consistent?"
+statement: >
+  Is it consistent that cov(M) < d < non(N) < cof(N)? A Cichon-diagram
+  constellation on the right-hand side of the diagram. Brendle notes that "the
+  consistency dual to (*) above is not known because it is unclear what 'going
+  through subalgebras of ...' should be replaced with. The most promising choice
+  is a multi-dimensional matrix iteration."
+
+sources:
+  - url: https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/2042-01.pdf
+    what: "Brendle, RIMS Kokyuroku 2042 (2017). Problem 16, p.8, attributed to Mejia, in the section on Cichon's diagram constellations."
+    tier: PRIMARY
+  - url: https://ems.press/journals/jems/articles/3375044
+    what: "Goldstern, Kellner, Mejia, Shelah, 'Cichon's maximum without large cardinals', JEMS (2022). Establishes that all ten Cichon values can be separated without large cardinals, superseding the earlier four-strongly-compact construction."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: false
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 0
+reservoir_proximity: 2
+witness_representability: 0
+independence_risk: 0
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  G1 = FAIL: Brendle states that the dual construction is unknown because the key
+  step has no known replacement, and names multi-dimensional matrix iteration as
+  a hoped-for technique rather than an available one.
+  The Cichon's maximum history is the survey's one clean demonstration that Axis
+  E's lower bands track something real and movable. Separating ten Cichon values
+  required four strongly compact cardinals in 2017 (Goldstern-Kellner-Shelah) and
+  required nothing beyond ZFC by 2022 (with Mejia). The problem did not change;
+  the forcing technique did. Under the v1.1 reverse-mathematics anchors that
+  five-year movement is invisible, because the whole episode happens above the
+  top of the Big Five ladder.
+
+unverifiable_claims:
+  - "Current open status unverified (2017 source). Given that Brendle's Problem 13 in the same list was overtaken by Cichon's maximum, this row may be too."

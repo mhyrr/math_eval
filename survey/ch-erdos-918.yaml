@@ -1,0 +1,51 @@
+id: ch-erdos-918
+area: ch-adjacent-combinatorics
+title: "Erdos #918 -- a graph of chromatic number aleph_2 whose aleph_1-sized subgraphs are countably chromatic"
+statement: >
+  Is there a graph with aleph_2 vertices and chromatic number aleph_2 such that
+  every subgraph on aleph_1 vertices has chromatic number at most aleph_0? A
+  companion part asks for a graph with aleph_(omega+1) vertices and chromatic
+  number aleph_1 such that every subgraph on aleph_omega vertices has chromatic
+  number at most aleph_0. Due to Erdos and Hajnal.
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/918.lean
+    what: "Lean statement, four parts each `@[category research open, AMS 5]` at repo HEAD 7587c62 (2026-07-25), in both induced-subgraph and general-subgraph forms. A formalisation note records that the source [ErHa68b] uses only induced subgraphs and that it is unclear whether the general-subgraph question is open."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: EXISTENTIAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 2
+evaluator_availability: 0
+formal_library_coverage: 2
+reservoir_proximity: 2
+witness_representability: 3
+independence_risk: 2
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  D=3 and this is the highest witness-representability score in the survey. The
+  answer is a graph on aleph_2 vertices -- not finite -- but constructions of this
+  kind in the Erdos-Hajnal-Shelah tradition are given by finite recipes over
+  ordinals. That is precisely the D=3 anchor: "a finite description generating an
+  infinite family", the sawin-unit-distance-explicit shape.
+  Route W is still blocked, by B1=0. Verifying that a proposed graph works means
+  checking a statement about every aleph_1-sized subgraph. There is nothing to run.
+  That combination -- the survey's best witness paired with no evaluator -- is the
+  single cleanest illustration of why the B-split introduced in v1.1 matters.
+  G0 and formalizable_without_ambiguity are both marked down on the source's own
+  note that it is unclear whether the general-subgraph version is open, and that
+  the original paper is about induced subgraphs. The statement has a genuine
+  ambiguity, recorded by the formalizers themselves.
+
+unverifiable_claims:
+  - "DeepMind's own formalisation note says 'It is not clear whether this question for general subgraphs is open or not.' G0 = null follows from the source, not from my failure to search."

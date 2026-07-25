@@ -1,0 +1,49 @@
+id: cc-cichon-evasion-CONTROL
+area: cardinal-characteristics
+title: "CONTROL -- Cichon's maximum with the evasion number: claimed, gap found, later proved"
+statement: >
+  Can the evasion number e be added to Cichon's maximum as an eleventh distinct
+  value? Resolved by Yamazoe (2024), who proves the consistency of
+  aleph_1 < add(N) < cov(N) < b < e < non(M) < cov(M) < d < non(N) < cof(N) < 2^aleph_0.
+  Included as a NEGATIVE CONTROL for two reasons: it is a G0 failure by 2026, and
+  its history is the sharpest available measurement of certificate cost in this
+  territory.
+
+sources:
+  - url: https://arxiv.org/html/2401.14600v1
+    what: "Yamazoe, 'Cichon's maximum with evasion number', arXiv 2401.14600, 2024-01-26. Footnote p.8: 'Goldstern, Kellner, Mejia and Shelah [GKMS21] stated that they proved the same separation result, but later found a gap in their proof.'"
+    tier: PRIMARY
+  - url: https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/cichons-maximum-with-evasion-number/A41D6A4487617182FB8513FFD976BE7E
+    what: "Published version, Journal of Symbolic Logic. Confirms the result is refereed, which is rare in this corpus."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: false
+no_new_theory_required: false
+verification_standard_exists: true
+g0_checked_rigorously: true
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 0
+reservoir_proximity: 2
+witness_representability: 0
+independence_risk: 0
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  Scored to fail G0 -- it was resolved in 2024 and any instrument nominating it in
+  2026 would be repeating the October 2025 GPT-5 failure.
+  Its evidentiary value is the gap. Four authors, one of them Shelah, announced a
+  separation result and later found their own proof flawed; the theorem was then
+  proved by someone else with a different method. If the strongest team in the
+  subfield cannot verify its own forcing construction on the first pass, A=1
+  across this slice is not pessimism, it is the observed rate.
+
+unverifiable_claims:
+  - "The [GKMS21] reference and the gap are reported in Yamazoe's footnote. I did not locate a retraction, erratum, or statement from the four authors themselves."

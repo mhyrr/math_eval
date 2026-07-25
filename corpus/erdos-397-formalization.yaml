@@ -54,3 +54,14 @@ notes: >
   signs off. That pipeline appears in erdos-728, erdos-1026, and across the
   200+ formalization entries in the wiki. Worth having a row for it even at
   low confidence, provided the low confidence is on the record.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: FORMAL_PROOF
+  process: GUIDED_SEARCH
+  frontier: ADVANCES
+  inference_mode: DEDUCTION
+  culture: PROBLEM_SOLVING
+  rationale: >
+    THIN source quality - coding is provisional and inherits the file's
+    caveats.

@@ -1,0 +1,59 @@
+id: brd-dobrinen-6-1
+area: big-ramsey-degrees
+title: "Dobrinen Problem 6.1 -- which SAP Fraisse classes have Fraisse limits with finite big Ramsey degrees"
+statement: >
+  For which SAP Fraisse classes does the Fraisse limit have finite big Ramsey
+  degrees? Subquestions: given an SAP Fraisse class with finitely many relations
+  and a finite set of forbidden substructures, does its Fraisse limit have finite
+  big Ramsey degrees? For such classes with relations of arity at most two, do big
+  Ramsey degrees always exist?
+
+sources:
+  - url: https://arxiv.org/abs/2110.00655
+    what: "Dobrinen, 'Ramsey theory of homogeneous structures: current trends and open problems', ICM 2022 Proceedings. Problem 6.1, p.18."
+    tier: PRIMARY
+  - url: https://arxiv.org/abs/2505.22620
+    what: "Balko, Chodounsky, Dobrinen, Hubicka, Konecny, Vena, Zucker (2025) characterise big Ramsey degrees of Fraisse limits of finitely constrained free amalgamation classes in finite binary languages -- which is the arity-at-most-two subquestion. STATUS OF 6.1 IN GENERAL IS THEREFORE UNCLEAR TO THIS SURVEY."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 1
+formal_library_coverage: 1
+reservoir_proximity: 4
+witness_representability: 2
+independence_risk: 5
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  G0 = null, and this row is the reason the survey needed that option. Dobrinen
+  stated 6.1 in 2021; by 2025 Balko et al. had characterised exactly the
+  arity-at-most-two subcase she flagged. A classification question whose
+  subquestions fall one at a time does not have a single well-defined open status,
+  and asserting one would be the G0 failure this project keeps hitting.
+  C=4: the field is an active multi-discipline intersection -- Dobrinen names
+  "logic, topological Ramsey spaces, and category theory" as the recent methods,
+  and the KPT correspondence links it to topological dynamics. That is the Gowers
+  MIXED shape: a problem-solving question being closed with imported machinery.
+  E=5: big Ramsey degrees of COUNTABLE structures are statements about countable
+  objects and sit squarely inside reverse-mathematics range. Angles d'Auriac,
+  Cholak, Dzhafarov, Monin and Patey computed exactly this for Milliken,
+  Halpern-Lauchli, Devlin and the Rado graph. This is the only part of the survey
+  where the v1.1 reverse-math anchors were the right instrument.
+  B2=1 nonetheless: nothing of this theory is formalized in any proof assistant.
+  High E with low B2 is precisely the combination the B-split was introduced to
+  represent.
+
+unverifiable_claims:
+  - "I did not read Balko et al. (2025) and cannot say how much of Problem 6.1 it closes. The relationship between 'finitely constrained free amalgamation classes in finite binary languages' and 'SAP Fraisse classes with relations of arity at most two' is asserted by a search summary, not verified here."
+  - "formalizable_without_ambiguity is false because 6.1 is a classification request, not a proposition. There is no single statement to formalize."

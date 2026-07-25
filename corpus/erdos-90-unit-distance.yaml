@@ -120,3 +120,17 @@ notes: >
      weak evidence of intractability, whereas "the field has no adjacent
      reservoir to import from" may be strong evidence. This directly shapes
      how Phase 3 should treat heavily-attacked set theory problems.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: INFORMAL_PROOF
+  process: DIRECT_GENERATION
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: MIXED
+  rationale: >
+    NOT a WITNESS despite being a counterexample: the model's exponent was
+    inexplicit. Culture MIXED is the whole point - a problem-solving question
+    (Erdos, unit distances) closed with theory-building machinery (class field
+    towers). Gowers, co-signing the digest: the ideas 'were present in the
+    literature already'.

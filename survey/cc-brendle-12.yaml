@@ -1,0 +1,50 @@
+id: cc-brendle-12
+area: cardinal-characteristics
+title: "Brendle-Fischer Problem 12 -- is b < a < s consistent?"
+statement: >
+  Is it consistent that b < a < s? Brendle sketches the natural approach -- a
+  three-dimensional matrix iteration adding Cohen reals in one direction, taking
+  ultrapowers in the second, and forcing with Mathias forcing relative to a
+  carefully constructed ultrafilter in the third -- and identifies the obstacle:
+  "we do not know how to show the completeness of all the embeddings in this
+  three-dimensional setting". Raghavan and Shelah proved the consistency of
+  b < s < a using Boolean ultrapowers assuming a supercompact cardinal.
+
+sources:
+  - url: https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/2042-01.pdf
+    what: "Brendle, RIMS Kokyuroku 2042 (2017). Problem 12, p.7, attributed to Brendle and Fischer, with the three-dimensional matrix iteration discussion following it."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: false
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 0
+reservoir_proximity: 2
+witness_representability: 0
+independence_risk: 0
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  G1 = FAIL on the source's own words. Brendle names the missing ingredient --
+  completeness of embeddings in a three-dimensional matrix iteration -- and no
+  such technique existed when he wrote. A problem whose expert statement is "here
+  is the approach and here is the machinery that does not yet exist" is the
+  cleanest G1 failure in the survey.
+  This row also shows what "reservoir" means in this subfield. The machinery
+  being reached for is not another field's; it is a hypothetical extension of the
+  subfield's own tool, one dimension up. That is theory-building, not transfer,
+  and Route R is not what it needs.
+
+unverifiable_claims:
+  - "Whether three-dimensional matrix iterations have since been made to work is unverified. Brendle notes in 2017 that Fischer-Friedman-Mejia-Montoya used them once, in a 'rather special' setting."
+  - "Current open status unverified (2017 source)."

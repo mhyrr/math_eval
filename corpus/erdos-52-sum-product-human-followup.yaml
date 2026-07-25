@@ -71,3 +71,15 @@ notes: >
   should not ask only "which single problem can an AI close" but "which
   problem, if closed, would reveal a reservoir for the neighbourhood." Those
   are different questions with different answers.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: WITNESS
+  process: HUMAN_CONVENTIONAL
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: MIXED
+  rationale: >
+    CONTROL CASE - no AI. Coded to test Flag B: if humans also code non-
+    abductive, the zero-abduction finding is a property of the problem
+    culture, not of the models. They do. See TAXONOMY.md Flag B.

@@ -100,6 +100,71 @@ Occurred in **5 of 20** cases (25%).
 | Algebra                                              | 1 |
 | Mixed - the whole Erdős corpus                       | 1 |
 
+
+# Two-dimensional taxonomy
+
+## Certificate type x production process
+
+| certificate \ process | RETR | DIRECT | SEARCH | TRANS | SEEDED | HUMAN | tot |
+|-----------------------|------|--------|--------|-------|--------|-------|-----|
+| WITNESS               | .    | 1      | 3      | .     | .      | 2     | 6   |
+| FORMAL_PROOF          | .    | .      | 4      | 2     | .      | .     | 6   |
+| INFORMAL_PROOF        | .    | 3      | 1      | .     | 1      | .     | 5   |
+| CITATION              | 3    | .      | .      | .     | .      | .     | 3   |
+| EVIDENCE              | .    | .      | .      | .     | .      | .     | 0   |
+| TOTAL                 | 3    | 4      | 8      | 2     | 1      | 2     | 20  |
+
+9 of 30 cells occupied.
+
+## Frontier
+
+| frontier | n  | share |                      |
+|----------|----|-------|----------------------|
+| ADVANCES | 13 | 65%   | #############....... |
+| SURFACES | 5  | 25%   | #####............... |
+| MATCHES  | 1  | 5%    | #................... |
+| BEHIND   | 1  | 5%    | #................... |
+
+## Inference mode (Peirce)
+
+| inference_mode | n  | share |                      |
+|----------------|----|-------|----------------------|
+| INDUCTION      | 11 | 55%   | ###########......... |
+| TRANSPORT      | 5  | 25%   | #####............... |
+| DEDUCTION      | 4  | 20%   | ####................ |
+
+## Gowers culture
+
+| culture         | n  | share |                      |
+|-----------------|----|-------|----------------------|
+| PROBLEM_SOLVING | 13 | 65%   | #############....... |
+| MIXED           | 6  | 30%   | ######.............. |
+| THEORY_BUILDING | 1  | 5%    | #................... |
+
+## Gowers culture x frontier
+
+| culture \ frontier | ADVANCES | MATCHES | BEHIND | SURFACES |
+|--------------------|----------|---------|--------|----------|
+| PROBLEM_SOLVING    | 7        | 1       | 1      | 4        |
+| THEORY_BUILDING    | 1        | .       | .      | .        |
+| MIXED              | 5        | .       | .      | 1        |
+
+## Frontier-advancing AI cases only (n=11 of 18 AI cases)
+
+| case                             | certificate    | process              | culture         |
+|----------------------------------|----------------|----------------------|-----------------|
+| alphaevolve-math-constructions   | WITNESS        | GUIDED_SEARCH        | PROBLEM_SOLVING |
+| alphaevolve-matmul-4x4           | WITNESS        | GUIDED_SEARCH        | PROBLEM_SOLVING |
+| alphaproof-nexus-erdos-nine      | FORMAL_PROOF   | GUIDED_SEARCH        | PROBLEM_SOLVING |
+| bolzano-eight-problems           | INFORMAL_PROOF | GUIDED_SEARCH        | MIXED           |
+| erdos-1196-primitive-sets        | INFORMAL_PROOF | SEEDED_COLLABORATION | MIXED           |
+| erdos-397-formalization          | FORMAL_PROOF   | GUIDED_SEARCH        | PROBLEM_SOLVING |
+| erdos-728-factorial-divisibility | FORMAL_PROOF   | GUIDED_SEARCH        | PROBLEM_SOLVING |
+| erdos-90-unit-distance           | INFORMAL_PROOF | DIRECT_GENERATION    | MIXED           |
+| funsearch-cap-set                | WITNESS        | GUIDED_SEARCH        | PROBLEM_SOLVING |
+| gemini-aletheia-autonomous-erdos | INFORMAL_PROOF | DIRECT_GENERATION    | PROBLEM_SOLVING |
+| jacobian-conjecture-c3           | WITNESS        | DIRECT_GENERATION    | THEORY_BUILDING |
+
 ## Data hygiene
 
 - Flagged-unverifiable claims recorded across corpus: **37**

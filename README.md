@@ -13,10 +13,46 @@ rubric, and a scored survey.
 
 | phase | deliverable | state |
 |---|---|---|
-| 1 — Ground truth corpus | `corpus/` | **complete, awaiting classification review** |
-| 2 — Rubric extraction | `rubric/RUBRIC.md` | not started (gated on Phase 1 review) |
-| 3 — Survey of target territory | `survey/` | not started |
-| — final memo | `memo/FINDINGS.md` | not started |
+| 1 — Ground truth corpus | `corpus/` (20 cases) | **complete** |
+| 2 — Taxonomy + rubric | `rubric/TAXONOMY.md`, `rubric/RUBRIC.md` | **complete (v1.2)** |
+| 3 — Survey of target territory | `survey/` (24 problems), `survey/RESULTS.md` | **complete** |
+| — final memo | `memo/FINDINGS.md` | **complete** |
+
+Phase 2 produced a two-dimensional taxonomy (certificate type × production
+process, plus flags for frontier, Peirce inference mode, and Gowers culture) and
+a gated four-route scoring instrument. Retrodiction against the corpus is in
+`rubric/RETRODICTION.md`: 13/14 resolved cases score `CANDIDATE`, 4/4 negatives
+correctly declined. That is a sanity check, **not** validation — see RUBRIC.md
+Part 4.
+
+## Phase 3 result
+
+**24 open problems from partition calculus, big Ramsey degrees, cardinal
+characteristics and CH-adjacent combinatorics. 0 score `CANDIDATE`. Granting
+every gate the survey could not discharge, 2 — and both flip to `RULED_OUT` if a
+single axis call moves by one point.**
+
+| population | CANDIDATE rate |
+|---|---|
+| Phase 1 corpus, resolved cases | 13/14 = 93% |
+| Phase 3 survey, strict | 0/24 = 0% |
+| Phase 3 survey, optimistic | 2/24 = 8% |
+
+Three routes close for the whole territory on independent grounds: no evaluator
+exists for infinite candidate objects (Route W), the reservoir is drained where
+it is reachable and needs new theory where it is rich (Route R), and prior
+attention is HIGH by construction (Route N). Route F closes because **a
+consistency statement is not expressible in a proof assistant's fixed model** —
+which is DeepMind's own note in the Lean repo that would have to support it, and
+is the resolution of the forcing trap flagged in Phase 2.
+
+The argument is in `memo/FINDINGS.md`; the ranked table in `survey/RESULTS.md`.
+
+Phase 3 also **corrected `corpus/NEGATIVE-SPACE.md`**, which claimed no AI result
+in set theory existed. Eleven wiki entries do exist; every green one is retrieval
+or formalization, and zero primary contributions reached verified status.
+And it **rebuilt Axis E** (v1.2) after finding the reverse-mathematics anchors
+were both a category error and out of range.
 
 ## Layout
 

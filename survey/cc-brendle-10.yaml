@@ -1,0 +1,50 @@
+id: cc-brendle-10
+area: cardinal-characteristics
+title: "Brendle-Raghavan Problem 10 -- is b = s = aleph_1 with a > aleph_1 consistent?"
+statement: >
+  Is it consistent that b = s = aleph_1 and a > aleph_1? Here b is the unbounding
+  number, s the splitting number, a the almost-disjointness number. Brendle notes
+  that in template models max{b,s} is strictly smaller than a but then b is at
+  least aleph_2, and that "having the three cardinals distinct in another order is
+  a much harder problem".
+
+sources:
+  - url: https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/2042-01.pdf
+    what: "Brendle, 'Some problems in forcing theory: large continuum and generalized cardinal invariants', RIMS Kokyuroku 2042 (2017), 1-16. Problem 10, p.7, attributed to Brendle and Raghavan."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 0
+reservoir_proximity: 2
+witness_representability: 0
+independence_risk: 0
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  G0 = null because the source list is nine years old. This is not fastidiousness:
+  Brendle's own Problem 13 in the same list ("is it consistent that eight of the
+  cardinals in Cichon's diagram assume distinct values?") was overtaken by
+  Cichon's maximum, which separates ten. A 2017 problem list in this field cannot
+  be read as current, and I did not verify this particular entry against 2024-26
+  literature.
+  C=2: the machinery being reached for -- templates, matrix iterations, Boolean
+  ultrapowers, ultrapowers of partial orders -- is all native to the subfield and
+  already deployed by the people who posed the problem. This is close to the C=0
+  anchor's "the field's own techniques are the only candidates", raised to 2 only
+  because matrix iterations were themselves imported from Blass-Shelah's work on
+  a different question.
+
+unverifiable_claims:
+  - "Current open status unverified. A search summary reports Brendle and Raghavan asking whether b = s = omega_1 implies a = omega_1, which matches, but that summary is not a source I read."

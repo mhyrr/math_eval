@@ -1,0 +1,52 @@
+id: ch-erdos-1175
+area: ch-adjacent-combinatorics
+title: "Erdos #1175 -- triangle-free subgraphs of prescribed uncountable chromatic number"
+statement: >
+  Let kappa be an uncountable cardinal. Must there exist a cardinal lambda such
+  that every graph with chromatic number lambda contains a triangle-free subgraph
+  with chromatic number kappa? Shelah proved that a negative answer is consistent
+  when kappa = lambda = aleph_1, so the statement is not provable in ZFC.
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/1175.lean
+    what: "Lean statement, `@[category research open, AMS 5]` at repo HEAD 7587c62 (2026-07-25). Carries the load-bearing formalization caveat quoted below."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: true
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 1
+reservoir_proximity: 2
+witness_representability: 0
+independence_risk: 1
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  This row carries the single most important source in Phase 3. DeepMind's
+  formalizers, writing in the repo that would have to support Route F, state:
+  "Shelah's result is a *consistency* statement -- it asserts the existence of a
+  model of ZFC, not a ZFC theorem. Lean operates inside a single (fixed) model of
+  its set theory, so we cannot directly express 'consistent with ZFC' without
+  leaving ZFC. Rather than pretend that Shelah's theorem is a bare ZFC negation,
+  we record it here as an explicit answer(sorry) consistency placeholder."
+  That is the forcing trap resolved from the primary side, and it resolves harder
+  than TAXONOMY.md guessed. The trap was flagged as "cheap to exhibit, expensive
+  to check". It is worse: the certificate is not expressible in the checker at
+  all. B2=1 and formalizable_without_ambiguity=false both follow directly, and no
+  fifth route is needed -- Route F is structurally unavailable, not merely
+  expensive.
+  E=1: Shelah's consistency result means ZFC does not settle the aleph_1 case, so
+  what remains live is which additional axioms do.
+
+unverifiable_claims:
+  - "The Shelah consistency result is cited by DeepMind's file without a bibliographic reference in the portion I read. I did not locate the original paper."

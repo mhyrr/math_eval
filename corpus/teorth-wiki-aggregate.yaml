@@ -97,3 +97,16 @@ notes: >
   The wiki was frozen on 2026-06-30, one month before this corpus was built.
   Anything after that date - including the Jacobian counterexample - is not in
   it, and there is now no community-maintained census running.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: FORMAL_PROOF
+  process: TRANSLATION
+  frontier: SURFACES
+  inference_mode: TRANSPORT
+  culture: PROBLEM_SOLVING
+  rationale: >
+    Coded by modal category: formalization is >200 of ~600 entries. Landing
+    the largest real-world bucket in the cell the old vocabulary had no name
+    for is the strongest evidence that TRANSLATION was a genuine omission
+    rather than a convenience.

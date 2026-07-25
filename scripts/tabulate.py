@@ -169,6 +169,62 @@ def main():
     rows = [[k or "(none)", v] for k, v in fld.most_common()]
     print(table(rows, ["field", "n"]))
 
+    # ================= two-dimensional taxonomy (rubric/TAXONOMY.md) =================
+    def cls(c, k):
+        return (c.get("classification") or {}).get(k)
+
+    CERT = ["WITNESS", "FORMAL_PROOF", "INFORMAL_PROOF", "CITATION", "EVIDENCE"]
+    PROC = ["RETRIEVAL", "DIRECT_GENERATION", "GUIDED_SEARCH", "TRANSLATION",
+            "SEEDED_COLLABORATION", "HUMAN_CONVENTIONAL"]
+
+    print("\n\n# Two-dimensional taxonomy\n")
+
+    print("## Certificate type x production process\n")
+    grid2 = defaultdict(Counter)
+    for c in cases:
+        grid2[cls(c, "certificate_type")][cls(c, "process")] += 1
+    short = {"RETRIEVAL": "RETR", "DIRECT_GENERATION": "DIRECT", "GUIDED_SEARCH": "SEARCH",
+             "TRANSLATION": "TRANS", "SEEDED_COLLABORATION": "SEEDED",
+             "HUMAN_CONVENTIONAL": "HUMAN"}
+    rows = []
+    for t in CERT:
+        row = [t] + [grid2[t].get(p, 0) or "." for p in PROC]
+        row.append(sum(grid2[t].values()))
+        rows.append(row)
+    rows.append(["TOTAL"] + [sum(grid2[t].get(p, 0) for t in CERT) for p in PROC]
+                + [sum(sum(g.values()) for g in grid2.values())])
+    print(table(rows, ["certificate \\ process"] + [short[p] for p in PROC] + ["tot"]))
+
+    occupied = sum(1 for t in CERT for p in PROC if grid2[t].get(p))
+    print(f"\n{occupied} of {len(CERT) * len(PROC)} cells occupied.\n")
+
+    for key, title in [("frontier", "Frontier"), ("inference_mode", "Inference mode (Peirce)"),
+                       ("culture", "Gowers culture")]:
+        cnt = Counter(cls(c, key) for c in cases)
+        print(f"## {title}\n")
+        print(table([[k or "(none)", v, pct(v, n), bar(v, n)] for k, v in cnt.most_common()],
+                    [key, "n", "share", ""]))
+        print()
+
+    # culture x frontier: does the MIXED intersection actually pay?
+    print("## Gowers culture x frontier\n")
+    g3 = defaultdict(Counter)
+    for c in cases:
+        g3[cls(c, "culture")][cls(c, "frontier")] += 1
+    FR = ["ADVANCES", "MATCHES", "BEHIND", "SURFACES"]
+    rows = [[k] + [g3[k].get(f, 0) or "." for f in FR] for k in
+            ["PROBLEM_SOLVING", "THEORY_BUILDING", "MIXED"]]
+    print(table(rows, ["culture \\ frontier"] + FR))
+
+    # AI-only view: drop the human control cases
+    ai = [c for c in cases if cls(c, "process") != "HUMAN_CONVENTIONAL"]
+    adv = [c for c in ai if cls(c, "frontier") == "ADVANCES"]
+    print(f"\n## Frontier-advancing AI cases only (n={len(adv)} of {len(ai)} AI cases)\n")
+    rows = []
+    for c in sorted(adv, key=lambda x: x["id"]):
+        rows.append([c["id"], cls(c, "certificate_type"), cls(c, "process"), cls(c, "culture")])
+    print(table(rows, ["case", "certificate", "process", "culture"]))
+
     # --- data hygiene ---
     thin = [c["id"] for c in cases if c.get("data_quality") == "THIN"]
     unver = sum(len(c.get("unverifiable_claims") or []) for c in cases)

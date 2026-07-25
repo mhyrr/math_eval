@@ -86,3 +86,15 @@ notes: >
   survive contact with the literature. The failure was not mathematical
   competence; it was priority search. That is the same failure mode as the
   October 2025 Erdős episode, from the opposite direction.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: INFORMAL_PROOF
+  process: DIRECT_GENERATION
+  frontier: BEHIND
+  inference_mode: INDUCTION
+  culture: PROBLEM_SOLVING
+  rationale: >
+    The reason Flag A exists. New, correct, and behind the published 1.75/L.
+    The only BEHIND in the corpus, and no other classification scheme in this
+    space can express it.

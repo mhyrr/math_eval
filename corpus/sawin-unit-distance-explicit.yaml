@@ -71,3 +71,15 @@ notes: >
   should probably be aimed instead at "can AI open the route" - which is a
   lower and much more frequently cleared bar, and is the bar this corpus
   actually supports.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: WITNESS
+  process: HUMAN_CONVENTIONAL
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: MIXED
+  rationale: >
+    CONTROL CASE - no AI. Converts the inexplicit #90 existence proof into an
+    explicit exponent, i.e. INFORMAL_PROOF -> WITNESS. Shows the certificate
+    type of a RESULT changes over time; code the snapshot, and date it.

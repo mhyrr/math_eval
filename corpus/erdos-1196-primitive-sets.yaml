@@ -92,3 +92,16 @@ notes: >
   from erdos-728. A rubric that scores certificate size separates them
   immediately. That is the argument for keeping certificate size as a
   first-class axis rather than folding it into a general difficulty score.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: INFORMAL_PROOF
+  process: SEEDED_COLLABORATION
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: MIXED
+  rationale: >
+    Model supplied the frame (von Mangoldt Markov chains); seven
+    mathematicians supplied the 35 pages. SEEDED_COLLABORATION is exactly this
+    shape. MIXED: number theory question, probabilistic machinery 'overlooked
+    since 1935'.

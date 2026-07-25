@@ -84,3 +84,15 @@ notes: >
   notoriously delicate to formalize correctly (quantifier order over models,
   absoluteness, which universe a statement is evaluated in). The
   statement-audit cost there is high even where mathlib coverage exists.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: FORMAL_PROOF
+  process: TRANSLATION
+  frontier: SURFACES
+  inference_mode: TRANSPORT
+  culture: PROBLEM_SOLVING
+  rationale: >
+    THE case for adding TRANSLATION. Under the old vocabulary this had no home
+    and was force-fitted to LITERATURE_RECALL. FORMAL_PROOF x TRANSLATION
+    names it exactly: machine-checked, and mathematically empty.

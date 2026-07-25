@@ -101,3 +101,18 @@ notes: >
   survives, the Dixmier consequences) is where the humans and the follow-on
   model sessions are actually spending effort. That asymmetry - cheap witness,
   expensive aftermath - is a rubric signal in its own right.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: WITNESS
+  process: DIRECT_GENERATION
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: THEORY_BUILDING
+  rationale: >
+    The corpus's only THEORY_BUILDING field with a WITNESS certificate. Affine
+    algebraic geometry is machinery-heavy, but the conjecture was falsifiable
+    by example, so the certificate collapsed to three polynomials. Refutes any
+    rubric rule of the form 'theory-building fields are untractable' - what
+    matters is whether the CLAIM admits a finite counterexample, not how deep
+    the field is.

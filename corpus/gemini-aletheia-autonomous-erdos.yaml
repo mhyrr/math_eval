@@ -64,3 +64,16 @@ notes: >
   decline to call major advances. Olympiad-style capability does not read
   across to research tractability, and any rubric axis that leans on benchmark
   scores as a proxy will be badly calibrated.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: INFORMAL_PROOF
+  process: DIRECT_GENERATION
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: PROBLEM_SOLVING
+  rationale: >
+    Expert-graded natural language, not Lean. DeepMind explicitly declines to
+    claim Level 3/4 significance - ADVANCES is the right flag but the
+    magnitude is small, which the flag does not capture. Possible Phase 2
+    refinement.

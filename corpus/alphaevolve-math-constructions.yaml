@@ -84,3 +84,15 @@ notes: >
   finite-object flavour, the quantity of interest is usually a statement about
   ALL models of ZFC. AlphaEvolve-style search has no purchase there, and this
   should be scored as a hard zero rather than a low number.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: WITNESS
+  process: GUIDED_SEARCH
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: PROBLEM_SOLVING
+  rationale: >
+    WITNESS x GUIDED_SEARCH is the cell where the evaluator IS the certificate
+    checker. That coincidence is the mechanism's entire applicability
+    condition.

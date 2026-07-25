@@ -1,0 +1,53 @@
+id: ch-erdos-602
+area: ch-adjacent-combinatorics
+title: "Erdos #602 -- Property B for almost disjoint families of countable sets"
+statement: >
+  Does every almost-disjoint family of countably infinite sets, whose pairwise
+  intersections all have size not equal to 1, have Property B? That is, is there a
+  2-colouring of the ground set under which no member of the family is
+  monochromatic?
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/602.lean
+    what: "Lean statement, `@[category research open, AMS 3 5]` at repo HEAD 7587c62 (2026-07-25). Defines IsMonochromatic and HasPropertyB; the file also carries three `research solved` and three `textbook` variants."
+    tier: PRIMARY
+  - url: https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems
+    what: "Frozen 2026-06-30. Section 2(a) (Literature search) logs GPT-5.4 Thinking, 20 Apr 2026, outcome YELLOW 'Related results found'. Not a solution -- retrieval that landed near but not on."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: true
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: UNIVERSAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 3
+evaluator_availability: 1
+formal_library_coverage: 2
+reservoir_proximity: 2
+witness_representability: 2
+independence_risk: 2
+
+formalizable_without_ambiguity: true
+
+axis_rationale: >
+  A=3 is the highest certificate-cost score in the survey. A refutation is a
+  specific almost disjoint family with no valid 2-colouring, and the statement is
+  elementary enough that a counterexample could plausibly be written down and
+  checked in the way the gpt5pro-convex-optimization-bound anchor was -- a
+  self-contained argument in a mature area, verifiable in under an hour.
+  B1=1 rather than 0: for a family given by a finite description one could in
+  principle search 2-colourings of finite initial segments. That is a heuristic
+  and not a certificate checker, which is why it is 1 and not 4, and Route W stays
+  blocked.
+  E=2: almost-disjointness questions on omega are close to the cardinal
+  characteristics that are known to be independence-sensitive, but this particular
+  statement is not known to be.
+
+unverifiable_claims:
+  - "Whether Property B for this class is known to be independent, or merely unproved, is not established. E=2 reflects that uncertainty rather than a sourced determination."
+  - "The 'related results' the April 2026 GPT-5.4 search found are not identified on the wiki."

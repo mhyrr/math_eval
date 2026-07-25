@@ -1,0 +1,44 @@
+id: pc-erdos-1167
+area: partition-calculus
+title: "Erdos #1167 -- the Erdos-Hajnal-Rado stepping-down question"
+statement: >
+  Let r >= 2 be finite, gamma >= 2, lambda an infinite cardinal, and kappa_alpha
+  cardinals for alpha < gamma. Does 2^lambda -> (kappa_alpha + 1)^(r+1) imply
+  lambda -> (kappa_alpha)^r? A problem of Erdos, Hajnal and Rado.
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/1167.lean
+    what: "Lean statement, `@[category research open, AMS 5]` at repo HEAD 7587c62 (2026-07-25). Also formalizes four sub-cases (finite targets, binary colours, infinite targets, r=2) each independently marked research open, plus a test showing the unrestricted form is false."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: true
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: UNIVERSAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 2
+evaluator_availability: 0
+formal_library_coverage: 2
+reservoir_proximity: 2
+witness_representability: 1
+independence_risk: 3
+
+formalizable_without_ambiguity: true
+
+axis_rationale: >
+  This is the survey's best-decomposed problem: the Lean file splits it into four
+  independently-stated sub-cases, which is exactly the "tasks often decompose into
+  tractable subgoals" condition the AlphaProof Nexus authors name as necessary for
+  their successes. It fails anyway, on B2 -- decomposition helps only if the
+  ambient theory is covered, and cardinalPartitionRel had to be defined by the
+  repo rather than imported from mathlib.
+  E=3: a ZFC implication between partition relations, quantified over all
+  cardinals. Not a consistency question, but far outside reverse-math range.
+
+unverifiable_claims:
+  - "Whether the four sub-cases are open in the same sense as the main question, or are merely unproved specializations nobody has separately attacked, is not stated in the source. All four carry `research open`."

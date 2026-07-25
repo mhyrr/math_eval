@@ -1,0 +1,57 @@
+id: pc-erdos-70
+area: partition-calculus
+title: "Erdos #70 -- the 3-uniform partition relation c -> (omega*2, 4)^3_2"
+statement: >
+  Does the ordinal partition relation c -> (omega*2, 4)^3_2 hold, where c is the
+  cardinality of the continuum? Erdos and Rado proved c -> (omega + n, 4)^3_2 for
+  every finite n >= 2, which covers every red ordinal strictly below omega*2 =
+  omega + omega. The open case asks whether the result extends to beta = omega*2,
+  the simplest countable ordinal their theorem does not reach.
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/70.lean
+    what: "Lean statement, marked `@[category research open]` at repo HEAD 7587c62 (2026-07-25). Carries the Erdos-Rado partial result as a separate `research solved` theorem and names omega*2 as 'the simplest genuinely open case'."
+    tier: PRIMARY
+  - url: https://www.erdosproblems.com/70
+    what: "Database entry. NOT FETCHED -- erdosproblems.com returns 403 to automated fetch. Cited via the Lean file's reference block."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: true
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: UNIVERSAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 2
+evaluator_availability: 0
+formal_library_coverage: 2
+reservoir_proximity: 2
+witness_representability: 1
+independence_risk: 3
+
+formalizable_without_ambiguity: true
+
+axis_rationale: >
+  A=2: a partition-calculus paper; the community able to check it is small but a
+  result of this shape is days-to-weeks of specialist reading, comparable to the
+  erdos-90 anchor rather than the 35-page erdos-1196 anchor.
+  B1=0: refuting the relation means exhibiting a colouring of [c]^3. There is no
+  automatic checker for a colouring of an uncountable set -- the object is not
+  finitely presentable to an evaluator, so nothing can be run against it.
+  B2=2: mathlib supplies Cardinal and Ordinal but nothing about partition
+  relations; formal-conjectures had to define OrdinalCardinalRamsey3 itself in
+  FormalConjecturesForMathlib. The statement is expressible, the ambient theory
+  is not covered.
+  D=1: even on the refutation side the witness is a colouring of an uncountable
+  set. This is the erdos-90 shape, not the jacobian shape.
+  E=3: a ZFC statement about c. Erdos-Rado settled the omega+n case in ZFC, so
+  the question is not obviously CH-sensitive, but the objects are uncountable and
+  reverse mathematics cannot reach them.
+
+unverifiable_claims:
+  - "Open status is taken from DeepMind's Lean repo, which is curated against erdosproblems.com. Bloom's definition of 'open' on that database is list-coverage, not field-knowledge (RUBRIC.md G0). The Lean file's reference block is a statement-level literature check, which is why this scores G0 PASS rather than null -- but no specialist was asked and g0_checked_rigorously is false."
+  - "G1 (no new theory required) is scored null. I found no expert statement on whether the omega*2 case needs new technique."

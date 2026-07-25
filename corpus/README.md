@@ -94,15 +94,49 @@ cannot be compared to a screen.
   "Mixed" variants that should be normalized before any field-level statistics
   are trusted. Cosmetic, but do it before Phase 2 cross-tabs.
 
-## The classification decision worth arguing about
+## Superseded: the flat four-mechanism scheme
 
-Cases are classified by **mechanism that closed the problem**, not by **agent
-that closed it**. `erdos-728` is `SEARCH_PLUS_VERIFIER` (the process) rather
-than `NOVEL_ARGUMENT` (the product), even though the output is a genuinely new
-short proof. `erdos-1026` is `LITERATURE_RECALL` even though four AI tools
-touched it, because a human finding a 2024 paper is what actually closed it.
+The original `resolution_mechanism` field is retained in every file for
+continuity, but it has been **superseded** by the two-dimensional taxonomy in
+`rubric/TAXONOMY.md`, applied via `scripts/recode.py` (which holds the full
+coding table for all 20 cases in one reviewable screen).
 
-7 of 20 are flagged `contested: true`. If Greg prefers classification by product
-rather than process, the distribution shifts materially — `NOVEL_ARGUMENT` rises
-and `SEARCH_PLUS_VERIFIER` falls. That is a Phase 2 decision, and it is the
-single largest fork in the schema.
+The flat scheme produced 7 contested classifications out of 20 for a structural
+reason: its four values are not on one axis. `LITERATURE_RECALL` and
+`SEARCH_PLUS_VERIFIER` name *processes*; `CONSTRUCTION` names a *certificate*;
+`NOVEL_ARGUMENT` names a certificate plus a frontier claim. Asking whether
+Erdős #728 is search-plus-verifier or novel-argument is asking whether to
+describe it by process or product — there is no right answer, which is why it
+would not sit still.
+
+Splitting into **certificate type × production process**, plus flags for
+frontier, Peirce inference mode, and Gowers culture, dissolves all 7. What
+remains are four *scheme* gaps, recorded in the coding rationales — a different
+and more tractable kind of problem than a miscoded case:
+
+- verifier strength is not captured (`bolzano-eight-problems` uses an LLM
+  verifier, and shares a cell with Lean-backed cases)
+- magnitude of advance is not captured (`gemini-aletheia-autonomous-erdos`
+  codes `ADVANCES` on results DeepMind itself declines to call major)
+- the two aggregate rows are coded by modal category, which is lossy
+- `EVIDENCE` is defined but unoccupied — no case delivered numerics as the
+  final product, which is correct but means the value is untested
+
+## What the 2D scheme showed that the flat one hid
+
+**Only 9 of 30 cells are occupied**, and two are perfectly correlated:
+`CITATION` appears only with `RETRIEVAL` (3/3), and `TRANSLATION` produces only
+`FORMAL_PROOF` (2/2). The dimensions are related but not redundant —
+`GUIDED_SEARCH` alone spreads across three certificate types.
+
+**The Gowers `MIXED` intersection pays.** Problems stated in the problem-solving
+culture but closed with another field's machinery advance the frontier 5 times
+out of 6 (83%); pure problem-solving cases advance 7 of 13 (54%). Small numbers,
+but it is the only structural signal in the corpus that predicts frontier impact
+rather than mere activity, and it has a mechanism behind it (see TAXONOMY.md,
+Flag C).
+
+**Zero `ABDUCTION` — but the finding is weaker than it looks.** All three human
+control cases also code non-abductive. Erdős-style problems do not require new
+axioms from anyone, so this corpus cannot test Zahavy's thesis. It shows only
+that nothing here needed the jump. Do not report this as confirmation.

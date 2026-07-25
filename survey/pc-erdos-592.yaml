@@ -1,0 +1,58 @@
+id: pc-erdos-592
+area: partition-calculus
+title: "Erdos #592 -- which countable ordinals beta satisfy omega^beta -> (omega^beta, 3)^2"
+statement: >
+  Determine which countable ordinals beta have the property that, with
+  alpha = omega^beta, every red/blue colouring of the edges of the complete graph
+  on alpha contains either a red clique of order type alpha or a blue triangle.
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/592.lean
+    what: "Lean statement, `@[category research open, AMS 3]` at repo HEAD 7587c62 (2026-07-25)."
+    tier: PRIMARY
+  - url: https://www.isa-afp.org/entries/Ordinal_Partitions.html
+    what: "Paulson, Ordinal Partitions (AFP, 2020-08-03). Formalizes Larson's omega^omega -> (omega^omega, m)^2, Specker's omega^2 -> (omega^2, m)^2, and an Erdos-Milner result. This is the ambient theory for the present problem, formalized."
+    tier: PRIMARY
+  - url: https://www.tandfonline.com/doi/full/10.1080/10586458.2021.1980464
+    what: "Dzamonja, Koutsoukou-Argyraki, Paulson, 'Formalizing Ordinal Partition Relations Using Isabelle/HOL', Experimental Mathematics 31(2) 383-400 (2022). The project report on the above."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: true
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: UNIVERSAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 2
+evaluator_availability: 0
+formal_library_coverage: 3
+reservoir_proximity: 2
+witness_representability: 2
+independence_risk: 4
+
+formalizable_without_ambiguity: true
+
+axis_rationale: >
+  B2=3 is the highest formal-library score anywhere in this survey, and it is the
+  single most consequential axis call in Phase 3. The ambient theory here --
+  ordinal partition relations at countable ordinals -- is genuinely formalized:
+  Larson, Specker and Erdos-Milner are all in the Isabelle/HOL AFP entry
+  Ordinal_Partitions, built on ZFC_in_HOL. This matches the erdos-728 anchor
+  ("mathlib covers the ambient theory") rather than the alphaevolve anchor
+  ("nothing formalized"). It is B2=3 in Isabelle/HOL, NOT in Lean -- the
+  distinction matters because every AI system in the Phase 1 corpus that used
+  Route F used Lean.
+  E=4: countable ordinals are countable objects, so unlike the rest of this
+  survey the reverse-mathematics ladder actually applies here. Statements of this
+  form sit in the ACA0-ATR0 region rather than beyond ZFC.
+  D=2: a refuting colouring of [omega^beta]^2 is an infinite object, but at a
+  countable ordinal it admits a countable code, which is more than can be said
+  for the uncountable cases.
+
+unverifiable_claims:
+  - "I did not verify the exact reverse-mathematical strength of this particular relation. E=4 is inferred from the general fact that countable-ordinal partition relations are statements of second-order arithmetic, not from a paper computing the strength of this statement."
+  - "Whether the Isabelle/HOL Ordinal_Partitions development is close enough to this specific problem to serve as a starting point is a judgement, not a sourced claim. It covers neighbouring theorems, not this one."

@@ -81,3 +81,14 @@ notes: >
   hazard. Before scoring a target problem as tractable, the rubric must force
   an explicit check that the problem is open to the field and not merely open
   to the list it was drawn from.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: CITATION
+  process: RETRIEVAL
+  frontier: SURFACES
+  inference_mode: TRANSPORT
+  culture: PROBLEM_SOLVING
+  rationale: >
+    Clean under the new scheme where it was awkward before. SURFACES, not
+    ADVANCES - the frontier flag does the work the old vocabulary couldn't.

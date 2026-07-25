@@ -1,0 +1,54 @@
+id: ch-erdos-501
+area: ch-adjacent-combinatorics
+title: "Erdos #501 -- infinite independent sets for families of bounded outer measure"
+statement: >
+  For every x in R let A_x be a bounded subset of R with outer measure < 1. Must
+  there exist an infinite independent set, that is, an infinite X subset of R such
+  that x not in A_y for all distinct x, y in X? Erdos-Hajnal (1960) proved
+  arbitrarily large FINITE independent sets exist. Hechler (1972) showed the answer
+  to the infinite question is NO assuming the continuum hypothesis.
+
+sources:
+  - url: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/501.lean
+    what: "Lean statement, `@[category research open, AMS 5 28]` at repo HEAD 7587c62 (2026-07-25). The Hechler-under-CH result is formalized as a separate `research solved` variant, as are the Erdos-Hajnal finite result and the closed-set cases (Gladysz 1962, Newelski-Pawlikowski-Seredynski 1987)."
+    tier: PRIMARY
+  - url: https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems
+    what: "Frozen 2026-06-30. Section 1(d) logs Sungchul Lee with GPT-5.5 Pro, 29 May - 1 Jun 2026, outcome WHITE (unverified) 'Candidate conditional partial result (conditional solution to first part)'."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: true
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: UNIVERSAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 2
+evaluator_availability: 0
+formal_library_coverage: 2
+reservoir_proximity: 3
+witness_representability: 1
+independence_risk: 2
+
+formalizable_without_ambiguity: true
+
+axis_rationale: >
+  E=2: Hechler settled it negatively under CH, so what remains is the behaviour
+  when CH fails. That is the definition of the "ZFC status genuinely unknown"
+  band -- half the question is a theorem and half is model-dependent.
+  C=3: the problem mixes measure theory with infinite combinatorics and the Lean
+  formalization pulls in MeasureTheory.volume.toOuterMeasure. Cross-field by
+  construction, which is the Gowers MIXED shape, but both fields have already
+  been asked -- the Newelski-Pawlikowski-Seredynski closed-set result is exactly
+  that import, done in 1987.
+  B2=2: mathlib's measure theory is mature and the statement compiles. The
+  ambient theory for the OPEN case, which is independence-flavoured, is not
+  covered.
+  Note the wiki entry is a CONDITIONAL partial result, still unverified after a
+  month. Consistent with the rest of this territory.
+
+unverifiable_claims:
+  - "The content and correctness of the Sungchul Lee / GPT-5.5 Pro candidate are unknown. 'Conditional' suggests an added hypothesis, but the wiki does not say which."

@@ -1,0 +1,55 @@
+id: cc-roitman
+area: cardinal-characteristics
+title: "Roitman's problem -- is d = aleph_1 < a consistent?"
+statement: >
+  Does d = aleph_1 imply a = aleph_1? Here d is the dominating number (least size
+  of a family of functions omega -> omega cofinal in the eventual-domination
+  order) and a is the almost-disjointness number (least size of an infinite
+  maximal almost disjoint family of subsets of omega). Asked by Roitman in the
+  1970s. Equivalently: is d = aleph_1 < a consistent?
+
+sources:
+  - url: https://arxiv.org/abs/1404.7343
+    what: "Mildenberger, 'A solution to Roitman's problem', submitted 2014-04-29, WITHDRAWN 2014-02-20 [sic, per arXiv: withdrawn 2015-02-20]. The withdrawal comment states 'Lemma 3.2 is flawed'. PRIMARY evidence that a claimed solution by a specialist stood publicly for roughly ten months before being retracted."
+    tier: PRIMARY
+  - url: https://www.logic.univie.ac.at/~vfischer/schilhan1.pdf
+    what: "Schilhan, 'Bounding, splitting and almost disjointness'. Cited via search summary for the statement that the consistency of d = omega_1 < a remains open; the specific page was not read."
+    tier: EXPERT_COMMENTARY
+
+# --- gates ---
+open_to_field: true
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 0
+reservoir_proximity: 2
+witness_representability: 0
+independence_risk: 0
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  E=0: the question IS a consistency question. Per DeepMind's own note in
+  FormalConjectures/ErdosProblems/1175.lean, "Lean operates inside a single
+  (fixed) model of its set theory, so we cannot directly express 'consistent with
+  ZFC' without leaving ZFC." The certificate cannot be presented to any proof
+  assistant, so B2=0 is structural rather than a coverage gap that better
+  libraries would close.
+  A=1, and this row supplies the survey's hardest empirical evidence for it.
+  Mildenberger's claimed solution was posted, cited, and withdrawn ten months
+  later for a flawed lemma. That is a direct measurement of how long an error
+  survives in this subfield, made on an expert rather than a model.
+  D=0: the answer is a statement about all models of a theory. This is the exact
+  wording of the D=0 anchor in RUBRIC.md, and this territory is where that anchor
+  finally gets an occupant -- it was unused in the Phase 1 corpus.
+
+unverifiable_claims:
+  - "The arXiv abstract page gives the withdrawal but I did not independently confirm the current open status of Roitman's problem from a 2025-26 primary source. The 'remains open' claim rests on a search summary of a lecture-note PDF, tier EXPERT_COMMENTARY, not on a paper I read."
+  - "Roitman posed more than one problem. That the withdrawn Mildenberger paper and the question scored here concern the same one is asserted by the paper's title and abstract, not independently verified."

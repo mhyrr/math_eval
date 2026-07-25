@@ -1,0 +1,50 @@
+id: cc-brendle-01-ppoint
+area: cardinal-characteristics
+title: "Brendle Problem 1 -- assume CH and add random reals: is there a P-point?"
+statement: >
+  Assume CH and add any number of random reals. Is there a P-point? Brendle
+  writes: "We strongly conjecture this is correct because it does hold for some CH
+  models", and records Kunen's observation that adding first omega_1 Cohen reals
+  and then any number of random reals does give a P-point.
+
+sources:
+  - url: https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/2042-01.pdf
+    what: "Brendle, RIMS Kokyuroku 2042 (2017). Problem 1, p.4, with Observation 1 (Kunen) and proof sketch following. Also records that Cohen 'claimed there is a P-point in the standard random model... but his argument is flawed (as pointed out by Guzman and Hrusak)'."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: null
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: EXISTENTIAL
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 0
+reservoir_proximity: 1
+witness_representability: 0
+independence_risk: 0
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  Included because it carries the survey's third documented instance of a
+  published error in this territory: Cohen claimed a P-point in the standard
+  random model and the argument was flawed. With the Mildenberger withdrawal and
+  the Goldstern-Kellner-Mejia-Shelah evasion-number gap, that is three
+  independent expert-level errors surviving publication in cardinal
+  characteristics -- which is the empirical case for A=1 across this slice.
+  form=EXISTENTIAL is a trap and worth recording as one. "Is there a P-point"
+  looks existential and therefore witnessable, but the P-point lives in a forcing
+  extension and is a non-principal ultrafilter on omega. It has no finite
+  presentation, so D=0 and Route W is blocked regardless of form. This is the
+  same error the rubric caught on erdos-90 -- scoring the certificate the
+  statement's logical form suggests rather than the one that exists.
+
+unverifiable_claims:
+  - "Current open status unverified (2017 source)."
+  - "The attribution of the flaw to Guzman and Hrusak is Brendle's; I did not read their note."

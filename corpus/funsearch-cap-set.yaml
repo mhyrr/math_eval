@@ -64,3 +64,14 @@ notes: >
   not, and no plausible model improvement changes that, because the obstruction
   is the absence of a checkable finite witness rather than the difficulty of
   finding one.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: WITNESS
+  process: GUIDED_SEARCH
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: PROBLEM_SOLVING
+  rationale: >
+    Same cell, 2023. The mechanism has not changed in 2.5 years - only the
+    range of problems with a cheap evaluator has. Relevant to extrapolation.

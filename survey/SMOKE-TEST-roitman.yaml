@@ -1,0 +1,39 @@
+# SUPERSEDED by cc-roitman.yaml (Phase 3), which sources the problem
+# properly and discharges the G0 question this file left open.
+# Retained only as the record of what a first-pass unsourced guess
+# looked like. Excluded from --survey runs. Still do not cite it.
+# SMOKE TEST ONLY -- verifies scripts/score.py runs end to end and previews
+# what Phase 3 output looks like. The axis scores below are FIRST-PASS
+# JUDGMENTS, not researched. In particular the open status of this problem has
+# NOT been sourced, which means G0 is exactly the gate Phase 3 must discharge
+# with real work. Do not cite this file.
+
+id: roitman-problem
+statement: >
+  Roitman's problem in cardinal characteristics of the continuum: does
+  d = aleph_1 imply a = aleph_1? Here d is the dominating number and a is the
+  least cardinality of a maximal almost disjoint family of infinite subsets of
+  omega. Reported long-standing open; NOT SOURCED in this pass.
+
+# --- gates ---
+open_to_field: null                  # G0 NOT DISCHARGED -- this is the point
+no_new_theory_required: null         # G1 unknown; plausibly fails (new forcing tech)
+verification_standard_exists: true   # G2 a ZFC proof or a forcing model would settle it
+g0_checked_rigorously: false
+
+# --- statement form ---
+# A consistency/implication question over all models. No finite witness.
+form: NEITHER
+
+prior_attention: HIGH                # worked continuously since the 1960s
+
+# --- axes ---
+certificate_cost: 1                  # A  a forcing construction paper; specialist months
+evaluator_availability: 0            # B1 no automatic checker for forcing arguments
+formal_library_coverage: 0           # B2 mathlib forcing/independence infrastructure ~absent
+                                     #    VERIFY THIS IN PHASE 3 -- load-bearing
+reservoir_proximity: 2               # C  provisional; the honest Phase 3 question
+witness_representability: 0          # D  answer is a statement about all models
+independence_risk: 1                 # E  the question is itself about what ZFC settles
+
+formalizable_without_ambiguity: false

@@ -1,0 +1,53 @@
+id: brd-dobrinen-6-2
+area: big-ramsey-degrees
+title: "Dobrinen Problem 6.2 -- replace forcing proofs with purely combinatorial ones"
+statement: >
+  For results whose proofs use the method of forcing, find new proofs which are
+  purely combinatorial. Dobrinen notes this has been done for the triangle-free
+  graph by Hubicka, but that "new methods will be needed for k-clique-free
+  homogeneous graphs for k >= 4 and other such FAP classes."
+
+sources:
+  - url: https://arxiv.org/abs/2110.00655
+    what: "Dobrinen, ICM 2022 Proceedings. Problem 6.2, p.18, with the Hubicka precedent and the k >= 4 gap stated in the following paragraph."
+    tier: PRIMARY
+  - url: https://arxiv.org/abs/2009.00967
+    what: "Hubicka, 'Big Ramsey degrees using parameter spaces' -- the cited combinatorial replacement for the triangle-free case."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: false
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 2
+evaluator_availability: 0
+formal_library_coverage: 1
+reservoir_proximity: 5
+witness_representability: 1
+independence_risk: 5
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  C=5 and it is the only 5 in the survey. This is the erdos-90 shape stated
+  outright: a body of results proved with one field's machinery (forcing), where
+  the request is to reprove them with another's (parameter spaces, structural
+  Ramsey theory), and where the transfer has already succeeded once. Hubicka's
+  triangle-free result is the existence proof that the reservoir is real and not
+  yet drained.
+  G1 = FAIL, deliberately. Dobrinen states that "new methods will be needed" for
+  k >= 4. That is the field's own expert saying the problem awaits a new
+  framework, which is exactly the G1 FAIL condition, and it is the strongest
+  single piece of evidence in the survey that C alone cannot carry a problem.
+  The most reservoir-rich problem in the territory is disqualified by the axis
+  the corpus found unanimous.
+
+unverifiable_claims:
+  - "Whether any of the k >= 4 cases has been given a combinatorial proof between 2021 and 2026 is not established here. Balko et al. (2025) may bear on it."
+  - "This is a research programme rather than a proposition, so 'open status' is not sharply defined. G0 = null reflects that, not a failure to search."

@@ -97,3 +97,15 @@ notes: >
   That failure mode is undetectable by a Lean check (the proof is correct) and
   undetectable by novelty intuition (it looks new). It is only caught by
   literature search. Worth an explicit rubric step.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: CITATION
+  process: RETRIEVAL
+  frontier: SURFACES
+  inference_mode: TRANSPORT
+  culture: PROBLEM_SOLVING
+  rationale: >
+    Coded by modal outcome: 8 of 13 hits were literature identification. The 5
+    novel solutions would code INFORMAL_PROOF / DIRECT_GENERATION / ADVANCES.
+    Aggregate row - see the caveat in DISTRIBUTION.

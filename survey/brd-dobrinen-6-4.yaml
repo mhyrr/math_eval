@@ -1,0 +1,45 @@
+id: brd-dobrinen-6-4
+area: big-ramsey-degrees
+title: "Dobrinen Problem 6.4 -- infinite-dimensional Ramsey theory on spaces of copies"
+statement: >
+  Develop infinite dimensional Ramsey theory on spaces of copies of a homogeneous
+  structure. The finite-dimensional Galvin-Prikry and Ellentuck theorems describe
+  the Baire space; the question asks for extensions to subspaces of [omega]^omega
+  where each infinite set represents a copy of a fixed homogeneous structure.
+  Dobrinen proved a Galvin-Prikry style theorem for the Rado graph.
+
+sources:
+  - url: https://arxiv.org/abs/2110.00655
+    what: "Dobrinen, ICM 2022 Proceedings. Problem 6.4, p.19. States a theorem for SDAP+ structures with relations of arity at most two 'is being written down by the author'."
+    tier: PRIMARY
+
+# --- gates ---
+open_to_field: null
+no_new_theory_required: false
+verification_standard_exists: true
+g0_checked_rigorously: false
+
+form: NEITHER
+prior_attention: HIGH
+
+# --- axes ---
+certificate_cost: 1
+evaluator_availability: 0
+formal_library_coverage: 1
+reservoir_proximity: 3
+witness_representability: 1
+independence_risk: 4
+
+formalizable_without_ambiguity: false
+
+axis_rationale: >
+  G1 = FAIL: "develop" is a programme, not a proposition. Dobrinen's own framing
+  -- that a theorem in this direction is being written down by her and requires
+  coding trees "necessitated to be diagonal" -- is a description of framework
+  construction, which is the G1 disqualifying condition.
+  E=4: the objects are subspaces of the Baire space, so second-order arithmetic
+  reaches them, but the Galvin-Prikry and Ellentuck theorems sit at the upper end
+  of the ladder rather than the bottom.
+
+unverifiable_claims:
+  - "Dobrinen said in 2021 that such a theorem 'is being written down'. Whether it appeared between 2021 and 2026 was not checked. This row's open status is stale by five years and G0 is null accordingly."

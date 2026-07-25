@@ -60,3 +60,14 @@ notes: >
   space, no integer objective, no exact verifier, and no notion of partial
   progress. Every property that makes matrix multiplication tractable for this
   mechanism is absent. That is not a difference of degree.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: WITNESS
+  process: GUIDED_SEARCH
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: PROBLEM_SOLVING
+  rationale: >
+    Same cell, most favourable instance: finite parameterized space, integer
+    objective, exact verifier, measurable partial progress.
