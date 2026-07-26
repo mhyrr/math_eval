@@ -17,6 +17,7 @@ rubric, and a scored survey.
 | 2 — Taxonomy + rubric | `rubric/TAXONOMY.md`, `rubric/RUBRIC.md` | **complete (v1.2)** |
 | 3 — Survey of target territory | `survey/` (24 problems), `survey/RESULTS.md` | **complete** |
 | — final memo | `memo/FINDINGS.md` | **complete** |
+| 4 — Time-sliced hold-out | `survey4/` (56 problems), `memo/VALIDATION.md` | **complete** |
 
 Phase 2 produced a two-dimensional taxonomy (certificate type × production
 process, plus flags for frontier, Peirce inference mode, and Gowers culture) and
@@ -54,16 +55,55 @@ or formalization, and zero primary contributions reached verified status.
 And it **rebuilt Axis E** (v1.2) after finding the reverse-mathematics anchors
 were both a category error and out of range.
 
+## Phase 4 result — the hold-out, and the half that failed
+
+**56 open Erdős problems across 8 tags, scored blind against a 2025-08-31 cutoff,
+scores committed before outcomes were read.** The first genuine hold-out in the
+project: Phases 1 and 3 both pointed the instrument where the answer was known.
+
+The result splits.
+
+| question | answer |
+|---|---|
+| Does it discriminate between fields? | **Yes.** 0%–57% across eight tags, traceable to axis calls committed before the reveal. |
+| Do its axes mean what they say? | **Yes.** The community's own `verifiable`/`falsifiable` labels land inside Route W's nominations 3 for 3, p = 0.00014. |
+| Does `CANDIDATE` predict resolution? | **No.** 1/14 = 7% vs 6/42 = 14% for `RULED_OUT`; on AI-assisted resolutions only, 7.1% vs 7.1% — identical. |
+
+7 of the 56 resolved in eleven months, **4 of them AI-assisted** (GPT-5.5 Pro, a
+DeepMind prover agent, GPT-5.5 with Codex, Claude Opus 4.5). The filter captured
+AI-resolved problems at exactly its own base rate.
+
+The failing axis is **B2, formal library coverage**, and not at its threshold —
+four problems that received machine-checked Lean proofs score `B2 = 2` under
+*every* reading in the sensitivity band. B2 encodes the 2023–2025 constraint that
+successes concentrate where mathlib is mature; the 2026 prover agents in this
+sample did not obey it.
+
+**Consequence: the ruling-in half of the scoring layer is retired.** `CANDIDATE`
+should not be reported as a shortlist. `RULED_OUT` and the axis-by-axis argument
+behind it — what Phase 3 actually delivered — survive, as does the vocabulary.
+The full accounting, including every prediction that missed, is in
+`memo/VALIDATION.md`; the pre-registration it is scored against is
+`memo/PREREGISTRATION.md`.
+
+One number worth carrying: **~7% AI-assisted resolution over eleven months on a
+stratified sample of the open Erdős database.** That is a third regime, distinct
+from the 1–3% autonomous-screen rate and from any filter-pass rate, and it should
+never be quoted as either (Rule 4).
+
 ## Layout
 
 ```
 corpus/     one YAML per resolved case, plus SCHEMA.md, README.md,
             DISTRIBUTION.md (generated), NEGATIVE-SPACE.md
 rubric/     axes, anchors, worked examples
-survey/     scored open problems
-memo/       the final prose memo
-scripts/    scraping and tabulation
-sources/    pinned source material
+survey/     scored open problems (Phase 3, CH neighbourhood)
+survey4/    the Phase 4 hold-out: SAMPLE.md, 56 generated rows,
+            RESULTS.md (stage 2), OUTCOMES.md (stage 3)
+memo/       FINDINGS.md (Phase 3), PREREGISTRATION.md and VALIDATION.md (Phase 4)
+scripts/    scraping, tabulation, blinding, scoring, reveal
+sources/    pinned source material — erdos-cutoff.yaml is the scoring-time
+            view, erdos-problems.yaml is the reveal snapshot
 ```
 
 ## Regenerating the distribution table

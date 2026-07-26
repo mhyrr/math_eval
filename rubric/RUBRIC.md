@@ -375,7 +375,35 @@ before any other axis is scored.
 
 # Part 4 — Validation status
 
-**Honest position: this rubric is not yet validated.**
+**Position after Phase 4: the ruling-out half holds, the ruling-in half is
+tested and does not work.** Full accounting in `memo/VALIDATION.md`.
+
+A time-sliced hold-out — 56 open Erdős problems across 8 tags, scored blind
+against a 2025-08-31 cutoff, scores committed before outcomes were read — found:
+
+| claim | verdict |
+|---|---|
+| The rubric discriminates between fields rather than restating the prior | **holds** — 0%–57% across tags, from axis calls committed before the reveal |
+| Axes D and B1 measure something stable | **holds** — the database's independent `verifiable`/`falsifiable` labels fall inside Route W 3 for 3, p = 0.00014 |
+| `CANDIDATE` marks problems more likely to be resolved | **fails** — 7% vs 14% for `RULED_OUT`; on AI-assisted resolutions, 7.1% vs 7.1% |
+
+**Read `CANDIDATE` accordingly.** It was already defined as a filter rather than
+a prediction; Phase 4 removes the option of reading it as anything else. Report
+`RULED_OUT` verdicts and the axis-by-axis argument. Do not report a
+`CANDIDATE` list as a shortlist.
+
+**Axis B2 is the diagnosed failure and its calibration is suspect.** Four
+problems that then received machine-checked Lean proofs score `B2 = 2` under
+every reading tested. B2 encodes the AlphaProof Nexus scope condition — successes
+concentrate "where Lean's mathematics library is mature" — and the 2026 prover
+agents that resolved those four were evidently not gated on it. The axis is also
+the one the whole survey turns on: three defensible readings of its `B2 = 3`
+anchor give 9%, 25% and 36% CANDIDATE on the same 56 problems.
+
+Everything below was written before that test and is kept as the record of what
+was known then.
+
+**Honest position (pre-Phase 4): this rubric is not yet validated.**
 
 | test | available? | why |
 |---|---|---|
