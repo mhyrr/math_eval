@@ -3,6 +3,12 @@
 Phases 1–4 are complete. Read `README.md` for the shape, `memo/VALIDATION.md`
 for where the instrument stands, `CLAUDE.md` for how to work here.
 
+**Added 2026-07-26:** `CONCLUSIONS.md` (outsider-readable summary) and
+`problems/` (the target pool — 14 seeded definitions, 43-problem queue, and
+the one-by-one process). Item 3 below — the never-evaluated Route N — now has
+its vehicle: the SEARCHED stage of each problem file is a rigorous G0
+discharge. Work the queue there instead of designing a new subsample.
+
 ---
 
 ## Where Phase 4 left things

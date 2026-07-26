@@ -9,6 +9,11 @@ This is problem **evaluation**, not problem solving. Nothing here attempts to pr
 or disprove anything. The deliverables are a classification dataset, a scoring
 rubric, and a scored survey.
 
+**Start with [`CONCLUSIONS.md`](CONCLUSIONS.md)** — the plain-English summary of
+what four phases found and where the work goes. The actionable output is
+[`problems/`](problems/README.md): the target pool, one sourced definition per
+problem.
+
 ## Status
 
 | phase | deliverable | state |
@@ -94,6 +99,9 @@ never be quoted as either (Rule 4).
 ## Layout
 
 ```
+CONCLUSIONS.md  the whole project in plain English — read this first
+problems/       the target pool: entry criteria, work process, one sourced
+                definition file per problem (README.md there is the doctrine)
 corpus/     one YAML per resolved case, plus SCHEMA.md, README.md,
             DISTRIBUTION.md (generated), NEGATIVE-SPACE.md
 rubric/     axes, anchors, worked examples
