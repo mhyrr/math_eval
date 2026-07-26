@@ -320,4 +320,36 @@ original would have yielded zero outcome labels.
 **2026-07-25, pre-scoring.** Target n stated as 60; achieved 56 under equal
 allocation across 8 strata. See Appendix C.
 
+**2026-07-25, pre-scoring (fresh session, stage 1).** The statement source
+leaks outcomes and is now blinded mechanically. The plan sources statements
+from `formal-conjectures`, pinned at 2026-07-25. Of its 510 Erdős files, 358
+carry `@[category research solved]`, 436 carry an inline `answer(...)` value and
+113 link a machine-checked proof. Reading them raw at stage 2 would have ended
+the hold-out rather than weakened it. `scripts/blind.py` now serves each
+statement from the earliest version of its file with outcome text redacted, and
+`--selftest` verifies over the 453 non-sampled files that no status marker,
+answer payload or proof link survives. Residual leak, declared: 40 of the 56
+files were created after the cutoff, redaction is a blacklist, and
+statement-form prose ("it is not known whether X") is deliberately kept because
+it is the statement — in a post-cutoff file it also weakly signals "still open",
+which runs in the direction that *flatters* P3. The defense is structural: none
+of the six axes takes resolution status as an input. Full detail in
+`survey4/SAMPLE.md`.
+
+**2026-07-25, pre-scoring (fresh session, stage 1). Route N reporting.**
+`route_n` requires `g0_checked_rigorously`, which `--optimistic` does not grant
+because it is not in `GATES`. With G0 undischargeable at this scale, Route N
+scores zero on all 56 regardless of the territory — so **P4 would fail by
+construction rather than by evidence**, which is not a result. In Phase 3 the
+same zero was earned: HIGH prior attention closed Route N on the merits. Here it
+would be a procedural artifact.
+
+Decision, taken before any problem was scored and with no outcome data in hand:
+`g0_checked_rigorously` stays `false` on every row, and stage 4 additionally
+reports a **secondary count of rows that would clear Route N if G0 were
+discharged** — i.e. `prior_attention == LOW` and `certificate_cost >= 3`. P4 is
+reported both ways, as a miss on the primary reading and with the conditional
+count beside it. No literature search is faked to manufacture the primary
+number.
+
 *(any change after scoring begins is recorded here with a date and a reason)*
