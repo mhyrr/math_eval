@@ -111,7 +111,11 @@ LICENSE_RE = re.compile(r"^/-\s*\nCopyright.*?^-/\s*\n", re.S | re.M)
 # `answer(...)`, balanced to one nesting level -- enough for every occurrence in
 # this repo, and the fallback below catches anything deeper.
 ANSWER_RE = re.compile(r"answer\(([^()]|\([^()]*\))*\)")
-CATEGORY_RE = re.compile(r"@\[\s*category\b[^\]]*\]", re.S)
+# `problem_status` is the attribute's older name, still present in files the
+# repo added before ~Sept 2025. Redacted on the same footing: no post-cutoff
+# file in the sample uses it, and every sampled problem was `open` at the cutoff
+# by construction, so the marker carries no scoring information to lose.
+CATEGORY_RE = re.compile(r"@\[\s*(category|problem_status)\b[^\]]*\]", re.S)
 
 
 def sh(cwd, *args):
