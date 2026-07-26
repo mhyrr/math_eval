@@ -1,6 +1,7 @@
 # Erdős #647 — another n where m + τ(m) never gets ahead
 
-status: DEFINED
+status: VERDICT — PARK (the finite search frontier is already ~6.16·10^17;
+one local-to-global attempt is closed below)
 class: W — community label `verifiable`
 
 | | |
@@ -35,16 +36,42 @@ the headline question is `verifiable`, but Erdős's own guess is that the
 answer hides at no finite height ("extremely doubtful" infinitely many —
 and possibly none beyond 24).
 
-## Before an attempt
+## Search and feasibility, checked 2026-07-26
 
-- **G0 not discharged, and here it is cheap and decisive:** this is exactly
-  the kind of statement that gets swept computationally and posted (OEIS,
-  the problem page's own commentary). Establish the current search frontier
-  first — someone has likely pushed n into large territory already, and the
-  file does not say how far.
-- **Feasibility:** sieve τ over blocks; the constraint max(m + τ(m)) ≤ n + 2
-  is a running-maximum condition that fails fast almost everywhere (any
-  recent m with large τ kills a long stretch of n). Cost scales linearly
-  with the frontier; the question is only whether the frontier is already
-  far enough that marginal sweeping is noise. That, plus the heuristic
-  density of qualifying n, is the ASSESSED content.
+G0 changed the verdict.
+
+- [OEIS A087280](https://oeis.org/A087280) records no further solution through
+  \(10^{12}\), citing Patrik Idén's segmented-sieve report —
+  EXPERT_COMMENTARY backed by a linked computational preprint.
+- Scott Hughes's
+  [proof-chain package](https://github.com/scottdhughes/erdos647-proof-chain)
+  reduces candidates \(n>84\) to \(n=2520N\), with \(N\) in 41 residue
+  classes modulo 46189, and packages a finite-range certificate excluding
+  \(24<n\le615736321200000000\) — PRIMARY artifact, author-supplied and not
+  independently reproduced in this repository.
+- Its
+  [Stage-1 boundary](https://github.com/scottdhughes/erdos647-proof-chain/blob/main/docs/stage1_boundary.md)
+  retires fixed-depth positive-footprint congruence trees: a CRT all-avoid
+  branch survives every finite extra-prime pool of that form — PRIMARY
+  artifact.
+- The problem's
+  [discussion thread](https://www.erdosproblems.com/forum/thread/647) lists
+  several people currently working on it and records the reduction's
+  development — SOCIAL_MEDIA; useful for provenance, not peer review.
+
+A larger undirected sieve is noise. A negative proof needs a mechanism outside
+the retired bounded congruence-tree family; a positive search should begin
+beyond the reduced frontier.
+
+## Attempt record
+
+Greg explicitly opened one solving attempt inside this otherwise evaluative
+repository. [`erdos647/`](erdos647/) tests whether Erdős's relaxed fixed-window
+conjecture offers a soft bridge to the full problem. The exact run through
+\(10^9\) found locally quiet windows, but every one remained covered by an
+older divisor peak; the strongest local example passed nine shifts, failed the
+tenth, and also had a separate historical blocker.
+
+**Verdict: PARK.** Revisit only with an idea that couples the forced prime
+chain to expiry of the global running-max envelope. More local-window search
+and larger fixed congruence trees have already said what they know.

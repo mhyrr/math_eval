@@ -1,33 +1,33 @@
 # Phase 1 corpus: mechanism distribution
 
-Cases: **20**
+Cases: **21**
 
 ## Primary resolution mechanism
 
 | mechanism            | n | share |                      |
 |----------------------|---|-------|----------------------|
-| LITERATURE_RECALL    | 4 | 20%   | ####................ |
-| CONSTRUCTION         | 3 | 15%   | ###................. |
-| NOVEL_ARGUMENT       | 5 | 25%   | #####............... |
-| SEARCH_PLUS_VERIFIER | 8 | 40%   | ########............ |
+| LITERATURE_RECALL    | 4 | 19%   | ####................ |
+| CONSTRUCTION         | 4 | 19%   | ####................ |
+| NOVEL_ARGUMENT       | 5 | 24%   | #####............... |
+| SEARCH_PLUS_VERIFIER | 8 | 38%   | ########............ |
 
-**7 of 20 primary classifications are flagged `contested: true`.** Read the distribution above with that in mind.
+**7 of 21 primary classifications are flagged `contested: true`.** Read the distribution above with that in mind.
 
 ## Mechanisms appearing anywhere (primary or secondary)
 
 | mechanism            | as primary | as secondary | total |
 |----------------------|------------|--------------|-------|
 | LITERATURE_RECALL    | 4          | 1            | 5     |
-| CONSTRUCTION         | 3          | 7            | 10    |
+| CONSTRUCTION         | 4          | 7            | 11    |
 | NOVEL_ARGUMENT       | 5          | 5            | 10    |
-| SEARCH_PLUS_VERIFIER | 8          | 2            | 10    |
+| SEARCH_PLUS_VERIFIER | 8          | 3            | 11    |
 
 ## Certificate size
 
 | size   | n  | share |                      |
 |--------|----|-------|----------------------|
-| SMALL  | 13 | 65%   | #############....... |
-| MEDIUM | 6  | 30%   | ######.............. |
+| SMALL  | 14 | 67%   | #############....... |
+| MEDIUM | 6  | 29%   | ######.............. |
 | LARGE  | 1  | 5%    | #................... |
 
 ## Mechanism x certificate size
@@ -35,7 +35,7 @@ Cases: **20**
 | mechanism            | SMALL | MEDIUM | LARGE |
 |----------------------|-------|--------|-------|
 | LITERATURE_RECALL    | 3     | 1      | 0     |
-| CONSTRUCTION         | 1     | 2      | 0     |
+| CONSTRUCTION         | 2     | 2      | 0     |
 | NOVEL_ARGUMENT       | 2     | 2      | 1     |
 | SEARCH_PLUS_VERIFIER | 7     | 1      | 0     |
 
@@ -43,16 +43,16 @@ Cases: **20**
 
 | method           | n | share |
 |------------------|---|-------|
-| LEAN             | 7 | 35%   |
-| HUMAN_REFEREEING | 7 | 35%   |
-| COMPUTER_ALGEBRA | 4 | 20%   |
+| LEAN             | 8 | 38%   |
+| HUMAN_REFEREEING | 7 | 33%   |
+| COMPUTER_ALGEBRA | 4 | 19%   |
 | EXPERT_INFORMAL  | 2 | 10%   |
 
 ## Status
 
 | status    | n  | share |
 |-----------|----|-------|
-| RESOLVED  | 17 | 85%   |
+| RESOLVED  | 18 | 86%   |
 | DISPUTED  | 1  | 5%    |
 | RETRACTED | 1  | 5%    |
 | ADVANCED  | 1  | 5%    |
@@ -61,16 +61,16 @@ Cases: **20**
 
 | autonomy                                        | n  | share |
 |-------------------------------------------------|----|-------|
-| AUTONOMOUS                                      | 11 | 55%   |
+| AUTONOMOUS                                      | 11 | 52%   |
+| AI_LED_HUMAN_VERIFIED                           | 3  | 14%   |
 | AI_ASSISTED                                     | 2  | 10%   |
 | COLLABORATIVE                                   | 2  | 10%   |
 | None                                            | 2  | 10%   |
-| AI_LED_HUMAN_VERIFIED                           | 2  | 10%   |
 | MIXED - the taxonomy's primary axis IS autonomy | 1  | 5%    |
 
 ## Cross-field technique transfer
 
-Occurred in **5 of 20** cases (25%).
+Occurred in **5 of 21** cases (24%).
 
 | case                                | from                                                 | to                           |
 |-------------------------------------|------------------------------------------------------|------------------------------|
@@ -84,9 +84,9 @@ Occurred in **5 of 20** cases (25%).
 
 | field                                                | n |
 |------------------------------------------------------|---|
+| Combinatorics                                        | 3 |
 | Number Theory                                        | 3 |
 | N/A - metascience                                    | 2 |
-| Combinatorics                                        | 2 |
 | Discrete Geometry                                    | 2 |
 | Mixed - Discrete Geometry, Analysis, Combinatorics   | 1 |
 | Algebraic Complexity                                 | 1 |
@@ -108,11 +108,11 @@ Occurred in **5 of 20** cases (25%).
 | certificate \ process | RETR | DIRECT | SEARCH | TRANS | SEEDED | HUMAN | tot |
 |-----------------------|------|--------|--------|-------|--------|-------|-----|
 | WITNESS               | .    | 1      | 3      | .     | .      | 2     | 6   |
-| FORMAL_PROOF          | .    | .      | 4      | 2     | .      | .     | 6   |
+| FORMAL_PROOF          | .    | .      | 5      | 2     | .      | .     | 7   |
 | INFORMAL_PROOF        | .    | 3      | 1      | .     | 1      | .     | 5   |
 | CITATION              | 3    | .      | .      | .     | .      | .     | 3   |
 | EVIDENCE              | .    | .      | .      | .     | .      | .     | 0   |
-| TOTAL                 | 3    | 4      | 8      | 2     | 1      | 2     | 20  |
+| TOTAL                 | 3    | 4      | 9      | 2     | 1      | 2     | 21  |
 
 9 of 30 cells occupied.
 
@@ -120,8 +120,8 @@ Occurred in **5 of 20** cases (25%).
 
 | frontier | n  | share |                      |
 |----------|----|-------|----------------------|
-| ADVANCES | 13 | 65%   | #############....... |
-| SURFACES | 5  | 25%   | #####............... |
+| ADVANCES | 14 | 67%   | #############....... |
+| SURFACES | 5  | 24%   | #####............... |
 | MATCHES  | 1  | 5%    | #................... |
 | BEHIND   | 1  | 5%    | #................... |
 
@@ -129,27 +129,27 @@ Occurred in **5 of 20** cases (25%).
 
 | inference_mode | n  | share |                      |
 |----------------|----|-------|----------------------|
-| INDUCTION      | 11 | 55%   | ###########......... |
-| TRANSPORT      | 5  | 25%   | #####............... |
-| DEDUCTION      | 4  | 20%   | ####................ |
+| INDUCTION      | 12 | 57%   | ###########......... |
+| TRANSPORT      | 5  | 24%   | #####............... |
+| DEDUCTION      | 4  | 19%   | ####................ |
 
 ## Gowers culture
 
 | culture         | n  | share |                      |
 |-----------------|----|-------|----------------------|
-| PROBLEM_SOLVING | 13 | 65%   | #############....... |
-| MIXED           | 6  | 30%   | ######.............. |
+| PROBLEM_SOLVING | 14 | 67%   | #############....... |
+| MIXED           | 6  | 29%   | ######.............. |
 | THEORY_BUILDING | 1  | 5%    | #................... |
 
 ## Gowers culture x frontier
 
 | culture \ frontier | ADVANCES | MATCHES | BEHIND | SURFACES |
 |--------------------|----------|---------|--------|----------|
-| PROBLEM_SOLVING    | 7        | 1       | 1      | 4        |
+| PROBLEM_SOLVING    | 8        | 1       | 1      | 4        |
 | THEORY_BUILDING    | 1        | .       | .      | .        |
 | MIXED              | 5        | .       | .      | 1        |
 
-## Frontier-advancing AI cases only (n=11 of 18 AI cases)
+## Frontier-advancing AI cases only (n=12 of 19 AI cases)
 
 | case                             | certificate    | process              | culture         |
 |----------------------------------|----------------|----------------------|-----------------|
@@ -164,10 +164,11 @@ Occurred in **5 of 20** cases (25%).
 | funsearch-cap-set                | WITNESS        | GUIDED_SEARCH        | PROBLEM_SOLVING |
 | gemini-aletheia-autonomous-erdos | INFORMAL_PROOF | DIRECT_GENERATION    | PROBLEM_SOLVING |
 | jacobian-conjecture-c3           | WITNESS        | DIRECT_GENERATION    | THEORY_BUILDING |
+| knuth-claude-cycles              | FORMAL_PROOF   | GUIDED_SEARCH        | PROBLEM_SOLVING |
 
 ## Data hygiene
 
-- Flagged-unverifiable claims recorded across corpus: **37**
+- Flagged-unverifiable claims recorded across corpus: **42**
 - Cases flagged `data_quality: THIN`: ['erdos-397-formalization']
 - Cases with no sources at all: none
 - Cases resting on NO primary source: ['alphaevolve-math-constructions', 'alphaevolve-matmul-4x4', 'axiom-fel-conjecture-disputed']

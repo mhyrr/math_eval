@@ -1,0 +1,50 @@
+- generic [active] [ref=f35e1]:
+  - heading "last update 4/08/20" [level=3] [ref=f35e3]
+  - heading "Lists" [level=3] [ref=f35e6]
+  - paragraph [ref=f35e7]:
+    - generic [ref=f35e8]: Dalmatians
+    - text: (488)
+  - paragraph [ref=f35e9]:
+    - link "all" [ref=f35e11] [cursor=pointer]:
+      - /url: https://web.archive.org/web/20240726224805/http://cms.uhd.edu/faculty/delavinae/research/wowII/all.html#2dominationUpper
+  - paragraph [ref=f35e12]:
+    - link "open" [ref=f35e14] [cursor=pointer]:
+      - /url: https://web.archive.org/web/20240726224805/http://cms.uhd.edu/faculty/delavinae/research/wowII/open.html
+    - text: (213)
+  - paragraph [ref=f35e15]:
+    - link "resolved (274)" [ref=f35e17] [cursor=pointer]:
+      - /url: https://web.archive.org/web/20240726224805/http://cms.uhd.edu/faculty/delavinae/research/wowII/resolved.htm
+    - superscript [ref=f35e18]
+  - paragraph [ref=f35e19]:
+    - superscript [ref=f35e20]:
+      - link "T (146)" [ref=f35e22] [cursor=pointer]:
+        - /url: resolvedT.htm
+  - table [ref=f35e24]:
+    - rowgroup [ref=f35e25]:
+      - row [ref=f35e26]:
+        - cell [ref=f35e27]:
+          - superscript [ref=f35e28]:
+            - generic [ref=f35e29]:
+              - link "Sophie" [ref=f35e31] [cursor=pointer]:
+                - /url: https://web.archive.org/web/20240726224805/http://cms.uhd.edu/faculty/delavinae/research/wowII/all.html#Sophie188
+              - text: (52)
+          - paragraph [ref=f35e32]:
+            - superscript [ref=f35e33]: T (19) F (9)
+          - paragraph [ref=f35e34]
+      - row [ref=f35e35]:
+        - cell [ref=f35e36]:
+          - paragraph [ref=f35e37]:
+            - link "intro" [ref=f35e39] [cursor=pointer]:
+              - /url: list.htm
+          - paragraph [ref=f35e40]:
+            - link "view all definitions" [ref=f35e41] [cursor=pointer]:
+              - /url: javascript:printAllDefinitions(110 )
+          - paragraph [ref=f35e42]
+          - paragraph [ref=f35e43]
+          - paragraph [ref=f35e44]
+          - paragraph [ref=f35e45]
+          - paragraph [ref=f35e46]
+          - paragraph [ref=f35e47]
+          - paragraph [ref=f35e48]
+  - paragraph [ref=f35e49]
+  - paragraph [ref=f35e50]

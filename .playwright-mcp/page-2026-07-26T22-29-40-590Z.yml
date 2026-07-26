@@ -1,0 +1,2395 @@
+- generic [active] [ref=f29e1]:
+  - heading "Written on the Wall II" [level=2] [ref=f29e3]
+  - paragraph [ref=f29e5]:
+    - generic [ref=f29e6]:
+      - text: Ermelinda DeLaVina
+      - link "(delavinae@uhd.edu" [ref=f29e7] [cursor=pointer]:
+        - /url: https://web.archive.org/web/20080905163247/mailto:(delavinae@uhd.edu
+      - text: )
+    - table [ref=f29e8]:
+      - rowgroup [ref=f29e9]:
+        - row [ref=f29e10]:
+          - cell [ref=f29e11]
+          - cell [ref=f29e12]
+          - cell [ref=f29e13]
+          - cell [ref=f29e14]
+        - row [ref=f29e15]:
+          - cell [ref=f29e16]
+          - cell [ref=f29e17]
+          - cell [ref=f29e18]:
+            - generic [ref=f29e20]:
+              - text: Lower bounds for maximum number of leaves over all spanning trees,
+              - generic [ref=f29e21]:
+                - text: L
+                - subscript [ref=f29e22]: s
+                - text: (G)
+          - cell [ref=f29e23]
+        - row [ref=f29e24]:
+          - cell [ref=f29e25]
+          - cell [ref=f29e26]
+          - cell [ref=f29e27]:
+            - text: "Note: there is now a"
+            - link [ref=f29e28] [cursor=pointer]:
+              - /url: "#LowerL2nd"
+              - text: second list for
+              - generic [ref=f29e31]:
+                - text: L
+                - subscript [ref=f29e32]: s
+                - text: (G)
+            - text: .
+          - cell [ref=f29e33]
+        - row [ref=f29e34]:
+          - cell "T" [ref=f29e35]
+          - cell "1." [ref=f29e36]
+          - cell [ref=f29e37]:
+            - generic [ref=f29e38]:
+              - text: If G is a simple connected graph, then L
+              - subscript [ref=f29e39]: s
+              - text: (G) ≥ n + 1 - 2m(G)
+          - cell [ref=f29e40]:
+            - generic [ref=f29e41]:
+              - link "definitions" [ref=f29e42] [cursor=pointer]:
+                - /url: javascript:printDefinitions(1,3,2,0,0)
+              - link "reference" [ref=f29e43] [cursor=pointer]:
+                - /url: javascript:printConjRef(1)
+        - row [ref=f29e44]:
+          - cell [ref=f29e45]
+          - cell [ref=f29e46]
+          - cell [ref=f29e47]:
+            - text: 1996. In 1984, Hedetniemi and Laskar [HL] proved that for simple connected graphs
+            - generic [ref=f29e48]:
+              - text: L
+              - subscript [ref=f29e49]: s
+              - text: (G) ≥ n - 2m(G).
+            - text: In 1996, Fajtlowicz proved that for connected graphs on at least two vertices
+            - generic [ref=f29e50]:
+              - text: L
+              - subscript [ref=f29e51]: s
+              - text: (G) ≥ n + 1 - 2m(G)
+            - text: and later send the following.
+            - paragraph [ref=f29e52]: Dec 12, 2004 Fajtlowicz. Let T be a spanning tree containing a maximum matching. Then Graffiti's conjecture follows (for graphs with at least one edge) from the
+            - paragraph [ref=f29e53]: Lemma. Let T be a n-vertex tree with L endpoints and n > 1. If T has a matching with m edges then L > n - 2m.
+            - paragraph [ref=f29e54]: "Proof: We can assume that n > 3. *Suppose T has two leaves adjacent to a vertex u of degree > 2. Let T' be the tree obtained from T by deletion of one of these leaves,* and let n', L' and m' be the corresponding invariants of T'. Since n' > 1, by induction on n we have that L' > n' - 2m'. Because deg(u) > 2, it follows that L' = L-1, and m' = m. Thus"
+            - paragraph [ref=f29e55]: L - 1 > n - 1 - 2m' , i.e., L > n - 2m.
+            - paragraph [ref=f29e56]: Suppose now that T has a leaf adjacent to a vertex of degree 2 and let T' be the tree obtained from T by deleting this leaf and its unique neighbor *u*. Clearly m'= m-1 in this case and L' = L if the degree of the other neighbor of u is 2 and L-1 otherwise. In either of these two cases we have
+            - paragraph [ref=f29e57]: L >= L' > n' - 2m' >= n - 2 - 2 (m-1) = n - 2m
+            - paragraph [ref=f29e58]: and the theorem again follows by induction on n, because n' > 1.
+          - cell [ref=f29e59]
+        - row [ref=f29e60]:
+          - cell [ref=f29e61]
+          - cell [ref=f29e62]
+          - cell [ref=f29e63]
+          - cell [ref=f29e64]
+        - row [ref=f29e65]:
+          - cell "T" [ref=f29e66]
+          - cell "3." [ref=f29e67]
+          - cell [ref=f29e68]:
+            - generic [ref=f29e69]:
+              - text: If G is a simple connected graph, then L
+              - subscript [ref=f29e70]: s
+              - text: (G)≥ g
+              - subscript [ref=f29e71]: i
+              - text: (G) * maximum temp(v)
+          - cell [ref=f29e72]:
+            - link "definitions" [ref=f29e74] [cursor=pointer]:
+              - /url: javascript:printDefinitions(1,7,6,0,0)
+        - row [ref=f29e75]:
+          - cell [ref=f29e76]
+          - cell [ref=f29e77]
+          - cell [ref=f29e78]:
+            - text: "1996. Mar. 17, 2004: Ryan Pepper \" Here, MID is the number of vertices in a minimum independent dominating set. Take any vertex v of max degree D from graph G with n vertices and remove all vertices adjacent to v leaving G'. Now, any independent dominating set of G' must include v and so is also an independent dominating set of G. But there are at most n-D vertices in any independent dominating set of G'. Therefore, MID <= n-D, since MID is cardinality of a minimum independent dominating set. The rest of proof is as even more of an exercise than this and goes as follows. For any graph, max(temp) <= D/(n-D), D is max degree. So,"
+            - paragraph [ref=f29e79]: MID(max(temperature)) <= (n-D)D/(n-D) = D <= Max number of leaves of spanning tree.
+            - paragraph [ref=f29e80]: The last inequality because, starting from a vertex x of maximum degree, we can build a spanning tree by including first all vertices of distance one from x, then all vertices of distance two from x, etc .... This will give spanning tree with a vertex of maximum degree D, and every tree has at least as many leaves as its maximum degree."
+          - cell [ref=f29e81]
+        - row [ref=f29e82]:
+          - cell [ref=f29e83]
+          - cell [ref=f29e84]
+          - cell [ref=f29e85]
+          - cell [ref=f29e86]
+    - table [ref=f29e87]:
+      - rowgroup [ref=f29e88]:
+        - row [ref=f29e89]:
+          - cell "T" [ref=f29e90]
+          - cell "4." [ref=f29e91]
+          - cell [ref=f29e92]:
+            - generic [ref=f29e93]:
+              - text: If G is a simple connected graph, then L
+              - subscript [ref=f29e94]: s
+              - text: (G) ≥ minimum of |N
+              - subscript [ref=f29e95]: G
+              - text: (e)| - 1
+          - cell [ref=f29e96]:
+            - generic [ref=f29e97]:
+              - link "definitions" [ref=f29e98] [cursor=pointer]:
+                - /url: javascript:printDefinitions(1,8,20,0,0)
+              - link "reference" [ref=f29e99] [cursor=pointer]:
+                - /url: javascript:printConjRef(4)
+        - row [ref=f29e100]:
+          - cell [ref=f29e101]
+          - cell [ref=f29e102]
+          - cell "1996. DeLaVina 1996" [ref=f29e103]
+          - cell [ref=f29e104]
+        - row [ref=f29e105]:
+          - cell [ref=f29e106]
+          - cell [ref=f29e107]
+          - cell [ref=f29e108]
+          - cell [ref=f29e109]
+    - table [ref=f29e110]:
+      - rowgroup [ref=f29e111]:
+        - row [ref=f29e112]:
+          - cell "T" [ref=f29e113]
+          - cell "5." [ref=f29e114]
+          - cell [ref=f29e115]:
+            - generic [ref=f29e116]:
+              - text: If G is a simple connected graph, then L
+              - subscript [ref=f29e117]: s
+              - text: "(G) ≥ maximum{| S(v, rad(G)) |: v is a center of G}"
+          - cell [ref=f29e118]:
+            - generic [ref=f29e119]:
+              - link "definitions" [ref=f29e120] [cursor=pointer]:
+                - /url: javascript:printDefinitions(1,9,0,0,0)
+              - link "reference" [ref=f29e121] [cursor=pointer]:
+                - /url: javascript:printConjRef(5)
+        - row [ref=f29e122]:
+          - cell [ref=f29e123]
+          - cell [ref=f29e124]
+          - cell "1996. DeLaVina and Fajtlowicz 1996" [ref=f29e125]
+          - cell [ref=f29e126]
+        - row [ref=f29e127]:
+          - cell [ref=f29e128]
+          - cell [ref=f29e129]
+          - cell [ref=f29e130]
+          - cell [ref=f29e131]
+    - table [ref=f29e132]:
+      - rowgroup [ref=f29e133]:
+        - row [ref=f29e134]:
+          - cell "T" [ref=f29e135]
+          - cell "6." [ref=f29e136]
+          - cell "If G is a simple connected graph, then Ls(G) ≥ 1 + n -m(G)- a(G)" [ref=f29e137]:
+            - generic [ref=f29e138]:
+              - text: If G is a simple connected graph, then L
+              - subscript [ref=f29e139]: s
+              - text: (G) ≥ 1 + n -
+            - generic [ref=f29e140]: m(G)- a(G)
+          - cell [ref=f29e141]:
+            - generic [ref=f29e142]:
+              - link "definitions" [ref=f29e143] [cursor=pointer]:
+                - /url: javascript:printDefinitions(1,3,2,5,0)
+              - link "reference" [ref=f29e144] [cursor=pointer]:
+                - /url: javascript:printConjRef(6)
+        - row [ref=f29e145]:
+          - cell [ref=f29e146]
+          - cell [ref=f29e147]
+          - cell "1996. DeLaVina 1996" [ref=f29e148]
+          - cell [ref=f29e149]
+        - row [ref=f29e150]:
+          - cell [ref=f29e151]
+          - cell [ref=f29e152]
+          - cell [ref=f29e153]
+          - cell [ref=f29e154]
+    - table [ref=f29e155]:
+      - rowgroup [ref=f29e156]:
+        - row [ref=f29e157]:
+          - cell "T" [ref=f29e158]
+          - cell "7." [ref=f29e159]
+          - cell [ref=f29e160]:
+            - generic [ref=f29e161]:
+              - text: If G is a simple connected graph, then L
+              - subscript [ref=f29e162]: s
+              - text: (G) ≥ maximum of l(v) -1 + n - 2a(G)
+          - cell [ref=f29e163]:
+            - generic [ref=f29e164]:
+              - link "definitions" [ref=f29e165] [cursor=pointer]:
+                - /url: javascript:printDefinitions(1,4,3,5,0)
+              - link "reference" [ref=f29e166] [cursor=pointer]:
+                - /url: javascript:printConjRef(7)
+        - row [ref=f29e167]:
+          - cell [ref=f29e168]
+          - cell [ref=f29e169]
+          - cell "1996. DeLaVina, Fajtlowicz, Waller (2002)" [ref=f29e170]
+          - cell [ref=f29e171]
+        - row [ref=f29e172]:
+          - cell [ref=f29e173]
+          - cell [ref=f29e174]
+          - cell [ref=f29e175]
+          - cell [ref=f29e176]
+    - table [ref=f29e177]:
+      - rowgroup [ref=f29e178]:
+        - row [ref=f29e179]:
+          - cell "T" [ref=f29e180]
+          - cell "8." [ref=f29e181]
+          - cell [ref=f29e182]:
+            - generic [ref=f29e183]:
+              - text: If G is a simple connected graph, then L
+              - subscript [ref=f29e184]: s
+              - text: (G) ≥ maximum of dist
+              - subscript [ref=f29e185]: even
+              - text: (v) - a(G)
+          - cell [ref=f29e186]:
+            - generic [ref=f29e187]:
+              - link "definitions" [ref=f29e188] [cursor=pointer]:
+                - /url: javascript:printDefinitions(1,10,5,0,0)
+              - link "reference" [ref=f29e189] [cursor=pointer]:
+                - /url: javascript:printConjRef(8)
+        - row [ref=f29e190]:
+          - cell [ref=f29e191]
+          - cell [ref=f29e192]
+          - cell "1996. DeLaVina 1996" [ref=f29e193]
+          - cell [ref=f29e194]
+        - row [ref=f29e195]:
+          - cell [ref=f29e196]
+          - cell [ref=f29e197]
+          - cell [ref=f29e198]
+          - cell [ref=f29e199]
+    - table [ref=f29e200]:
+      - rowgroup [ref=f29e201]:
+        - row [ref=f29e202]:
+          - cell [ref=f29e203]
+          - cell [ref=f29e204]
+          - cell [ref=f29e205]
+          - cell [ref=f29e206]
+        - row [ref=f29e207]:
+          - cell [ref=f29e208]
+          - cell [ref=f29e209]
+          - cell "Lower bounds for the path covering number of trees, p(T)." [ref=f29e210]
+          - cell [ref=f29e213]
+        - row [ref=f29e214]:
+          - cell [ref=f29e215]
+          - cell [ref=f29e216]
+          - cell [ref=f29e217]
+          - cell [ref=f29e218]
+        - row [ref=f29e219]:
+          - cell "E" [ref=f29e220]
+          - cell "9." [ref=f29e221]
+          - cell "If T is a tree, then p(T) ≥ D(T) -1" [ref=f29e222]
+          - cell [ref=f29e224]:
+            - generic [ref=f29e225]:
+              - link "definitions" [ref=f29e226] [cursor=pointer]:
+                - /url: javascript:printDefinitions(12,11,0,0,0)
+              - link "reference" [ref=f29e227] [cursor=pointer]:
+                - /url: javascript:printConjRef(9)
+        - row [ref=f29e228]:
+          - cell [ref=f29e229]
+          - cell [ref=f29e230]
+          - cell "2001" [ref=f29e231]
+          - cell [ref=f29e232]
+        - row [ref=f29e233]:
+          - cell [ref=f29e234]
+          - cell [ref=f29e235]
+          - cell [ref=f29e236]
+          - cell [ref=f29e237]
+    - table [ref=f29e238]:
+      - rowgroup [ref=f29e239]:
+        - row [ref=f29e240]:
+          - cell "E" [ref=f29e241]
+          - cell "10." [ref=f29e242]
+          - cell "If T is a tree, then p(T) ≥ CEIL(L(T)/2)" [ref=f29e243]
+          - cell [ref=f29e245]:
+            - generic [ref=f29e246]:
+              - link "definitions" [ref=f29e247] [cursor=pointer]:
+                - /url: javascript:printDefinitions(12,17,16,0,0)
+              - link "reference" [ref=f29e248] [cursor=pointer]:
+                - /url: javascript:printConjRef(10)
+        - row [ref=f29e249]:
+          - cell [ref=f29e250]
+          - cell [ref=f29e251]
+          - cell "2001" [ref=f29e252]
+          - cell [ref=f29e253]
+        - row [ref=f29e254]:
+          - cell [ref=f29e255]
+          - cell [ref=f29e256]
+          - cell [ref=f29e257]
+          - cell [ref=f29e258]
+    - table [ref=f29e259]:
+      - rowgroup [ref=f29e260]:
+        - row [ref=f29e261]:
+          - cell "E" [ref=f29e262]
+          - cell "11." [ref=f29e263]
+          - cell "If T is a tree, then p(T) ≥ 2a(T) - n" [ref=f29e264]
+          - cell [ref=f29e266]:
+            - generic [ref=f29e267]:
+              - link "definitions" [ref=f29e268] [cursor=pointer]:
+                - /url: javascript:printDefinitions(12,5,3,0,0)
+              - link "reference" [ref=f29e269] [cursor=pointer]:
+                - /url: javascript:printConjRef(11)
+        - row [ref=f29e270]:
+          - cell [ref=f29e271]
+          - cell [ref=f29e272]
+          - cell "2001" [ref=f29e273]
+          - cell [ref=f29e274]
+        - row [ref=f29e275]:
+          - cell [ref=f29e276]
+          - cell [ref=f29e277]
+          - cell [ref=f29e278]
+          - cell [ref=f29e279]
+    - table [ref=f29e280]:
+      - rowgroup [ref=f29e281]:
+        - row [ref=f29e282]:
+          - cell "E" [ref=f29e283]
+          - cell "12." [ref=f29e284]
+          - cell [ref=f29e285]:
+            - generic [ref=f29e286]:
+              - text: If T is a tree, then 2a(T) - n ≥ maximum of dist
+              - subscript [ref=f29e287]: even
+              - text: (v) - minimum of dist
+              - subscript [ref=f29e288]: even
+              - text: (v)
+          - cell [ref=f29e289]:
+            - generic [ref=f29e290]:
+              - link "definitions" [ref=f29e291] [cursor=pointer]:
+                - /url: javascript:printDefinitions(5,3,10,0,0)
+              - link "reference" [ref=f29e292] [cursor=pointer]:
+                - /url: javascript:printConjRef(12)
+        - row [ref=f29e293]:
+          - cell [ref=f29e294]
+          - cell [ref=f29e295]
+          - cell "2001" [ref=f29e296]
+          - cell [ref=f29e297]
+        - row [ref=f29e298]:
+          - cell [ref=f29e299]
+          - cell [ref=f29e300]
+          - cell [ref=f29e301]
+          - cell [ref=f29e302]
+    - table [ref=f29e303]:
+      - rowgroup [ref=f29e304]:
+        - row [ref=f29e305]:
+          - cell [ref=f29e306]
+          - cell [ref=f29e307]
+          - cell [ref=f29e308]
+          - cell [ref=f29e309]
+        - row [ref=f29e310]:
+          - cell [ref=f29e311]
+          - cell [ref=f29e312]
+          - cell "Lower bounds on the bipartite number of simple connected graphs, b(G)." [ref=f29e313]
+          - cell [ref=f29e316]
+        - row [ref=f29e317]:
+          - cell [ref=f29e318]
+          - cell [ref=f29e319]
+          - cell [ref=f29e320]
+          - cell [ref=f29e321]
+        - row [ref=f29e322]:
+          - cell "T" [ref=f29e323]
+          - cell "13." [ref=f29e324]
+          - cell "If G is a simple connected graph, then b(G) ≥ diam(G) + maximum of l(v) -1" [ref=f29e325]
+          - cell [ref=f29e327]:
+            - generic [ref=f29e328]:
+              - link "definitions" [ref=f29e329] [cursor=pointer]:
+                - /url: javascript:printDefinitions(15,14,4,0,0)
+              - link "reference" [ref=f29e330] [cursor=pointer]:
+                - /url: javascript:printConjRef(13)
+        - row [ref=f29e331]:
+          - cell [ref=f29e332]
+          - cell [ref=f29e333]
+          - cell "July 3, 2003. DeLaVina and Waller 2004." [ref=f29e334]
+          - cell [ref=f29e335]
+        - row [ref=f29e336]:
+          - cell [ref=f29e337]
+          - cell [ref=f29e338]
+          - cell [ref=f29e339]
+          - cell [ref=f29e340]
+    - table [ref=f29e341]:
+      - rowgroup [ref=f29e342]:
+        - row [ref=f29e343]:
+          - cell "T" [ref=f29e344]
+          - cell "14." [ref=f29e345]
+          - cell [ref=f29e346]:
+            - generic [ref=f29e347]:
+              - text: If G is a simple connected graph, then b(G) ≥ diam(G) + f
+              - subscript [ref=f29e348]: G
+              - text: (1) -1
+          - cell [ref=f29e349]:
+            - generic [ref=f29e350]:
+              - link "definitions" [ref=f29e351] [cursor=pointer]:
+                - /url: javascript:printDefinitions(15,14,18,0,0)
+              - link "reference" [ref=f29e352] [cursor=pointer]:
+                - /url: javascript:printConjRef(13)
+        - row [ref=f29e353]:
+          - cell [ref=f29e354]
+          - cell [ref=f29e355]
+          - cell "July 3, 2003. DeLaVina and Waller 2003" [ref=f29e356]
+          - cell [ref=f29e357]
+        - row [ref=f29e358]:
+          - cell [ref=f29e359]
+          - cell [ref=f29e360]
+          - cell [ref=f29e361]
+          - cell [ref=f29e362]
+    - table [ref=f29e363]:
+      - rowgroup [ref=f29e364]:
+        - row [ref=f29e365]:
+          - cell "R" [ref=f29e366]
+          - cell "15." [ref=f29e367]
+          - cell "If G is a simple connected graph, then b(G) ≥ 2rad(G)" [ref=f29e368]
+          - cell [ref=f29e370]:
+            - generic [ref=f29e371]:
+              - link "definitions" [ref=f29e372] [cursor=pointer]:
+                - /url: javascript:printDefinitions(15,13,0,0,0)
+              - link "reference" [ref=f29e373] [cursor=pointer]:
+                - /url: javascript:printConjRef(39)
+        - row [ref=f29e374]:
+          - cell [ref=f29e375]
+          - cell [ref=f29e376]
+          - cell "July 3, 2003. This was proven by Fajtlowicz, 1988. Waller sent an alternate proof 2003." [ref=f29e377]
+          - cell [ref=f29e378]
+        - row [ref=f29e379]:
+          - cell [ref=f29e380]
+          - cell [ref=f29e381]
+          - cell [ref=f29e382]
+          - cell [ref=f29e383]
+        - row [ref=f29e384]:
+          - cell "T" [ref=f29e385]
+          - cell "16." [ref=f29e386]
+          - cell "If G is a simple connected graph, then b(G) ≥ 2(rad(G)-1) + maximum of l(v)" [ref=f29e387]
+          - cell [ref=f29e389]:
+            - generic [ref=f29e390]:
+              - link "definitions" [ref=f29e391] [cursor=pointer]:
+                - /url: javascript:printDefinitions(15,13,4,0,0)
+              - link "reference" [ref=f29e392] [cursor=pointer]:
+                - /url: javascript:printConjRef(13)
+        - row [ref=f29e393]:
+          - cell [ref=f29e394]
+          - cell [ref=f29e395]
+          - 'cell "July 3, 2003. July 26, 2003 Bill Waller shows, by proof similar to Favaron''s for a(G) ≥ rad(G), that b(G) ≥ 2rad(G) + maximum of l(v) - 5. Mar. 17, 2004: Ryan Pepper communicated that he could prove f(G) ≥ diam(G) + maximum of l(v) - 3. Note: A second run of the program was conducted for forest number (see conjectures 57-67.) Mar. 25, 2004: In a second run for forest the program conjectured f(G) ≥ diam(G) + maximum of l(v) - 2. It is conjecture 67. Nov. 25, 2006 The conjectured relation follows for a tree T since diam(T) ≥ 2rad(T) -1 and by wowII #13 it follows that b(T) ≥ diam(T) + maximum of l(v) -1. Jan. 2008: DRW" [ref=f29e396]':
+            - text: July 3, 2003.
+            - paragraph [ref=f29e397]:
+              - text: July 26, 2003 Bill Waller shows, by proof similar to Favaron's for
+              - generic [ref=f29e398]: a(G) ≥ rad(G),
+              - text: that
+              - generic [ref=f29e399]: b(G) ≥ 2rad(G) + maximum of l(v) - 5.
+            - paragraph [ref=f29e400]:
+              - text: "Mar. 17, 2004: Ryan Pepper communicated that he could prove"
+              - generic [ref=f29e401]: f(G) ≥ diam(G) + maximum of l(v) - 3.
+            - paragraph [ref=f29e402]:
+              - text: "Note: A second run of the program was conducted for forest number (see conjectures 57-67.) Mar. 25, 2004: In a second run for forest the program conjectured"
+              - generic [ref=f29e403]: f(G) ≥ diam(G) + maximum of l(v) - 2.
+              - text: It is conjecture 67.
+            - paragraph [ref=f29e404]:
+              - text: "Nov. 25, 2006 The conjectured relation follows for a tree T since diam(T) ≥ 2rad(T) -1 and by wowII #13 it follows that"
+              - generic [ref=f29e405]: b(T) ≥ diam(T) + maximum of l(v) -1.
+            - paragraph [ref=f29e406]: "Jan. 2008: DRW"
+          - cell [ref=f29e407]
+        - row [ref=f29e408]:
+          - cell [ref=f29e409]
+          - cell [ref=f29e410]
+          - cell [ref=f29e411]
+          - cell [ref=f29e412]
+    - table [ref=f29e413]:
+      - rowgroup [ref=f29e414]:
+        - row [ref=f29e415]:
+          - cell "T" [ref=f29e416]
+          - cell "17." [ref=f29e417]
+          - cell "If G is a simple connected graph, then b(G) ≥ a(G) + CEIL(diam(G)/3)" [ref=f29e419]
+          - cell [ref=f29e421]:
+            - link "definitions" [ref=f29e423] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,5,14,16,0)
+        - row [ref=f29e424]:
+          - cell [ref=f29e425]
+          - cell [ref=f29e426]
+          - cell "July 3, 2003. Independently proven by Benny John, UHD (Dec. 2005) and David Schindl,Gerard Univ (Jan. 2006)." [ref=f29e427]
+          - cell [ref=f29e428]
+        - row [ref=f29e429]:
+          - cell [ref=f29e430]
+          - cell [ref=f29e431]
+          - cell [ref=f29e432]
+          - cell [ref=f29e433]
+        - row [ref=f29e434]:
+          - cell "T" [ref=f29e435]
+          - cell "18." [ref=f29e436]
+          - cell [ref=f29e437]:
+            - generic [ref=f29e438]:
+              - text: If G is a simple connected graph, then b(G) ≥ a(G) + CEIL(sqrt(dist
+              - subscript [ref=f29e439]: max
+              - text: (M)))
+          - cell [ref=f29e440]:
+            - link "definitions" [ref=f29e442] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,5,19,16,0)
+        - row [ref=f29e443]:
+          - cell [ref=f29e444]
+          - cell [ref=f29e445]
+          - 'cell "July 3, 2003. July 2005, for large enough diameter this follows from conjecture #17. Feb. 21, 2006 Benny John generalized Schindl''s proof of 17 to prove #18.." [ref=f29e446]'
+          - cell [ref=f29e447]
+        - row [ref=f29e448]:
+          - cell [ref=f29e449]
+          - cell [ref=f29e450]
+          - cell [ref=f29e451]
+          - cell [ref=f29e452]
+        - row [ref=f29e453]:
+          - cell "T*" [ref=f29e454]
+          - cell "20." [ref=f29e455]
+          - cell [ref=f29e456]:
+            - generic [ref=f29e457]:
+              - text: If G is a simple connected graph, then b(G) ≥ n/FLOOR[deg
+              - subscript [ref=f29e458]: avg
+              - text: (G)]
+          - cell [ref=f29e459]:
+            - generic [ref=f29e460]:
+              - link "definitions" [ref=f29e461] [cursor=pointer]:
+                - /url: javascript:printDefinitions(15,23,22,0,0)
+              - link "reference" [ref=f29e462] [cursor=pointer]:
+                - /url: javascript:printConjRef(38)
+        - row [ref=f29e463]:
+          - cell [ref=f29e464]
+          - cell [ref=f29e465]
+          - 'cell "July 3, 2003. Mar 06, 2004, Bill Waller observes that for graphs that are p-regular and Kp-free, f(G) ≥ n/FLOOR[degavg(G)] (see conjecture #50 below) follows from Fajtlowicz''s result on the independence ratio that for graphs with max. degree at most p and Kq-free, a(G)/n ≥ 2/(p+q). Mar. 07, 2004, Fajtlowicz sent a proof of f(G) ≥ n/degavg(G), see conjecture #50." [ref=f29e466]':
+            - text: July 3, 2003.
+            - paragraph [ref=f29e467]:
+              - text: Mar 06, 2004, Bill Waller observes that for graphs that are p-regular and
+              - generic [ref=f29e468]:
+                - text: K
+                - subscript [ref=f29e469]: p
+              - text: "-free,"
+              - generic [ref=f29e470]:
+                - text: f(G) ≥ n/FLOOR[deg
+                - subscript [ref=f29e471]: avg
+                - text: (G)]
+              - text: (see
+              - 'link "conjecture #50" [ref=f29e474] [cursor=pointer]':
+                - /url: "#conj50"
+              - text: below) follows from Fajtlowicz's result on the independence ratio that for graphs with max. degree at most p and
+              - generic [ref=f29e475]:
+                - text: K
+                - subscript [ref=f29e476]: q
+              - text: "-free,"
+              - generic [ref=f29e477]: a(G)/n ≥ 2/(p+q).
+            - paragraph [ref=f29e478]:
+              - text: Mar. 07, 2004, Fajtlowicz sent a proof of
+              - generic [ref=f29e479]:
+                - text: f(G) ≥ n/deg
+                - subscript [ref=f29e480]: avg
+                - text: (G), see
+                - 'link "conjecture #50" [ref=f29e482] [cursor=pointer]':
+                  - /url: "#conj50"
+                - text: .
+          - cell [ref=f29e483]
+        - row [ref=f29e484]:
+          - cell [ref=f29e485]
+          - cell [ref=f29e486]
+          - cell [ref=f29e487]
+          - cell [ref=f29e488]
+        - row [ref=f29e489]:
+          - cell "F" [ref=f29e490]
+          - cell "22." [ref=f29e491]
+          - cell [ref=f29e492]:
+            - generic [ref=f29e493]:
+              - text: If G is a simple connected graph, then CEIL(2dist(B,V)))≥ CEIL(2dist
+              - subscript [ref=f29e494]: avg
+              - text: (V))
+          - cell [ref=f29e495]:
+            - generic [ref=f29e496]:
+              - link "definitions" [ref=f29e497] [cursor=pointer]:
+                - /url: javascript:printDefinitions(25,24,16,0,0)
+              - link "reference" [ref=f29e498] [cursor=pointer]:
+                - /url: javascript:printConjRef(13)
+        - row [ref=f29e499]:
+          - cell [ref=f29e500]
+          - cell [ref=f29e501]
+          - cell [ref=f29e502]:
+            - text: July 3, 2003. DeLaVina and Waller July 4, 2003; see the
+            - link "counterexample" [ref=f29e503] [cursor=pointer]:
+              - /url: ceconj21.bmp
+            - text: (drawn with Waller's GraphDraw program)
+            - paragraph [ref=f29e504]:
+              - text: Also note this conjecture was a by-product of dalmatian implemented in Graffiti.pc. See On Some History of the Development of Graffiti
+              - link "(ps 32MB)" [ref=f29e505] [cursor=pointer]:
+                - /url: https://web.archive.org/web/20080905163247/http://cms.dt.uh.edu/faculty/delavinae/GPC/history.ps
+              - link "(zipped ps 1MB)" [ref=f29e506] [cursor=pointer]:
+                - /url: https://web.archive.org/web/20080905163247/http://cms.dt.uh.edu/faculty/delavinae/GPC/history.zip
+          - cell [ref=f29e507]
+        - row [ref=f29e508]:
+          - cell [ref=f29e509]
+          - cell [ref=f29e510]
+          - cell [ref=f29e511]
+          - cell [ref=f29e512]
+    - table [ref=f29e513]:
+      - rowgroup [ref=f29e514]:
+        - row [ref=f29e515]:
+          - cell "F" [ref=f29e516]
+          - cell "23." [ref=f29e517]
+          - cell [ref=f29e518]:
+            - generic [ref=f29e519]:
+              - text: If G is a simple connected graph, then b(G) ≥ FLOOR[a(G) + dist
+              - subscript [ref=f29e520]: avg
+              - text: (M)/2]
+          - cell [ref=f29e521]:
+            - generic [ref=f29e522]:
+              - link "definitions" [ref=f29e523] [cursor=pointer]:
+                - /url: javascript:printDefinitions(15,5,26,22,0)
+              - link "reference" [ref=f29e524] [cursor=pointer]:
+                - /url: javascript:printConjRef(13)
+        - row [ref=f29e525]:
+          - cell [ref=f29e526]
+          - cell [ref=f29e527]
+          - 'cell "July 3, 2003. July 2005. See counterexample; b = 19, a(G)= 15, distavg(M) = 10. Note: This counterexample also serves as a counterexample to b(G) ≥ a(G) + rad(G) -1, which in our paper we listed as an open but unnumbered conjecture of G.pc." [ref=f29e528]':
+            - text: July 3, 2003. July 2005. See
+            - link "counterexample" [ref=f29e529] [cursor=pointer]:
+              - /url: ceconj23.jpg
+            - text: ; b = 19,
+            - generic [ref=f29e530]:
+              - text: a(G)= 15, dist
+              - subscript [ref=f29e531]: avg
+              - text: (M) = 10.
+            - paragraph [ref=f29e532]:
+              - generic [ref=f29e533]: "Note: This counterexample also serves as a counterexample to b(G) ≥ a(G) + rad(G) -1, which in our paper we listed as an open but unnumbered conjecture of G.pc."
+          - cell [ref=f29e534]
+        - row [ref=f29e535]:
+          - cell [ref=f29e536]
+          - cell [ref=f29e537]
+          - cell [ref=f29e538]
+          - cell [ref=f29e539]
+        - row [ref=f29e540]:
+          - cell "F" [ref=f29e541]
+          - cell "24." [ref=f29e542]
+          - cell [ref=f29e543]:
+            - generic [ref=f29e544]:
+              - text: If G is a simple connected graph, then b(G) ≥ l(G) + CEIL[minimum of dist
+              - subscript [ref=f29e545]: even
+              - text: (v)/3]
+          - cell [ref=f29e546]:
+            - link "definitions" [ref=f29e548] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,4,10,16,0)
+        - row [ref=f29e549]:
+          - cell [ref=f29e550]
+          - cell [ref=f29e551]
+          - cell "July 3, 2003. May 27, 2004 DeLaVina. Take two copies of complete(9) and enumerate the vertices of each 0, 1, 2, ... , 8. Join vertices 3, 4, and 5 of one copy to vertices 3, 4, and 5 of the other copy; and join vertices 6, 7, and 8 of one copy to vertices 6, 7, and 8 of the other copy. Bipartite number is 4, every vertex has 7 of vertices at even distance, and maximum of local independence is 2." [ref=f29e552]
+          - cell [ref=f29e553]
+        - row [ref=f29e554]:
+          - cell [ref=f29e555]
+          - cell [ref=f29e556]
+          - cell [ref=f29e557]
+          - cell [ref=f29e558]
+        - row [ref=f29e559]:
+          - cell "F" [ref=f29e560]
+          - cell "25." [ref=f29e561]
+          - cell [ref=f29e562]:
+            - generic [ref=f29e563]:
+              - text: If G is a simple connected graph, then b(G) ≥ 2CEIL[(1 + minimum of dist
+              - subscript [ref=f29e564]: even
+              - text: (v))/3]
+          - cell [ref=f29e565]:
+            - link "definitions" [ref=f29e567] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,10,16,0,0)
+        - row [ref=f29e568]:
+          - cell [ref=f29e569]
+          - cell [ref=f29e570]
+          - 'cell "July 3, 2003. May 27, 2004 DeLaVina. Same counterexample as in #24. Bipartite number is 4, and every vertex has 7 of vertices at even distance." [ref=f29e571]'
+          - cell [ref=f29e572]
+        - row [ref=f29e573]:
+          - cell [ref=f29e574]
+          - cell [ref=f29e575]
+          - cell [ref=f29e576]
+          - cell [ref=f29e577]
+        - row [ref=f29e578]:
+          - cell "F" [ref=f29e579]
+          - cell "26." [ref=f29e580]
+          - cell [ref=f29e581]:
+            - generic [ref=f29e582]:
+              - text: If G is a simple connected graph, then b(G) ≥ CEIL[1 + dd(G)
+              - superscript [ref=f29e583]: "0.25"
+              - text: "]"
+          - cell [ref=f29e584]:
+            - link "definitions" [ref=f29e586] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,27,16,0,0)
+        - row [ref=f29e587]:
+          - cell [ref=f29e588]
+          - cell [ref=f29e589]
+          - cell "July 3, 2003. Mar. 6, 2004. (DeLaVina) The only counterexample that I know of at the moment has over 4000 vertices. It would be helpful to know if there is a smaller one." [ref=f29e590]
+          - cell [ref=f29e591]
+        - row [ref=f29e592]:
+          - cell [ref=f29e593]
+          - cell [ref=f29e594]
+          - cell [ref=f29e595]
+          - cell [ref=f29e596]
+        - row [ref=f29e597]:
+          - cell "F" [ref=f29e598]
+          - cell "28." [ref=f29e599]
+          - cell [ref=f29e600]:
+            - generic [ref=f29e601]:
+              - text: If G is a simple connected graph, then b(G) ≥ dist
+              - subscript [ref=f29e602]: min
+              - text: (A)+ (dist
+              - subscript [ref=f29e603]: min
+              - text: (M))
+              - superscript [ref=f29e604]: "0.25"
+          - cell [ref=f29e605]:
+            - link "definitions" [ref=f29e607] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,30,19,0,0)
+        - row [ref=f29e608]:
+          - cell [ref=f29e609]
+          - cell [ref=f29e610]
+          - cell [ref=f29e611]:
+            - text: July 3, 2003. May 2004 see the
+            - link "counterexample" [ref=f29e612] [cursor=pointer]:
+              - /url: ceconj28.gif
+            - text: . Bipartite number is 4, minimum distance between minimum degree vertices is 3, and minimum distance between maximum degree vertices is 2.
+          - cell [ref=f29e613]
+        - row [ref=f29e614]:
+          - cell [ref=f29e615]
+          - cell [ref=f29e616]
+          - cell [ref=f29e617]
+          - cell [ref=f29e618]
+        - row [ref=f29e619]:
+          - cell "T" [ref=f29e620]
+          - cell "27." [ref=f29e621]
+          - cell [ref=f29e622]:
+            - generic [ref=f29e623]:
+              - text: If G is a simple connected graph, then b(G) ≥ (minimum of |N(e)|)
+              - superscript [ref=f29e624]: 1-t(G)
+          - cell [ref=f29e625]:
+            - link "definitions" [ref=f29e627] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,28,29,20,0)
+        - row [ref=f29e628]:
+          - cell [ref=f29e629]
+          - cell [ref=f29e630]
+          - cell [ref=f29e631]:
+            - text: "July 3, 2003. ** Mar. 17 2004: thanks to Ryan Pepper for alerting me to a typo in this statement."
+            - paragraph [ref=f29e632]:
+              - text: "Mar. 19, 2004: Pepper sent a proof of a bound on b in terms of the degree of an edge which is stronger for triangle-free graphs, and notes that for t(G) ≥ 1,"
+              - generic [ref=f29e633]:
+                - text: 1 ≥ (minimum of |N(e)|)
+                - superscript [ref=f29e634]: 1-t(G)
+              - text: .
+          - cell [ref=f29e635]
+        - row [ref=f29e636]:
+          - cell [ref=f29e637]
+          - cell [ref=f29e638]
+          - cell [ref=f29e639]
+          - cell [ref=f29e640]
+        - row [ref=f29e641]:
+          - cell "T" [ref=f29e642]
+          - cell "29." [ref=f29e643]
+          - cell [ref=f29e644]:
+            - generic [ref=f29e645]:
+              - text: If G is a simple connected graph, then b(G) ≥ dist
+              - subscript [ref=f29e646]: max
+              - text: (A)+ 1/(n mod D(G))
+          - cell [ref=f29e647]:
+            - link "definitions" [ref=f29e649] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,30,3,31,32)
+        - row [ref=f29e650]:
+          - cell [ref=f29e651]
+          - cell [ref=f29e652]
+          - cell "July 3, 2003. The expression on the right is undefined for some graphs. The conjecture is made for those graphs for which is is defined. June 2005, this follows from b(G) ≥ diam(G)+ 1." [ref=f29e653]
+          - cell [ref=f29e654]
+        - row [ref=f29e655]:
+          - cell [ref=f29e656]
+          - cell [ref=f29e657]
+          - cell [ref=f29e658]
+          - cell [ref=f29e659]
+        - row [ref=f29e660]:
+          - cell "F" [ref=f29e661]
+          - cell "30." [ref=f29e662]
+          - cell [ref=f29e663]:
+            - generic [ref=f29e664]:
+              - text: If G is a simple connected graph, then b(G) ≥ dist
+              - subscript [ref=f29e665]: min
+              - text: (A)+ |E
+              - subscript [ref=f29e666]: G
+              - text: (M(G))|
+              - superscript [ref=f29e667]: "0.25"
+          - cell [ref=f29e668]:
+            - link "definitions" [ref=f29e670] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,30,31,34,33)
+        - row [ref=f29e671]:
+          - cell [ref=f29e672]
+          - cell [ref=f29e673]
+          - cell "July 3, 2003. June 2005, Barbell(18,2) is a counterexample. Take two copies of K(18) and bridge them by an edge." [ref=f29e674]
+          - cell [ref=f29e675]
+        - row [ref=f29e676]:
+          - cell [ref=f29e677]
+          - cell [ref=f29e678]
+          - cell [ref=f29e679]
+          - cell [ref=f29e680]
+        - row [ref=f29e681]:
+          - cell [ref=f29e682]
+          - cell [ref=f29e683]
+          - cell [ref=f29e684]
+          - cell [ref=f29e685]
+        - row [ref=f29e686]:
+          - cell [ref=f29e687]
+          - cell [ref=f29e688]
+          - cell [ref=f29e689]
+          - cell [ref=f29e690]
+    - table [ref=f29e691]:
+      - rowgroup [ref=f29e692]:
+        - row [ref=f29e693]:
+          - cell [ref=f29e694]
+          - cell [ref=f29e695]
+          - cell "Lower bounds on the path number of simple connected graphs, path(G)." [ref=f29e696]
+          - cell [ref=f29e699]
+        - row [ref=f29e700]:
+          - cell [ref=f29e701]
+          - cell [ref=f29e702]
+          - cell [ref=f29e703]
+          - cell [ref=f29e704]
+        - row [ref=f29e705]:
+          - cell "R" [ref=f29e706]
+          - cell "31." [ref=f29e707]
+          - cell "If G is a simple connected graph, then path(G) ≥ 2rad(G) - 1" [ref=f29e708]
+          - cell [ref=f29e710]:
+            - generic [ref=f29e711]:
+              - link "definitions" [ref=f29e712] [cursor=pointer]:
+                - /url: javascript:printDefinitions(35,21,13,0,0)
+              - link "reference" [ref=f29e713] [cursor=pointer]:
+                - /url: javascript:printConjRef(30)
+        - row [ref=f29e714]:
+          - cell [ref=f29e715]
+          - cell [ref=f29e716]
+          - cell "July 15, 2003. This is Chung's Lemma, see reference." [ref=f29e717]
+          - cell [ref=f29e718]
+        - row [ref=f29e719]:
+          - cell [ref=f29e720]
+          - cell [ref=f29e721]
+          - cell [ref=f29e722]
+          - cell [ref=f29e723]
+    - table [ref=f29e724]:
+      - rowgroup [ref=f29e725]:
+        - row [ref=f29e726]
+    - table [ref=f29e727]:
+      - rowgroup [ref=f29e728]:
+        - row [ref=f29e729]:
+          - cell "R" [ref=f29e730]
+          - cell "31a." [ref=f29e731]
+          - cell "If G is a simple connected graph, then path(G) ≥ 2ecc(Centers) + 1" [ref=f29e732]
+          - cell [ref=f29e734]:
+            - generic [ref=f29e735]:
+              - link "definitions" [ref=f29e736] [cursor=pointer]:
+                - /url: javascript:printDefinitions(35,21,64,36,0)
+              - link "reference" [ref=f29e737] [cursor=pointer]:
+                - /url: javascript:printConjRef(42)
+        - row [ref=f29e738]:
+          - cell [ref=f29e739]
+          - cell [ref=f29e740]
+          - 'cell "Summer 2003. This is offers an improvement over Chung''s Theorem see wowII #31, when rad(G) = ecc(centers). June 2005, Waller noticed that conjecture follows from a Theorem of Basco and Tuza (see reference)." [ref=f29e741]'
+          - cell [ref=f29e742]
+        - row [ref=f29e743]:
+          - cell [ref=f29e744]
+          - cell [ref=f29e745]
+          - cell [ref=f29e746]
+          - cell [ref=f29e747]
+        - row [ref=f29e748]:
+          - cell "F" [ref=f29e749]
+          - cell "32." [ref=f29e750]
+          - cell [ref=f29e751]:
+            - generic [ref=f29e752]:
+              - text: If G is a simple connected graph, then path(G) ≥ dist
+              - subscript [ref=f29e753]: avg
+              - text: (A) + 0.5 ecc
+              - subscript [ref=f29e754]: avg
+              - text: (M)
+          - cell [ref=f29e755]:
+            - link "definitions" [ref=f29e757] [cursor=pointer]:
+              - /url: javascript:printDefinitions(35,30,21,34,36)
+        - row [ref=f29e758]:
+          - cell [ref=f29e759]
+          - cell [ref=f29e760]
+          - cell [ref=f29e761]:
+            - text: July 15, 2003. Aug 2005, the path on 5 vertices is a counterexample, path = 5,
+            - generic [ref=f29e762]:
+              - text: dist
+              - subscript [ref=f29e763]: avg
+              - text: (A)
+            - text: = 4 and the average of eccentricity of maximum degree vertices is 8/3; this may have resulted from an initially unnoticed computational error(s) for average of distances or eccentricities in earlier code.
+          - cell [ref=f29e764]
+        - row [ref=f29e765]:
+          - cell [ref=f29e766]
+          - cell [ref=f29e767]
+          - cell [ref=f29e768]
+          - cell [ref=f29e769]
+        - row [ref=f29e770]:
+          - cell "F" [ref=f29e771]
+          - cell "33." [ref=f29e772]
+          - cell [ref=f29e773]:
+            - generic [ref=f29e774]:
+              - text: If G is a simple connected graph, then path(G) ≥ CEIL[2dist
+              - subscript [ref=f29e775]: avg
+              - text: (M,V)]
+          - cell [ref=f29e776]:
+            - link "definitions" [ref=f29e778] [cursor=pointer]:
+              - /url: javascript:printDefinitions(35,37,16,0,0)
+        - row [ref=f29e779]:
+          - cell [ref=f29e780]
+          - cell [ref=f29e781]
+          - cell [ref=f29e782]:
+            - text: July 15, 2003. Oct 2005 see the
+            - link "counterexample" [ref=f29e783] [cursor=pointer]:
+              - /url: ceDalm33n79.jpg
+            - text: . Path number is 7,
+            - generic [ref=f29e784]:
+              - text: dist
+              - subscript [ref=f29e785]: avg
+              - text: (M,V =
+            - text: avg dist = 3.56.
+          - cell [ref=f29e786]
+        - row [ref=f29e787]:
+          - cell [ref=f29e788]
+          - cell [ref=f29e789]
+          - cell [ref=f29e790]
+          - cell [ref=f29e791]
+        - row [ref=f29e792]:
+          - cell "R" [ref=f29e793]
+          - cell "35." [ref=f29e794]
+          - cell "If G is a simple connected graph, then path(G) ≥ 1 + diam(G)" [ref=f29e795]
+          - cell [ref=f29e797]:
+            - generic [ref=f29e798]:
+              - link "definitions" [ref=f29e799] [cursor=pointer]:
+                - /url: javascript:printDefinitions(35,21,14,0,0)
+              - link "reference" [ref=f29e800] [cursor=pointer]:
+                - /url: javascript:printConjRef(34)
+        - row [ref=f29e801]:
+          - cell [ref=f29e802]
+          - cell [ref=f29e803]
+          - cell "July 15, 2003. This could also have been labeled an exercise, but since it was noted in the cited reference we include it here as a rediscovery." [ref=f29e804]
+          - cell [ref=f29e805]
+        - row [ref=f29e806]:
+          - cell [ref=f29e807]
+          - cell [ref=f29e808]
+          - cell [ref=f29e809]
+          - cell [ref=f29e810]
+        - row [ref=f29e811]:
+          - cell "F" [ref=f29e812]
+          - cell "36." [ref=f29e813]
+          - cell "If G is a simple connected graph, then path(G) ≥ 2rad(G)/dp(G)" [ref=f29e814]
+          - cell [ref=f29e816]:
+            - link "definitions" [ref=f29e818] [cursor=pointer]:
+              - /url: javascript:printDefinitions(35,21,39,0,0)
+        - row [ref=f29e819]:
+          - cell [ref=f29e820]
+          - cell [ref=f29e821]
+          - cell [ref=f29e822]:
+            - text: July 15, 2003. DeLaVina, June 2005 see the
+            - link "counterexample" [ref=f29e823] [cursor=pointer]:
+              - /url: conj36.jpg
+            - text: . Path number is 5, radius is 3, and dp is 1.
+          - cell [ref=f29e824]
+        - row [ref=f29e825]:
+          - cell [ref=f29e826]
+          - cell [ref=f29e827]
+          - cell [ref=f29e828]
+          - cell [ref=f29e829]
+        - row [ref=f29e830]:
+          - cell [ref=f29e831]
+          - cell [ref=f29e832]
+          - cell [ref=f29e833]
+          - cell [ref=f29e834]
+    - table [ref=f29e835]:
+      - rowgroup [ref=f29e836]:
+        - row [ref=f29e837]:
+          - cell [ref=f29e838]
+          - cell [ref=f29e839]
+          - cell [ref=f29e840]
+          - cell [ref=f29e841]
+        - row [ref=f29e842]:
+          - cell [ref=f29e843]
+          - cell [ref=f29e844]
+          - cell "Lower bounds on the forest number of simple connected graphs, f(G)." [ref=f29e845]
+          - cell [ref=f29e848]
+        - row [ref=f29e849]:
+          - cell [ref=f29e850]
+          - cell "Note:" [ref=f29e851]
+          - cell [ref=f29e852]:
+            - text: Clearly b(G) ≥ f(G) ≥ path(G), and note that f(G) and path(G) were not available to the program when lower bounds for b(G) were generated.
+            - paragraph [ref=f29e853]
+          - cell [ref=f29e854]
+        - row [ref=f29e855]:
+          - cell "E" [ref=f29e856]
+          - cell "37." [ref=f29e857]
+          - cell "If G is a simple connected graph, then f(G) ≥ path(G)" [ref=f29e858]
+          - cell [ref=f29e860]:
+            - link "definitions" [ref=f29e862] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,35,0,0,0)
+        - row [ref=f29e863]:
+          - cell [ref=f29e864]
+          - cell [ref=f29e865]
+          - cell "Mar 05, 2004." [ref=f29e866]
+          - cell [ref=f29e867]
+        - row [ref=f29e868]:
+          - cell [ref=f29e869]
+          - cell [ref=f29e870]
+          - cell [ref=f29e871]
+          - cell [ref=f29e872]
+        - row [ref=f29e873]:
+          - cell "F" [ref=f29e874]
+          - cell "38." [ref=f29e875]
+          - cell "If G is a simple connected graph, then f(G) ≥ CEIL[0.5(res(G)+b(G))]" [ref=f29e876]
+          - cell [ref=f29e878]:
+            - link "definitions" [ref=f29e880] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,42,15,0,0)
+        - row [ref=f29e881]:
+          - cell [ref=f29e882]
+          - cell [ref=f29e883]
+          - cell [ref=f29e884]:
+            - text: Mar 05, 2004. May 2004 see the
+            - link "counterexample" [ref=f29e885] [cursor=pointer]:
+              - /url: ceconj38.gif
+            - text: . Forest number is 6, bipartite is 10, and residue is 3.
+          - cell [ref=f29e886]
+        - row [ref=f29e887]:
+          - cell [ref=f29e888]
+          - cell [ref=f29e889]
+          - cell [ref=f29e890]
+          - cell [ref=f29e891]
+        - row [ref=f29e892]:
+          - cell "F" [ref=f29e893]
+          - cell "39." [ref=f29e894]
+          - cell [ref=f29e895]:
+            - generic [ref=f29e896]:
+              - text: If G is a simple connected graph, then f(G) ≥ a(G) +CEIL[(1/3) dist
+              - subscript [ref=f29e897]: avg
+              - text: (B,V))]
+          - cell [ref=f29e898]:
+            - link "definitions" [ref=f29e900] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,5,25,0,0)
+        - row [ref=f29e901]:
+          - cell [ref=f29e902]
+          - cell [ref=f29e903]
+          - cell [ref=f29e904]:
+            - text: Mar 05, 2004. Nov. 2005 As stated this conjecture is false see the
+            - link "counterexample" [ref=f29e905] [cursor=pointer]:
+              - /url: ceDalm39.jpg
+            - text: ", but I still think there may be a constant less than 1/3 for which the relation may be true. For the counterexample forest is 21, independence number is 20 and average distance from the boundary is slightly more than three."
+          - cell [ref=f29e906]
+        - row [ref=f29e907]:
+          - cell [ref=f29e908]
+          - cell [ref=f29e909]
+          - cell [ref=f29e910]
+          - cell [ref=f29e911]
+        - row [ref=f29e912]:
+          - cell "F" [ref=f29e913]
+          - cell "41." [ref=f29e914]
+          - cell [ref=f29e915]:
+            - generic [ref=f29e916]:
+              - text: If G is a simple connected graph, then f(G) ≥ CEIL[dist
+              - subscript [ref=f29e917]: avg
+              - text: (V)*(1 + sqrt(p(G)) ]
+          - cell [ref=f29e918]:
+            - link "definitions" [ref=f29e920] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,24,12,0,0)
+        - row [ref=f29e921]:
+          - cell [ref=f29e922]
+          - cell [ref=f29e923]
+          - cell "Mar 05, 2004. June 2005, binary stars with 5 leaves on each end and interior path of length at least 8 are counterexamples. Path covering number is 9, and increasing the length of the interior path increases the average distance, which shows that the difference between the left and right of the inequality can be arbitrarily large." [ref=f29e924]
+          - cell [ref=f29e925]
+        - row [ref=f29e926]:
+          - cell [ref=f29e927]
+          - cell [ref=f29e928]
+          - cell [ref=f29e929]
+          - cell [ref=f29e930]
+        - row [ref=f29e931]:
+          - cell "F" [ref=f29e932]
+          - cell "43." [ref=f29e933]
+          - cell "If G is a simple connected graph, then f(G) ≥ FLOOR[sqrt[path(G)*(b(G)-1)]]" [ref=f29e934]
+          - cell [ref=f29e936]:
+            - link "definitions" [ref=f29e938] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,35,15,22,0)
+        - row [ref=f29e939]:
+          - cell [ref=f29e940]
+          - cell [ref=f29e941]
+          - cell [ref=f29e942]:
+            - text: "Mar 05, 2004. Mar 06, 2004, DeLaVina: It is easy shown that for graphs on more than one vertex, f(G) ≥ sqrt[path(G)*(b(G)+2)/2], since f(G) ≥ path(G) and f(G) ≥ b(G)/2 + 1, the +1 we get for connected graphs on more than one vertex."
+            - paragraph [ref=f29e943]: "Mar. 6, 2004, Ryan Pepper's counterexample follows: \"Take a path on 7 vertices and alternately label its vertices red and blue (pendants are red). Join both vertices of an empty graph on two vertices to every vertex that is red and take another empty graph on two vertices and join both of them to every vertex that is blue. This gives you a bipartite graph on 11 vertices. So, b(G)=11, and f(G) >= p(G) >= 7.\". Further he showed that f(G) = 7."
+          - cell [ref=f29e944]
+        - row [ref=f29e945]:
+          - cell [ref=f29e946]
+          - cell [ref=f29e947]
+          - cell [ref=f29e948]
+          - cell [ref=f29e949]
+        - row [ref=f29e950]:
+          - cell "F" [ref=f29e951]
+          - cell "44." [ref=f29e952]
+          - cell "If G is a simple connected graph, then f(G) ≥ a(G) + FLOOR[(1/2) average of ecc(v)]" [ref=f29e953]
+          - cell [ref=f29e955]:
+            - link "definitions" [ref=f29e957] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,5,21,22,0)
+        - row [ref=f29e958]:
+          - cell [ref=f29e959]
+          - cell [ref=f29e960]
+          - cell [ref=f29e961]:
+            - text: Mar 05, 2004. July 2005, DeLaVina see the
+            - link "counterexample" [ref=f29e962] [cursor=pointer]:
+              - /url: ceconj44.jpg
+            - text: . Forest number is 17, independence number is 13, and average eccentricity is 12.1905.
+          - cell [ref=f29e963]
+        - row [ref=f29e964]:
+          - cell [ref=f29e965]
+          - cell [ref=f29e966]
+          - cell [ref=f29e967]
+          - cell [ref=f29e968]
+        - row [ref=f29e969]:
+          - cell "F" [ref=f29e970]
+          - cell "45." [ref=f29e971]
+          - cell "If G is a simple connected graph, then f(G) ≥ FLOOR[path(G) - 1 + (1/3)(n mod D(G)) ]" [ref=f29e972]
+          - cell [ref=f29e974]:
+            - link "definitions" [ref=f29e976] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,35,32,31,22)
+        - row [ref=f29e977]:
+          - cell [ref=f29e978]
+          - cell [ref=f29e979]
+          - 'cell "Mar 05, 2004. Mar 06, 2004, DeLaVina: K3 with K12 attached to each vertex is a counterexample. f = 5, path = 4, n = 36, D(G) = 24." [ref=f29e980]':
+            - text: "Mar 05, 2004. Mar 06, 2004, DeLaVina: K"
+            - subscript [ref=f29e981]: "3"
+            - text: with K
+            - subscript [ref=f29e982]: "12"
+            - text: attached to each vertex is a counterexample.
+            - generic [ref=f29e983]: f = 5, path = 4, n = 36, D(G) = 24.
+          - cell [ref=f29e984]
+        - row [ref=f29e985]:
+          - cell [ref=f29e986]
+          - cell [ref=f29e987]
+          - cell [ref=f29e988]
+          - cell [ref=f29e989]
+        - row [ref=f29e990]:
+          - cell "F" [ref=f29e991]
+          - cell "46." [ref=f29e992]
+          - cell "If G is a simple connected graph, then f(G) ≥ FLOOR[path(G) - 1 + (1/3)(n mod D(G)) ]" [ref=f29e993]
+          - cell [ref=f29e995]:
+            - link "definitions" [ref=f29e997] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,35,32,22,0)
+        - row [ref=f29e998]:
+          - cell [ref=f29e999]
+          - cell [ref=f29e1000]
+          - 'cell "Mar 05, 2004. Mar 06, 2004, DeLaVina: K3 with K12 attached to each vertex is a counterexample. f = 5, path = 4, n = 36, D = 13." [ref=f29e1001]':
+            - text: "Mar 05, 2004. Mar 06, 2004, DeLaVina: K"
+            - subscript [ref=f29e1002]: "3"
+            - text: with K
+            - subscript [ref=f29e1003]: "12"
+            - text: attached to each vertex is a counterexample.
+            - generic [ref=f29e1004]: f = 5, path = 4, n = 36, D = 13.
+          - cell [ref=f29e1005]
+        - row [ref=f29e1006]:
+          - cell [ref=f29e1007]
+          - cell [ref=f29e1008]
+          - cell [ref=f29e1009]
+          - cell [ref=f29e1010]
+        - row [ref=f29e1011]:
+          - cell "R" [ref=f29e1012]
+          - cell "47." [ref=f29e1013]
+          - cell [ref=f29e1014]:
+            - generic [ref=f29e1015]:
+              - text: If G is a simple connected graph, then f(G) ≥ diam(G) + f
+              - subscript [ref=f29e1016]: G
+              - text: (1) -1
+          - cell [ref=f29e1017]:
+            - generic [ref=f29e1018]:
+              - link "definitions" [ref=f29e1019] [cursor=pointer]:
+                - /url: javascript:printDefinitions(41,14,18,0,0)
+              - link "reference" [ref=f29e1020] [cursor=pointer]:
+                - /url: javascript:printConjRef(13)
+        - row [ref=f29e1021]:
+          - cell [ref=f29e1022]
+          - cell [ref=f29e1023]
+          - 'cell "Mar 05, 2004. This is a rediscovery since Waller and I knew it to be true from our work on b(G). DeLaVina and Waller 2003, see #14 above." [ref=f29e1024]'
+          - cell [ref=f29e1025]
+        - row [ref=f29e1026]:
+          - cell [ref=f29e1027]
+          - cell [ref=f29e1028]
+          - cell [ref=f29e1029]
+          - cell [ref=f29e1030]
+        - row [ref=f29e1031]:
+          - cell "T" [ref=f29e1032]
+          - cell "48." [ref=f29e1033]
+          - cell [ref=f29e1034]:
+            - generic [ref=f29e1035]:
+              - text: If G is a simple connected graph, then f(G) ≥ girth(G) + f
+              - subscript [ref=f29e1036]: G
+              - text: (1) -1
+          - cell [ref=f29e1037]:
+            - generic [ref=f29e1038]:
+              - link "definitions" [ref=f29e1039] [cursor=pointer]:
+                - /url: javascript:printDefinitions(41,43,18,0,0)
+              - link "reference" [ref=f29e1040] [cursor=pointer]:
+                - /url: javascript:printConjRef(13)
+        - row [ref=f29e1041]:
+          - cell [ref=f29e1042]
+          - cell [ref=f29e1043]
+          - 'cell "Mar 05, 2004. The proof is similar to that of #47. DeLaVina and Waller 2004. *must check algorithm for circumference." [ref=f29e1044]'
+          - cell [ref=f29e1045]
+        - row [ref=f29e1046]:
+          - cell [ref=f29e1047]
+          - cell [ref=f29e1048]
+          - cell [ref=f29e1049]
+          - cell [ref=f29e1050]
+        - row [ref=f29e1051]:
+          - cell "F" [ref=f29e1052]
+          - cell "49." [ref=f29e1053]
+          - cell "If G is a simple connected graph, then f(G) ≥ CEIL[ 2 + (1/6)*length(G) ]" [ref=f29e1054]
+          - cell [ref=f29e1056]:
+            - link "definitions" [ref=f29e1058] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,44,31,16,0)
+        - row [ref=f29e1059]:
+          - cell [ref=f29e1060]
+          - cell [ref=f29e1061]
+          - 'cell "Mar 05, 2004. Mar. 08, 2004, Ryan Pepper: a path on 38 vertices is a counterexample." [ref=f29e1062]'
+          - cell [ref=f29e1063]
+        - row [ref=f29e1064]:
+          - cell [ref=f29e1065]
+          - cell [ref=f29e1066]
+          - cell [ref=f29e1067]
+          - cell [ref=f29e1068]
+        - row [ref=f29e1069]:
+          - cell "T*" [ref=f29e1070]
+          - cell [ref=f29e1071]
+          - cell [ref=f29e1073]:
+            - generic [ref=f29e1074]:
+              - text: If G is a simple connected graph, then f(G) ≥ n/FLOOR[deg
+              - subscript [ref=f29e1075]: avg
+              - text: (G)]
+          - cell [ref=f29e1076]:
+            - generic [ref=f29e1077]:
+              - link "definitions" [ref=f29e1078] [cursor=pointer]:
+                - /url: javascript:printDefinitions(41,23,22,0,0)
+              - link "reference" [ref=f29e1079] [cursor=pointer]:
+                - /url: javascript:printConjRef(38)
+        - row [ref=f29e1080]:
+          - cell [ref=f29e1081]
+          - cell [ref=f29e1082]
+          - cell [ref=f29e1083]:
+            - text: "Mar 05, 2004. Note conj. #20 of wowII is"
+            - generic [ref=f29e1084]:
+              - text: b(G) ≥ n/FLOOR[deg
+              - subscript [ref=f29e1085]: avg
+              - text: (G)].
+            - paragraph [ref=f29e1086]:
+              - text: Mar 06, 2004, Bill Waller observes that for graphs that are p-regular and
+              - generic [ref=f29e1087]:
+                - text: K
+                - subscript [ref=f29e1088]: p
+              - text: "-free,"
+              - generic [ref=f29e1089]:
+                - text: f(G) ≥ n/FLOOR[deg
+                - subscript [ref=f29e1090]: avg
+                - text: (G)]
+              - text: follows from Fajtlowicz's result on the independence ratio that for graphs with max. degree at most p and
+              - generic [ref=f29e1091]:
+                - text: K
+                - subscript [ref=f29e1092]: q
+              - text: "-free,"
+              - generic [ref=f29e1093]: a(G)/n ≥ 2/(p+q).
+              - text: "[F]"
+            - paragraph [ref=f29e1094]: "Mar 07, 2004, DeLaVina: I came across a paper [BB] (see reference link) by Bau and Beineke on n(G) - f(G), which they called the decycling number of a graph. In their paper they cite a result of Zheng and Lu in [ZL] that for cubic graphs without triangles and n not 8, f => n - ceil[n/3] (settling a conjecture by Bondy, Hopkins and Staton [BHS].) Zheng and Lu's bound for cubic triangle-free graphs is an improvement over the above. Bau and Beineke also cite other results on the decycling number, they write \"A sharp upper bound for the decycling number of cubic graphs has been obtained in [LZ] by Liu and Zhao and that for connected graphs with maximum degree 3 has been obtained in [AMT].\""
+            - paragraph [ref=f29e1095]:
+              - text: Mar. 07, 2004, Fajtlowicz sent a proof of
+              - generic [ref=f29e1096]:
+                - text: f(G) ≥ n/deg
+                - subscript [ref=f29e1097]: avg
+                - text: (G)
+            - paragraph [ref=f29e1098]: "\"The algorithm is as the proof which essentially shows how to find a forest of size n/A, where A is the average degree."
+            - paragraph [ref=f29e1099]: "Proof: We can assume that G has no isolated points. Let's order vertices at random and starting with empty set F, let us keep adding to F a vertex v, if F + {v} is an induced forest. We add suitable vertices to F in order they are listed. Let d be the degree of v. The probability that v will eventually land in F is at least 2/(d+1), because that's the probability that v is the first or the second on the list of v +{neighbors of v}. Adding such vertices keeps F acyclic."
+            - paragraph [ref=f29e1100]: Let f(v) = 1 if v is in F and zero otherwise. By linearity, The expected value of f is at least R = sum 1/d, where the summation is over the degree sequence D, because for d >= 1, 2/(d+1) >= 1/d. Since that is the expected value then there is at least one ordering for which |F| is at least R.
+            - paragraph [ref=f29e1101]: This is a version of Caro-Wei bound for forests rather than the independence number and the idea of the proof is the same as Shearer's proof of their result.
+            - paragraph [ref=f29e1102]: Let H be the harmonic mean of D, i.e., H = n/R and A the average of D. Then f >= n/A follows from the inequality of arithmetic-harmonic means which says that A >= H.
+            - paragraph [ref=f29e1103]: f >= R
+            - paragraph [ref=f29e1104]: f/n >= R/n = 1/H >= 1/A i.e, f >= n/A
+            - paragraph [ref=f29e1105]: Siemion"
+          - cell [ref=f29e1106]
+        - row [ref=f29e1107]:
+          - cell [ref=f29e1108]
+          - cell [ref=f29e1109]
+          - cell [ref=f29e1110]
+          - cell [ref=f29e1111]
+        - row [ref=f29e1112]:
+          - cell "F" [ref=f29e1113]
+          - cell "51." [ref=f29e1114]
+          - cell "If G is a simple connected graph, then f(G) ≥ diam(G) + FLOOR[(1/3)*dd(G) ]" [ref=f29e1115]
+          - cell [ref=f29e1117]:
+            - link "definitions" [ref=f29e1119] [cursor=pointer]:
+              - /url: javascript:printDefinitions(47,41,14,27,22)
+        - row [ref=f29e1120]:
+          - cell [ref=f29e1121]
+          - cell [ref=f29e1122]
+          - 'cell "Mar 05, 2004. Mar 06, 2004, DeLaVina: progressive-join(complete(9), complete(9)) is a counterexample. f = 4, diam = 2, dd = 9." [ref=f29e1123]'
+          - cell [ref=f29e1124]
+        - row [ref=f29e1125]:
+          - cell [ref=f29e1126]
+          - cell [ref=f29e1127]
+          - cell [ref=f29e1128]
+          - cell [ref=f29e1129]
+        - row [ref=f29e1130]:
+          - cell "F" [ref=f29e1131]
+          - cell "52." [ref=f29e1132]
+          - cell "If G is a simple connected graph, then f(G) ≥ CEIL[(1/2)*[dd(G) + 1 + (n mod D(G))] ]" [ref=f29e1133]
+          - cell [ref=f29e1135]:
+            - link "definitions" [ref=f29e1137] [cursor=pointer]:
+              - /url: javascript:printDefinitions(47,41,27,32,16)
+        - row [ref=f29e1138]:
+          - cell [ref=f29e1139]
+          - cell [ref=f29e1140]
+          - 'cell "Mar 05, 2004. Mar 06, 2004, DeLaVina: progressive-join(complete(9), complete(9)) is a counterexample. f = 4, n = 18, D = 17, dd = 9." [ref=f29e1141]':
+            - text: "Mar 05, 2004. Mar 06, 2004, DeLaVina: progressive-join(complete(9), complete(9)) is a counterexample."
+            - generic [ref=f29e1142]: f = 4, n = 18, D = 17, dd = 9.
+          - cell [ref=f29e1143]
+        - row [ref=f29e1144]:
+          - cell [ref=f29e1145]
+          - cell [ref=f29e1146]
+          - cell [ref=f29e1147]
+          - cell [ref=f29e1148]
+        - row [ref=f29e1149]:
+          - cell "F" [ref=f29e1150]
+          - cell "53." [ref=f29e1151]
+          - cell [ref=f29e1152]:
+            - generic [ref=f29e1153]:
+              - text: If G is a simple connected graph, then f(G) ≥ 2*CEIL[mode
+              - subscript [ref=f29e1154]: min
+              - text: (G) /deg
+              - subscript [ref=f29e1155]: avg
+              - text: (G)]
+          - cell [ref=f29e1156]:
+            - link "definitions" [ref=f29e1158] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,45,31,23,22)
+        - row [ref=f29e1159]:
+          - cell [ref=f29e1160]
+          - cell [ref=f29e1161]
+          - cell [ref=f29e1162]:
+            - text: Mar 05, 2004. DeLaVina, Mar. 23, 2004; see the
+            - link "counterexample" [ref=f29e1163] [cursor=pointer]:
+              - /url: ceconj53.gif
+            - text: (drawn with Waller's GraphDraw program)
+          - cell [ref=f29e1164]
+        - row [ref=f29e1165]:
+          - cell [ref=f29e1166]
+          - cell [ref=f29e1167]
+          - cell [ref=f29e1168]
+          - cell [ref=f29e1169]
+        - row [ref=f29e1170]:
+          - cell "F" [ref=f29e1171]
+          - cell "54." [ref=f29e1172]
+          - cell [ref=f29e1173]:
+            - generic [ref=f29e1174]:
+              - text: If G is a simple connected graph, then f(G) ≥ CEIL[dist
+              - subscript [ref=f29e1175]: avg
+              - text: (V) +(1/2)*minimum of dist
+              - subscript [ref=f29e1176]: even
+              - text: (v)]
+          - cell [ref=f29e1177]:
+            - link "definitions" [ref=f29e1179] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,24,10,16,0)
+        - row [ref=f29e1180]:
+          - cell [ref=f29e1181]
+          - cell [ref=f29e1182]
+          - cell "Mar 05, 2004. DeLaVina, Mar. 23, 2004; Take two copies of complete(9) and enumerate the vertices of each 0, 1, 2, ... , 8. Join vertices 3, 4, and 5 of one copy to vertices 3, 4, and 5 of the other copy; and join vertices 6, 7, and 8 of one copy to vertices 6, 7, and 8 of the other copy. Forest number is 4, average distance is slightly less than 1.5, but every vertex has 7 of vertices at even distance." [ref=f29e1183]
+          - cell [ref=f29e1184]
+        - row [ref=f29e1185]:
+          - cell [ref=f29e1186]
+          - cell [ref=f29e1187]
+          - cell [ref=f29e1188]
+          - cell [ref=f29e1189]
+        - row [ref=f29e1190]:
+          - cell "F" [ref=f29e1191]
+          - cell "55." [ref=f29e1192]
+          - cell [ref=f29e1193]:
+            - generic [ref=f29e1194]:
+              - text: If G is a simple connected graph, then f(G) ≥ CEIL[minimum of dist
+              - subscript [ref=f29e1195]: even
+              - text: (v) -1 + |N(A)|/3], where A is the set of vertices of minimum degree.
+          - cell [ref=f29e1196]:
+            - link "definitions" [ref=f29e1198] [cursor=pointer]:
+              - /url: javascript:printDefinitions(47,41,10,46,20)
+        - row [ref=f29e1199]:
+          - cell [ref=f29e1200]
+          - cell [ref=f29e1201]
+          - cell [ref=f29e1202]:
+            - text: "Mar 05, 2004. Mar 06, 2004, DeLaVina: progressive-join(complete(9), complete(9)) is a counterexample. f = 4 and"
+            - generic [ref=f29e1203]:
+              - text: minimum of dist
+              - subscript [ref=f29e1204]: even
+              - text: (v) = 1.
+            - text: There are two vertices of min. degree, 10, and |N(A)| = 16.
+          - cell [ref=f29e1205]
+        - row [ref=f29e1206]:
+          - cell [ref=f29e1207]
+          - cell [ref=f29e1208]
+          - cell [ref=f29e1209]
+          - cell [ref=f29e1210]
+        - row [ref=f29e1211]:
+          - cell "F" [ref=f29e1212]
+          - cell "56." [ref=f29e1213]
+          - cell [ref=f29e1214]:
+            - generic [ref=f29e1215]:
+              - text: If G is a simple connected graph, then f(G) ≥ CEIL[sqrt[dist
+              - subscript [ref=f29e1216]: max
+              - text: (A)*(1+deg
+              - subscript [ref=f29e1217]: avg
+              - text: (G))]], where A is the set of vertices of minimum degree.
+          - cell [ref=f29e1218]:
+            - link "definitions" [ref=f29e1220] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,30,23,31,16)
+        - row [ref=f29e1221]:
+          - cell [ref=f29e1222]
+          - cell [ref=f29e1223]
+          - 'cell "Mar 05, 2004. DeLaVina, Mar. 23, 2004; the counterexample to #54 is also a counterexample to #56" [ref=f29e1224]'
+          - cell [ref=f29e1225]
+        - row [ref=f29e1226]:
+          - cell [ref=f29e1227]
+          - cell [ref=f29e1228]
+          - cell [ref=f29e1229]
+          - cell [ref=f29e1230]
+        - row [ref=f29e1231]:
+          - cell [ref=f29e1232]
+          - cell [ref=f29e1233]
+          - cell [ref=f29e1234]
+          - cell [ref=f29e1235]
+        - row [ref=f29e1236]:
+          - cell [ref=f29e1237]
+          - cell [ref=f29e1238]
+          - cell "2nd run on Lower bounds on the forest number of simple connected graphs, f(G)." [ref=f29e1239]
+          - cell [ref=f29e1242]
+        - row [ref=f29e1243]:
+          - cell [ref=f29e1244]
+          - cell "Note:" [ref=f29e1245]
+          - cell [ref=f29e1246]:
+            - text: Clearly b(G) ≥ f(G) ≥ tree(G) ≥ path(G), and note that this (for the second run) time b(G), tree(G) and path(G) were available to the program when lower bounds for f(G) were generated; Also for the second run for forest should reflect the counterexamples listed above and now also includes the local independence invariants and the domination number.
+            - paragraph [ref=f29e1247]: conjectures 39, 42, 47
+          - cell [ref=f29e1248]
+        - row [ref=f29e1249]:
+          - cell "E" [ref=f29e1250]
+          - cell "57." [ref=f29e1251]
+          - cell "If G is a simple connected graph, then f(G) ≥ tree(G)" [ref=f29e1252]
+          - cell [ref=f29e1254]:
+            - link "definitions" [ref=f29e1256] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,48,0,0,0)
+        - row [ref=f29e1257]:
+          - cell [ref=f29e1258]
+          - cell [ref=f29e1259]
+          - cell "Mar 25, 2004." [ref=f29e1260]
+          - cell [ref=f29e1261]
+        - row [ref=f29e1262]:
+          - cell [ref=f29e1263]
+          - cell [ref=f29e1264]
+          - cell [ref=f29e1265]
+          - cell [ref=f29e1266]
+        - row [ref=f29e1267]:
+          - cell "F" [ref=f29e1268]
+          - cell "60." [ref=f29e1269]
+          - cell "If G is a simple connected graph, then f(G) ≥ domination(G) + FLOOR[tree(G)/2]" [ref=f29e1270]
+          - cell [ref=f29e1272]:
+            - link "definitions" [ref=f29e1274] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,49,48,0,0)
+        - row [ref=f29e1275]:
+          - cell [ref=f29e1276]
+          - cell [ref=f29e1277]
+          - cell [ref=f29e1278]:
+            - text: Mar 25, 2004. April 22, 2006. See the
+            - link "counterexample" [ref=f29e1279] [cursor=pointer]:
+              - /url: ceDalm60.jpg
+            - text: . Forest number is 6, domination number is 4, and tree number is 6..
+          - cell [ref=f29e1280]
+        - row [ref=f29e1281]:
+          - cell [ref=f29e1282]
+          - cell [ref=f29e1283]
+          - cell [ref=f29e1284]
+          - cell [ref=f29e1285]
+        - row [ref=f29e1286]:
+          - cell "F" [ref=f29e1287]
+          - cell "62." [ref=f29e1288]
+          - cell "If G is a simple connected graph, then f(G) ≥ domination(G) + maximum of l(v) -1" [ref=f29e1289]
+          - cell [ref=f29e1291]:
+            - link "definitions" [ref=f29e1293] [cursor=pointer]:
+              - /url: javascript:printDefinitions(41,49,4,0,0)
+        - row [ref=f29e1294]:
+          - cell [ref=f29e1295]
+          - cell [ref=f29e1296]
+          - cell [ref=f29e1297]:
+            - text: Mar 25, 2004. Oct 2005 see the
+            - link "counterexample" [ref=f29e1298] [cursor=pointer]:
+              - /url: ceDalm62.jpg
+            - text: . Forest number is 5, domination number =3, and max local indep is 4.
+          - cell [ref=f29e1299]
+        - row [ref=f29e1300]:
+          - cell [ref=f29e1301]
+          - cell [ref=f29e1302]
+          - cell [ref=f29e1303]
+          - cell [ref=f29e1304]
+        - row [ref=f29e1305]:
+          - cell "T" [ref=f29e1306]
+          - cell "67." [ref=f29e1307]
+          - cell "If G is a simple connected graph, then f(G) ≥ diam(G) + maximum of l(v) -2" [ref=f29e1309]
+          - cell [ref=f29e1311]:
+            - generic [ref=f29e1312]:
+              - link "definitions" [ref=f29e1313] [cursor=pointer]:
+                - /url: javascript:printDefinitions(41,14,4,0,0)
+              - link "reference" [ref=f29e1314] [cursor=pointer]:
+                - /url: javascript:printConjRef(13)
+        - row [ref=f29e1315]:
+          - cell [ref=f29e1316]
+          - cell [ref=f29e1317]
+          - cell [ref=f29e1318]:
+            - text: Mar 25, 2004. This is related to the discussion of conjecture 16.
+            - paragraph [ref=f29e1319]: Mar 27, 2004. DeLaVina and Waller.
+          - cell [ref=f29e1320]
+        - row [ref=f29e1321]:
+          - cell [ref=f29e1322]
+          - cell [ref=f29e1323]
+          - cell [ref=f29e1324]
+          - cell [ref=f29e1325]
+        - row [ref=f29e1326]:
+          - cell [ref=f29e1327]
+          - cell [ref=f29e1328]
+          - cell [ref=f29e1329]
+          - cell [ref=f29e1330]
+        - row [ref=f29e1331]:
+          - cell [ref=f29e1332]
+          - cell [ref=f29e1333]
+          - cell "Lower bounds on the tree number of simple connected graphs, tree(G)." [ref=f29e1334]
+          - cell [ref=f29e1337]
+        - row [ref=f29e1338]:
+          - cell [ref=f29e1339]
+          - cell "Note:" [ref=f29e1340]
+          - cell "Clearly b(G) ≥ f(G) ≥ tree(G) ≥ path(G)." [ref=f29e1341]
+          - cell [ref=f29e1342]
+        - row [ref=f29e1343]:
+          - cell [ref=f29e1344]
+          - cell [ref=f29e1345]
+          - cell [ref=f29e1346]
+          - cell [ref=f29e1347]
+        - row [ref=f29e1348]:
+          - cell "E" [ref=f29e1349]
+          - cell "68." [ref=f29e1350]
+          - cell "If G is a simple connected graph, then tree(G) ≥ path(G)" [ref=f29e1351]
+          - cell [ref=f29e1353]:
+            - link "definitions" [ref=f29e1355] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,35,0,0,0)
+        - row [ref=f29e1356]:
+          - cell [ref=f29e1357]
+          - cell [ref=f29e1358]
+          - cell "Apr 04, 2004." [ref=f29e1359]
+          - cell [ref=f29e1360]
+        - row [ref=f29e1361]:
+          - cell [ref=f29e1362]
+          - cell [ref=f29e1363]
+          - cell [ref=f29e1364]
+          - cell [ref=f29e1365]
+        - row [ref=f29e1366]:
+          - cell "F" [ref=f29e1367]
+          - cell "69." [ref=f29e1368]
+          - cell "If G is a simple connected graph, then tree(G) ≥ maximum of l(v) + FLOOR[sqrt(domination(G))]" [ref=f29e1369]
+          - cell [ref=f29e1371]:
+            - link "definitions" [ref=f29e1373] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,4,49,22,0)
+        - row [ref=f29e1374]:
+          - cell [ref=f29e1375]
+          - cell [ref=f29e1376]
+          - cell [ref=f29e1377]:
+            - text: Apr 04, 2004. May 2004 see the
+            - link "counterexample" [ref=f29e1378] [cursor=pointer]:
+              - /url: ceconj69.gif
+            - text: . Tree number is 4, maximum of local independence is 3, and domination is 4.
+          - cell [ref=f29e1379]
+        - row [ref=f29e1380]:
+          - cell [ref=f29e1381]
+          - cell [ref=f29e1382]
+          - cell [ref=f29e1383]
+          - cell [ref=f29e1384]
+        - row [ref=f29e1385]:
+          - cell "F" [ref=f29e1386]
+          - cell "70." [ref=f29e1387]
+          - cell [ref=f29e1388]:
+            - generic [ref=f29e1389]:
+              - text: If G is a simple connected graph, then tree(G) ≥ FLOOR[dist
+              - subscript [ref=f29e1390]: avg
+              - text: (C,V)] + maximum of l(v)
+          - cell [ref=f29e1391]:
+            - link "definitions" [ref=f29e1393] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,38,4,22,0)
+        - row [ref=f29e1394]:
+          - cell [ref=f29e1395]
+          - cell [ref=f29e1396]
+          - cell [ref=f29e1397]:
+            - text: Apr 04, 2004. June 2005 see the
+            - link "counterexample" [ref=f29e1398] [cursor=pointer]:
+              - /url: ceconj70.jpg
+            - text: . Tree number is 12, maximum of local independence is 11, and floor of average distance from the center is 2.
+          - cell [ref=f29e1399]
+        - row [ref=f29e1400]:
+          - cell [ref=f29e1401]
+          - cell [ref=f29e1402]
+          - cell [ref=f29e1403]
+          - cell [ref=f29e1404]
+        - row [ref=f29e1405]:
+          - cell "F" [ref=f29e1406]
+          - cell "71." [ref=f29e1407]
+          - cell [ref=f29e1408]:
+            - generic [ref=f29e1409]:
+              - text: If G is a simple connected graph, then tree(G) ≥ FLOOR[dist
+              - subscript [ref=f29e1410]: avg
+              - text: (B,V)/3] + maximum of l(v)
+          - cell [ref=f29e1411]:
+            - link "definitions" [ref=f29e1413] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,4,25,22,0)
+        - row [ref=f29e1414]:
+          - cell [ref=f29e1415]
+          - cell [ref=f29e1416]
+          - cell [ref=f29e1417]:
+            - text: Apr 04, 2004. Oct 2005, see the
+            - link "counterexample" [ref=f29e1418] [cursor=pointer]:
+              - /url: ceDalm71.jpg
+            - text: . Tree number is 16, max of local independence is 15, and average distance from the boundary is slightly more than 6. .
+          - cell [ref=f29e1419]
+        - row [ref=f29e1420]:
+          - cell [ref=f29e1421]
+          - cell [ref=f29e1422]
+          - cell [ref=f29e1423]
+          - cell [ref=f29e1424]
+        - row [ref=f29e1425]:
+          - cell "F" [ref=f29e1426]
+          - cell "73." [ref=f29e1427]
+          - cell "If G is a simple connected graph, then tree(G) ≥ FLOOR[average of ecc(v)/2] + maximum of l(v)" [ref=f29e1428]
+          - cell [ref=f29e1430]:
+            - link "definitions" [ref=f29e1432] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,21,4,16,0)
+        - row [ref=f29e1433]:
+          - cell [ref=f29e1434]
+          - cell [ref=f29e1435]
+          - cell [ref=f29e1436]:
+            - text: Apr 04, 2004. June 2005 see the
+            - link "counterexample" [ref=f29e1437] [cursor=pointer]:
+              - /url: ceconj73.jpg
+            - text: . Tree number is 13, maximum of local independence is 12, and average of eccentricities is 4.25.
+          - cell [ref=f29e1438]
+        - row [ref=f29e1439]:
+          - cell [ref=f29e1440]
+          - cell [ref=f29e1441]
+          - cell [ref=f29e1442]
+          - cell [ref=f29e1443]
+        - row [ref=f29e1444]:
+          - cell "F" [ref=f29e1445]
+          - cell "74." [ref=f29e1446]
+          - cell [ref=f29e1447]:
+            - generic [ref=f29e1448]:
+              - text: If G is a simple connected graph, then tree(G) ≥ CEIL(2dist
+              - subscript [ref=f29e1449]: avg
+              - text: (B,V))
+          - cell [ref=f29e1450]:
+            - generic [ref=f29e1451]:
+              - link "definitions" [ref=f29e1452] [cursor=pointer]:
+                - /url: javascript:printDefinitions(48,41,25,16,0)
+              - link "reference" [ref=f29e1453] [cursor=pointer]:
+                - /url: javascript:printConjRef(13)
+        - row [ref=f29e1454]:
+          - cell [ref=f29e1455]
+          - cell [ref=f29e1456]
+          - cell [ref=f29e1457]:
+            - text: Apr 04, 2004. May 2004 DeLaVina see
+            - link "counterexample." [ref=f29e1458] [cursor=pointer]:
+              - /url: cewowII74.gif
+          - cell [ref=f29e1459]
+        - row [ref=f29e1460]:
+          - cell [ref=f29e1461]
+          - cell [ref=f29e1462]
+          - cell [ref=f29e1463]
+          - cell [ref=f29e1464]
+        - row [ref=f29e1465]:
+          - cell "F" [ref=f29e1466]
+          - cell "75." [ref=f29e1467]
+          - cell [ref=f29e1468]:
+            - generic [ref=f29e1469]:
+              - text: If G is a simple connected graph, then tree(G) ≥ b(G)/FLOOR[deg
+              - subscript [ref=f29e1470]: avg
+              - text: (G)]
+          - cell [ref=f29e1471]:
+            - link "definitions" [ref=f29e1473] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,15,23,22,0)
+        - row [ref=f29e1474]:
+          - cell [ref=f29e1475]
+          - cell [ref=f29e1476]
+          - cell "Apr 04, 2004. July 2005, DeLaVina. Take a clique on p vertices and to each vertex attach a path on p vertices by the endpoint of the path for a total of p(p+1) vertices. The tree number is 2(p+1), the bipartite number is p^2 + 2 , and the average degree is less than 3. For p at least 5, the graph serves as a counterexample." [ref=f29e1477]
+          - cell [ref=f29e1478]
+        - row [ref=f29e1479]:
+          - cell [ref=f29e1480]
+          - cell [ref=f29e1481]
+          - cell [ref=f29e1482]
+          - cell [ref=f29e1483]
+        - row [ref=f29e1484]:
+          - cell "F" [ref=f29e1485]
+          - cell "77." [ref=f29e1486]
+          - cell [ref=f29e1487]:
+            - generic [ref=f29e1488]:
+              - text: If G is a simple connected graph, then tree(G) ≥ dist
+              - subscript [ref=f29e1489]: avg
+              - text: (C,V) + ecc(B) + 1, where B is the set of vertices of boundary vertices.
+          - cell [ref=f29e1490]:
+            - link "definitions" [ref=f29e1492] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,38,52,55,0)
+        - row [ref=f29e1493]:
+          - cell [ref=f29e1494]
+          - cell [ref=f29e1495]
+          - cell [ref=f29e1496]:
+            - text: Apr 04, 2004. April 22, 2006 see the
+            - link "counterexample" [ref=f29e1497] [cursor=pointer]:
+              - /url: ceDalm77.jpg
+            - text: . Tree number is 6,
+            - generic [ref=f29e1498]:
+              - text: dist
+              - subscript [ref=f29e1499]: avg
+              - text: (C,V)
+            - text: is 7/6, and ecc(B) is 4..
+          - cell [ref=f29e1500]
+        - row [ref=f29e1501]:
+          - cell [ref=f29e1502]
+          - cell [ref=f29e1503]
+          - cell [ref=f29e1504]
+          - cell [ref=f29e1505]
+        - row [ref=f29e1506]:
+          - cell "F" [ref=f29e1507]
+          - cell "79." [ref=f29e1508]
+          - cell [ref=f29e1509]:
+            - generic [ref=f29e1510]:
+              - text: If G is a simple connected graph, then tree(G) ≥ (n mod 2)* CEIL(2dist
+              - subscript [ref=f29e1511]: avg
+              - text: (V))
+          - cell [ref=f29e1512]:
+            - link "definitions" [ref=f29e1514] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,53,24,16,0)
+        - row [ref=f29e1515]:
+          - cell [ref=f29e1516]
+          - cell [ref=f29e1517]
+          - cell [ref=f29e1518]:
+            - text: Apr 04, 2004. Oct 2005 see the
+            - link "counterexample" [ref=f29e1519] [cursor=pointer]:
+              - /url: ceDalm33n79.jpg
+            - text: . Path number is 7, n = 25, avg dist = 3.56.
+          - cell [ref=f29e1520]
+        - row [ref=f29e1521]:
+          - cell [ref=f29e1522]
+          - cell [ref=f29e1523]
+          - cell [ref=f29e1524]
+          - cell [ref=f29e1525]
+        - row [ref=f29e1526]:
+          - cell "F" [ref=f29e1527]
+          - cell "78." [ref=f29e1528]
+          - cell "If G is a simple connected graph, then tree(G) ≥ CEIL[path(G)/3 + maximum of l(v) -1]" [ref=f29e1529]
+          - cell [ref=f29e1531]:
+            - link "definitions" [ref=f29e1533] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,35,4,16,0)
+        - row [ref=f29e1534]:
+          - cell [ref=f29e1535]
+          - cell [ref=f29e1536]
+          - cell [ref=f29e1537]:
+            - text: Apr 04, 2004. June 2005 see the
+            - link "counterexample" [ref=f29e1538] [cursor=pointer]:
+              - /url: ceconj78.jpg
+            - text: . Tree number is 7, maximum of local independence is 6, and path number is 7.
+          - cell [ref=f29e1539]
+        - row [ref=f29e1540]:
+          - cell [ref=f29e1541]
+          - cell [ref=f29e1542]
+          - cell [ref=f29e1543]
+          - cell [ref=f29e1544]
+        - row [ref=f29e1545]:
+          - cell "F" [ref=f29e1546]
+          - cell "80." [ref=f29e1547]
+          - cell "If G is a simple connected graph, then tree(G) ≥ CEIL[sqrt[2*sqrt[|N(M)| + 1]]], where M is the set of vertices of maximum degree of the complement of G." [ref=f29e1548]
+          - cell [ref=f29e1550]:
+            - link "definitions" [ref=f29e1552] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,54,46,20,31)
+        - row [ref=f29e1553]:
+          - cell [ref=f29e1554]
+          - cell [ref=f29e1555]
+          - cell "Apr 04, 2004. Oct. 28, 2005. Large barbells, beginning with Barbell(32,2), are counterexamples; the tree number is 4 and the is |N(M)| equal to the number of the vertices." [ref=f29e1556]:
+            - text: Apr 04, 2004. Oct. 28, 2005. Large barbells, beginning with Barbell(32,2), are counterexamples; the tree number is 4 and the is
+            - generic [ref=f29e1557]: "|N(M)|"
+            - text: equal to the number of the vertices.
+          - cell [ref=f29e1558]
+        - row [ref=f29e1559]:
+          - cell [ref=f29e1560]
+          - cell [ref=f29e1561]
+          - cell [ref=f29e1562]
+          - cell [ref=f29e1563]
+        - row [ref=f29e1564]:
+          - cell "F" [ref=f29e1565]
+          - cell "81." [ref=f29e1566]
+          - cell "If G is a simple connected graph, then tree(G) ≥ CEIL[sqrt[2*(1+sqrt[|N(A)|)]]], where A is the set of vertices of minimum degree." [ref=f29e1567]
+          - cell [ref=f29e1569]:
+            - link "definitions" [ref=f29e1571] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,54,46,20,31)
+        - row [ref=f29e1572]:
+          - cell [ref=f29e1573]
+          - cell [ref=f29e1574]
+          - cell "Apr 04, 2004. This statement must have a typo, since even fairly small cliques are counterexamples." [ref=f29e1575]
+          - cell [ref=f29e1576]
+        - row [ref=f29e1577]:
+          - cell [ref=f29e1578]
+          - cell [ref=f29e1579]
+          - cell [ref=f29e1580]
+          - cell [ref=f29e1581]
+        - row [ref=f29e1582]:
+          - cell "F" [ref=f29e1583]
+          - cell "82." [ref=f29e1584]
+          - cell "If G is a simple connected graph, then tree(G) ≥ 2*CEIL[(2*ecc(B) + 1)/3], where B is the set of vertices of boundary vertices." [ref=f29e1585]
+          - cell [ref=f29e1587]:
+            - link "definitions" [ref=f29e1589] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,52,55,16,0)
+        - row [ref=f29e1590]:
+          - cell [ref=f29e1591]
+          - cell [ref=f29e1592]
+          - cell [ref=f29e1593]:
+            - text: Apr 04, 2004. April 22, 2006 see the
+            - link "counterexample" [ref=f29e1594] [cursor=pointer]:
+              - /url: ceDalm82.jpg
+            - text: . Tree number is 8 and ecc(B) is 6.
+          - cell [ref=f29e1595]
+        - row [ref=f29e1596]:
+          - cell [ref=f29e1597]
+          - cell [ref=f29e1598]
+          - cell [ref=f29e1599]
+          - cell [ref=f29e1600]
+        - row [ref=f29e1601]:
+          - cell "F" [ref=f29e1602]
+          - cell "83." [ref=f29e1603]
+          - cell [ref=f29e1604]:
+            - generic [ref=f29e1605]:
+              - text: If G is a simple connected graph, then tree(G) ≥ 1 + dist
+              - subscript [ref=f29e1606]: avg
+              - text: (C,V) * minimum of l(v)
+          - cell [ref=f29e1607]:
+            - link "definitions" [ref=f29e1609] [cursor=pointer]:
+              - /url: javascript:printDefinitions(48,38,4,0,0)
+        - row [ref=f29e1610]:
+          - cell [ref=f29e1611]
+          - cell [ref=f29e1612]
+          - cell [ref=f29e1613]:
+            - text: Apr 04, 2004. August 16, 2005, see the
+            - link "counterexample" [ref=f29e1614] [cursor=pointer]:
+              - /url: ceconj83.jpg
+            - text: . Tree number is 6, minimum of local independence is 3, and average distance from centers is 2.
+          - cell [ref=f29e1615]
+        - row [ref=f29e1616]:
+          - cell [ref=f29e1617]
+          - cell [ref=f29e1618]
+          - cell [ref=f29e1619]
+          - cell [ref=f29e1620]
+        - row [ref=f29e1621]:
+          - cell [ref=f29e1622]
+          - cell [ref=f29e1623]
+          - cell [ref=f29e1624]
+          - cell [ref=f29e1625]
+        - row [ref=f29e1626]:
+          - cell [ref=f29e1627]
+          - cell [ref=f29e1628]
+          - cell "Upper bounds on the bipartite number of simple connected graphs, b(G)." [ref=f29e1629]:
+            - generic [ref=f29e1630]: Upper
+            - generic [ref=f29e1631]: bounds on the bipartite number of simple connected graphs, b(G).
+          - cell [ref=f29e1633]
+        - row [ref=f29e1634]:
+          - cell [ref=f29e1635]
+          - cell [ref=f29e1636]
+          - cell [ref=f29e1637]
+          - cell [ref=f29e1638]
+        - row [ref=f29e1639]:
+          - cell "E" [ref=f29e1640]
+          - cell "86." [ref=f29e1641]
+          - cell "If G is a simple connected graph, then b(G) ≤ 2 + n - w(G)" [ref=f29e1642]
+          - cell [ref=f29e1644]:
+            - link "definitions" [ref=f29e1646] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,3,57,0,0)
+        - row [ref=f29e1647]:
+          - cell [ref=f29e1648]
+          - cell [ref=f29e1649]
+          - cell "April 10, 2004." [ref=f29e1650]
+          - cell [ref=f29e1651]
+        - row [ref=f29e1652]:
+          - cell [ref=f29e1653]
+          - cell [ref=f29e1654]
+          - cell [ref=f29e1655]
+          - cell [ref=f29e1656]
+        - row [ref=f29e1657]:
+          - cell "F" [ref=f29e1658]
+          - cell "87." [ref=f29e1659]
+          - cell "If G is a simple connected graph, then b(G) ≤ 1 + minimum of l(v) + D(G)" [ref=f29e1660]
+          - cell [ref=f29e1662]:
+            - link "definitions" [ref=f29e1664] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,4,11,31,0)
+        - row [ref=f29e1665]:
+          - cell [ref=f29e1666]
+          - cell [ref=f29e1667]
+          - cell "April 10, 2004. Oct 2005, see the counterexample. Bipartite number is 8, min of local independence is 2, and D(G) = 4." [ref=f29e1668]:
+            - text: April 10, 2004. Oct 2005, see the
+            - link "counterexample" [ref=f29e1669] [cursor=pointer]:
+              - /url: ceDalm87.jpg
+            - text: . Bipartite number is 8, min of local independence is 2, and
+            - generic [ref=f29e1670]: D(G)
+            - text: = 4.
+          - cell [ref=f29e1671]
+        - row [ref=f29e1672]:
+          - cell [ref=f29e1673]
+          - cell [ref=f29e1674]
+          - cell [ref=f29e1675]
+          - cell [ref=f29e1676]
+        - row [ref=f29e1677]:
+          - cell "F" [ref=f29e1678]
+          - cell "88." [ref=f29e1679]
+          - cell "If G is a simple connected graph, then b(G) ≤ 1 + average of l(v) + average degree of G." [ref=f29e1680]
+          - cell [ref=f29e1682]:
+            - link "definitions" [ref=f29e1684] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,4,23,31,0)
+        - row [ref=f29e1685]:
+          - cell [ref=f29e1686]
+          - cell [ref=f29e1687]
+          - cell "April 10, 2004. Dec. 2005, the join of discrete 2 and K(m,m) is a counterexample to this conjecture but it is still open as to whether or not the relation holds without the 1, that is b(G) ≤ average of l(v) + average degree of G is still open." [ref=f29e1688]:
+            - text: April 10, 2004. Dec. 2005, the join of discrete 2 and K(m,m) is a counterexample to this conjecture but it is still open as to whether or not the relation holds without the 1, that is
+            - generic [ref=f29e1689]: b(G) ≤ average of l(v) + average degree of G
+            - text: is still open.
+          - cell [ref=f29e1690]
+        - row [ref=f29e1691]:
+          - cell [ref=f29e1692]
+          - cell [ref=f29e1693]
+          - cell [ref=f29e1694]
+          - cell [ref=f29e1695]
+        - row [ref=f29e1696]:
+          - cell "E" [ref=f29e1697]
+          - cell "89." [ref=f29e1698]
+          - cell "If G is a simple connected graph, then b(G) ≤ 2a(G)" [ref=f29e1699]
+          - cell [ref=f29e1701]:
+            - link "definitions" [ref=f29e1703] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,5,0,0,0)
+        - row [ref=f29e1704]:
+          - cell [ref=f29e1705]
+          - cell [ref=f29e1706]
+          - cell "April 10, 2004." [ref=f29e1707]
+          - cell [ref=f29e1708]
+        - row [ref=f29e1709]:
+          - cell [ref=f29e1710]
+          - cell [ref=f29e1711]
+          - cell [ref=f29e1712]
+          - cell [ref=f29e1713]
+        - row [ref=f29e1714]:
+          - cell "F" [ref=f29e1715]
+          - cell "90." [ref=f29e1716]
+          - cell [ref=f29e1717]:
+            - generic [ref=f29e1718]:
+              - text: If G is a simple connected graph, then b(G) ≤ f(G) * (FLOOR[2
+              - superscript [ref=f29e1719]: average of l(v)
+              - text: "])/2"
+          - cell [ref=f29e1720]:
+            - link "definitions" [ref=f29e1722] [cursor=pointer]:
+              - /url: javascript:printDefinitions(15,41,4,22,0)
+        - row [ref=f29e1723]:
+          - cell [ref=f29e1724]
+          - cell [ref=f29e1725]
+          - cell [ref=f29e1726]:
+            - text: April 10, 2004. Oct 2005, see the
+            - link "counterexample" [ref=f29e1727] [cursor=pointer]:
+              - /url: ceDalm90.jpg
+            - text: . Bipartite number is 6, forest number is 5, and average of local independence is 14/9.
+          - cell [ref=f29e1728]
+        - row [ref=f29e1729]:
+          - cell [ref=f29e1730]
+          - cell [ref=f29e1731]
+          - cell [ref=f29e1732]
+          - cell [ref=f29e1733]
+        - row [ref=f29e1734]:
+          - cell [ref=f29e1735]
+          - cell [ref=f29e1736]
+          - cell [ref=f29e1737]
+          - cell [ref=f29e1738]
+        - row [ref=f29e1739]:
+          - cell [ref=f29e1740]
+          - cell [ref=f29e1741]
+          - cell "Upper bounds on the independence number of simple connected graphs, a(G)." [ref=f29e1742]:
+            - generic [ref=f29e1743]: Upper
+            - generic [ref=f29e1744]:
+              - text: bounds on the independence number of simple connected graphs,
+              - generic [ref=f29e1745]: a
+              - generic [ref=f29e1746]: (G).
+          - cell [ref=f29e1747]
+        - row [ref=f29e1748]:
+          - cell [ref=f29e1749]
+          - cell [ref=f29e1750]
+          - cell [ref=f29e1751]
+          - cell [ref=f29e1752]
+        - row [ref=f29e1753]:
+          - cell "R" [ref=f29e1754]
+          - cell "92." [ref=f29e1755]
+          - cell "If G is a simple connected graph, then a(G) ≤ FLOOR[( n + p)/2]" [ref=f29e1756]
+          - cell [ref=f29e1758]:
+            - generic [ref=f29e1759]:
+              - link "definitions" [ref=f29e1760] [cursor=pointer]:
+                - /url: javascript:printDefinitions(5,12,3,22,0)
+              - link "reference" [ref=f29e1761] [cursor=pointer]:
+                - /url: javascript:printConjRef(11)
+        - row [ref=f29e1762]:
+          - cell [ref=f29e1763]
+          - cell [ref=f29e1764]
+          - 'cell "April 21, 2004. This is equivalent to conjecture #11 which as described in the reference I knew was correct for all simple graphs." [ref=f29e1765]'
+          - cell [ref=f29e1766]
+        - row [ref=f29e1767]:
+          - cell [ref=f29e1768]
+          - cell [ref=f29e1769]
+          - cell [ref=f29e1770]
+          - cell [ref=f29e1771]
+        - row [ref=f29e1772]:
+          - cell "E" [ref=f29e1773]
+          - cell "93." [ref=f29e1774]
+          - cell "If G is a simple connected graph, then a(G) ≤ f(G) -1" [ref=f29e1775]
+          - cell [ref=f29e1777]:
+            - link "definitions" [ref=f29e1779] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,41,0,0,0)
+        - row [ref=f29e1780]:
+          - cell [ref=f29e1781]
+          - cell [ref=f29e1782]
+          - cell "April 21, 2004." [ref=f29e1783]
+          - cell [ref=f29e1784]
+        - row [ref=f29e1785]:
+          - cell [ref=f29e1786]
+          - cell [ref=f29e1787]
+          - cell [ref=f29e1788]
+          - cell [ref=f29e1789]
+        - row [ref=f29e1790]:
+          - cell "F" [ref=f29e1791]
+          - cell "95." [ref=f29e1792]
+          - cell "If G is a simple connected graph, then a(G) ≤ CEIL[f(G) -LN(path(G))]" [ref=f29e1793]
+          - cell [ref=f29e1795]:
+            - link "definitions" [ref=f29e1797] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,41,35,16,59)
+        - row [ref=f29e1798]:
+          - cell [ref=f29e1799]
+          - cell [ref=f29e1800]
+          - cell "April 21, 2004. April 2006, see the counterexample. a(G) is 7, forest number is 8, and path number is 8." [ref=f29e1801]:
+            - text: April 21, 2004. April 2006, see the
+            - link "counterexample" [ref=f29e1802] [cursor=pointer]:
+              - /url: ceDalm95.jpg
+            - text: .
+            - generic [ref=f29e1803]: a(G)
+            - text: is 7, forest number is 8, and path number is 8.
+          - cell [ref=f29e1804]
+        - row [ref=f29e1805]:
+          - cell [ref=f29e1806]
+          - cell [ref=f29e1807]
+          - cell [ref=f29e1808]
+          - cell [ref=f29e1809]
+        - row [ref=f29e1810]:
+          - cell "T" [ref=f29e1811]
+          - cell "97." [ref=f29e1812]
+          - cell "If G is a simple connected graph, then a(G) ≤ maximum of l(v) - d(G)" [ref=f29e1813]
+          - cell [ref=f29e1815]:
+            - link "definitions" [ref=f29e1817] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,4,56,31,0)
+        - row [ref=f29e1818]:
+          - cell [ref=f29e1819]
+          - cell [ref=f29e1820]
+          - cell "April 21, 2004. Fajtlowicz April 2004" [ref=f29e1821]
+          - cell [ref=f29e1822]
+        - row [ref=f29e1823]:
+          - cell [ref=f29e1824]
+          - cell [ref=f29e1825]
+          - cell [ref=f29e1826]
+          - cell [ref=f29e1827]
+        - row [ref=f29e1828]:
+          - cell "F" [ref=f29e1829]
+          - cell "98." [ref=f29e1830]
+          - cell [ref=f29e1831]:
+            - generic [ref=f29e1832]:
+              - text: If G is a simple connected graph, then a(G) ≤ maximum of dist
+              - subscript [ref=f29e1833]: even
+              - text: (v) + FLOOR[p(G)/2]
+          - cell [ref=f29e1834]:
+            - link "definitions" [ref=f29e1836] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,10,12,22,0)
+        - row [ref=f29e1837]:
+          - cell [ref=f29e1838]
+          - cell [ref=f29e1839]
+          - cell [ref=f29e1840]:
+            - text: April 21, 2004. DeLaVina May 2004; see
+            - link "counterexample" [ref=f29e1841] [cursor=pointer]:
+              - /url: ceconj98.gif
+            - text: .
+          - cell [ref=f29e1842]
+        - row [ref=f29e1843]:
+          - cell [ref=f29e1844]
+          - cell [ref=f29e1845]
+          - cell [ref=f29e1846]
+          - cell [ref=f29e1847]
+        - row [ref=f29e1848]:
+          - cell "E" [ref=f29e1849]
+          - cell "99." [ref=f29e1850]
+          - cell "If G is a simple connected graph, then a(G) ≤ b(G) -minimum of l(v)" [ref=f29e1851]
+          - cell [ref=f29e1853]:
+            - link "definitions" [ref=f29e1855] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,15,4,0,0)
+        - row [ref=f29e1856]:
+          - cell [ref=f29e1857]
+          - cell [ref=f29e1858]
+          - cell "April 21, 2004. DeLaVina April 2004" [ref=f29e1859]
+          - cell [ref=f29e1860]
+        - row [ref=f29e1861]:
+          - cell [ref=f29e1862]
+          - cell [ref=f29e1863]
+          - cell [ref=f29e1864]
+          - cell [ref=f29e1865]
+        - row [ref=f29e1866]:
+          - cell "T" [ref=f29e1867]
+          - cell "101." [ref=f29e1868]
+          - cell "If G is a simple connected graph, then a(G) ≤ FLOOR[(n + alphacore(G))/2]" [ref=f29e1869]
+          - cell [ref=f29e1871]:
+            - link "definitions" [ref=f29e1873] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,3,60,22,0)
+        - row [ref=f29e1874]:
+          - cell [ref=f29e1875]
+          - cell [ref=f29e1876]
+          - cell "April 21, 2004. March 14, 2008. This follows from a(G) ≤ [matching(G) + alphacore(G)]/2 a result with R. Pepper." [ref=f29e1877]:
+            - text: April 21, 2004. March 14, 2008. This follows from
+            - generic [ref=f29e1878]: a(G) ≤ [matching(G) + alphacore(G)]/2
+            - text: a result with R. Pepper.
+          - cell [ref=f29e1879]
+        - row [ref=f29e1880]:
+          - cell [ref=f29e1881]
+          - cell [ref=f29e1882]
+          - cell [ref=f29e1883]
+          - cell [ref=f29e1884]
+        - row [ref=f29e1885]:
+          - cell "T" [ref=f29e1886]
+          - cell "102." [ref=f29e1887]
+          - cell "If G is a simple connected graph, then a(G) ≤ CEIL[b(G) - SQRT[diam(G)]]" [ref=f29e1888]
+          - cell [ref=f29e1890]:
+            - link "definitions" [ref=f29e1892] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,15,14,16,0)
+        - row [ref=f29e1893]:
+          - cell [ref=f29e1894]
+          - cell [ref=f29e1895]
+          - cell [ref=f29e1896]:
+            - text: April 21, 2004. July 2005, for large enough diameter this follows from the proposition listed below
+            - link "conjecture 17" [ref=f29e1899] [cursor=pointer]:
+              - /url: "#conj17"
+            - text: .
+            - paragraph [ref=f29e1900]: October 12, 2006. Benny John.
+          - cell [ref=f29e1901]
+        - row [ref=f29e1902]:
+          - cell [ref=f29e1903]
+          - cell [ref=f29e1904]
+          - cell [ref=f29e1905]
+          - cell [ref=f29e1906]
+        - row [ref=f29e1907]:
+          - cell "F" [ref=f29e1908]
+          - cell "104." [ref=f29e1909]
+          - cell "If G is a simple connected graph, then a(G) ≤ rad(G) + maximum of l(v) + |N(S) - S| -1, where S is the set of minimum degree vertices of the complement of the graph G and the neighborhood is taken in the complement." [ref=f29e1910]
+          - cell [ref=f29e1912]:
+            - generic [ref=f29e1913]:
+              - link "definitions" [ref=f29e1914] [cursor=pointer]:
+                - /url: javascript:printDefinitions(5,13,4,46,0)
+              - link "reference" [ref=f29e1915] [cursor=pointer]:
+                - /url: javascript:printConjRef(7)
+        - row [ref=f29e1916]:
+          - cell [ref=f29e1917]
+          - cell [ref=f29e1918]
+          - 'cell "April 21, 2004. Fajtlowicz April 2004. This relation was interesting in light of his theorem rad(G) + maximum of l(v) -2 ≤ a(G) in our Griggs and Graffiti paper (see reference link). #104 is false as Fajtlowicz noted \"You can construct d-regular graph of small radius, say 3 or 4 with close to d^3 vertices. Then a will much more than d, but loc ind is at most d and the term |N(S) - S| is 0\", see an example. He then asks for the smallest S such that a counterexample is possible." [ref=f29e1919]':
+            - text: April 21, 2004. Fajtlowicz April 2004. This relation was interesting in light of his theorem
+            - generic [ref=f29e1920]: rad(G) + maximum of l(v) -2 ≤ a(G)
+            - text: "in our Griggs and Graffiti paper (see reference link). #104 is false as Fajtlowicz noted \"You can construct d-regular graph of small radius, say 3 or 4 with close to d^3 vertices. Then a will much more than d, but loc ind is at most d and the term |N(S) - S| is 0\", see an"
+            - link "example" [ref=f29e1921] [cursor=pointer]:
+              - /url: cewowII104.gif
+            - text: . He then asks for the smallest S such that a counterexample is possible.
+          - cell [ref=f29e1922]
+        - row [ref=f29e1923]:
+          - cell [ref=f29e1924]
+          - cell [ref=f29e1925]
+          - cell [ref=f29e1926]
+          - cell [ref=f29e1927]
+        - row [ref=f29e1928]:
+          - cell "F" [ref=f29e1929]
+          - cell "105." [ref=f29e1930]
+          - cell "If G is a simple connected graph, then a(G) ≤ tree(G)*SQRT[domination(G)] - 1" [ref=f29e1931]
+          - cell [ref=f29e1933]:
+            - link "definitions" [ref=f29e1935] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,48,49,0,0)
+        - row [ref=f29e1936]:
+          - cell [ref=f29e1937]
+          - cell [ref=f29e1938]
+          - cell "April 21, 2004. April 2004. Bill Waller proved that a(G) ≤ tree(G)*domination(G) - 1. Nov. 2005, see the counterexample. Independence number is 16, tree number is 12, and domination is 2. Note that this counterexample belongs to a family of graphs with independence number 3k+1, tree number 2k + 2, and domination 2 for k a positive integer. For large k, members of the family will make the difference a(G) - tree(G)*SQRT[domination(G)] large." [ref=f29e1939]:
+            - text: April 21, 2004. April 2004. Bill Waller proved that
+            - generic [ref=f29e1940]: a(G) ≤ tree(G)*domination(G) - 1.
+            - text: Nov. 2005, see the
+            - link "counterexample" [ref=f29e1941] [cursor=pointer]:
+              - /url: dalmceconj105.jpg
+            - text: . Independence number is 16, tree number is 12, and domination is 2. Note that this counterexample belongs to a family of graphs with independence number 3k+1, tree number 2k + 2, and domination 2 for k a positive integer. For large k, members of the family will make the difference
+            - generic [ref=f29e1942]: a(G) - tree(G)*SQRT[domination(G)]
+            - text: large.
+          - cell [ref=f29e1943]
+        - row [ref=f29e1944]:
+          - cell [ref=f29e1945]
+          - cell [ref=f29e1946]
+          - cell [ref=f29e1947]
+          - cell [ref=f29e1948]
+        - row [ref=f29e1949]:
+          - cell "E" [ref=f29e1950]
+          - cell "106." [ref=f29e1951]
+          - cell "If G is a simple connected graph, then a(G) ≤ n - domination(G)]" [ref=f29e1952]
+          - cell [ref=f29e1954]:
+            - link "definitions" [ref=f29e1956] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,3,49,0,0)
+        - row [ref=f29e1957]:
+          - cell [ref=f29e1958]
+          - cell [ref=f29e1959]
+          - cell "April 21, 2004." [ref=f29e1960]
+          - cell [ref=f29e1961]
+        - row [ref=f29e1962]:
+          - cell [ref=f29e1963]
+          - cell [ref=f29e1964]
+          - cell [ref=f29e1965]
+          - cell [ref=f29e1966]
+        - row [ref=f29e1967]:
+          - cell "F" [ref=f29e1968]
+          - cell "107." [ref=f29e1969]
+          - cell [ref=f29e1970]:
+            - generic [ref=f29e1971]:
+              - text: If G is a simple connected graph, then a(G) ≤ maximum dist
+              - subscript [ref=f29e1972]: even
+              - text: (v)* CEIL[dist
+              - subscript [ref=f29e1973]: avg
+              - text: (B,V)/2]
+          - cell [ref=f29e1974]:
+            - link "definitions" [ref=f29e1976] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,10,25,55,16)
+        - row [ref=f29e1977]:
+          - cell [ref=f29e1978]
+          - cell [ref=f29e1979]
+          - cell [ref=f29e1980]:
+            - text: April 21, 2004. Oct 2005, see the
+            - link "counterexample" [ref=f29e1981] [cursor=pointer]:
+              - /url: ceDalm107.jpg
+            - text: . independence number is 6,
+            - generic [ref=f29e1982]:
+              - text: maximum dist
+              - subscript [ref=f29e1983]: even
+              - text: (v)
+            - text: is 5, and
+            - generic [ref=f29e1984]:
+              - text: dist
+              - subscript [ref=f29e1985]: avg
+              - text: (B,V)
+            - text: is about 1.99.
+          - cell [ref=f29e1986]
+        - row [ref=f29e1987]:
+          - cell [ref=f29e1988]
+          - cell [ref=f29e1989]
+          - cell [ref=f29e1990]
+          - cell [ref=f29e1991]
+        - row [ref=f29e1992]:
+          - cell "F" [ref=f29e1993]
+          - cell "110." [ref=f29e1994]
+          - cell "If G is a simple connected graph, then a(G) ≤ FLOOR[(residue(G)+1)* average of l(v) - 1]" [ref=f29e1995]
+          - cell [ref=f29e1997]:
+            - link "definitions" [ref=f29e1999] [cursor=pointer]:
+              - /url: javascript:printDefinitions(5,42,4,22,0)
+        - row [ref=f29e2000]:
+          - cell [ref=f29e2001]
+          - cell [ref=f29e2002]
+          - cell [ref=f29e2003]:
+            - text: April 21, 2004. Oct 2005, see the
+            - link "counterexample" [ref=f29e2004] [cursor=pointer]:
+              - /url: ceDalm110.jpg
+            - text: . independence number is 7, average of local independence is 11/7, and residue is 4.
+          - cell [ref=f29e2005]
+        - row [ref=f29e2006]:
+          - cell [ref=f29e2007]
+          - cell [ref=f29e2008]
+          - cell [ref=f29e2009]
+          - cell [ref=f29e2010]
+        - row [ref=f29e2011]:
+          - cell [ref=f29e2012]
+          - cell [ref=f29e2013]
+          - cell [ref=f29e2014]
+          - cell [ref=f29e2015]
+        - row [ref=f29e2016]:
+          - cell [ref=f29e2017]
+          - cell [ref=f29e2018]
+          - cell "Lower bounds on the matching number of connected bipartite graphs, m(G)." [ref=f29e2019]:
+            - generic [ref=f29e2020]: Lower
+            - generic [ref=f29e2021]:
+              - text: bounds on the matching number of connected bipartite graphs,
+              - generic [ref=f29e2022]: m
+              - generic [ref=f29e2023]: (G).
+          - cell [ref=f29e2024]
+        - row [ref=f29e2025]:
+          - cell [ref=f29e2026]
+          - cell [ref=f29e2027]
+          - 'cell "note: Graffiti.pc was asked to focus on lower bounds for the matching number, which are sharp for some connected bipartite graphs and thus some conjectures were made for all graphs (see 113 & 127)" [ref=f29e2028]'
+          - cell [ref=f29e2029]
+        - row [ref=f29e2030]:
+          - cell "E" [ref=f29e2031]
+          - cell "112." [ref=f29e2032]
+          - cell "If G is a connect bipartite graph, then m(G) ≥ CEILING[freq(D(G))/2]" [ref=f29e2033]
+          - cell [ref=f29e2035]:
+            - generic [ref=f29e2036]:
+              - link "definitions" [ref=f29e2037] [cursor=pointer]:
+                - /url: javascript:printDefinitions(2,11,16,62,0)
+              - link "reference" [ref=f29e2038] [cursor=pointer]:
+                - /url: javascript:printConjRef(40)
+        - row [ref=f29e2039]:
+          - cell [ref=f29e2040]
+          - cell [ref=f29e2041]
+          - cell "June, 2004. DeLaVina and Gramajo June 2004." [ref=f29e2042]
+          - cell [ref=f29e2043]
+        - row [ref=f29e2044]:
+          - cell [ref=f29e2045]
+          - cell [ref=f29e2046]
+          - cell [ref=f29e2047]
+          - cell [ref=f29e2048]
+        - row [ref=f29e2049]:
+          - cell "T" [ref=f29e2050]
+          - cell "113." [ref=f29e2051]
+          - cell "If G is a simple connected graph, then m(G) ≥ CEILING[dd(G)/2]" [ref=f29e2052]
+          - cell [ref=f29e2054]:
+            - generic [ref=f29e2055]:
+              - link "definitions" [ref=f29e2056] [cursor=pointer]:
+                - /url: javascript:printDefinitions(2,27,16, 0, 0)
+              - link "reference" [ref=f29e2057] [cursor=pointer]:
+                - /url: javascript:printConjRef(40)
+        - row [ref=f29e2058]:
+          - cell [ref=f29e2059]
+          - cell [ref=f29e2060]
+          - cell [ref=f29e2061]:
+            - text: June, 2004. DeLaVina and Gramajo (June 2004) proved this for connected bipartite graphs.
+            - paragraph [ref=f29e2062]: Jan 2005. Craig Larson proved this for all simple graphs with no isolated vertices.
+          - cell [ref=f29e2063]
+        - row [ref=f29e2064]:
+          - cell [ref=f29e2065]
+          - cell [ref=f29e2066]
+          - cell [ref=f29e2067]
+          - cell [ref=f29e2068]
+        - row [ref=f29e2069]:
+          - cell "E" [ref=f29e2070]
+          - cell "114." [ref=f29e2071]
+          - cell [ref=f29e2072]:
+            - generic [ref=f29e2073]:
+              - text: "If G is a connect bipartite graph, then m(G) ≥ minimum { mode"
+              - subscript [ref=f29e2074]: max
+              - text: "(G), frequency of mode}"
+          - cell [ref=f29e2075]:
+            - generic [ref=f29e2076]:
+              - link "definitions" [ref=f29e2077] [cursor=pointer]:
+                - /url: javascript:printDefinitions(2,45,62,0,0)
+              - link "reference" [ref=f29e2078] [cursor=pointer]:
+                - /url: javascript:printConjRef(40)
+        - row [ref=f29e2079]:
+          - cell [ref=f29e2080]
+          - cell [ref=f29e2081]
+          - 'cell "June, 2004. DeLaVina and Gramajo July 2004. In light of this and conjectures #115 and #116, we proved the more general statement m(G) ≥ minimum {d(S), |S|}" [ref=f29e2082]':
+            - text: "June, 2004. DeLaVina and Gramajo July 2004. In light of this and conjectures #115 and #116, we proved the more general statement"
+            - generic [ref=f29e2083]: "m(G) ≥ minimum {d(S), |S|}"
+          - cell [ref=f29e2084]
+        - row [ref=f29e2085]:
+          - cell [ref=f29e2086]
+          - cell [ref=f29e2087]
+          - cell [ref=f29e2088]
+          - cell [ref=f29e2089]
+        - row [ref=f29e2090]:
+          - cell "E" [ref=f29e2091]
+          - cell "115." [ref=f29e2092]
+          - 'cell "If G is a connect bipartite graph, then m(G) ≥ minimum {D(G), freq(D(G))}" [ref=f29e2093]'
+          - cell [ref=f29e2095]:
+            - generic [ref=f29e2096]:
+              - link "definitions" [ref=f29e2097] [cursor=pointer]:
+                - /url: javascript:printDefinitions(2,11,62,0,0)
+              - link "reference" [ref=f29e2098] [cursor=pointer]:
+                - /url: javascript:printConjRef(40)
+        - row [ref=f29e2099]:
+          - cell [ref=f29e2100]
+          - cell [ref=f29e2101]
+          - 'cell "June, 2004. DeLaVina and Gramajo July 2004. See #114." [ref=f29e2102]'
+          - cell [ref=f29e2103]
+        - row [ref=f29e2104]:
+          - cell [ref=f29e2105]
+          - cell [ref=f29e2106]
+          - cell [ref=f29e2107]
+          - cell [ref=f29e2108]
+        - row [ref=f29e2109]:
+          - cell "E" [ref=f29e2110]
+          - cell "116." [ref=f29e2111]
+          - cell "If G is a connect bipartite graph, then m(<font face=\"Time" [ref=f29e2112]

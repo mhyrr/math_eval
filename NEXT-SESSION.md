@@ -9,6 +9,18 @@ the one-by-one process). Item 3 below — the never-evaluated Route N — now ha
 its vehicle: the SEARCHED stage of each problem file is a rigorous G0
 discharge. Work the queue there instead of designing a new subsample.
 
+**Added later the same day:** the beyond-Erdős sweep. `problems/POOLS.md`
+maps every non-Erdős pool with verified yields and denominators; six new
+definition files (two SAT-community targets, four warehouse finds); and a
+21st corpus case, `corpus/knuth-claude-cycles.yaml` — found because our
+pinned statement source still marked it open five weeks after it fell.
+Partial answer to item 5 below: https://aimath.robertj1.com/ tracks
+AI-resolution claims (245 entries, labels spot-checked clean). Candidate
+future corpus cases surfaced by the census, not yet written: the Aristotle
+Kourovka eight (arXiv:2607.17477), the Carbery/Grok counterexample, the
+Aaronson–Witteveen QMA case, the AlphaProof Nexus non-Erdős results
+(arXiv:2605.22763).
+
 ---
 
 ## Where Phase 4 left things

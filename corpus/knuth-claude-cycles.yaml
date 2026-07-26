@@ -1,0 +1,117 @@
+id: knuth-claude-cycles
+title: "Claude's Cycles: Hamiltonian decomposition of the (Z/m)^3 torus digraph (Knuth)"
+date: 2026-02
+status: RESOLVED
+
+problem_statement: >
+  Consider the digraph with m^3 vertices (i,j,k) for 0 <= i,j,k < m, with arcs
+  from each vertex to (i+1,j,k), (i,j+1,k), (i,j,k+1) mod m. Find a general
+  decomposition of the 3m^3 arcs into three directed Hamiltonian cycles, for
+  all m > 2. Posed by Knuth while drafting TAOCP material on Hamiltonian
+  paths and cycles; m=2 impossible (Aubert-Schneider 1982); Stappers had
+  empirical solutions for 4 <= m <= 16 but no construction.
+
+field: "Combinatorics"
+subfield: "Graph theory - Hamiltonian decompositions of Cayley digraphs"
+
+ai_system: >
+  Claude Opus 4.6 (odd-m construction, ~1 hour, 31 documented explorations);
+  gpt-5.3-codex (even-m >= 8 construction); GPT-5.4 Pro (even-m correctness
+  proof, reportedly unedited); GPT 5.4 Extended Thinking + Claude 4.6 Sonnet
+  (independent simpler odd-m construction, anonymous correspondent).
+human_collaborators:
+  - "Donald Knuth - posed the problem, wrote the note and the odd-m correctness proof"
+  - "Filip Stappers - ran and coached the Claude sessions, verified odd m in 3..101, drove the even-m follow-up"
+  - "Ho Boon Suan - ran the gpt-5.3-codex construction and the GPT-5.4 Pro proof"
+  - "Kim Morrison - Lean 4 formalization of the odd-m theorem"
+autonomy: AI_LED_HUMAN_VERIFIED
+
+resolution_mechanism:
+  primary: CONSTRUCTION
+  secondary: [SEARCH_PLUS_VERIFIER]
+  contested: false
+
+certificate_size: SMALL
+certificate_notes: >
+  Odd m: a ~15-line C program generating the three cycles, human proof by
+  Knuth, and a Lean 4 formalization (ClaudesCycles.hamiltonian_arc_decomposition,
+  all odd m > 1). Even m: explicit machine-verified decompositions for
+  m = 4..200 and samples to 2000, plus a closed-form algorithm for even
+  m >= 8 with a machine-written 14-page proof hosted by Knuth.
+
+verification_method: LEAN
+verification_status: >
+  Odd case: Knuth's proof plus Kim Morrison's Lean formalization (posted
+  2026-03-04) - fully established. Even case: per-instance certificates are
+  exact; the general m >= 8 proof is a GPT-5.4 Pro paper Knuth calls
+  "apparently flawless" and "no longer in doubt", but no independent human
+  or formal verification of that paper is on record - reported, not
+  formally established.
+
+cross_field_transfer:
+  occurred: false
+  from: null
+  to: null
+  notes: "Construction is native: Claude's serpentine pattern is the classical modular m-ary Gray code (TAOCP 7.2.1.1, p.299), recognized by Knuth."
+
+sources:
+  - url: https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf
+    what: "The note itself (2026-02-28, revised 2026-04-14): full exploration narrative, construction, proof, even-case postscripts. Read directly this session."
+    tier: PRIMARY
+  - url: https://github.com/kim-em/KnuthClaudeLean
+    what: "Lean 4 formalization of the odd-m decomposition theorem"
+    tier: PRIMARY
+  - url: https://github.com/google-deepmind/formal-conjectures
+    what: "Paper/ClaudesCycles.lean at commit 393aa9a states 'the even case m > 2 remains open' - stale within five weeks of the pin; kept as evidence of how fast this record moves"
+    tier: PRIMARY
+  - url: https://aclanthology.org/2026.bigpicture-main.2.pdf
+    what: "ACL 'Open Problems Solved by LLMs?' survey (2026-07-04) lists the case with the Lean verification"
+    tier: EXPERT_COMMENTARY
+  - url: https://blog.adafruit.com/2026/03/03/don-knuth-wrote-a-paper-thanking-claude-for-solving-an-open-math-problem/
+    what: "Press coverage of the original odd-m note"
+    tier: JOURNALISM
+
+unverifiable_claims:
+  - "The GPT-5.4 Pro even-case proof being correct and 'entirely the machine's doing' - Knuth relaying Ho Boon Suan; the proof PDF has no independent review on record."
+  - "The saved ChatGPT interaction transcript (Knuth ref [9]) - linked, not fetched."
+  - "Keston Aquino-Michaels' 20-page multi-agent analysis (Knuth ref [12], github.com/no-way-labs/residue) - cited by Knuth, not fetched."
+  - "The anonymous 'Exocija' proof of the alternative construction (Knuth ref [7]) - hosted by Knuth, not fetched."
+  - "Stappers' even-m verifications for m = 4..200 and random m to 2000 - reported in the note; scripts (refs [4],[5]) not run."
+
+notes: >
+  The best-documented production process in this corpus: Knuth narrates all
+  31 of Claude's explorations, including the failures (linear/quadratic sigma,
+  brute-force DFS, simulated annealing "all was for naught"), the
+  reformulations (Cayley digraph, fiber decomposition), and the human
+  coaching (Stappers' plan.md discipline, restarts after model errors).
+  No other case shows the search-then-recognize arc this explicitly.
+
+  Pool provenance matters: this came from no list. It is the modal mechanism
+  of the 2025-26 non-Erdos record - an individual expert brings a working
+  problem to a frontier model and verifies by hand. Tao-wiki cross-reference:
+  1(d) collaboration, with a 1(b) flavor - Knuth reports Darijani-Miraftab-
+  Morris (Ars Math. Contemp. 25, 2025) as a relevant reference he had missed,
+  surfaced during the AI follow-up, though it does not solve the problem.
+
+  Timeline for the record: problem open ~weeks publicly; odd case solved
+  2026-02-27-ish in one hour of model time; note published 02-28; even case
+  constructions 03-03/03-04; Lean formalization 03-04; even case declared
+  "no longer in doubt" in the 04-14 revision. The formal-conjectures pin
+  (this project's statement source) still carried it as open in 2026-07.
+  Any target list in this territory has a shelf life measured in weeks.
+
+# ---- applied by scripts/recode.py; see rubric/TAXONOMY.md ----
+classification:
+  certificate_type: FORMAL_PROOF
+  process: GUIDED_SEARCH
+  frontier: ADVANCES
+  inference_mode: INDUCTION
+  culture: PROBLEM_SOLVING
+  rationale: >
+    Coded on the odd-m leg, the event the note documents: construction found
+    by iterated scripted exploration, pattern generalized from m=3, then
+    proved (Knuth) and Lean-formalized (Morrison) - INDUCTION with a
+    FORMAL_PROOF certificate. The even-m leg would code INFORMAL_PROOF
+    (machine-written proof, no independent verification on record). Native
+    technique: the construction is the modular m-ary Gray code, recognized by
+    Knuth.

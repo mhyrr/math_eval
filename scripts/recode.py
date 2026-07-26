@@ -150,6 +150,15 @@ CODING = {
     "erdos-397-formalization": (
         "FORMAL_PROOF", "GUIDED_SEARCH", "ADVANCES", "DEDUCTION", "PROBLEM_SOLVING",
         "THIN source quality - coding is provisional and inherits the file's caveats."),
+
+    "knuth-claude-cycles": (
+        "FORMAL_PROOF", "GUIDED_SEARCH", "ADVANCES", "INDUCTION", "PROBLEM_SOLVING",
+        "Coded on the odd-m leg, the event the note documents: construction found by "
+        "iterated scripted exploration, pattern generalized from m=3, then proved "
+        "(Knuth) and Lean-formalized (Morrison) - INDUCTION with a FORMAL_PROOF "
+        "certificate. The even-m leg would code INFORMAL_PROOF (machine-written "
+        "proof, no independent verification on record). Native technique: the "
+        "construction is the modular m-ary Gray code, recognized by Knuth."),
 }
 
 

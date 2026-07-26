@@ -112,6 +112,26 @@ This repository evaluates; it does not attempt. If a problem graduates to an
 actual attempt, that happens elsewhere, and the outcome — either way — comes
 back here as data.
 
+**Beyond Erdős** (added after the 2026-07-26 pool sweep;
+`problems/POOLS.md` is the full map). The Erdős database was where the
+labels were free, not where the problems end. The sweep found: the SAT
+community's own named next targets (R(3,10) is a one-value gap; ES(7) is
+the direct successor to a computation that already fell); a live DeepMind
+registry of 67 bound-race problems shipped *with their verifiers*; and a
+census of which non-Erdős pools actually produced AI resolutions in the
+last eighteen months — Kourovka Notebook 9 (eight of them autonomous and
+Lean-verified), OEIS 44 of 492 attempted, and roughly eight cases of the
+single most productive mechanism on record: an individual expert bringing
+their own working problem to a frontier model. The sharpest of those is
+now a corpus case (`corpus/knuth-claude-cycles.yaml`): Knuth's torus
+decomposition problem, marked open in our pinned statement source, had
+fallen five weeks after the pin — Claude found the odd-case construction
+in an hour, and the even case fell in March to a relay of models, ending
+in a Lean formalization. Two lessons priced into the folder: target lists
+in this territory have a shelf life measured in weeks, and the pools the
+labs already harvest industrially (Kourovka, OEIS) are races — the edge
+is in the pools their pipelines don't see.
+
 ## Reading map
 
 | question | file |
@@ -121,4 +141,5 @@ back here as data.
 | Why is set theory a dead end? | `memo/FINDINGS.md` |
 | How was the blind test run, and what failed? | `memo/PREREGISTRATION.md`, then `memo/VALIDATION.md` |
 | What should we try to solve? | `problems/README.md` |
+| Where do targets beyond Erdős come from? | `problems/POOLS.md` |
 | How to work in this repo | `CLAUDE.md` |

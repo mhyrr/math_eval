@@ -135,7 +135,11 @@ CH-*independence* is not.
 fetch (every problem statement in the *corpus* is paraphrased from papers and
 commentary as a result — the largest sourcing weakness in Phase 1). Hacker News
 returns **429** under load. arXiv abstract pages work; PDFs sometimes return
-binary, in which case `Read` the saved file with a `pages:` range.
+binary, in which case `Read` the saved file with a `pages:` range. Found in the
+2026-07 pool sweep: OEIS pages **403**; `combinatoricswiki.org` and
+`multimagie.com` fail TLS verification; `houseofgraphs.org` serves an empty
+SPA shell; `web.archive.org` blocked. The binary-PDF + `Read` route works —
+it is how Knuth's claude-cycles.pdf was read.
 
 **Working around the 403 — do this before paraphrasing anything.** The *site* is
 closed to automated fetch. The *data* is not. Three public repos cover almost

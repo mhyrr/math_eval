@@ -1,0 +1,3 @@
+[    2173ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://web.archive.org/web/20080905163247/http://web.archive.org/screenshot/http://cms.dt.uh.edu/faculty/delavinae/research/wowII/resolved.htm:0
+[   56610ms] [ERROR] Failed to load resource: the server responded with a status of 503 () @ https://web.archive.org/cdx/search/cdx?url=cms.dt.uh.edu/faculty/delavinae/research/wowII*&fl=original&collapse=urlkey&filter=original:.*\.htm.*&limit=500:0
+[   71684ms] [ERROR] Failed to load resource: the server responded with a status of 503 () @ https://web.archive.org/cdx/search/cdx?url=cms.dt.uh.edu%2Ffaculty%2Fdelavinae%2Fresearch%2FwowII%2Flist.htm&fl=timestamp&limit=-3:0

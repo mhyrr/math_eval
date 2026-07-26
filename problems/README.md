@@ -42,11 +42,14 @@ untested by the project — working the queue is the test.
 "beat the best known construction," where the score of a candidate is
 mechanically computable — the FunSearch cap-set / AlphaEvolve mechanism, plus
 the GPT-5 Pro convex-optimization case for improving a constant in a recent
-paper. No files yet: every target in this class needs its current record
-verified at definition time (records move monthly), so defining one is a
-research task, not a transcription. Registries to draw from when opening this
-door: the AlphaEvolve problem set (DeepMind), House of Graphs open invariant
-questions, packing/covering record tables.
+paper. This door is now open: DeepMind's live
+[repository of problems](https://github.com/google-deepmind/alphaevolve_repository_of_problems)
+ships 67 targets **with their verifiers included**, which solves the
+record-verification problem by construction — 24 of them sit at
+matched-but-not-known-optimal, the cleanest race position. The registry
+survey, with maintenance status for every record table this project
+verified, is [POOLS.md §3](POOLS.md). First seeded file in the class:
+[superpermutation-n7](superpermutation-n7.md), dormant since 2019.
 
 ## The process — one problem at a time
 
@@ -86,6 +89,12 @@ all large n, open below) — plus one unlabeled problem the rubric picked blind
 (#11), and two machine-generated graph conjectures as exemplars of the
 lowest-attention class in reach.
 
+Beyond Erdős (the 2026-07-26 sweep; sourcing and pool map in
+[POOLS.md](POOLS.md)): the two problems the SAT community itself names as
+next to fall, and four single-finite-object questions from the pinned
+`formal-conjectures` warehouse, including one deliberate high-attention
+control.
+
 | file | one line |
 |---|---|
 | [erdos-0007](erdos-0007.md) | covering system with all moduli odd? |
@@ -102,6 +111,12 @@ lowest-attention class in reach.
 | [erdos-0848](erdos-0848.md) | non-squarefree ab+1 sets, open only for small N |
 | [wow2-059](wow2-059.md) | Graffiti.pc 59: induced forest vs residue (exemplar) |
 | [wow2-061](wow2-061.md) | Graffiti.pc 61: induced forest vs residue + diameter (exemplar) |
+| [ramsey-r3-10](ramsey-r3-10.md) | R(3,10) ∈ {40, 41} — the nearest open Ramsey number |
+| [erdos-szekeres-g7](erdos-szekeres-g7.md) | ES(7) = 33? — successor to the empty-hexagon computation |
+| [conway-99-graph](conway-99-graph.md) | SRG(99,14,1,2) existence ($1000; perfect certificate, hostile search) |
+| [superpermutation-n7](superpermutation-n7.md) | L(7) ∈ [5884, 5906] — bound race dormant since 2019 |
+| [rational-distance-unit-square](rational-distance-unit-square.md) | point at rational distance from all 4 corners (Guy D19) |
+| [magic-square-of-squares](magic-square-of-squares.md) | 3×3 magic square of squares (high-attention control) |
 
 ## The queue — Erdős problems with community finite-certificate labels
 
@@ -161,14 +176,15 @@ nominated blind in Phase 4 (the other three all turned out to carry community
 labels), it has a 2^50 computational verification on record, and its file
 explains why it belongs.
 
-Beyond this table, two further pools with the right shape, unseeded:
-
-- **Graffiti.pc conjectures** (`WrittenOnTheWallII` in `formal-conjectures`):
-  22 open machine-generated graph-invariant inequalities. Every one is
-  refutable by a single finite graph checked with standard invariants, and
-  prior attention is the lowest of anything in this folder. Two exemplars
-  seeded; the class is the real asset.
-- **OEIS-style representability conjectures** (`OEIS/` there, largely Zhi-Wei
-  Sun's): falsifiable by a single integer, but the supply is effectively
-  unlimited and community interest per item is low. Noted so nobody mistakes
-  absence for oversight; not queued.
+Beyond this table, the full pool map — every non-Erdős source this project
+has located, with AI-resolution yields and denominators, record-table
+maintenance status, and the pools already being harvested industrially
+(Kourovka, OEIS) versus the ones still quiet — is **[POOLS.md](POOLS.md)**.
+Three updates from the 2026-07-26 sweep: the Graffiti.pc pool is ten times
+bigger than the formalized slice (~213–230 open per DeLaViña's archived
+list, against DeepMind's 22 — POOLS.md §5); refutation pipelines began
+sweeping the *adjacent* machine-conjecture corpora in June 2026, so wow2
+G0 checks now include the Demonstrandum artifacts; and the pinned
+statement warehouse proved stale on at least one problem (Claude's Cycles
+fell five weeks after the pin; `corpus/knuth-claude-cycles.yaml`), so
+DEFINED always includes a live status check.
