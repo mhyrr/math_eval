@@ -10,12 +10,13 @@ SEARCH = $(BUILD_DIR)/wow2-search
 PROOF61 = $(BUILD_DIR)/wow2-proof61
 MAXINE61 = $(BUILD_DIR)/wow2-maxine61
 REDUCTION_SEARCH61 = $(BUILD_DIR)/wow2-reduction-search61
+FINISH61 = $(BUILD_DIR)/wow2-finish61
 
 .PHONY: all test check-counts-9 exhaustive-61 exhaustive-59 families-61 \
-	check-critical-61 check-maxine-61 clean
+	check-critical-61 check-maxine-61 check-finish-61 clean
 
 all: $(GENERATOR) $(SWEEPER) $(SEARCH) $(PROOF61) $(MAXINE61) \
-	$(REDUCTION_SEARCH61)
+	$(REDUCTION_SEARCH61) $(FINISH61)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
@@ -39,12 +40,16 @@ $(REDUCTION_SEARCH61): graph.c graph.h $(REDUCTION61_COMMON) \
 		reduction_search61.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) graph.c reduction61.c reduction_search61.c -o $@
 
+$(FINISH61): graph.c graph.h $(REDUCTION61_COMMON) finish61.c | $(BUILD_DIR)
+	$(CC) $(CFLAGS) graph.c reduction61.c finish61.c -o $@
+
 test: all
 	$(GENERATOR) --self-test
 	$(SWEEPER) --self-test
 	$(PROOF61) --self-test
 	$(GENERATOR) 6 | $(MAXINE61)
 	$(REDUCTION_SEARCH61) --self-test
+	$(FINISH61) --self-test
 	python3 verify.py --self-test
 	python3 critical61.py --self-test
 
@@ -66,6 +71,9 @@ check-critical-61: $(GENERATOR) $(PROOF61)
 
 check-maxine-61: $(GENERATOR) $(MAXINE61)
 	$(GENERATOR) 9 | $(MAXINE61)
+
+check-finish-61: $(GENERATOR) $(FINISH61)
+	$(GENERATOR) 9 | $(FINISH61)
 
 clean:
 	rm -f $(GENERATOR) $(SWEEPER) $(SEARCH) $(PROOF61) $(MAXINE61) \

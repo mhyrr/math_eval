@@ -26,10 +26,15 @@ remains open.
 
 The subsequent proof attack is in [`PROOF-061.md`](PROOF-061.md). It proves
 the diameter-at-most-three case, shows that every maximum-degree deletion is
-within one unit of a component induction, and reduces the full conjecture to
-a packing–independence lemma. A stronger MAX-packing form of that lemma was
-verified on all 2,592,586 records in the existing corpora; it remains the
-unproved step.
+within one unit of a component induction, and proves that a two-connected
+counterexample to the deletion route would need every maximum-degree vertex
+inside every diametral pair with diameter congruent to 1 modulo 3. The full
+conjecture reduces to any one of three open lemmas — packing–independence,
+the deletion lemma, or a free-attachment forest lemma — each verified on
+all 2,592,586 records in the existing corpora ([`finish61.c`](finish61.c)
+holds the endgame checks). The publication rendering is available as
+[`PROOF-061.pdf`](PROOF-061.pdf), with source in
+[`PROOF-061.tex`](PROOF-061.tex).
 
 ## Components
 

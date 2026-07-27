@@ -139,3 +139,48 @@ also survived every record.
 Neither finite result proves the structural lemma. The proved reductions,
 2,592,586-record verification table, and exact stopping point are in
 [`PROOF-061.md`](PROOF-061.md).
+
+## Endgame checks (2026-07-27)
+
+Three further exact checks, implemented in [`finish61.c`](finish61.c), ran
+over the same four corpora (2,592,586 records; 880,890 of diameter at least
+4). Reproduce with `make check-finish-61` for the order-9 slice, or pipe any
+graph6 stream through `/tmp/math-eval-wow2/wow2-finish61`.
+
+**Lemma 7 stress test.** For every maximum-degree vertex of every record —
+5,246,681 deletions, all diameters — the component residues of \(G-v\)
+summed to at least \(\operatorname{residue}(G)\). Zero violations. This
+exercises the majorization step of Lemma 7, the one proof step resting on a
+citation.
+
+**Two-connected collapse.** Lemma 6 loses a metric unit only when the
+deleted vertex separates the diametral pair or is one of its endpoints, and
+no vertex separates a 2-connected graph. So a maximum-degree vertex outside
+some diametral pair satisfies (DL) directly. Among all 53,096 two-connected
+records of diameter at least 4 (orders 8–20), **every graph has such a
+vertex**; the deletion bound was re-verified exactly at each one, with zero
+failures. The trapped class — every maximum-degree vertex inside every
+diametral pair — is empty on everything tested, so the residual case
+(trapped with \(d\equiv1\pmod3\)) never materializes. Whether trapped
+2-connected graphs exist at all is now its own open question.
+
+**Free-attachment repair.** At every maximum-degree deletion that is
+one-unit tight (\(b^\oplus(G-v)=b(G)-1\)) — 58,809 configurations — each
+component admits an induced forest meeting its \(b(C_i)\) quota in which no
+tree contains two neighbors of \(v\). The union plus \(v\) is then a
+\(b(G)\)-forest. Zero failures, zero skipped records. This is exact support
+for a strengthened induction hypothesis (a bound-sized forest with a free
+attachment point), which would close the conjecture even where (DL)-style
+deletion loses its unit.
+
+| corpus | records | \(d\ge4\) | 2-conn | trapped | tight | repaired |
+|---|---:|---:|---:|---:|---:|---:|
+| connected order 9 | 261,080 | 21,332 | 1,944 | 0 | 854 | 854 |
+| order-10 extensions | 629,041 | 119,687 | 18,037 | 0 | 7,113 | 7,113 |
+| order-11 leaf/twin extensions | 1,342,198 | 379,980 | 30,380 | 0 | 28,936 | 28,936 |
+| path-of-gadgets through 20 | 360,267 | 359,891 | 2,735 | 0 | 21,906 | 21,906 |
+| **total** | **2,592,586** | **880,890** | **53,096** | **0** | **58,809** | **58,809** |
+
+The deletion census inside `finish61.c` independently reproduced the
+published order-9 numbers (21,136 connected-reducible, 15,568 at maximum
+degree, 196 cut-vertex rescues, 0 without a (DL) vertex).
