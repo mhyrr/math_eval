@@ -24,6 +24,7 @@ void graph_clear(Graph *graph, unsigned n);
 void graph_add_edge(Graph *graph, unsigned u, unsigned v);
 void graph_remove_edge(Graph *graph, unsigned u, unsigned v);
 void graph_toggle_edge(Graph *graph, unsigned u, unsigned v);
+void graph_delete_vertex(const Graph *graph, unsigned vertex, Graph *result);
 bool graph_has_edge(const Graph *graph, unsigned u, unsigned v);
 unsigned graph_edge_count(const Graph *graph);
 bool graph_connected(const Graph *graph);

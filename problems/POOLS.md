@@ -150,13 +150,17 @@ counterexamples over the years — the 2020 survivors are enriched for
 *true* statements, so a refutation sweep may come up dry and the likelier
 resolution mode is proof.
 
-**Attention is arriving at the edges.** As of June–July 2026 the
-Demonstrandum pipeline and at least one Grok agent run are refuting
-conjectures from the *adjacent* corpora — Fajtlowicz's original Graffiti
-and TxGraffiti items — with machine-checkable artifacts (§2). WOWII proper
-shows no recorded sweep beyond DeepMind's 22. The SEARCHED stage for any
-wow2 file must check the Demonstrandum artifacts repo and the tracker (§2)
-for fresh kills, plus the archived DeLaViña list.
+**Attention has reached WOWII proper.** A preprint submitted 1 July and posted
+2 July 2026 claims a source-scoped, Lean-verified proof of WOWII 19:
+Z. Chen, Q. Wang, Y. Feng, ["A Source-Scoped Lean-Verified Proof of WOWII
+Conjecture 19"](https://www.preprints.org/manuscript/202607.0114) (PRIMARY;
+not peer reviewed). The authors pin the Lean artifact and explicitly disclaim
+a broader literature-priority claim. One proof does not establish a class-wide
+sweep. Demonstrandum and at least one Grok agent run are also
+refuting conjectures from the *adjacent* Fajtlowicz Graffiti and TxGraffiti
+corpora with machine-checkable artifacts (§2). The SEARCHED stage for any
+wow2 file must check the Demonstrandum artifacts repo, the tracker (§2), new
+WOWII-specific work, and the archived DeLaViña list.
 
 **TxGraffiti** (Davila): the flagship open set is the four conjectures in
 the ten-year retrospective (arXiv:2507.17780); one fell to a *human* in

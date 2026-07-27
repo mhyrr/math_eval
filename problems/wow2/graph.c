@@ -62,6 +62,27 @@ void graph_toggle_edge(Graph *graph, unsigned u, unsigned v) {
   }
 }
 
+void graph_delete_vertex(const Graph *graph, unsigned vertex, Graph *result) {
+  if (vertex >= graph->n || graph->n == 0 || result == graph) {
+    abort();
+  }
+
+  graph_clear(result, graph->n - 1);
+  for (unsigned u = 0; u < graph->n; u++) {
+    if (u == vertex) {
+      continue;
+    }
+    for (unsigned v = u + 1; v < graph->n; v++) {
+      if (v == vertex || !graph_has_edge(graph, u, v)) {
+        continue;
+      }
+      unsigned mapped_u = u - (u > vertex);
+      unsigned mapped_v = v - (v > vertex);
+      graph_add_edge(result, mapped_u, mapped_v);
+    }
+  }
+}
+
 bool graph_has_edge(const Graph *graph, unsigned u, unsigned v) {
   return u < graph->n && v < graph->n &&
          (graph->adj[u] & (UINT64_C(1) << v)) != 0;
