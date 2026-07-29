@@ -106,7 +106,7 @@ control.
 | [erdos-0307](erdos-0307.md) | two prime sets with reciprocal-sum product 1? |
 | [erdos-0617](erdos-0617.md) | Erdős–Gyárfás: unbalanced r-colourings of K_{r²+1}? |
 | [erdos-0647](erdos-0647.md) | some n > 24 with max(m + τ(m)) ≤ n + 2? |
-| [erdos-0742](erdos-0742.md) | Murty–Simon, open only on a finite range |
+| [erdos-0742](erdos-0742.md) | Murty–Simon, PARK: finite gap reaches a tower of height ~10¹⁴ |
 | [erdos-0835](erdos-0835.md) | Johnson graph J(2k,k) chromatic number k+1? |
 | [erdos-0848](erdos-0848.md) | non-squarefree ab+1 sets, open only for small N |
 | [wow2-059](wow2-059.md) | Graffiti.pc 59: induced forest vs residue (exemplar) |

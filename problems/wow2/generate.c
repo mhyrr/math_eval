@@ -9,11 +9,16 @@
 #include <string.h>
 
 enum {
-  MAX_GENERATED_ORDER = 9,
+  MAX_GENERATED_ORDER = 10,
 };
 
+/*
+ * McKay's published counts of connected unlabelled simple graphs, used to
+ * check every intermediate order rather than trusting the augmentation:
+ * https://users.cecs.anu.edu.au/~bdm/data/graphs.html
+ */
 static const uint64_t CONNECTED_UNLABELED_COUNTS[MAX_GENERATED_ORDER + 1] = {
-    0, 1, 1, 2, 6, 21, 112, 853, 11117, 261080,
+    0, 1, 1, 2, 6, 21, 112, 853, 11117, 261080, 11716571,
 };
 
 typedef struct {
@@ -349,7 +354,7 @@ static unsigned parse_order(const char *text) {
   unsigned long value = strtoul(text, &end, 10);
   if (errno != 0 || end == text || *end != '\0' ||
       value < 1 || value > MAX_GENERATED_ORDER) {
-    die("order must be an integer from 1 through 9");
+    die("order must be an integer from 1 through 10");
   }
   return (unsigned)value;
 }
@@ -360,7 +365,7 @@ static void usage(void) {
        "Generate one graph6 record for every connected unlabeled graph of\n"
        "the requested order. The native generator uses canonical vertex\n"
        "augmentation and validates every intermediate count against the\n"
-       "published connected-unlabeled counts through order 9.\n"
+       "published connected-unlabeled counts through order 10.\n"
        "\n"
        "--count-only  validate and report counts without graph6 output\n"
        "--self-test   generate through order 7 and suppress graph6 output");

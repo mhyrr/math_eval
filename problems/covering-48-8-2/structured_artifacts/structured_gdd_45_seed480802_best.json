@@ -1,0 +1,26 @@
+{
+  "candidate": "structured_gdd_45_seed480802_best.txt",
+  "elapsed_seconds": 1.159092,
+  "evaluations": 64662,
+  "lane": "gdd",
+  "parameters": {
+    "extra_rows": 2,
+    "restarts": 4,
+    "seconds": null,
+    "steps": 20000
+  },
+  "restart": 0,
+  "score": {
+    "block_count": 45,
+    "duplicate_blocks": 0,
+    "pair_square_sum": 1814,
+    "removable_blocks": 0,
+    "repeated_incidences": 241,
+    "uncovered": 109,
+    "used_points": 48,
+    "weighted_deficit": 19413
+  },
+  "seed": 480802,
+  "sha256_prefix": "77341107d1064a22",
+  "target_blocks": 45
+}

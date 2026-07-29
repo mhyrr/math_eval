@@ -13,7 +13,7 @@ typedef struct {
   uint64_t iterations;
   unsigned restarts;
   uint64_t seed;
-  Wow2Mode mode;
+  const Wow2Conjecture *conjecture;
   const char *start_graph6;
 } Options;
 
@@ -48,15 +48,15 @@ static uint64_t parse_u64(const char *text, const char *option) {
   return (uint64_t)value;
 }
 
-static Wow2Mode parse_mode(const char *text) {
-  if (strcmp(text, "61") == 0) {
-    return WOW2_MODE_61;
+static const Wow2Conjecture *parse_mode(const char *text) {
+  const Wow2Conjecture *conjecture = wow2_lookup(text);
+  if (conjecture == NULL) {
+    fprintf(stderr,
+            "error: unknown mode '%s'; wow2-sweep --list shows every mode\n",
+            text);
+    exit(EXIT_FAILURE);
   }
-  if (strcmp(text, "59") == 0) {
-    return WOW2_MODE_59;
-  }
-  die("--mode must be 59 or 61");
-  return WOW2_MODE_61;
+  return conjecture;
 }
 
 static Options parse_options(int argc, char **argv) {
@@ -65,7 +65,7 @@ static Options parse_options(int argc, char **argv) {
       .iterations = 10000,
       .restarts = 20,
       .seed = UINT64_C(0x61c0ffee),
-      .mode = WOW2_MODE_61,
+      .conjecture = wow2_lookup("61"),
       .start_graph6 = NULL,
   };
   for (int i = 1; i < argc; i++) {
@@ -78,11 +78,11 @@ static Options parse_options(int argc, char **argv) {
     } else if (strcmp(argv[i], "--seed") == 0 && i + 1 < argc) {
       options.seed = parse_u64(argv[++i], "--seed");
     } else if (strcmp(argv[i], "--mode") == 0 && i + 1 < argc) {
-      options.mode = parse_mode(argv[++i]);
+      options.conjecture = parse_mode(argv[++i]);
     } else if (strcmp(argv[i], "--start") == 0 && i + 1 < argc) {
       options.start_graph6 = argv[++i];
     } else if (strcmp(argv[i], "--help") == 0) {
-      puts("usage: wow2-search [--mode 61|59] [--order N]\n"
+      puts("usage: wow2-search [--mode NAME] [--order N]\n"
            "                   [--iterations N] [--restarts N] [--seed N]\n"
            "                   [--start GRAPH6]\n"
            "\n"
@@ -266,51 +266,67 @@ static void initial_graph(Graph *graph, unsigned n, unsigned restart) {
   }
 }
 
-static int pressure(const Wow2Evaluation *evaluation, Wow2Mode mode) {
-  if (mode == WOW2_MODE_61) {
-    return 3 * ((int)evaluation->residue -
-                (int)evaluation->forest.size) +
-           evaluation->diameter;
+/*
+ * A skipped evaluation is outside the statement, so it must never look like
+ * progress. Everything else is ranked by the evaluator's own search heuristic,
+ * with phi breaking ties.
+ */
+static bool better(const Wow2Evaluation *left, const Wow2Evaluation *right) {
+  if (left->evaluated != right->evaluated) {
+    return left->evaluated;
   }
-  return evaluation->phi;
+  if (!left->evaluated) {
+    return false;
+  }
+  int order = rational_compare(left->pressure, right->pressure);
+  if (order != 0) {
+    return order > 0;
+  }
+  return rational_compare(left->phi, right->phi) > 0;
 }
 
-static bool better(const Wow2Evaluation *left,
-                   const Wow2Evaluation *right, Wow2Mode mode) {
-  int left_pressure = pressure(left, mode);
-  int right_pressure = pressure(right, mode);
-  if (left_pressure != right_pressure) {
-    return left_pressure > right_pressure;
+/* Integer magnitude of a pressure drop, for the annealing temperature only. */
+static unsigned pressure_loss(const Wow2Evaluation *from,
+                              const Wow2Evaluation *to) {
+  if (!from->evaluated || !to->evaluated) {
+    return 1000;
   }
-  if (left->phi != right->phi) {
-    return left->phi > right->phi;
+  int64_t loss = rational_floor(rational_sub(from->pressure, to->pressure));
+  if (loss <= 0) {
+    return 0;
   }
-  if (left->diameter != right->diameter) {
-    return left->diameter > right->diameter;
-  }
-  return left->residue > right->residue;
+  return loss > 1000 ? 1000u : (unsigned)loss;
 }
 
-static void print_result(const char *label, Wow2Mode mode, const Graph *graph,
+static void print_result(const char *label, const Graph *graph,
                          const Wow2Evaluation *evaluation, unsigned restart,
                          uint64_t iteration) {
   char graph6[384];
+  char phi[64];
+  char pressure[64];
   if (!graph6_encode(graph, graph6, sizeof(graph6))) {
     die("graph6 encoding failed");
   }
-  printf("%s mode=%s restart=%u iteration=%" PRIu64
-         " graph6=%s n=%u m=%u residue=%u diameter=%d ",
-         label, wow2_mode_name(mode), restart, iteration, graph6,
-         evaluation->n, evaluation->edges, evaluation->residue,
-         evaluation->diameter);
-  if (mode == WOW2_MODE_61) {
-    printf("ceil_diameter_over_3=%u ", evaluation->diameter_term);
+  rational_format(evaluation->phi, phi, sizeof(phi));
+  rational_format(evaluation->pressure, pressure, sizeof(pressure));
+
+  printf("%s mode=%s restart=%u iteration=%" PRIu64 " graph6=%s n=%u m=%u",
+         label, evaluation->conjecture->name, restart, iteration, graph6,
+         graph->n, graph_edge_count(graph));
+  if (!evaluation->evaluated) {
+    printf(" skipped=%s", evaluation->skip_reason);
+  } else if (evaluation->conjecture->shape == WOW2_SHAPE_INEQUALITY) {
+    printf(" phi=%s", phi);
   } else {
-    printf("induced_bipartite=%u ", evaluation->bipartite.size);
+    printf(" hypothesis=%d conclusion=%d", evaluation->hypothesis ? 1 : 0,
+           evaluation->conclusion ? 1 : 0);
   }
-  printf("bound=%u induced_forest=%u phi=%d pressure=%d edges=",
-         evaluation->bound, evaluation->forest.size, evaluation->phi,
-         pressure(evaluation, mode));
+  for (unsigned i = 0; i < evaluation->field_count; i++) {
+    char value[64];
+    rational_format(evaluation->fields[i].value, value, sizeof(value));
+    printf(" %s=%s", evaluation->fields[i].key, value);
+  }
+  printf(" pressure=%s edges=", pressure);
   graph_print_edges(graph, stdout);
   fputc('\n', stdout);
   fflush(stdout);
@@ -347,20 +363,18 @@ int main(int argc, char **argv) {
         }
       }
     }
-    Wow2Evaluation current = wow2_evaluate(&current_graph, options.mode);
+    Wow2Evaluation current = wow2_evaluate(&current_graph, options.conjecture);
 
-    if (!have_global_best || better(&current, &global_best, options.mode)) {
+    if (!have_global_best || better(&current, &global_best)) {
       have_global_best = true;
       global_best = current;
       global_best_graph = current_graph;
       global_restart = restart;
       global_iteration = 0;
-      print_result("IMPROVEMENT", options.mode, &global_best_graph,
-                   &global_best, restart, 0);
+      print_result("IMPROVEMENT", &global_best_graph, &global_best, restart, 0);
     }
-    if (current.phi > 0) {
-      print_result("WITNESS", options.mode, &current_graph, &current,
-                   restart, 0);
+    if (current.witness) {
+      print_result("WITNESS", &current_graph, &current, restart, 0);
       return EXIT_SUCCESS;
     }
 
@@ -378,14 +392,12 @@ int main(int argc, char **argv) {
       }
 
       Wow2Evaluation candidate =
-          wow2_evaluate(&candidate_graph, options.mode);
-      int candidate_pressure = pressure(&candidate, options.mode);
-      int current_pressure = pressure(&current, options.mode);
-      bool accept = better(&candidate, &current, options.mode);
-      if (!accept && candidate_pressure == current_pressure) {
+          wow2_evaluate(&candidate_graph, options.conjecture);
+      bool accept = better(&candidate, &current);
+      unsigned loss = pressure_loss(&current, &candidate);
+      if (!accept && loss == 0) {
         accept = random_below(100) < 20;
       } else if (!accept) {
-        unsigned loss = (unsigned)(current_pressure - candidate_pressure);
         unsigned temperature =
             1 + (unsigned)(6 * (options.iterations - iteration) /
                            options.iterations);
@@ -397,22 +409,21 @@ int main(int argc, char **argv) {
       }
 
       if (!have_global_best ||
-          better(&candidate, &global_best, options.mode)) {
+          better(&candidate, &global_best)) {
         have_global_best = true;
         global_best = candidate;
         global_best_graph = candidate_graph;
         global_restart = restart;
         global_iteration = iteration;
         stagnant = 0;
-        print_result("IMPROVEMENT", options.mode, &global_best_graph,
-                     &global_best, restart, iteration);
+        print_result("IMPROVEMENT", &global_best_graph, &global_best, restart,
+                     iteration);
       } else {
         stagnant++;
       }
 
-      if (candidate.phi > 0) {
-        print_result("WITNESS", options.mode, &candidate_graph, &candidate,
-                     restart, iteration);
+      if (candidate.witness) {
+        print_result("WITNESS", &candidate_graph, &candidate, restart, iteration);
         return EXIT_SUCCESS;
       }
 
@@ -426,13 +437,13 @@ int main(int argc, char **argv) {
             graph_toggle_edge(&current_graph, u, v);
           }
         }
-        current = wow2_evaluate(&current_graph, options.mode);
+        current = wow2_evaluate(&current_graph, options.conjecture);
         stagnant = 0;
       }
     }
   }
 
-  print_result("BEST", options.mode, &global_best_graph, &global_best,
-               global_restart, global_iteration);
+  print_result("BEST", &global_best_graph, &global_best, global_restart,
+               global_iteration);
   return EXIT_SUCCESS;
 }

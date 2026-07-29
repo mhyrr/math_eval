@@ -1,0 +1,23 @@
+{
+  "candidate": "structured_cyclic_48_seed480802_valid_5886a11e9550990b.txt",
+  "elapsed_seconds": 0.003898,
+  "evaluations": 961,
+  "lane": "cyclic",
+  "parameters": {
+    "cyclic_evaluations": 20000
+  },
+  "restart": 0,
+  "score": {
+    "block_count": 48,
+    "duplicate_blocks": 0,
+    "pair_square_sum": 1776,
+    "removable_blocks": 0,
+    "repeated_incidences": 216,
+    "uncovered": 0,
+    "used_points": 48,
+    "weighted_deficit": 0
+  },
+  "seed": 480802,
+  "sha256_prefix": "5886a11e9550990b",
+  "target_blocks": 48
+}

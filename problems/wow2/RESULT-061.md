@@ -126,6 +126,24 @@ different attempt would either:
 
 This attempt stops before pretending either one happened.
 
+**Both lanes were carried out on 2026-07-28 and 2026-07-29.** Route 2 is the
+proof attack recorded below and in [`PROOF-061.md`](PROOF-061.md). Route 1 is
+now discharged: the native generator's order cap was raised, it reproduces
+McKay's published count of **11,716,571** connected unlabelled graphs of order
+10, and the sweep found **no counterexample** — 5,124 equality cases, maximum
+Φ of 0. The full table, and the finding that every one of the 21 open WOWII
+conjectures *loosens* between order 9 and order 10, is in
+[`RESULT-SWEEP-2026-07-28.md`](RESULT-SWEEP-2026-07-28.md).
+
+That loosening is the reason not to buy order 11. It also means this null
+should be read alongside [`RESULT-CALIBRATION.md`](RESULT-CALIBRATION.md):
+the same pipeline was measured against three conjectures whose counterexamples
+are published, and neither exhaustion nor edge toggling found any of them.
+Both lanes above were the right next steps and both came back empty; the lane
+that actually finds counterexamples in this pool is the parametric one, and
+conjecture 61 survived that too — through a family catalogue built from the
+shapes that refute conjectures 58, 103 and 109, not from 61's own structure.
+
 ## Subsequent proof attack
 
 The second route has now been carried out as far as one explicit structural

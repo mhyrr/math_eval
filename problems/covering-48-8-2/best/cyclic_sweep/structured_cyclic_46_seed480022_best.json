@@ -1,0 +1,23 @@
+{
+  "candidate": "structured_cyclic_46_seed480022_best.txt",
+  "elapsed_seconds": 0.018521,
+  "evaluations": 5000,
+  "lane": "cyclic",
+  "parameters": {
+    "cyclic_evaluations": 5000
+  },
+  "restart": 0,
+  "score": {
+    "block_count": 46,
+    "duplicate_blocks": 0,
+    "pair_square_sum": 1772,
+    "removable_blocks": 0,
+    "repeated_incidences": 242,
+    "uncovered": 82,
+    "used_points": 48,
+    "weighted_deficit": 82
+  },
+  "seed": 480022,
+  "sha256_prefix": "1cd507c05e3a0066",
+  "target_blocks": 46
+}

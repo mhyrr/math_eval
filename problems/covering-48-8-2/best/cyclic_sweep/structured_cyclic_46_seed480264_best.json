@@ -1,0 +1,23 @@
+{
+  "candidate": "structured_cyclic_46_seed480264_best.txt",
+  "elapsed_seconds": 0.002866,
+  "evaluations": 641,
+  "lane": "cyclic",
+  "parameters": {
+    "cyclic_evaluations": 5000
+  },
+  "restart": 0,
+  "score": {
+    "block_count": 46,
+    "duplicate_blocks": 0,
+    "pair_square_sum": 1684,
+    "removable_blocks": 0,
+    "repeated_incidences": 198,
+    "uncovered": 38,
+    "used_points": 48,
+    "weighted_deficit": 38
+  },
+  "seed": 480264,
+  "sha256_prefix": "c03997db9d9a5ed8",
+  "target_blocks": 46
+}

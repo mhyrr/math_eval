@@ -1,0 +1,24 @@
+{
+  "bounded_claim": "unsat applies only to this frozen core and replication cap; unknown normally means the configured timeout",
+  "core_block_count": 42,
+  "core_uncovered_pair_count": 87,
+  "elapsed_seconds": 14.29576558386907,
+  "input": "best/cyclic-repair-46-seed3005.txt",
+  "input_block_count": 46,
+  "lane": "direct_fixed_core_repair",
+  "max_replication": 9,
+  "output": null,
+  "removed_indices_1_based": [
+    22,
+    27,
+    36,
+    40
+  ],
+  "replacement_count": 4,
+  "result_block_count": null,
+  "seed": 3622,
+  "valid": false,
+  "z3_seconds": 14.292371707968414,
+  "z3_status": "unsat",
+  "z3_stderr": ""
+}

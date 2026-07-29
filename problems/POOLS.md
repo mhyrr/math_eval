@@ -4,8 +4,9 @@ The doctrine (three doors, four stages) is in [README.md](README.md). This
 file is the map of the territory the doors open onto: every pool of open
 problems with the right shape that this project has located and verified,
 with maintenance status and — where the record exists — AI-resolution
-yield with denominators. Compiled 2026-07-26; every claim web-verified on
-that date unless marked otherwise.
+yield with denominators. Compiled 2026-07-26 and expanded 2026-07-28;
+every claim was web-verified on the date attached to its section unless
+marked otherwise.
 
 ## 1. The statement warehouse: `formal-conjectures` (pinned @ `393aa9a`)
 
@@ -24,6 +25,27 @@ also carries ten other directories. Files with at least one
 | Books | 7 | Bugeaud distribution-mod-one problems and similar |
 | Kourovka | 2 | group theory — the repo barely samples it; the real notebook is ~1000 problems (see §2) |
 | WrittenOnTheWallII | 22 conjectures | Graffiti.pc machine-generated graph inequalities — see §5 |
+
+**Current scale, not the pin.** The May 2026 Formal Conjectures paper
+([arXiv:2605.13171](https://arxiv.org/abs/2605.13171), PRIMARY) reports
+2,615 formal statements, of which **1,029 are research-open** and 836 are
+research-solved. Those are statement counts, not distinct source problems
+or files, and therefore do not replace the pinned file counts above. The
+open statements are concentrated in Erdős (551), Wikipedia (208), Green
+(83), papers (65), Open Quantum Problems (35), OEIS (22), WOWII (13),
+arXiv (13), and MathOverflow (12), with 27 elsewhere. The authors also
+report correcting 291 misformalizations. Frozen 100-open and 100-solved
+subsets now exist for evaluation; the live repository remains the better
+statement warehouse and the frozen subsets the better benchmark.
+
+The project moved again after the paper. Its
+[live site](https://google-deepmind.github.io/formal-conjectures/)
+(PRIMARY, checked 2026-07-28) reports **2,304 research-status statements:
+1,171 open, 1,133 solved, and 197 formally proved**. Its
+[stats surface](https://google-deepmind.github.io/formal-conjectures/stats/)
+indexes 3,232 statements after adding textbook, test, and API categories.
+The May and July numbers use different snapshots and category universes;
+neither may be silently substituted for the other.
 
 **The staleness lesson, learned this session.** `Paper/ClaudesCycles.lean`
 at the pin says "the even case m > 2 remains open." Knuth's own note
@@ -150,7 +172,26 @@ counterexamples over the years — the 2020 survivors are enriched for
 *true* statements, so a refutation sweep may come up dry and the likelier
 resolution mode is proof.
 
-**Attention has reached WOWII proper.** A preprint submitted 1 July and posted
+**Attention has reached WOWII proper, and the neglect framing above is stale
+(corrected 2026-07-28).** The `git log` on `formal-conjectures`'
+`FormalConjectures/WrittenOnTheWallII/` shows an active refutation front inside
+DeepMind's own repo: **58 disproved 2026-06-17, 143 solved and 109 disproved
+2026-07-21, 103 disproved 2026-07-25, and 160's statement corrected 2026-07-26**
+— that last about an hour after this project's pin at `393aa9a`. Conjecture 58's
+counterexample is credited to Moritz Firsching and Goran Žužić "using an
+experimental pipeline," and a third party maintains
+`github.com/chelokot/wowii-109-counterexample`. Three refutations in six weeks
+is not a quiet pool. The open set is nonetheless unchanged between the pin and
+HEAD: exactly 22 conjectures, 59 and 61 among them.
+
+Two facts from working the pool ([`wow2/RESULT-CALIBRATION.md`](wow2/RESULT-CALIBRATION.md)):
+its counterexamples live at orders 11, 13 and 79 — **above** the order-9
+exhaustion that a small operation can afford — and all three are algebraic
+families (a join, a corona, a cone), not small-graph soup. A sweep of this pool
+that only exhausts small graphs and toggles edges will come up empty whether or
+not counterexamples exist.
+
+A preprint submitted 1 July and posted
 2 July 2026 claims a source-scoped, Lean-verified proof of WOWII 19:
 Z. Chen, Q. Wang, Y. Feng, ["A Source-Scoped Lean-Verified Proof of WOWII
 Conjecture 19"](https://www.preprints.org/manuscript/202607.0114) (PRIMARY;
@@ -192,7 +233,7 @@ open instances.
 | Projective plane of order 12 | smallest undecided order; 2023 result caps any collineation group at order ≤ 3, i.e. no symmetry left to exploit; order 10 took two decades of computation (SAT program stopped there) |
 | Hadamard matrix of order 668 | smallest open order since 2005; a 2026 simulated-annealing campaign over a 10³⁷-per-sequence space got nowhere (ulam.ai report); *and* it now has active AI-community attention (Epoch FrontierMath open-problems list) — fails feasibility and neglect both |
 | Lonely Runner, next case | recent cases k = 8 through 12 fell to specialized human machinery in eight months (Rosenfeld 2025; Sungkawichai–Trakulthongchai 2026) — an actively harvested vein; Tao's finite reduction is n^{O(n²)}, astronomically infeasible naively |
-| Frankl union-closed | not finite-certificate in either direction (no known reduction; verified only to 12-element universes); the constant race has been stalled at ≈ 0.38 since mid-2023 — wrong shape for this folder |
+| Frankl union-closed | **corrected 2026-07-28:** a falsifying union-closed family is a finite exact certificate, but no known order cutoff turns an unsuccessful search into confirmation; verified only through 12-element universes. Good one-sided refuter target, poor balanced closure target |
 
 ## 6. Fetch traps found this session
 
@@ -202,3 +243,214 @@ fetch; `houseofgraphs.org` — serves an empty SPA shell to fetch;
 `web.archive.org` — blocked; large arXiv PDFs (>10 MB) — fetch fails, use
 the saved-file + `Read` route (that route successfully read Knuth's PDF
 this session).
+
+## 7. The larger landscape, classified by certificate shape
+
+**Survey date: 2026-07-28.** The first result is a correction to the
+project's vocabulary: *finite* is too coarse. A finite input, a finite
+candidate, and a finite decisive certificate are three different things.
+The comparison needs to record the target's polarity before assigning
+Route W.
+
+The current 21-case corpus contains 6 witnesses, 7 formal proofs, 5
+informal proofs, and 3 citations (`corpus/DISTRIBUTION.md`). That was
+enough to validate the finite-certificate vocabulary as a filter. It is
+not yet broad enough to distinguish the following shapes:
+
+| shape | representative open problems | what a successful run proves | evaluator and feedback | relation to current evals |
+|---|---|---|---|---|
+| **Exact discrete construction** | covering designs; linear and quantum codes; residual Handbook design instances | a new lower/upper record, or exact value if it meets the other bound | exact checker; often a graded objective on every candidate | best expansion of Route W; current witness cases under-sample this dense-feedback regime |
+| **Two-sided exact value** | Ramsey and Zarankiewicz numbers; maximal determinants | a construction moves one side; equality needs a second, usually different, certificate | cheap witness checker on one side; SAT/proof/classification on the other | exposes the bug in calling “improved the bound” a solved problem |
+| **Direct refuter without a cutoff** | graph reconstruction; Caccetta–Häggkvist; Frankl; Goldbach | one counterexample settles the conjecture; a failed search settles nothing | exact checker, but open-ended search and usually weak gradient | same logical shape as WOWII, with different search geometries |
+| **One-sided reachability** | Andrews–Curtis; rectangle tilings; Costas order 32 | a move sequence, tiling, or array is decisive positively; non-reachability needs a theorem or exhaustive cutoff | cheap positive checker; no symmetric negative checker | a useful test of whether the eval mistakes timeout for evidence |
+| **Instance ladder** | SIC-POVM dimensions; Hilbert's 16th lower bounds; individual matrix-multiplication tensors | real frontier progress at one parameter; the universal conjecture remains open | exact algebraic or interval-assisted instance verifier | closely matches AlphaEvolve, but must be reported as progress rather than global resolution |
+| **Finite syntax, global semantics** | Kaplansky zero divisors; Hilbert's tenth over Q; Navier–Stokes blowup data | the proposed object still carries a global property that needs proof | hybrid checker or expert proof; candidate generation has sparse feedback | catches false positives from treating a formula or program as the certificate |
+| **Formal theorem in mature libraries** | frozen Formal Conjectures subsets; selected Kourovka/OEIS statements | a kernel-checked proof of the formal statement | exact final checker; proof-compiler feedback, plus manual statement-fidelity audit | current corpus represents this well; status and formalization bugs remain outside the kernel |
+| **Literature transfer / working problem** | Randomstrasse101; Green; current researcher lists | usually a natural-language or formal proof importing adjacent machinery | expert or proof-assistant review; little object-level gradient | Route R/N territory and a better test of research synthesis than construction search |
+| **Theory creation** | P vs NP; Hodge; BSD; Yang–Mills; inner-model theory; Navier–Stokes regularity | a new framework plus proof, often with no candidate evaluator | proof checking only after the missing ideas exist | negative controls; mostly fail G1, not “harder versions” of Route W |
+| **Underspecified umbrella** | cosmic censorship without a regularity/genericity choice | nothing until one precise formulation is selected | no stable checker | fails G2 before model capability enters |
+
+This adds six fields to the existing rubric rather than another weighted
+score:
+
+1. **Polarity:** which answer has a certificate — true, false, both, or
+   neither?
+2. **Claim level:** one instance, a bound movement, an exact optimum, or a
+   universal theorem?
+3. **Checker cost:** cheap exact, expensive exact, interval/numeric,
+   proof-kernel, or expert-only?
+4. **Feedback density:** graded every candidate, binary accept/reject,
+   proof-compiler feedback, or none?
+5. **Search representation:** object, program/constructor, or proof?
+6. **Status freshness and attention:** a live record row, frozen benchmark,
+   stale list, active industrial race, or genuinely neglected problem?
+
+The remaining existing fields — theory burden, reservoir proximity,
+decision status, and prior attention — still matter. They answer a
+different question.
+
+## 8. New high-value pools found in the expansion
+
+### 8a. Covering designs: the cleanest immediate registry
+
+[The Covering Repository](https://www.coveringrepository.com/default.aspx)
+(PRIMARY) is the live successor to Dan Gordon's La Jolla Covering
+Repository. As checked 2026-07-28, it contains all **9,486 / 9,486**
+classical `(v,k,t)` rows and 82,382 / 108,780 generalized `(v,k,t,m)`
+rows, with **98,230** and 26,797 historical improvements respectively.
+It imported the classical history through March 2026 and tracks new
+records itself.
+
+The first pilot should be
+[44 ≤ C(48,8,2) ≤ 46](https://ljcr.dmgordon.org/cover/show_cover.php?k=8&t=2&v=48)
+(PRIMARY). A candidate is 44 or 45 eight-subsets of a 48-element set;
+the checker verifies that all 1,128 pairs occur. A 45-block covering
+moves the record; a 44-block covering closes the value. The registry
+publishes the current 46-block witness. This is a bounded exact object
+with cheap independent verification and enough structure for
+SAT/ILP/local-search/program-synthesis approaches.
+
+The caveat is the other side: proving that 44 is impossible would require
+a proof or a checkable exhaustive certificate. “We searched hard and
+found 45” establishes an upper bound, not the optimum.
+
+### 8b. Linear and quantum codes: exact objects, non-uniform checker cost
+
+[CodeTables](https://codetables.de/main.html) (PRIMARY) is live and
+received classical-code updates through December 2025. A strong discrete
+target is
+[d₂(50,20) ∈ {13,14}](https://codetables.de/BKLC/BKLC.php?k=20&n=50&q=2)
+(PRIMARY). A rank-20 generator matrix with minimum distance 14 closes the
+positive gap; checking all 2²⁰−1 nonzero codewords is finite and
+straightforward. The current `[50,20,13]₂` quasicyclic construction was
+added 2025-05-14.
+
+This pool corrects another shorthand. A generator matrix is tiny, but
+minimum-distance verification scales exponentially with dimension and is
+NP-hard in general. “Finite witness” does not imply “cheap checker.”
+Quantum stabilizer rows offer the same construction shape after a trusted
+GF(4)/symplectic verifier exists; their greater domain and staleness burden
+makes them second-pass targets.
+
+### 8c. Zarankiewicz gaps: direct calibration on our exact mechanism
+
+The 2026 paper
+[“On Zarankiewicz's Problem using Large Language Models”](https://arxiv.org/abs/2605.01120)
+(PRIMARY) attacked 44 open values `Z(m,n,3,3)` for `9 ≤ m ≤ 16`,
+`17 ≤ n ≤ 23`. Its LLM-led program search produced lower-bound
+constructions in 41 cases and matched known upper bounds in three:
+`Z(11,21,3,3)=116`, `Z(11,22,3,3)=121`, and
+`Z(12,22,3,3)=132`. The authors report roughly ten minutes and $15–$30
+per parameter.
+
+This is nearly the project's preferred division of labor in the wild:
+the LLM proposes constructors; deterministic code computes and checks.
+It also demonstrates why the claim level belongs in the schema. Forty-one
+rows improved or established lower witnesses; three rows resolved exact
+values.
+
+### 8d. FrontierMath Open Problems: external validation, closed evaluator
+
+[Epoch's FrontierMath: Open Problems](https://epoch.ai/frontiermath/open-problems/about)
+(PRIMARY) launched 2026-01-27 with 14 research-open problems, all selected
+for programmatic verification. Examples range from book-Ramsey
+constructions and characteristic-3 del Pezzo surfaces to an integer
+polynomial with Galois group `M23` and an algorithm for unknotting number
+one. Contributors supplied prior-attempt and expected-time-to-solve
+estimates; Epoch targeted at least an 80% contributor belief that each
+requested object exists.
+
+This is external confirmation that mathematically meaningful,
+verifier-shaped open problems exist. It is not an open reproducible pool:
+verifier access is paid, solved problems are removed, and the source
+explicitly acknowledges selection bias toward concrete problems. Treat it
+as a comparator and source of problem shapes, not as this project's test
+set.
+
+### 8e. Formal and working-problem sources
+
+| source | live scale/status | use here | caveat |
+|---|---|---|---|
+| [Formal Conjectures](https://google-deepmind.github.io/formal-conjectures/) + [May 2026 paper](https://arxiv.org/abs/2605.13171) (PRIMARY) | May: 1,029 research-open; July live site: 1,171 open; frozen 100-open subset | formal-proof cohort and statement warehouse | snapshots/categories differ; statements are not distinct problems; kernel validity does not establish faithful formalization or current open status |
+| [BuddenBench](https://github.com/maxvonhippel/budden-bench) (PRIMARY) | Green, Klee, Kourovka, Mazya, and Ramm working problems in GAP/Lean; README updated 2026-01-29 | candidate index for current, non-celebrity math | “formalized (unsolved)” is not “solved”; visible human-review fields remained pending at check time |
+| [Randomstrasse101](https://arxiv.org/abs/2603.29571) (PRIMARY) | 16 ETH working problems posted in 2025 | Route R/N control: live researcher-owned questions, including probability, combinatorics, statistics, and computation | mostly theorem/transfer shape with expert-only evaluation |
+| [EJC Dynamic Surveys](https://www.combinatorics.org/ojs/index.php/eljc/issue/view/Surveys) (PRIMARY) | several surveys revised in 2025–26, including small Ramsey, graph labeling, forbidden configurations, generalized Turán problems, and graph squares | field-maintained source map | each survey has its own status language and update cadence |
+| [The Open Problems Project](https://topp.openproblem.net/) (PRIMARY) | 75+ computational-geometry problems; master PDF dated 2025-06-19 | mixed source of algorithms, constructions, and theory controls | no longer taking new problems; every target needs a live literature check |
+| [Lean Eval](https://github.com/leanprover/lean-eval) (PRIMARY) | active comparator-based formal-math suite | known-theorem control for proof engineering and environment management | largely established mathematics, not an open-problem pool |
+| [Open Problem Garden](https://www.openproblemgarden.org/) (PRIMARY for its holdings) | displayed subject counts total 714, including 228 graph-theory entries | upstream discovery surface for finite refuters not yet in formal pipelines | no systematic freshness audit; recent-activity feed contained obvious spam on 2026-07-28 |
+| [UnsolvedMath](https://www.unsolvedmath.com/) (aggregator) | advertises 2,084 entries, including 150 Kourovka Issue 21, 366 Kirby, and 422 Open Problem Garden imports | cross-list discovery, especially the unformalized finite-group remainder | operator/editorial and difficulty-label methodology unverified; never a G0 status source |
+
+The Formal Conjectures paper also reports 35 open statements sourced from
+Open Quantum Problems. The source site returned HTTP 502 on 2026-07-28,
+so current status was **not independently verifiable** this session; use
+the May snapshot only.
+
+The coverage gap is itself useful. Formal Conjectures' July stats contain
+20 open group-theory-tagged statements, while UnsolvedMath imports 150
+problems from Kourovka Issue 21 alone. The 150 count was not independently
+checked against the official notebook, so this is a harvest lead rather
+than a denominator. The promising lane is the finite-group subset whose
+false side is a GAP-checkable group, followed by live source and literature
+verification. Randomly sampling Formal Conjectures instead means joining
+an industrial theorem-proving queue on its home turf.
+
+### 8f. Registries that look useful and are stale
+
+Do not inherit open status from the NIST covering-array table (last update
+2008), Sloane's orthogonal-array library (still describing 2007 additions
+as pending), or the unrestricted binary-code bounds at codes.se (copied
+in January 2001 and explicitly not regularly updated). They remain useful
+construction archives, not live problem lists.
+
+## 9. Other open shapes worth adding as candidates or controls
+
+All statuses in this section were checked against the linked primary field
+source on 2026-07-28.
+
+| problem/family | decisive certificate | eval role |
+|---|---|---|
+| [Graph reconstruction](https://arxiv.org/abs/2102.01942) | two nonisomorphic finite graphs with the same vertex deck; exact checker; verified through 13 vertices | direct-refuter suite: collision search |
+| [Caccetta–Häggkvist](https://www.diva-portal.org/smash/get/diva2%3A2016769/FULLTEXT01.pdf) | a finite digraph violating the degree/girth bound; exact checker | direct-refuter suite: extremal construction |
+| [Frankl union-closed](https://pure.tudelft.nl/ws/portalfiles/portal/282508754/JANO2026-1-2.pdf) | a finite union-closed family with every element in fewer than half the sets; exact checker; verified through 12 ground elements | direct-refuter suite: closure-system search |
+| [Kaplansky zero divisors](https://arxiv.org/abs/2501.07646) | torsion-free group plus finite-support group-ring elements whose product is zero; torsion-freeness and word semantics must also be certified | hybrid-verifier test; recent combinatorial encoding excludes support sizes up to 13 in its framework |
+| [Andrews–Curtis](https://link.springer.com/article/10.1007/s10817-026-09759-8) | a finite move sequence settles an instance positively; no known finite non-reachability certificate | polarity/timeout control; ATP recently produced an 8,634-move sequence for a hard instance |
+| [SIC-POVM / Zauner](https://arxiv.org/abs/2501.03970) | at fixed dimension, exact algebraic vectors/Gram matrix; all dimensions require a family theorem | exact instance ladder outside combinatorics |
+| [Hilbert's 16th, limit-cycle side](https://arxiv.org/abs/2411.09594) | lower-bound progress needs a vector field plus analytic/interval proof of isolated cycles; full upper theory is global | interval-certification middle rung |
+| [Goldbach](https://link.springer.com/article/10.1007/s10474-026-01599-7) | a single even integer with no prime decomposition refutes it; checking further integers never confirms it | exact but gradient-free arithmetic control |
+| [Riemann hypothesis](https://www.claymath.org/millennium-problems/) | an interval-certified off-line zero refutes it; the affirmative side is universal analytic proof | asymmetric analytic refuter control |
+| [Collatz](https://link.springer.com/article/10.1007/s11227-025-07337-0) | a nontrivial cycle is finite; a divergent orbit is not a certificate merely because it keeps running | two failure modes with different certificate shapes |
+| [Matrix multiplication exponent ω=2](https://doi.org/10.1137/1.9781611978322.63) | individual tensor decompositions improve bounds; no one fixed decomposition proves the limiting equality | bound-progress/global-claim control |
+| [Clay Millennium problems](https://www.claymath.org/millennium-problems/) — P vs NP, Navier–Stokes, Hodge, BSD, Yang–Mills | global proofs or counterexamples whose decisive property itself needs substantial proof | high-attention theory-creation controls; mostly G1 failures |
+| [HOD Pair Capturing / Sealing](https://link.springer.com/article/10.1007/s00605-025-02086-x) | metatheorems about inner models and relative consistency, not object checking in one fixed model | clean logic/set-theory mismatch control |
+
+The celebrity arithmetic problems are controls, not good search targets.
+Goldbach, RH, and Collatz all possess some finitely describable failure
+mode, but their existing computation has already pushed the blind-search
+frontier far past anything an LLM wrapper changes. The model would need to
+invent a new representation or theorem; otherwise the code is doing the
+entire job.
+
+## 10. Recommended next eval cohort
+
+Build a **12-target certificate-shape cohort**, with fixed compute budgets
+and separate labels for `INSTANCE_PROGRESS`, `BOUND_IMPROVEMENT`,
+`EXACT_VALUE`, and `UNIVERSAL_RESOLUTION`. Do not report them on one
+leaderboard as interchangeable “solves.”
+
+| band | targets | what it measures |
+|---|---|---|
+| **4 exact construction rows** | `C(48,8,2)`; `[50,20,14]₂`; one resistant CPro1 Handbook instance; one unresolved Zarankiewicz row | whether an LLM-led agent can invent constructors/search programs under exact, graded feedback |
+| **4 polarity controls** | graph reconstruction; Caccetta–Häggkvist; Frankl; Andrews–Curtis | whether performance survives changes in search geometry and whether the eval respects one-sided certificates |
+| **2 hybrid/instance ladders** | Kaplansky support structures; one SIC-POVM dimension | whether the agent can compile semantic conditions into a trusted checker or reconstruct exact algebraic output |
+| **2 theory controls** | one frozen Formal Conjectures theorem in mature Lean territory; one current Randomstrasse101 proof problem | how much of the construction advantage carries into sparse-feedback proof and literature-transfer work |
+
+The first actual build should be `C(48,8,2)`, then `[50,20,14]₂`. They
+have public current witnesses, cheap independent verifiers, natural
+graded objectives, and live gaps. Coverings are cleaner because the
+checker cost is negligible; codes deliberately add one controlled
+variable, an exponential-but-manageable checker.
+
+The caveat: verifier quality makes the result trustworthy, not likely.
+The project's validated prior still applies. This cohort improves the
+experiment by measuring *which kind of failure occurred* instead of
+turning every timeout into the same zero.
