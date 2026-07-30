@@ -1,0 +1,78 @@
+{
+  "anchor_points": null,
+  "block_count": 46,
+  "bounded_claim": "UNSAT is for this exact CNF; publishable nonexistence also requires a preserved and independently checked proof",
+  "candidate": "published-reference-46.txt",
+  "clause_count": 327091,
+  "cnf": "/tmp/math-eval-covering-48-8-2/sat-pinned-46.cnf",
+  "cnf_sha256": "1f5895b612b97c3d562429940ccc5c81ce6c66ee218338fe377bbb368a63e394",
+  "decoded_block_count": 46,
+  "elapsed_seconds": 0.26431012502871454,
+  "free_indices_1_based": [],
+  "independent_verification": {
+    "errors": [],
+    "pair_multiplicity_histogram": {
+      "1": 1007,
+      "2": 107,
+      "3": 8,
+      "6": 2,
+      "7": 1,
+      "8": 3
+    },
+    "redundant_blocks": [],
+    "uncovered_pairs": 0,
+    "valid": true
+  },
+  "k": 8,
+  "lane": "incidence_sat_pinned",
+  "max_replication": null,
+  "output": "/tmp/math-eval-covering-48-8-2/sat-pinned-46.txt",
+  "phase": "caching",
+  "primary_verification": {
+    "errors": [],
+    "pair_multiplicity_histogram": {
+      "1": 1007,
+      "2": 107,
+      "3": 8,
+      "6": 2,
+      "7": 1,
+      "8": 3
+    },
+    "redundant_blocks": [],
+    "uncovered_pairs": 0,
+    "valid": true
+  },
+  "replication_minimum": 7,
+  "seed": 6101,
+  "solver_command": [
+    "/opt/homebrew/bin/z3",
+    "-dimacs",
+    "-model",
+    "-st",
+    "-T:60",
+    "sat.random_seed=6101",
+    "sat.phase=caching",
+    "sat.threads=1",
+    "/tmp/math-eval-covering-48-8-2/sat-pinned-46.cnf"
+  ],
+  "solver_exit_code": 0,
+  "solver_seconds": 0.10978049994446337,
+  "solver_statistics": [
+    "(:sat-decisions         161",
+    " :sat-mk-clause-2ary    245196",
+    " :sat-mk-clause-nary    74017",
+    " :sat-mk-var            125907",
+    " :sat-propagations-2ary 103762",
+    " :sat-propagations-nary 19594",
+    " :sat-units             2390",
+    " :total-time            0.09)"
+  ],
+  "solver_status": "sat",
+  "solver_stderr": "",
+  "symmetry": "fixed_first_block_and_strict_descending_rows",
+  "threads": 1,
+  "timeout_seconds": 60,
+  "v": 48,
+  "valid": true,
+  "variable_count": 125906
+}

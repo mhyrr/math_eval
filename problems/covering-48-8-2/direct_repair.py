@@ -22,11 +22,12 @@ from pathlib import Path
 import exact_repair
 
 
-def signature(row: int, v: int) -> str:
-    terms = " ".join(
-        f"(ite x_{row}_{point} {1 << point} 0)" for point in range(v)
-    )
-    return f"(+ {terms})"
+def cardinality(names: list[str], lower: int, upper: int) -> list[str]:
+    joined = " ".join(names)
+    return [
+        f"(assert ((_ at-least {lower}) {joined}))",
+        f"(assert ((_ at-most {upper}) {joined}))",
+    ]
 
 
 def emit_direct_smt2(
@@ -43,15 +44,37 @@ def emit_direct_smt2(
         "; unrestricted fixed-core covering repair",
         f"(set-option :timeout {timeout_ms})",
         "(set-option :produce-models true)",
-        "(set-logic QF_LIA)",
+        "(set-logic QF_FD)",
     ]
     for row in range(replacements):
         for point in range(v):
             lines.append(f"(declare-const x_{row}_{point} Bool)")
-        cardinality = " ".join(
-            f"(ite x_{row}_{point} 1 0)" for point in range(v)
+        lines.extend(
+            cardinality([f"x_{row}_{point}" for point in range(v)], k, k)
         )
-        lines.append(f"(assert (= (+ {cardinality}) {k}))")
+
+    # A SAT model must itself describe the required number of distinct blocks.
+    # Do not rely on post-processing to discard duplicates: that could turn a
+    # solver's first SAT assignment into a false negative for the neighborhood.
+    for left in range(replacements):
+        for right in range(left + 1, replacements):
+            differences = " ".join(
+                f"(xor x_{left}_{point} x_{right}_{point})"
+                for point in range(v)
+            )
+            lines.append(f"(assert (or {differences}))")
+    for row in range(replacements):
+        for block in core:
+            block_points = set(block)
+            differences = " ".join(
+                (
+                    f"(not x_{row}_{point - 1})"
+                    if point in block_points
+                    else f"x_{row}_{point - 1}"
+                )
+                for point in range(1, v + 1)
+            )
+            lines.append(f"(assert (or {differences}))")
 
     for left, right in deficits:
         alternatives = " ".join(
@@ -62,30 +85,13 @@ def emit_direct_smt2(
 
     core_replication = Counter(point for block in core for point in block)
     for point in range(1, v + 1):
-        total = " ".join(
-            f"(ite x_{row}_{point - 1} 1 0)" for row in range(replacements)
-        )
+        names = [f"x_{row}_{point - 1}" for row in range(replacements)]
         minimum = max(0, (v - 1 + k - 2) // (k - 1) - core_replication[point])
         maximum = max_replication - core_replication[point]
         if maximum < minimum:
             lines.append("(assert false)")
         else:
-            lines.append(f"(assert (>= (+ {total}) {minimum}))")
-            lines.append(f"(assert (<= (+ {total}) {maximum}))")
-
-    # Canonical row order removes the replacement-block permutation symmetry.
-    row_signatures = [signature(row, v) for row in range(replacements)]
-    for left in range(replacements - 1):
-        lines.append(
-            f"(assert (< {row_signatures[left]} {row_signatures[left + 1]}))"
-        )
-    core_masks = [
-        sum(1 << (point - 1) for point in block)
-        for block in core
-    ]
-    for row_signature in row_signatures:
-        for mask in core_masks:
-            lines.append(f"(assert (distinct {row_signature} {mask}))")
+            lines.extend(cardinality(names, minimum, maximum))
 
     names = " ".join(
         f"x_{row}_{point}"

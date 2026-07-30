@@ -1,6 +1,6 @@
 # Covering design C(48,8,2)
 
-status: IMPLEMENTING
+status: CLOSED — NO BOUND IMPROVEMENT
 class: B — exact discrete construction
 
 ## Problem
@@ -56,16 +56,62 @@ multiplicities. `independent_verify.py` instead represents each point by the
 set of block indices containing it; a pair is covered when those two incidence
 sets intersect. The second path deliberately imports no verifier code.
 
+## Outcome
+
+The clean-room attempt found and independently verified a 48-block covering.
+It did not independently reproduce the known 46-block upper bound and found
+no valid 45- or 44-block covering. The best clean-room near misses leave:
+
+- 17 pairs uncovered with 46 blocks;
+- 30 pairs uncovered with 45 blocks;
+- 43 pairs uncovered with 44 blocks.
+
+After the clean-room phase closed, the live published 46-block construction
+was fetched and passed both verifiers. Removing its best single block gives a
+45-block near-cover with six uncovered pairs. A second incidence-SAT campaign
+found several valid 46-block completions while retaining 42 or 43 published
+blocks, but no valid 45- or 44-block repair.
+
+The calibrated exact sweep ruled out 142 distinct published-derived frozen
+cores at target 45 and 98 at target 44. Those are local computational
+statements, not a lower bound: every model retains 40–42 blocks from the known
+construction, and Z3 supplied no independently checked UNSAT proof. Two free
+46-block calibration runs timed out, so unrestricted 45/44 timeouts were not
+treated as meaningful.
+
+The recorded bound therefore remains `44 <= C(48,8,2) <= 46`.
+
 ## Reproduction
 
-Commands will be fixed here as implementations land. All generated executables
-and scratch state go under `/tmp`; durable candidates and concise experiment
-records stay in this directory.
+All generated executables and solver instances go under `/tmp`; durable
+candidates and experiment records stay in this directory.
 
 ```sh
 cd problems/covering-48-8-2
-python3 -m unittest -v test_verifiers.py
+make test
+
+# Rebuild the independently generated valid 48-block covering.
+python3 structured_search.py --mode cyclic --blocks 48 --seed 480802 \
+  --cyclic-evaluations 20000 --output-dir /tmp/c48-reproduction --json
+python3 verifier.py \
+  /tmp/c48-reproduction/structured_cyclic_48_seed480802_valid_5886a11e9550990b.txt
+python3 independent_verify.py \
+  /tmp/c48-reproduction/structured_cyclic_48_seed480802_valid_5886a11e9550990b.txt
+
+# Recheck the preserved artifact.
+make verify-best
+
+# Reproduce exact three-block neighborhoods around all single deletions.
+python3 lns_sweep.py published-reference-46.txt \
+  --target-blocks 45 --free-count 3 --modes weak,deficit \
+  --timeout 120 --seed-base 7100
+
+# Recheck the solver-derived positive 46-block calibration.
+python3 verifier.py best/sat-lns-46-r6-folded-seed8001.txt
+python3 independent_verify.py best/sat-lns-46-r6-folded-seed8001.txt
 ```
 
-See [PLAN.md](PLAN.md) for the campaign design and `RESULT.md` for the final
-run record.
+Search programs expose their recorded parameters through `--help`. See
+[PLAN.md](PLAN.md), [SAT-CAMPAIGN.md](SAT-CAMPAIGN.md),
+[EXPERIMENTS.md](EXPERIMENTS.md), and [RESULT.md](RESULT.md) for the design,
+run ledger, and conclusion.

@@ -903,7 +903,7 @@ def render_result(result: SearchResult) -> str:
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", choices=("gdd", "cyclic", "both"), default="gdd")
-    parser.add_argument("--blocks", type=int, choices=(45, 46, 48), default=46)
+    parser.add_argument("--blocks", type=int, choices=(44, 45, 46, 48), default=46)
     parser.add_argument("--seed", type=int, default=480802)
     parser.add_argument(
         "--steps",

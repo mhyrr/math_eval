@@ -1,0 +1,92 @@
+{
+  "anchor_counts": null,
+  "anchor_points": null,
+  "block_count": 46,
+  "bounded_claim": "UNSAT applies only to the fully pinned candidate",
+  "candidate": "published-reference-46.txt",
+  "clause_count": 15263,
+  "cnf": "/tmp/math-eval-covering-48-8-2/sat-pinned-46-v2.cnf",
+  "cnf_sha256": "a964fe6595517d738b965d70a500379bb0fc2a3855c5a850b8fa4425ec0db521",
+  "decoded_block_count": 46,
+  "distinguished_pair_minimum": null,
+  "elapsed_seconds": 0.021319041959941387,
+  "free_indices_1_based": [],
+  "independent_verification": {
+    "errors": [],
+    "pair_multiplicity_histogram": {
+      "1": 1007,
+      "2": 107,
+      "3": 8,
+      "6": 2,
+      "7": 1,
+      "8": 3
+    },
+    "redundant_blocks": [],
+    "uncovered_pairs": 0,
+    "valid": true
+  },
+  "k": 8,
+  "lane": "incidence_sat_pinned",
+  "max_replication": null,
+  "output": "/tmp/math-eval-covering-48-8-2/sat-pinned-46-v2.txt",
+  "phase": "caching",
+  "primary_verification": {
+    "errors": [],
+    "pair_multiplicity_histogram": {
+      "1": 1007,
+      "2": 107,
+      "3": 8,
+      "6": 2,
+      "7": 1,
+      "8": 3
+    },
+    "redundant_blocks": [],
+    "uncovered_pairs": 0,
+    "valid": true
+  },
+  "replication_minimum": 7,
+  "seed": 6102,
+  "solver_command": [
+    "/opt/homebrew/bin/z3",
+    "-dimacs",
+    "-model",
+    "-st",
+    "-T:30",
+    "sat.random_seed=6102",
+    "sat.phase=caching",
+    "sat.threads=1",
+    "/tmp/math-eval-covering-48-8-2/sat-pinned-46-v2.cnf"
+  ],
+  "solver_exit_code": 0,
+  "solver_seconds": 0.007293124916031957,
+  "solver_statistics": [
+    "(:sat-decisions         1",
+    " :sat-mk-clause-2ary    2248",
+    " :sat-mk-clause-nary    10563",
+    " :sat-mk-var            4371",
+    " :sat-propagations-2ary 674",
+    " :sat-propagations-nary 1441",
+    " :sat-units             2255",
+    " :total-time            0.00)"
+  ],
+  "solver_status": "sat",
+  "solver_stderr": "",
+  "solver_stdout_tail": [
+    "s SATISFIABLE",
+    "(:sat-decisions         1",
+    " :sat-mk-clause-2ary    2248",
+    " :sat-mk-clause-nary    10563",
+    " :sat-mk-var            4371",
+    " :sat-propagations-2ary 674",
+    " :sat-propagations-nary 1441",
+    " :sat-units             2255",
+    " :total-time            0.00)"
+  ],
+  "symmetry": "fixed_first_block_and_strict_descending_rows",
+  "threads": 1,
+  "timeout_seconds": 30,
+  "v": 48,
+  "valid": true,
+  "variable_count": 4370,
+  "z3_params": []
+}

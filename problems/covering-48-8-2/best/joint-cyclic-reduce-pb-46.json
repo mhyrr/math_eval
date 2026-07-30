@@ -1,0 +1,17 @@
+{
+  "bounded_claim": "unsat applies only to this cyclic seed and replication cap; unknown normally means the configured timeout",
+  "elapsed_seconds": 300.03110520890914,
+  "input": "structured_artifacts/structured_cyclic_48_seed480802_valid_5886a11e9550990b.txt",
+  "input_block_count": 48,
+  "kept_indices_1_based": [],
+  "lane": "joint_cyclic_prune_and_direct_repair",
+  "max_replication": 9,
+  "output": null,
+  "replacement_count": 6,
+  "result_block_count": null,
+  "retained_block_count": 40,
+  "valid": false,
+  "z3_seconds": 300.02678020787425,
+  "z3_status": "unknown",
+  "z3_stderr": ""
+}

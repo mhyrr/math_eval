@@ -136,8 +136,10 @@ class Solver {
       best.energy_delta = std::numeric_limits<std::int64_t>::max();
       for (int sample = 0; sample < options_.samples; ++sample) {
         Move candidate;
-        if ((sample % 4) < 3) {
+        if ((sample % 5) < 3) {
           candidate = insertion_move(target, (sample & 1) != 0);
+        } else if ((sample % 5) == 3) {
+          candidate = double_insertion_move(target);
         } else {
           candidate = rebuild_move(target);
         }
@@ -152,7 +154,7 @@ class Solver {
       if (!best.valid) continue;
       double phase =
           static_cast<double>(iteration % 150000U) / static_cast<double>(150000U);
-      double temperature = 12.0 * std::pow(0.05 / 12.0, phase);
+      double temperature = 1.8 * std::pow(0.02 / 1.8, phase);
       bool accept = best.energy_delta <= 0;
       if (!accept) {
         std::uniform_real_distribution<double> unit(0.0, 1.0);
@@ -272,6 +274,8 @@ class Solver {
     blocks_ = parsed;
     for (int block = 0; block < options_.blocks; ++block) {
       masks_[block] = mask_of(blocks_[block]);
+    }
+    for (int block = 0; block < options_.blocks; ++block) {
       if (duplicate_of_other(block, masks_[block])) {
         throw std::runtime_error("initial candidate has duplicate blocks");
       }
@@ -338,7 +342,7 @@ class Solver {
     }
     replication_cost_ = 0;
     for (int count : replication_) replication_cost_ += point_cost(count);
-    energy_ = 10LL * weighted_uncovered_ + concentration_;
+    energy_ = weighted_uncovered_;
   }
 
   void add_delta(std::vector<Delta>& deltas, int pair, int amount) const {
@@ -403,6 +407,52 @@ class Solver {
       evaluate(candidate);
       if (!best.valid || candidate.energy_delta < best.energy_delta) {
         best = std::move(candidate);
+      }
+    }
+    return best;
+  }
+
+  Move double_insertion_move(int target) {
+    int left = pair_a_[target];
+    int right = pair_b_[target];
+    int block = static_cast<int>(rng_() % options_.blocks);
+    bool has_left = ((masks_[block] >> left) & 1U) != 0U;
+    bool has_right = ((masks_[block] >> right) & 1U) != 0U;
+    if (has_left || has_right) {
+      int anchor = has_left ? left : right;
+      int inserted = has_left ? right : left;
+      Move best;
+      best.energy_delta = std::numeric_limits<std::int64_t>::max();
+      for (int position = 0; position < K; ++position) {
+        if (blocks_[block][position] == anchor) continue;
+        Block replacement = blocks_[block];
+        replacement[position] = inserted;
+        Move candidate = replacement_move(block, replacement);
+        if (!candidate.valid) continue;
+        evaluate(candidate);
+        if (!best.valid || candidate.energy_delta < best.energy_delta) {
+          best = std::move(candidate);
+        }
+      }
+      return best;
+    }
+
+    Move best;
+    best.energy_delta = std::numeric_limits<std::int64_t>::max();
+    int offset = static_cast<int>(rng_() % K);
+    for (int first_step = 0; first_step < K; ++first_step) {
+      int first = (offset + first_step) % K;
+      for (int second_step = first_step + 1; second_step < K; ++second_step) {
+        int second = (offset + second_step) % K;
+        Block replacement = blocks_[block];
+        replacement[first] = left;
+        replacement[second] = right;
+        Move candidate = replacement_move(block, replacement);
+        if (!candidate.valid) continue;
+        evaluate(candidate);
+        if (!best.valid || candidate.energy_delta < best.energy_delta) {
+          best = std::move(candidate);
+        }
       }
     }
     return best;
@@ -484,12 +534,11 @@ class Solver {
       if (after < 0) throw std::logic_error("negative pair count");
       if (before == 0 && after > 0) {
         --move.uncovered_delta;
-        move.energy_delta -= 10LL * penalties_[delta.pair];
+        move.energy_delta -= penalties_[delta.pair];
       } else if (before > 0 && after == 0) {
         ++move.uncovered_delta;
-        move.energy_delta += 10LL * penalties_[delta.pair];
+        move.energy_delta += penalties_[delta.pair];
       }
-      move.energy_delta += repetition_cost(after) - repetition_cost(before);
     }
     std::array<int, V> replication_delta{};
     for (int point : blocks_[move.block]) --replication_delta[point];
@@ -584,7 +633,7 @@ class Solver {
     }
     int replication_cost = 0;
     for (int count : replication) replication_cost += point_cost(count);
-    std::int64_t energy = 10LL * weighted + concentration;
+    std::int64_t energy = weighted;
     if (uncovered != uncovered_ || weighted != weighted_uncovered_ ||
         concentration != concentration_ ||
         replication_cost != replication_cost_ || energy != energy_) {

@@ -1,0 +1,59 @@
+{
+  "anchor_counts": [
+    7,
+    7,
+    6,
+    6,
+    6,
+    6,
+    6
+  ],
+  "anchor_points": 7,
+  "block_count": 46,
+  "bounded_claim": "UNSAT is for this exact CNF; publishable nonexistence also requires a preserved and independently checked proof",
+  "candidate": null,
+  "clause_count": 245204,
+  "cnf": "/tmp/math-eval-covering-48-8-2/sat-grouped-46-seed6401.cnf",
+  "cnf_sha256": "994b33806723ca9319449a46eed87f875da48911c3293a9a90a9fdf59ba6782f",
+  "decoded_block_count": null,
+  "elapsed_seconds": 300.1570606669411,
+  "free_indices_1_based": [],
+  "independent_verification": null,
+  "k": 8,
+  "lane": "incidence_sat_unrestricted",
+  "max_replication": null,
+  "output": null,
+  "phase": "caching",
+  "primary_verification": null,
+  "replication_minimum": 7,
+  "seed": 6401,
+  "solver_command": [
+    "/opt/homebrew/bin/z3",
+    "-dimacs",
+    "-model",
+    "-st",
+    "-T:300",
+    "sat.random_seed=6401",
+    "sat.phase=caching",
+    "sat.threads=1",
+    "sat.local_search_threads=1",
+    "/tmp/math-eval-covering-48-8-2/sat-grouped-46-seed6401.cnf"
+  ],
+  "solver_exit_code": 0,
+  "solver_seconds": 300.03614670806564,
+  "solver_statistics": [],
+  "solver_status": "unknown",
+  "solver_stderr": "",
+  "solver_stdout_tail": [
+    "timeout"
+  ],
+  "symmetry": "fixed_first_block_and_grouped_anchor_rows",
+  "threads": 1,
+  "timeout_seconds": 300,
+  "v": 48,
+  "valid": false,
+  "variable_count": 88279,
+  "z3_params": [
+    "sat.local_search_threads=1"
+  ]
+}

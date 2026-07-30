@@ -1,0 +1,15 @@
+ORBIT8_CHECKPOINT 1
+seed 8101
+evaluation 938150
+uncovered_pairs 64
+square_excess 296
+maximum_multiplicity 3
+short4_index 352
+short2_index 26
+full_mask 90001912800
+full_mask 18080004614
+full_mask 30402088042
+full_mask 15902041000
+full_mask 1020841008c
+short4_mask 33002244
+short2_mask 550055000000

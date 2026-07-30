@@ -1,0 +1,2 @@
+lane,seed,restarts,steps_per_restart,evaluations,balanced,weight_period,temp_start,temp_end,temp_cycle,variance_weight,seconds,best_uncovered,square_excess,max_multiplicity,artifact
+orbit8,8101,2,2000000,938150,yes,25000,16,0.2,200000,0.025,6.548,64,296,3,best/orbit8-nearmiss-seed8101.txt
