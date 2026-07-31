@@ -9,6 +9,7 @@ import json
 import math
 import random
 import re
+import shutil
 import subprocess
 import time
 from collections import Counter
@@ -228,6 +229,9 @@ class IncidenceEncoding:
     anchor_points: int | None
     anchor_counts: tuple[int, ...] | None
     distinguished_pair_minimum: int | None
+    exact_pair_witnesses: bool
+    essential_pair_branch: str | None
+    column_lex: bool
 
 
 def guaranteed_pair_multiplicity(
@@ -304,6 +308,9 @@ def build_encoding(
     row_lex: bool = True,
     anchor_points: int | None = None,
     anchor_counts: Sequence[int] | None = None,
+    exact_pair_witnesses: bool = False,
+    essential_pair_branch: str | None = None,
+    column_lex: bool = True,
 ) -> IncidenceEncoding:
     if v < 2 or not 2 <= k <= v or blocks < 1:
         raise ValueError("invalid covering parameters")
@@ -323,6 +330,18 @@ def build_encoding(
         raise ValueError("the normalized anchor block must remain frozen")
     if fixed_candidate is not None and free and row_lex:
         raise ValueError("row lex is unsafe for a fixed-core neighborhood")
+    if essential_pair_branch not in {None, "shared", "disjoint"}:
+        raise ValueError("unknown essential-pair branch")
+    if essential_pair_branch is not None and (
+        (v, k, blocks) != (48, 8, 44)
+        or fixed_candidate is not None
+        or anchor_points is not None
+        or not row_lex
+    ):
+        raise ValueError(
+            "essential-pair branches require unrestricted C(48,8,2) "
+            "with 44 blocks and row lex"
+        )
     if anchor_points is not None and not 1 <= anchor_points < k:
         raise ValueError("anchor point count must satisfy 1 <= a < k")
     normalized_anchor_counts: tuple[int, ...] | None = None
@@ -370,9 +389,17 @@ def build_encoding(
             for block in searched_rows:
                 witness = cnf.new_variable()
                 # A witness may be true only when its block contains the pair.
-                # The reverse implication is unnecessary for equisatisfiability.
                 cnf.add(-witness, x[block][left])
                 cnf.add(-witness, x[block][right])
+                if exact_pair_witnesses:
+                    # The reverse implication exposes every repeated pair to
+                    # CDCL propagation instead of leaving false witnesses
+                    # semantically unconstrained.
+                    cnf.add(
+                        -x[block][left],
+                        -x[block][right],
+                        witness,
+                    )
                 witnesses.append(witness)
             if witnesses:
                 cnf.add(*witnesses)
@@ -418,6 +445,15 @@ def build_encoding(
         for block in range(distinguished_pair_minimum):
             cnf.add(x[block][0])
             cnf.add(x[block][1])
+    if essential_pair_branch is not None:
+        unique_pair = (
+            (0, 2) if essential_pair_branch == "shared" else (2, 3)
+        )
+        for block in range(1, blocks):
+            cnf.add(
+                -x[block][unique_pair[0]],
+                -x[block][unique_pair[1]],
+            )
 
     if normalized_anchor_counts is not None:
         first = 1
@@ -450,15 +486,28 @@ def build_encoding(
     elif row_lex:
         for block in range(blocks - 1):
             cnf.strict_lex_greater(x[block], x[block + 1])
-        if fixed_candidate is None and anchor_points is None:
+        if (
+            fixed_candidate is None
+            and anchor_points is None
+            and column_lex
+        ):
             # Choose the lexicographically greatest matrix in the residual
             # row/column orbit.  Points inside and outside the fixed first
             # block remain independently interchangeable.
-            point_groups = (
-                ((0, 2), (2, k), (k, v))
-                if distinguished_pair_minimum is not None
-                else ((0, k), (k, v))
-            )
+            if essential_pair_branch == "shared":
+                point_groups = (
+                    (0, 1),
+                    (1, 2),
+                    (2, 3),
+                    (3, k),
+                    (k, v),
+                )
+            elif essential_pair_branch == "disjoint":
+                point_groups = ((0, 2), (2, 4), (4, k), (k, v))
+            elif distinguished_pair_minimum is not None:
+                point_groups = ((0, 2), (2, k), (k, v))
+            else:
+                point_groups = ((0, k), (k, v))
             for first, last in point_groups:
                 for point in range(first, last - 1):
                     cnf.lex_greater_or_equal(
@@ -527,6 +576,9 @@ def build_encoding(
         anchor_points=anchor_points,
         anchor_counts=normalized_anchor_counts,
         distinguished_pair_minimum=distinguished_pair_minimum,
+        exact_pair_witnesses=exact_pair_witnesses,
+        essential_pair_branch=essential_pair_branch,
+        column_lex=column_lex,
     )
 
 
@@ -604,9 +656,10 @@ def select_free_indices(
 def parse_dimacs_model(text: str, x: Sequence[Sequence[int]]) -> list[Block]:
     assignments: dict[int, bool] = {}
     for raw_line in text.splitlines():
-        if not raw_line.startswith("v "):
+        line = raw_line.lstrip()
+        if not line.startswith("v "):
             continue
-        for field in raw_line.split()[1:]:
+        for field in line.split()[1:]:
             literal = int(field)
             if literal:
                 assignments[abs(literal)] = literal > 0
@@ -626,7 +679,8 @@ def parse_dimacs_model(text: str, x: Sequence[Sequence[int]]) -> list[Block]:
 
 
 def solver_status(output: str) -> str:
-    for line in output.splitlines():
+    for raw_line in output.splitlines():
+        line = raw_line.strip()
         if line == "s SATISFIABLE":
             return "sat"
         if line == "s UNSATISFIABLE":
@@ -634,6 +688,150 @@ def solver_status(output: str) -> str:
         if line in {"s UNKNOWN", "unknown"}:
             return "unknown"
     return "error"
+
+
+@dataclass(frozen=True)
+class SolverRun:
+    stdout: str
+    stderr: str
+    returncode: int | None
+    seconds: float
+    timed_out: bool
+
+
+def _text(stream: str | bytes | None) -> str:
+    if stream is None:
+        return ""
+    if isinstance(stream, bytes):
+        return stream.decode("utf-8", errors="replace")
+    return stream
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        while chunk := handle.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def resolve_solver_path(solver: str, requested: str | None, z3: str) -> str:
+    if requested:
+        return requested
+    if solver == "z3":
+        return z3
+    discovered = shutil.which(solver)
+    if discovered:
+        return discovered
+    raise OSError(
+        f"{solver} was not found; pass --solver-path after provisioning it"
+    )
+
+
+def solver_version(solver: str, path: str) -> str | None:
+    flag = "-version" if solver == "z3" else "--version"
+    try:
+        completed = subprocess.run(
+            [path, flag],
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=10,
+            check=False,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+    lines = completed.stdout.strip().splitlines()
+    return lines[0] if lines else None
+
+
+def build_solver_command(
+    *,
+    solver: str,
+    path: str,
+    cnf_path: Path,
+    seed: int,
+    phase: str,
+    threads: int,
+    timeout: int,
+    z3_params: Sequence[str],
+    solver_params: Sequence[str],
+    proof_path: Path | None,
+) -> list[str]:
+    if solver == "z3":
+        command = [
+            path,
+            "-dimacs",
+            "-model",
+            "-st",
+            f"-T:{timeout}",
+            f"sat.random_seed={seed}",
+            f"sat.phase={phase}",
+            f"sat.threads={threads}",
+            *z3_params,
+            *solver_params,
+        ]
+        if proof_path is not None:
+            command.extend(
+                (
+                    f"sat.drat.file={proof_path}",
+                    "sat.drat.binary=false",
+                    "sat.drat.check_unsat=true",
+                )
+            )
+        command.append(str(cnf_path))
+        return command
+    if threads != 1:
+        raise ValueError(f"{solver} is single-threaded; use --threads 1")
+    command = [
+        path,
+        f"--seed={seed}",
+        *solver_params,
+        str(cnf_path),
+    ]
+    if proof_path is not None:
+        command.append(str(proof_path))
+    return command
+
+
+def run_solver(
+    command: Sequence[str],
+    *,
+    timeout: float,
+    grace_seconds: float = 15,
+) -> SolverRun:
+    started = time.monotonic()
+    try:
+        completed = subprocess.run(
+            command,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=timeout + grace_seconds,
+            check=False,
+        )
+        return SolverRun(
+            stdout=completed.stdout,
+            stderr=completed.stderr,
+            returncode=completed.returncode,
+            seconds=time.monotonic() - started,
+            timed_out=False,
+        )
+    except subprocess.TimeoutExpired as error:
+        return SolverRun(
+            stdout=_text(error.stdout),
+            stderr=_text(error.stderr),
+            returncode=None,
+            seconds=time.monotonic() - started,
+            timed_out=True,
+        )
+
+
+def solver_timed_out(run: SolverRun) -> bool:
+    return run.timed_out or any(
+        line.strip() == "timeout"
+        for line in run.stdout.splitlines()
+    )
 
 
 def metadata(
@@ -654,6 +852,9 @@ def metadata(
         "anchor_points": encoding.anchor_points,
         "anchor_counts": encoding.anchor_counts,
         "distinguished_pair_minimum": encoding.distinguished_pair_minimum,
+        "exact_pair_witnesses": encoding.exact_pair_witnesses,
+        "essential_pair_branch": encoding.essential_pair_branch,
+        "column_lex": encoding.column_lex,
         "candidate": candidate,
         "free_indices_1_based": sorted(index + 1 for index in free_indices),
         "cnf": str(cnf_path),
@@ -707,6 +908,39 @@ def main() -> int:
     parser.add_argument("--phase", default="caching")
     parser.add_argument("--threads", type=int, default=1)
     parser.add_argument(
+        "--exact-pair-witnesses",
+        action="store_true",
+        help="encode witness iff both pair incidences, strengthening propagation",
+    )
+    parser.add_argument(
+        "--essential-pair-branch",
+        choices=("shared", "disjoint"),
+        help=(
+            "complete 44-block split by whether a unique pair in the "
+            "first block shares an endpoint with the repeated pair"
+        ),
+    )
+    parser.add_argument(
+        "--no-column-lex",
+        action="store_true",
+        help="retain row ordering but omit residual incidence-column ordering",
+    )
+    parser.add_argument(
+        "--solver",
+        choices=("z3", "cadical", "kissat"),
+        default="z3",
+    )
+    parser.add_argument(
+        "--solver-path",
+        help="solver executable; defaults to --z3 for Z3 or PATH lookup",
+    )
+    parser.add_argument(
+        "--solver-param",
+        action="append",
+        default=[],
+        help="additional solver argument, repeatable",
+    )
+    parser.add_argument(
         "--z3-param",
         action="append",
         default=[],
@@ -718,6 +952,14 @@ def main() -> int:
     parser.add_argument("--metadata-output", required=True)
     parser.add_argument("--report-output")
     parser.add_argument("--output")
+    parser.add_argument(
+        "--proof-output",
+        help="write a solver-native UNSAT proof; incomplete until checked",
+    )
+    parser.add_argument(
+        "--proof-checker",
+        help="independent checker invoked as CHECKER CNF PROOF",
+    )
     parser.add_argument("--generate-only", action="store_true")
     args = parser.parse_args()
 
@@ -760,6 +1002,9 @@ def main() -> int:
             row_lex=row_lex,
             anchor_points=args.anchor_pattern,
             anchor_counts=anchor_counts,
+            exact_pair_witnesses=args.exact_pair_witnesses,
+            essential_pair_branch=args.essential_pair_branch,
+            column_lex=not args.no_column_lex,
         )
         cnf_path = Path(args.cnf_output)
         cnf_path.parent.mkdir(parents=True, exist_ok=True)
@@ -782,35 +1027,42 @@ def main() -> int:
             encoding="utf-8",
         )
         if args.generate_only:
-            print(json.dumps(run_metadata, indent=2, sort_keys=True))
+            print(
+                json.dumps(
+                    {
+                        key: value
+                        for key, value in run_metadata.items()
+                        if key != "x_variables"
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
             return 0
 
-        command = [
-            args.z3,
-            "-dimacs",
-            "-model",
-            "-st",
-            f"-T:{args.timeout}",
-            f"sat.random_seed={args.seed}",
-            f"sat.phase={args.phase}",
-            f"sat.threads={args.threads}",
-            *args.z3_param,
-            str(cnf_path),
-        ]
-        solve_started = time.monotonic()
-        completed = subprocess.run(
-            command,
-            text=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            timeout=args.timeout + 15,
-            check=False,
+        solver_path = resolve_solver_path(args.solver, args.solver_path, args.z3)
+        proof_path = Path(args.proof_output) if args.proof_output else None
+        if proof_path is not None:
+            proof_path.parent.mkdir(parents=True, exist_ok=True)
+        command = build_solver_command(
+            solver=args.solver,
+            path=solver_path,
+            cnf_path=cnf_path,
+            seed=args.seed,
+            phase=args.phase,
+            threads=args.threads,
+            timeout=args.timeout,
+            z3_params=args.z3_param,
+            solver_params=args.solver_param,
+            proof_path=proof_path,
         )
-        solve_seconds = time.monotonic() - solve_started
-        status = solver_status(completed.stdout)
+        solver_run = run_solver(command, timeout=args.timeout)
+        solve_seconds = solver_run.seconds
+        status = solver_status(solver_run.stdout)
+        timed_out = solver_timed_out(solver_run)
         if (
             status == "error"
-            and completed.returncode == 0
+            and (solver_run.returncode == 0 or timed_out)
             and solve_seconds >= 0.95 * args.timeout
         ):
             status = "unknown"
@@ -819,7 +1071,7 @@ def main() -> int:
         independent: dict[str, object] | None = None
         valid = False
         if status == "sat":
-            decoded = parse_dimacs_model(completed.stdout, encoding.x)
+            decoded = parse_dimacs_model(solver_run.stdout, encoding.x)
             primary_report = verifier.verify(decoded, v=args.v, k=args.k)
             independent_report = independent_verify.check(
                 decoded, v=args.v, k=args.k
@@ -858,6 +1110,13 @@ def main() -> int:
         elif candidate:
             lane = "incidence_sat_pinned"
             bounded_claim = "UNSAT applies only to the fully pinned candidate"
+        elif args.essential_pair_branch:
+            lane = "incidence_sat_44_essential_pair_branch"
+            bounded_claim = (
+                "This branch is one half of a globally complete 44-block "
+                "split; global UNSAT requires preserved, independently "
+                "checked proofs for both shared and disjoint branches"
+            )
         elif args.anchor_pattern:
             lane = "incidence_sat_anchor_family"
             bounded_claim = (
@@ -878,29 +1137,106 @@ def main() -> int:
                 "independently checked proof"
             )
 
+        proof_exists = (
+            proof_path is not None
+            and proof_path.is_file()
+            and proof_path.stat().st_size > 0
+        )
+        checker_command: list[str] | None = None
+        checker_exit_code: int | None = None
+        checker_stdout = ""
+        checker_stderr = ""
+        proof_verified = False
+        if (
+            status == "unsat"
+            and proof_exists
+            and args.proof_checker
+        ):
+            checker_command = [
+                args.proof_checker,
+                str(cnf_path),
+                str(proof_path),
+            ]
+            checked = subprocess.run(
+                checker_command,
+                text=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                timeout=max(60, args.timeout),
+                check=False,
+            )
+            checker_exit_code = checked.returncode
+            checker_stdout = checked.stdout.strip()
+            checker_stderr = checked.stderr.strip()
+            proof_verified = checked.returncode == 0
+        dedicated_unsat_exit = (
+            solver_run.returncode == 20
+            if args.solver in {"cadical", "kissat"}
+            else solver_run.returncode == 0
+        )
+        proof_complete = (
+            status == "unsat"
+            and dedicated_unsat_exit
+            and proof_exists
+            and proof_verified
+        )
+
+        resolved_binary = Path(solver_path).resolve()
+        binary_sha256 = (
+            sha256_file(resolved_binary) if resolved_binary.is_file() else None
+        )
+
         report = {
             **{key: value for key, value in run_metadata.items() if key != "x_variables"},
             "lane": lane,
             "seed": args.seed,
             "phase": args.phase,
             "threads": args.threads,
+            "solver": args.solver,
+            "solver_path": solver_path,
+            "solver_version": solver_version(args.solver, solver_path),
+            "solver_binary_sha256": binary_sha256,
+            "solver_params": args.solver_param,
             "z3_params": args.z3_param,
             "timeout_seconds": args.timeout,
             "solver_command": command,
             "solver_status": status,
-            "solver_exit_code": completed.returncode,
+            "solver_exit_code": solver_run.returncode,
             "solver_seconds": solve_seconds,
-            "solver_stderr": completed.stderr.strip(),
+            "timed_out": timed_out,
+            "solver_stderr": solver_run.stderr.strip(),
             "solver_stdout_tail": [
                 line
-                for line in completed.stdout.splitlines()
-                if not line.startswith("v ")
+                for line in solver_run.stdout.splitlines()
+                if not line.lstrip().startswith("v ")
             ][-120:],
             "solver_statistics": [
                 line
-                for line in completed.stdout.splitlines()
-                if line.startswith("(:") or line.startswith(" ")
+                for line in solver_run.stdout.splitlines()
+                if (
+                    line.startswith("(:")
+                    or line.startswith(" ")
+                    or line.startswith("c ")
+                )
             ][-80:],
+            "proof_requested": proof_path is not None,
+            "proof_path": str(proof_path) if proof_path else None,
+            "proof_format": (
+                "textual_drat" if args.solver == "z3" and proof_path else
+                "solver_native_unverified" if proof_path else None
+            ),
+            "proof_size_bytes": (
+                proof_path.stat().st_size if proof_exists and proof_path else None
+            ),
+            "proof_sha256": (
+                sha256_file(proof_path) if proof_exists and proof_path else None
+            ),
+            "proof_checker_command": checker_command,
+            "proof_checker_exit_code": checker_exit_code,
+            "proof_checker_stdout": checker_stdout,
+            "proof_checker_stderr": checker_stderr,
+            "proof_verified": proof_verified,
+            "proof_complete": proof_complete,
             "decoded_block_count": len(decoded) if decoded else None,
             "primary_verification": primary,
             "independent_verification": independent,

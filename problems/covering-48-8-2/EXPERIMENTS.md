@@ -117,3 +117,33 @@ Every local `UNSAT` means only that the named frozen core cannot be completed
 with the named number of arbitrary blocks. Z3 produced no independently
 checkable proof certificate, so these records are engineering-grade bounded
 negatives, not publishable lower bounds.
+
+## Six-hour continuation
+
+Date: 2026-07-30
+
+This continuation added a solver-neutral CaDiCaL/Kissat/Z3 runner, exact pair
+witnesses, textual DRAT output from Z3, explicit timeout reporting, optional
+row-only symmetry, and a complete shared/disjoint essential-pair split for
+44 blocks. `CDCL-CAMPAIGN.md` records the derivation and commands.
+
+The local machine has no dedicated CDCL binary or independent proof checker.
+No source tree or package bottle is cached, and both Homebrew and GitHub
+fetches failed at external DNS resolution.
+
+| Experiment | Exact scope | Budget | Outcome | Artifact |
+|---|---|---:|---|---|
+| Pinned 46 with exact witnesses | all published rows fixed | 60 s | SAT in 0.013 solver s; valid by both verifiers | temporary calibration report; CNF `a964fe...` |
+| Free 46 with exact witnesses and DoubleLex | unrestricted | 600 s | unknown; watchdog fired | CNF `62889ff...` |
+| Free 46 with exact witnesses and row-only lex | unrestricted | 21,600 s | unknown; watchdog fired | `best/cdcl-campaign/free46-rowlex-6h.report.json` |
+| 45, five free rows, weak core | 40 published-derived rows fixed | 900 s | unknown; watchdog fired | `best/cdcl-campaign/b45-minus-07-r5-weak-seed8301.json` |
+| 45, five free rows, deficit core | 40 published-derived rows fixed | 900 s | unknown; watchdog fired | `best/cdcl-campaign/b45-minus-07-r5-deficit-seed8302.json` |
+| 45, same five-row weak core, random phase | 40 published-derived rows fixed | 21,600 s | unknown; watchdog fired | `best/cdcl-campaign/b45-minus-07-r5-weak-seed8303-6h.json` |
+| 44, five free rows, deficit core | 39 published-derived rows fixed | 900 s | unknown; watchdog fired | `best/cdcl-campaign/b44-minus-07-14-r5-deficit-seed8401.json` |
+| 44, same five-row deficit core, random phase | 39 published-derived rows fixed | 21,600 s watchdog | UNSAT in 15,080.77 solver s; no proof requested | `best/cdcl-campaign/b44-minus-07-14-r5-deficit-seed8402-6h.json` |
+| Z3 textual DRAT smoke test | one 45-block three-free-row core | 60 s | UNSAT in 0.754 s; 1,631,375-byte DRAT; Z3 internal check accepted | temporary CNF `fb0b894...`, proof `d34c8a7...`; not independently checked |
+
+All continuation runs are complete. The 44-block UNSAT rules out only its
+named 39-row frozen core and has no independently checked proof. The
+unrestricted 46 and bounded 45 runs timed out without a solver conclusion.
+None of these outcomes changes the recorded bound.

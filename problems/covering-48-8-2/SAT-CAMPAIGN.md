@@ -36,6 +36,12 @@ has no dependency beyond the Python standard library. Every decoded SAT model
 is passed through both existing exact verifiers; the SAT formula never
 replaces the certificate predicate.
 
+The 2026-07-30 continuation added `--exact-pair-witnesses`, which also encodes
+`x[i,p] and x[i,q] -> w[i,p,q]`. This is equisatisfiable with the selector
+model but exposes every repeated pair to CDCL propagation. It adds no
+variables and about 50,000 ternary clauses to an unrestricted target-scale
+formula.
+
 ## Safe symmetry breaking
 
 Block 1 is fixed to `{1,...,8}`. This loses no solutions: choose any block,
@@ -93,15 +99,17 @@ only to that partition.
 
 ## Solver paths
 
-The installed solver is Z3 4.16.0. It accepts DIMACS CNF and emits a model, so
-it is sufficient for construction search and calibration. Runs record the
-CNF SHA-256, seed, timeout, solver command, status, statistics, decoded
-artifact, and exact-verifier reports.
+The installed solver is Z3 4.16.0. It accepts DIMACS CNF and emits a model.
+The runner now also supports CaDiCaL and Kissat through the same CLI. Runs
+record the solver executable version and SHA-256, CNF SHA-256, seed, timeout,
+solver command, status, statistics, decoded artifact, and exact-verifier
+reports.
 
 The generated DIMACS remains compatible with a proof-producing CDCL solver.
-Z3 `UNSAT` is useful engineering evidence, but this campaign will not report a
-new mathematical lower bound without preserving and independently checking a
-DRAT/LRAT-style proof from a proof-producing solver.
+Z3 can emit textual DRAT and check it internally. That is useful engineering
+evidence, but this campaign will not report a new mathematical lower bound
+without preserving the proof and passing it through an independent
+DRAT/LRAT-style checker.
 
 ## Large exact neighborhoods
 

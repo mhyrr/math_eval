@@ -79,6 +79,13 @@ construction, and Z3 supplied no independently checked UNSAT proof. Two free
 46-block calibration runs timed out, so unrestricted 45/44 timeouts were not
 treated as meaningful.
 
+The 2026-07-30 continuation adds exact pair-witness propagation, a
+solver-neutral CaDiCaL/Kissat/Z3 runner, proof metadata, selectable column
+symmetry, and a complete two-branch reduction for 44 blocks. Its unrestricted
+46 and bounded 45 jobs timed out after six hours. One bounded 44 neighborhood
+finished UNSAT after 4h 11m, excluding only that frozen core. No continuation
+result changes the bound.
+
 The recorded bound therefore remains `44 <= C(48,8,2) <= 46`.
 
 ## Reproduction
@@ -113,5 +120,5 @@ python3 independent_verify.py best/sat-lns-46-r6-folded-seed8001.txt
 
 Search programs expose their recorded parameters through `--help`. See
 [PLAN.md](PLAN.md), [SAT-CAMPAIGN.md](SAT-CAMPAIGN.md),
-[EXPERIMENTS.md](EXPERIMENTS.md), and [RESULT.md](RESULT.md) for the design,
-run ledger, and conclusion.
+[CDCL-CAMPAIGN.md](CDCL-CAMPAIGN.md), [EXPERIMENTS.md](EXPERIMENTS.md), and
+[RESULT.md](RESULT.md) for the design, run ledger, and conclusion.

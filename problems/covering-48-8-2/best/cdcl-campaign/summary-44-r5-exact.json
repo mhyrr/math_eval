@@ -1,0 +1,28 @@
+[
+  {
+    "candidate": null,
+    "deleted_source_rows_1_based": [
+      7,
+      14
+    ],
+    "elapsed_seconds": 900.0352325839922,
+    "exact_pair_witnesses": true,
+    "free_indices_1_based": [
+      7,
+      9,
+      13,
+      15,
+      44
+    ],
+    "frozen_core_sha256": "d8033aea039e4dbc7a83eead45f3bc1a50ac794585684265f0a84fb0c2acf49d",
+    "mode": "deficit",
+    "report": "best/cdcl-campaign/b44-minus-07-14-r5-deficit-seed8401.json",
+    "return_code": 1,
+    "seed": 8401,
+    "seed_uncovered_pairs": 20,
+    "solver": "z3",
+    "solver_status": "unknown",
+    "stderr": "",
+    "valid": false
+  }
+]

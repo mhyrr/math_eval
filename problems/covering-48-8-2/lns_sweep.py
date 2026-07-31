@@ -60,6 +60,18 @@ def main() -> int:
     parser.add_argument("--modes", default="weak,deficit")
     parser.add_argument("--timeout", type=int, default=120)
     parser.add_argument("--seed-base", type=int, default=7000)
+    parser.add_argument("--exact-pair-witnesses", action="store_true")
+    parser.add_argument(
+        "--solver",
+        choices=("z3", "cadical", "kissat"),
+        default="z3",
+    )
+    parser.add_argument("--solver-path")
+    parser.add_argument(
+        "--solver-param",
+        action="append",
+        default=[],
+    )
     parser.add_argument("--max-jobs", type=int)
     parser.add_argument("--output-dir", default="best/overnight")
     parser.add_argument(
@@ -158,6 +170,13 @@ def main() -> int:
                 "--output",
                 str(candidate_output),
             ]
+            if args.exact_pair_witnesses:
+                command.append("--exact-pair-witnesses")
+            command.extend(("--solver", args.solver))
+            if args.solver_path:
+                command.extend(("--solver-path", args.solver_path))
+            for parameter in args.solver_param:
+                command.extend(("--solver-param", parameter))
             completed = subprocess.run(
                 command,
                 text=True,
@@ -173,6 +192,8 @@ def main() -> int:
                 "free_indices_1_based": sorted(index + 1 for index in free),
                 "frozen_core_sha256": digest,
                 "seed": seed,
+                "exact_pair_witnesses": args.exact_pair_witnesses,
+                "solver": args.solver,
                 "solver_status": report["solver_status"],
                 "valid": report["valid"],
                 "elapsed_seconds": report["elapsed_seconds"],

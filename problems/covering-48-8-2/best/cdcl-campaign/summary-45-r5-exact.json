@@ -1,0 +1,52 @@
+[
+  {
+    "candidate": null,
+    "deleted_source_rows_1_based": [
+      7
+    ],
+    "elapsed_seconds": 900.0471004578285,
+    "exact_pair_witnesses": true,
+    "free_indices_1_based": [
+      6,
+      13,
+      17,
+      25,
+      32
+    ],
+    "frozen_core_sha256": "44808446bb77c412cfe4b619303601b4f0384b3213d704db7331db08c1573428",
+    "mode": "weak",
+    "report": "best/cdcl-campaign/b45-minus-07-r5-weak-seed8301.json",
+    "return_code": 1,
+    "seed": 8301,
+    "seed_uncovered_pairs": 6,
+    "solver": "z3",
+    "solver_status": "unknown",
+    "stderr": "",
+    "valid": false
+  },
+  {
+    "candidate": null,
+    "deleted_source_rows_1_based": [
+      7
+    ],
+    "elapsed_seconds": 900.0455813750159,
+    "exact_pair_witnesses": true,
+    "free_indices_1_based": [
+      7,
+      13,
+      14,
+      26,
+      45
+    ],
+    "frozen_core_sha256": "2768a59c924e7f5da356832199eacfd7a65f5798ba6c5e3daf40669a5fc5288f",
+    "mode": "deficit",
+    "report": "best/cdcl-campaign/b45-minus-07-r5-deficit-seed8302.json",
+    "return_code": 1,
+    "seed": 8302,
+    "seed_uncovered_pairs": 6,
+    "solver": "z3",
+    "solver_status": "unknown",
+    "stderr": "",
+    "valid": false
+  }
+]

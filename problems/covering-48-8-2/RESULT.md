@@ -88,9 +88,9 @@ The expanded incidence-SAT campaign then calibrated exact fixed-core search at
 
 All 240 completed cores were `UNSAT`. These are exact local statements about
 retaining the named 40–42 blocks from the published design. They do not cover
-unrelated constructions. Z3 emitted no independently checkable UNSAT proof,
-so even those local statements remain computational records rather than
-publishable certificates.
+unrelated constructions. The continuation confirmed that Z3 can emit textual
+DRAT, but no independent DRAT checker is installed. The local statements
+therefore remain computational records rather than publishable certificates.
 
 Two strengthened unrestricted 46-block formulas timed out after 600 seconds
 each. Since the machinery did not solve the known-positive calibration, the
@@ -119,15 +119,21 @@ frontier. The strongest derived 46-block completion
 `best/sat-lns-46-r6-folded-seed8001.txt` shares 42 blocks with the normalized
 published witness, so it is useful as a solver calibration only.
 
-## Next experiment
+## Six-hour continuation and next experiment
 
-Run the emitted CNF with a locally provisioned dedicated CDCL solver such as
-CaDiCaL or Kissat, then add a proof checker before treating any UNSAT as
-mathematics. The direct unrestricted encoding is sound and now has safe
-row/column symmetry plus a repeated-pair normalization, but Z3 could not find
-the known-positive 46-block case in ten minutes. The next useful experiment is
-therefore a solver change, not another longer Z3 timeout. If that calibration
-passes, run unrestricted 45 first; only then spend on unrestricted 44.
+The unrestricted 46-block positive calibration using row-only symmetry and a
+five-free-block 45 neighborhood both timed out after six hours. A
+five-free-block 44 neighborhood finished UNSAT after 4h 11m. That result
+excludes only its named 39-row frozen core; no proof was requested, and it is
+not a global lower bound. The continuation found no construction and changed
+no bound.
+
+The next solver step remains a locally provisioned dedicated CDCL solver such
+as CaDiCaL or Kissat, followed by an independent proof checker before treating
+any UNSAT as mathematics. The direct unrestricted encoding is sound and now
+has exact pair witnesses, selectable symmetry, and a complete two-branch
+44-block reduction. If the unrestricted 46 calibration passes, run
+unrestricted 45 first; only then spend on the two unrestricted 44 branches.
 
 See `EXPERIMENTS.md` for parameters, runtimes, artifacts, and the boundary of
 every negative claim.

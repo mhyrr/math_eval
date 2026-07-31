@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import subprocess
+import sys
 import tempfile
 import unittest
 from itertools import combinations
@@ -43,6 +44,28 @@ class IncidenceSatTests(unittest.TestCase):
             incidence_sat.guaranteed_pair_multiplicity(v=48, k=8, blocks=46),
             3,
         )
+
+    def test_44_essential_pair_branch_adds_unique_pair_constraints(self) -> None:
+        encoding = incidence_sat.build_encoding(
+            v=48,
+            k=8,
+            blocks=44,
+            essential_pair_branch="shared",
+        )
+        self.assertEqual(encoding.distinguished_pair_minimum, 4)
+        self.assertEqual(encoding.essential_pair_branch, "shared")
+        for block in range(1, 44):
+            self.assertIn(
+                (-encoding.x[block][0], -encoding.x[block][2]),
+                encoding.cnf.clauses,
+            )
+        with self.assertRaisesRegex(ValueError, "require unrestricted"):
+            incidence_sat.build_encoding(
+                v=48,
+                k=8,
+                blocks=45,
+                essential_pair_branch="shared",
+            )
 
     def test_exact_cardinality_counter(self) -> None:
         for assignment, expected in (
@@ -106,6 +129,42 @@ class IncidenceSatTests(unittest.TestCase):
             set(blocks),
             set(combinations(range(1, 5), 2)),
         )
+
+    def test_exact_pair_witnesses_strengthen_without_changing_sat(self) -> None:
+        weak = incidence_sat.build_encoding(v=4, k=2, blocks=6)
+        exact = incidence_sat.build_encoding(
+            v=4,
+            k=2,
+            blocks=6,
+            exact_pair_witnesses=True,
+        )
+        self.assertEqual(
+            len(exact.cnf.clauses) - len(weak.cnf.clauses),
+            6 * 6,
+        )
+        status, output = solve(exact.cnf)
+        self.assertEqual(status, "sat")
+        blocks = incidence_sat.parse_dimacs_model(output, exact.x)
+        self.assertTrue(verifier.verify(blocks, v=4, k=2).valid)
+        self.assertTrue(exact.exact_pair_witnesses)
+
+    def test_column_lex_can_be_omitted_without_weakening_validity(self) -> None:
+        double_lex = incidence_sat.build_encoding(v=4, k=2, blocks=6)
+        row_lex = incidence_sat.build_encoding(
+            v=4,
+            k=2,
+            blocks=6,
+            column_lex=False,
+        )
+        self.assertLess(
+            len(row_lex.cnf.clauses),
+            len(double_lex.cnf.clauses),
+        )
+        self.assertFalse(row_lex.column_lex)
+        status, output = solve(row_lex.cnf)
+        self.assertEqual(status, "sat")
+        blocks = incidence_sat.parse_dimacs_model(output, row_lex.x)
+        self.assertTrue(verifier.verify(blocks, v=4, k=2).valid)
 
     def test_five_pairs_cannot_cover_all_six_pairs(self) -> None:
         encoding = incidence_sat.build_encoding(v=4, k=2, blocks=5)
@@ -222,6 +281,78 @@ class IncidenceSatTests(unittest.TestCase):
         )
         self.assertEqual(first, second)
         self.assertNotIn(0, first)
+
+    def test_solver_commands_are_backend_specific(self) -> None:
+        z3 = incidence_sat.build_solver_command(
+            solver="z3",
+            path=Z3,
+            cnf_path=Path("instance.cnf"),
+            seed=17,
+            phase="caching",
+            threads=2,
+            timeout=30,
+            z3_params=("sat.restart.max=100",),
+            solver_params=(),
+            proof_path=Path("proof.drat"),
+        )
+        self.assertIn("sat.random_seed=17", z3)
+        self.assertIn("sat.drat.file=proof.drat", z3)
+        cadical = incidence_sat.build_solver_command(
+            solver="cadical",
+            path="/tmp/cadical",
+            cnf_path=Path("instance.cnf"),
+            seed=17,
+            phase="ignored",
+            threads=1,
+            timeout=30,
+            z3_params=(),
+            solver_params=("--quiet=false",),
+            proof_path=Path("proof.drat"),
+        )
+        self.assertEqual(
+            cadical,
+            [
+                "/tmp/cadical",
+                "--seed=17",
+                "--quiet=false",
+                "instance.cnf",
+                "proof.drat",
+            ],
+        )
+        with self.assertRaisesRegex(ValueError, "single-threaded"):
+            incidence_sat.build_solver_command(
+                solver="kissat",
+                path="/tmp/kissat",
+                cnf_path=Path("instance.cnf"),
+                seed=17,
+                phase="ignored",
+                threads=2,
+                timeout=30,
+                z3_params=(),
+                solver_params=(),
+                proof_path=None,
+            )
+
+    def test_timeout_is_reported_as_unknown_capable_run(self) -> None:
+        run = incidence_sat.run_solver(
+            [
+                sys.executable,
+                "-c",
+                "import time; time.sleep(1)",
+            ],
+            timeout=0.01,
+            grace_seconds=0,
+        )
+        self.assertTrue(run.timed_out)
+        self.assertIsNone(run.returncode)
+        internal = incidence_sat.SolverRun(
+            stdout="timeout\n",
+            stderr="",
+            returncode=0,
+            seconds=1.0,
+            timed_out=False,
+        )
+        self.assertTrue(incidence_sat.solver_timed_out(internal))
 
 
 if __name__ == "__main__":
